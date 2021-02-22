@@ -1,0 +1,24 @@
+[
+    {
+        "email": "admin@example.com",
+        "name": "Johan Kivi",
+        "role": "admin",
+        "address": {
+            "street": "Tokitokvägen 3",
+            "zip": "123 45",
+            "city": "Tokberga"
+        },
+        "orderHistory": []
+    },
+    {
+        "email": "customer@example.com",
+        "name": "David Lundholm",
+        "role": "customer",
+        "address": {
+            "street": "Tokitokvägen 4",
+            "zip": "123 46",
+            "city": "Tokbergaskogen"
+        },
+        "orderHistory": []
+    }
+]

@@ -1,7 +1,7 @@
 node_modules
 .DS_Store
-backend/node_modules
 package-lock.json
-backend/package-lock.json
 *.db
 backend/.env
+backend/node_modules
+backend/package-lock.json
