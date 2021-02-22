@@ -2,30 +2,40 @@ const NeDB = require('nedb-promise')
 const bcrypt = require('bcryptjs')
 const users = new NeDB({filename:'database/users.db', autoload: true})
 const jwt = require('jsonwebtoken')
-const { update } = require('./Product')
 
 async function validate(body){
-    let user = await users.findOne({email:body.email})
-    let result = {error:false, messages:[]}
-    if(user){
-        result.error = true
-        result.messages.push("Email already exists")
-    }else if(body.password != body.repeatPassword){
-        result.error = true
-        result.messages.push("Passwords does not match")
-    }
-    return result       
+  const user = await users.findOne({email:body.email})
+  const result = {error:false, messages:[]}
+  if(user){
+    result.error = true
+    result.messages.push("Email already exists")
+  }
+
+  const {email,name,address,password} = body;
+  
+  if(!email){   result.error = true; result.messages.push("No email provided") }
+  if(!password){result.error = true; result.messages.push("No password provided") }
+  if(!name){    result.error = true; result.messages.push("No name provided") }
+  if(!address){ result.error = true; result.messages.push("No address provided") }
+  else{
+    const {zip, street, city} = address
+    if(!zip){     result.error = true; result.messages.push("No zip in address provided") }
+    if(!street){  result.error = true; result.messages.push("No street in address provided") }
+    if(!city){    result.error = true; result.messages.push("No city in address provided") }
+  }
+  
+  return result       
 }
 
 function format(body){
-    let {email,name,adress,password} = body;
-
-    return {
-        email,name,adress,
-        role: 'customer',
-        password: bcrypt.hashSync(password, 10),
-        orderHistory: []
-    }
+  const {email,name,address,password} = body;
+  const {zip,city,street} = address
+  return {
+      email,name,address: {zip,city,street},
+      role: 'customer',
+      password: bcrypt.hashSync(password, 10),
+      orderHistory: []
+  }
 }
 
 module.exports = {
@@ -82,8 +92,8 @@ module.exports = {
                 // exp: Math.floor(Date.now() / 1000) + (60 * 60)
             }, 'secret', {expiresIn: '1d'})
 
-            const {email,name,role,adress} = user
-            const userData = {email,name,role,adress}
+            const {email,name,role,address} = user
+            const userData = {email,name,role,address}
 
             return {error:false, token, userData }
         }else{
