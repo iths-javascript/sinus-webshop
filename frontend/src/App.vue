@@ -7,13 +7,7 @@
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Yanone+Kaffeesatz:wght@400;700&display=swap');
-
-
-$primary-clr: #3A7380; //teal
-$secondary-clr-dk: #502677; //dark purple
-$secondary-clr-lt: #AD91C8; //light purple
-$tertiary-clr: #f45a8c; //pink
-$off-white: #f1f1f1;
+@import "./styles/_variables.scss";
 
 
 * {
@@ -28,6 +22,7 @@ $off-white: #f1f1f1;
 
 body {
   font-family: 'Open Sans', sans-serif;
+  
 }
 
 #app {
