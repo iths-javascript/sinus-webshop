@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <div class="recommendations">
+        <button @click="fetchImages">fetch</button>
+      </div>
+  
   </div>
 </template>
 
+
+
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import * as API from '../api/api'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+
+methods: {
+  fetchImages() {
+    console.log(API.getProducts());
   }
 }
+ 
+}
 </script>
+<style scoped>
+.recommendations {
+  background-color:lightblue;
+  width:800px;
+  height:500px;
+}
+</style>
