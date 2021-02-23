@@ -4,7 +4,9 @@
 ### Agilt arbetssätt:
 
 Daily check-in kl 9 - Var är vi? Vad ska vi jobbar med idag?
+
 Daily checkup kl 13 - Går allt som planerat? 
+
 Daily checkout kl 15.50 - hur långt har vi kommit? Någon som vill fortsätta after hours? Vad tänker du jobbar på?
 
 ### Trello-board är uppdelat i 4 kolumner: 
