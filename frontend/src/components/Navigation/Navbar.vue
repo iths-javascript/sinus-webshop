@@ -35,10 +35,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 nav {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 }
 
 nav a {

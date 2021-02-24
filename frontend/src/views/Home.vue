@@ -41,7 +41,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 * {
   color: white;
 }
@@ -59,7 +59,7 @@ export default {};
 .landing-top > h1,
 h3 {
   color: white;
-  z-index: 1;
+  /* z-index: 999; */
 }
 
 .top-img-wrapper {

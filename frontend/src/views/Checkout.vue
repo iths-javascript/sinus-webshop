@@ -1,8 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <div>placeholder</div>
-</template>
-=======
+  
   <main class="grid-container">
     <section class="img">
       <h1>
@@ -32,26 +29,22 @@
         
       </p>
       <h3>Sources-Wikipedia</h3>
->>>>>>> devbranch
 
     </section>
   </main>
 </template>
-<script>
-<<<<<<< HEAD
-export default {};
-</script>
 
-<style>
-</style>
-=======
+
+<script>
 // import Nav from '../components/Nav.vue'
 export default {
   //   components: { Nav },
   name: "OrderDone",
 };
+
 </script>
-<style lang="scss" scoped>
+<style scoped>
+/* 
 .grid-container {
   .img {
     background: url("../assets/skate-hero-1.jpg");
@@ -91,6 +84,5 @@ export default {
     width: 150px;
     font-size: 18px;
   }
-}
+} */
 </style>
->>>>>>> devbranch

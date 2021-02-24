@@ -56,8 +56,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.cart {
+<style scoped>
+/* .cart {
   border: 2px solid gray;
   margin-top: 5rem;
   position: absolute;
@@ -187,5 +187,5 @@ export default {
 .btn:active {
   background: #000;
   color: #fff;
-}
+} */
 </style>

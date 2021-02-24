@@ -137,8 +137,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.make-order {
+<style scoped>
+/* .make-order {
   display: flex;
   align-content: center;
 }
@@ -312,5 +312,5 @@ select {
 
 .cardInfo-1 {
   grid-column: auto / span 2;
-}
+} */
 </style>

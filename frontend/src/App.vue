@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/productlist">Productlist</router-link> |
@@ -10,17 +9,12 @@
       <router-link to="/cart">Cart</router-link>|
       <router-link to="/MakeOrder">MakeOrder</router-link>|
       <router-link to="/checkout">Checkout</router-link> |
-    </div>
-    <router-view />
-  </div>
-</template>
-
-<style lang ="scss">
-=======
+    </div> -->
     <Navbar />
     <router-view />
   </div>
 </template>
+
 <script>
 import Navbar from "./components/Navigation/Navbar.vue";
 export default {
@@ -30,7 +24,6 @@ export default {
 };
 </script>
 <style>
->>>>>>> main
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap");
 #app {
@@ -44,7 +37,7 @@ export default {
   /* position: fixed; */
   align-content: center;
 }
-#nav {
+/* #nav {
   padding: 30px;
 
   a {
@@ -55,5 +48,5 @@ export default {
       color: #42b983;
     }
   }
-}
+} */
 </style>

@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .single-wrapper{
   gap: 25px;
   display: flex;
