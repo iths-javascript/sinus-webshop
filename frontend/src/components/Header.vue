@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <section>
-      <img src="@/assets/hole-smiley.png" alt="Sinus Logo" height="200px" />
+  <div id="nav-bar">
+    <section class="logo-holder">
+      <img src="@/assets/hole-smiley.png" alt="Sinus Logo" height="80px" />
+      <h1>SINUS WEBSHOP</h1>
     </section>
     <HeaderNavBar />
   </div>
@@ -17,4 +18,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#nav-bar {
+  display: flex;
+  height: 80px;
+  background-color: rgb(241, 237, 229);
+  justify-content: space-between;
+}
+.logo-holder {
+  display: flex;
+  align-items: center;
+}
 </style>
