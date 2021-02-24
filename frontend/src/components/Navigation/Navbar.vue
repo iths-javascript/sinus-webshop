@@ -13,7 +13,7 @@
     </div>
 
     <div v-else class="right-links">
-      <router-link to="#">Profile</router-link>
+      <router-link to="/profile">Profile</router-link>
       <router-link to="#">Cart</router-link>
     </div>
   </nav>
