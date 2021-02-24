@@ -3,30 +3,34 @@
     <!-- <h4>Enter login credentials</h4> -->
     <div class="input-group col-2">
       <label for="">Email</label>
-      <input name="email" type="email" />
+      <input v-model="formData.email" name="email" type="email" />
     </div>
     <div class="input-group">
       <label for="password">Password</label>
-      <input name="password" type="password" />
+      <input v-model="formData.password" name="password" type="password" />
     </div>
     <div class="input-group">
       <label for="name">Name</label>
-      <input name="name" type="text" />
+      <input v-model="formData.name" name="name" type="text" />
     </div>
     <!-- <h5>Enter Address</h5> -->
     <div class="input-group">
       <label for="street">Street address</label>
-      <input name="street" type="text" />
+      <input v-model="formData.address.street" name="street" type="text" />
     </div>
     <div class="input-group">
       <label for="zip">Zip/Postal code</label>
-      <input name="zip" type="text" />
+      <input v-model="formData.address.zip" name="zip" type="text" />
     </div>
     <div class="input-group">
       <label for="city">City</label>
-      <input name="city" type="text" />
+      <input v-model="formData.address.city" name="city" type="text" />
     </div>
-    <button class="submit-btn" type="submit">Register</button>
+    <button class="submit-btn" type="submit" @click.prevent="registerUser">
+      Register
+    </button>
+
+    <button @click.prevent="goToLogin">Already have an account? Log in</button>
   </form>
 </template>
 
@@ -38,11 +42,31 @@ export default {
         email: "",
         password: "",
         name: "",
-        street: "",
-        zip: "",
-        city: "",
+        address: {
+          street: "",
+          zip: "",
+          city: "",
+        },
       },
     };
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
+  methods: {
+    registerUser() {
+      this.$store.dispatch("registerUser", this.formData);
+    },
+    goToLogin() {
+      this.$router.push("/login");
+    },
+  },
+  mounted() {
+    if (this.isAuthenticated) {
+      this.$router.push("/");
+    }
   },
 };
 </script>
