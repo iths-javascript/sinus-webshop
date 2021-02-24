@@ -11,7 +11,7 @@
             <p @click="tab = 'sneakers'">sneakers</p>
         </nav>
         <div class="main">
-            <img :src="require(imgFile)">
+            <img :src="imgFile">
         </div>
     </div>
 </template>
