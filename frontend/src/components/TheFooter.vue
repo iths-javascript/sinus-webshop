@@ -1,24 +1,57 @@
 <template>
   <footer>
-      <div class="shop">
-          <h3>Shop</h3>
-          <a href="">Skateboards</a>
-          <a href="">Clothing</a>
-          <a href="">Protective gear</a>
-          <a href="">Parts</a>
-          <a href=""><strong>Sale</strong></a>
-      </div>
+      <div class="footer-content">
+        <div class="shop">
+            <h3>Shop</h3>
+            <a href="">Skateboards</a>
+            <a href="">Clothing</a>
+            <a href="">Protective gear</a>
+            <a href="">Parts</a>
+            <a href=""><strong>Sale</strong></a>
+        </div>
 
-      <div class="info">
-          <h3>About us</h3>
-          <a href="">About us</a>
-          <a href="">Delivery FAQs</a>
-          <a href="">Returns policy</a>
-          <a href="">Refunds</a>
-          <a href="">Sustainability</a>
+        <div class="info">
+            <h3>About us</h3>
+            <a href="">About us</a>
+            <a href="">Delivery FAQs</a>
+            <a href="">Returns policy</a>
+            <a href="">Refunds</a>
+            <a href="">Sustainability</a>
+        </div>
+        <div class="contact">
+            <h3>Contact</h3>
+            <p>Tel: 01234 567 890</p>
+            <p>Mon - Fri: 08:00 - 18:00</p>
+            <a class="underline" href="">Contact us ></a>
+            <br>
+            <p>Address: 12 Madeup Street <br>London <br>WE12 4CD</p>
+            <br>
+            <a class="underline" href="">Fins us on google maps ></a>
+        </div>
+        <div class="payment">
+            <h3>Payment</h3>
+            <div class="card-logo-wrapper">
+                <img src="@/assets/icons/visa.png" alt="">
+                <img src="@/assets/icons/mastercard.png" alt="">
+                <img src="@/assets/icons/klarna.png" alt="">
+                <img src="@/assets/icons/swish.png" alt="">
+                <img src="@/assets/icons/paypal.png" alt="">
+            </div>
+
+        </div>
       </div>
-      <div class="contact"></div>
-      <div class="payment"></div>
+    <div class="footer-banner">
+        <div class="banner-text">
+            <p>2020 SINUS Skateboards |</p>
+            <a href="">Terms and Conditions |</a>
+            <a href="">Privacy Policy</a>
+        </div>
+        <div class="banner-icons">
+            <img src="@/assets/icons/instagram.svg" alt="">
+            <img src="@/assets/icons/facebook.svg" alt="">
+            <img src="@/assets/icons/youtube.svg" alt="">
+        </div>
+    </div>
   </footer>
 </template>
 
@@ -31,17 +64,56 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/_variables.scss";
     footer{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .footer-content{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+            background-color: $primary-clr;
+            height: fit-content;
+            padding: 3rem 4rem;
 
-        background-color: $primary-clr;
-        height: fit-content;
-        padding: 3rem 4rem;
+        }
         color: white;
+            font-size: 2rem;
         a{
             color: white;
             text-decoration: none;
             display: block;
+        }
+        h3{
+            width: 100%;
+            border-bottom: 4px solid $secondary-clr-lt;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        .underline{
+            text-decoration: underline;
+        }
+        .shop, .info, .contact{
+            margin-right: 2rem;
+        }
+        .payment{
+            .card-logo-wrapper{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+        }
+        .footer-banner{
+            background-color: black;
+            height: fit-content;
+            padding: 1rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img{
+                height: 4rem;
+                margin-left: 3rem;
+            }
+
+            .banner-text{
+                display: flex;
+            }
         }
     }
 </style>

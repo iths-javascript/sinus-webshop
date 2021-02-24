@@ -35,7 +35,7 @@ components:{
 
     header{
         background-color: black;
-        padding: 2rem 2rem;
+        padding: 2rem 4rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -54,13 +54,14 @@ components:{
                 display: flex;
                 align-items: center;
                 width: 8rem;
-                justify-content: space-around;
+                justify-content: flex-end;
                 margin-left: 2rem;
                 .cart{
                     height: 2.5rem;
                 }
                 .profile{
                     height: 3rem;
+                    margin-left: 1.5rem;
                 }
 
             }

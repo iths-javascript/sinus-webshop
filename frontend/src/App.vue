@@ -11,6 +11,9 @@
 import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
 export default {
+  async created() {
+    await this.$store.dispatch('fetchProducts')
+  },
   components:{
     TheHeader,
     TheFooter
