@@ -49,16 +49,19 @@ export default {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
-    background-color: #2B2B2B
+    background-color: #2B2B2B;
+    align-items: center;
     }
 ul.help{
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    margin: 5px 20px 5px auto;
+    justify-content: space-around;
+    margin: 5px 50px 5px auto;
+    gap: 20px;
+
 }
 p{
-    margin: 5px auto 5px 20px;
     font-family: Ropa Sans;
     font-style: normal;
     font-weight: normal;
@@ -66,6 +69,8 @@ p{
     line-height: 14px;
     letter-spacing: 0.03em;
     color: #F1F1F1;
+    
+    margin-left: 50px;
 }
 ul.help>li{
     width: 5rem;
@@ -93,7 +98,6 @@ ul.help>li{
     padding-left: 190px;
 }
  .nav-left>li{
-    display: inline-flex;
     font-family: Ropa Sans;
     font-style: normal;
     font-weight: normal;
@@ -102,12 +106,12 @@ ul.help>li{
     color: #2B2B2B;
 }
 .logo>img{
-    margin-top: -60px;
+    margin-top: -70px;
     Width: 81px;
     Height: 98.31px;
     left: 50%;
-    right: 50%;
-    position: fixed;
+    
+    position: absolute;
 }
 .nav-right{
     display: flex;
