@@ -50,22 +50,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 9.6rem;
+  font-size: 5.6rem;
 }
 
 h2 {
-  font-size: 7.2rem;
+  font-size: 4.2rem;
 }
 
 h3 {
-  font-size: 4.8rem;
+  font-size: 3.6rem;
 }
 
 h4 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h5 {
-  font-size: 3.6rem;
+  font-size: 2.4rem;
 }
 </style>
