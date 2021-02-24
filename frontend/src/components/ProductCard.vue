@@ -1,16 +1,17 @@
 <template>
 
 <section class="product-card">
-  <router-link to="/cart">
+  <router-link to="">
   <section class="product-image">
-    <img src="@/assets/products/skateboard-greta.png" alt="">
+    <img :src="imageFile" alt="">
   </section>
   <section class="product-details">
-    <p class="product-name">Name of product</p>
-    <p class="product-price">999 kr</p>
+    <p class="product-name">{{prod.title}}</p>
+    <p class="product-price">{{prod.price}} kr</p>
     <section class="product-rating">
       <p>Rating: </p>
       <p> 4.2 </p>
+      
     </section>
   </section>
   </router-link>
@@ -20,7 +21,14 @@
 
 <script>
 export default {
-
+props: {
+  prod: Object
+},
+computed: {
+  imageFile() {
+    return require(`@/assets/products/${this.prod.imgFile}`)
+  }
+}
 }
 </script>
 
@@ -33,6 +41,7 @@ export default {
   width: 25rem;
   height: 37rem;
   padding: 1rem;
+  
  
   a {
   text-decoration: none;
@@ -45,10 +54,11 @@ export default {
     background: linear-gradient(#fff, $off-white);
     display: grid;
     grid-template-rows: 30rem;
-    place-items: center;
+    place-items: end center;
 
     img {
-      height: 100%;
+      max-height: 100%;
+      max-width: 90%;
     }
   }
 
@@ -56,6 +66,7 @@ export default {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 2fr 1fr;
+    
   }
 
   .product-name {
