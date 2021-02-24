@@ -15,8 +15,26 @@ export async function registerUser(payload) {
   return false
 }
 
-export async function submitOrder(payload) {
-  const response = await axios.post('http://localhost:5000/api/orders', payload)
+export async function authenticate(payload) {
+  try {
+    const response = await axios.post('http://localhost:5000/api/auth/', payload)
+    return response.data
+  } catch (e) {
+    return false
+  }
+}
 
-  return response.data
+export async function submitOrder(payload, userToken) {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${userToken}`
+    }
+  }
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/orders', payload, config)
+    return response.data
+  } catch (e) {
+    return false
+  }
 }
