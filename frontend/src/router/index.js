@@ -6,7 +6,6 @@ import Login from '../views/Login.vue'
 import Profile from '../views/Profile.vue'
 import Singleproduct from '../views/Singleproduct.vue'
 import Productlist from '../views/Productlist.vue'
-import LoginRegister from '../views/LoginRegister.vue'
 import Checkout from '../views/Checkout.vue'
 import Cart from '../views/Cart.vue'
 
@@ -22,11 +21,6 @@ const routes = [
     path: '/productlist',
     name: 'Productlist',
     component: Productlist
-  },
-  {
-    path: '/loginregister',
-    name: 'LoginRegister',
-    component: LoginRegister
   },
   {
     path: '/checkout',
