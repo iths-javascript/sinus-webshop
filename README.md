@@ -60,8 +60,8 @@ Det ska finnas en `Admin Area`-view med ett CRUD-gränssnitt för alla produkter
 | /api/products/:id | DELETE | Tar bort en produkt med :id. Enbart tillgänglig för admins | ❌ |
 | /api/orders | GET | Returnerar en lista på den användarens ordrar eller samtliga ordrar för admins. | ❌ |
 | /api/orders | POST | Skapar en ny order | Se Order-modellen |
-| /api/me | GET | Hämtar den inloggade användren | ❌ |
-| /api/me | PATCH | Uppdaterar profilen för den inloggade användren | Se User-modellen |
+| /api/me | GET | Hämtar den inloggade användaren | ❌ |
+| /api/me | PATCH | Uppdaterar profilen för den inloggade användaren | Se User-modellen |
 
 ### Datamodeller
 
