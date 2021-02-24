@@ -1,9 +1,22 @@
 <template>
-  <div id="app">
-    <base-button>Test</base-button>
-    <router-view/>
-  </div>
+ <div class="app-wrapper">
+  <The-header></The-header>
+  <!-- <router-view/> -->
+  <The-footer></The-footer>
+
+ </div>
+
 </template>
+<script>
+import TheHeader from '@/components/TheHeader.vue'
+import TheFooter from '@/components/TheFooter.vue'
+export default {
+  components:{
+    TheHeader,
+    TheFooter
+  }
+}
+</script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Yanone+Kaffeesatz:wght@400;700&display=swap');
