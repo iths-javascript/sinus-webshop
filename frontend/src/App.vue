@@ -28,6 +28,10 @@
       color: #42b983;
     }
   }
+
+  .text-bold {
+    font-weight: bold;
+  }
 }
 </style>
 <script>
