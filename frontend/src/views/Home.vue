@@ -44,7 +44,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   max-width: 100rem;
-  margin: 0 auto;
+  margin: 5rem auto;
 }
 
 </style>

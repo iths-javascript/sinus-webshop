@@ -1,7 +1,7 @@
 <template>
 
 <section class="product-card">
-  <router-link to="">
+  <router-link :to="linkToProduct">
   <section class="product-image">
     <img :src="imageFile" alt="">
   </section>
@@ -10,7 +10,7 @@
     <p class="product-price">{{prod.price}} kr</p>
     <section class="product-rating">
       <p>Rating: </p>
-      <p> 4.2 </p>
+      <p> {{randomRating}} </p>
       
     </section>
   </section>
@@ -27,6 +27,12 @@ props: {
 computed: {
   imageFile() {
     return require(`@/assets/products/${this.prod.imgFile}`)
+  },
+  linkToProduct() {
+    return `/product/${this.prod._id}`
+  },
+  randomRating() {
+    return ((Math.random() * 5)).toFixed(1)
   }
 }
 }
