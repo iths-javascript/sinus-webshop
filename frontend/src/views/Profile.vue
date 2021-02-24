@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!edit" class="profile">
+    <div v-if="!edit && isAuthenticated" class="profile">
       <button @click="editProfile">Edit profile</button>
       <ul>
         <li>Name: {{ user.name }}</li>
