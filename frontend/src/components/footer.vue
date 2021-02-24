@@ -1,5 +1,5 @@
 <template>
-  <p>hej då. hej</p> 
+  <p>hej då.</p> 
 </template>
 
 <script>
