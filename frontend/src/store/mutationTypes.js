@@ -1,2 +1,3 @@
 export const LOGIN_USER_MUTATION = 'LOGIN_USER_MUTATION';
 export const EDIT_USER_MUTATION = 'EDIT_USER_MUTATION';
+export const LOGOUT = 'LOGOUT';

@@ -1,6 +1,7 @@
 import {
   LOGIN_USER_MUTATION,
-  EDIT_USER_MUTATION
+  EDIT_USER_MUTATION,
+  LOGOUT
 } from '../mutationTypes.js';
 
 import router from '../../router';
@@ -23,6 +24,11 @@ export default {
     },
     [EDIT_USER_MUTATION](state, payload) {
       state.user = payload;
+    },
+    [LOGOUT](state) {
+      state.user = null;
+      state.isAuthenticated = false;
+      state.token = null;
     }
   },
 
@@ -69,6 +75,10 @@ export default {
           errors.forEach(error => console.log(error));
         }
       }
+    },
+
+    logout({commit}) {
+      commit(LOGOUT);
     },
 
     async editUser({commit, state, dispatch}, payload) {
