@@ -1,22 +1,14 @@
 <template>
-  <section>Home</section>
+<section>My Account</section>
 </template>
 
 <script>
-
-
-
 export default {
-  name: 'Home',
-  components: {
-   
-  }
+
 }
 </script>
 
-
 <style lang="scss" scoped>
 @import "@/styles/_variables.scss";
-
 
 </style>
