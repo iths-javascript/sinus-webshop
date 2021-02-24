@@ -1,8 +1,11 @@
 <template>
   <div>
+    <Header />
       <div class="recommendations">
+        
         <button @click="fetchImages">fetch</button>
       </div>
+  
   </div>
 </template>
 
@@ -12,8 +15,9 @@
 <script>
 
 import * as API from '../api/api'
+import Header from "../components/Header.vue"
 export default {
-  name:'Home',
+  components:{Header},
 
 methods: {
   fetchImages() {
