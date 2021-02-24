@@ -20,16 +20,39 @@
                 <img src="@/assets/icons/profile.svg" alt="profile" class="profile">
             </router-link>   
         </div>
-
     </div>
+
+    <Base-modal>
+        <template >
+        <div class="signInBox">
+            <h2>SIGN IN</h2>
+
+            <div class="email">
+            <label id for="email">Email:</label>
+            <input id="email" type="email">
+            </div>
+
+            <div class="password">
+            <label id for="password">Password:</label>
+            <input id="password" type="password">
+            </div>
+
+            <Base-button class="base-button" color="teal">Sign in</Base-button>
+
+        </div>
+        </template>
+  </Base-modal>
+
   </header>
 </template>
 
 <script>
 import SearchField from "@/components/SearchField.vue";
+import BaseModal from '@/components/BaseModal.vue'
 export default {
 components:{
-    SearchField
+    SearchField,
+    BaseModal
 }
 }
 </script>
@@ -43,6 +66,7 @@ components:{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 10rem;
         img:hover{
             cursor: pointer;
         }
@@ -88,5 +112,41 @@ components:{
 
             }
         }
+    .signInBox{
+        height: 550px;
+        width: 450px;
+        background-color: white;
+        position: fixed;
+        top: 10rem;
+        right: 0;
+        padding: 4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        // justify-content: center;
+        h2{
+        text-align: center;
+        }
+        label{
+        display: inline-block;
+        width: 100px;
+        }
+        input{
+        height: 2.4rem;
+        width: 250px;
+        }
+        .email{
+        width: fit-content;
+        }
+
+        .password{
+        width: fit-content;
+        }
+        .base-button{
+            margin-left: 100px;
+            width: 100px;
+            margin-top: 2rem;
+        }
     }
+}
 </style>

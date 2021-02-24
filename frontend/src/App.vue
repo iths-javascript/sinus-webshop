@@ -10,10 +10,15 @@
 <script>
 import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
+
 export default {
+  async created() {
+    await this.$store.dispatch('fetchProducts')
+  },
   components:{
     TheHeader,
-    TheFooter
+    TheFooter,
+
   }
 }
 </script>
@@ -68,4 +73,5 @@ h4 {
 h5 {
   font-size: 2.4rem;
 }
+
 </style>
