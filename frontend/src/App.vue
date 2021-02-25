@@ -3,8 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/product">Product</router-link> |
-      <router-link to="/login-form">Login</router-link> |
-      <router-link to="/overlay">overlay</router-link>
+      <!-- <router-link to="/login-form">Login</router-link> |
+      <router-link to="/overlay">overlay</router-link> -->
     </div>
     <router-view/>
     <button @click="showForm = !showForm">Show form</button>
