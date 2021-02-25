@@ -3,8 +3,10 @@
     <form>
       <label for="email">Email</label>
       <input type="text" name="email" id="email" />
+      <br />
       <label for="password">Password</label>
       <input type="password" id="password" />
+      <br />
       <input type="submit" value="Log in" />
     </form>
     <router-link to="/SignUp">
@@ -38,5 +40,11 @@ export default {};
     top: 0;
     opacity: 1;
   }
+}
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 </style>
