@@ -1,7 +1,7 @@
 <template>
  <div class="app-wrapper">
   <The-header></The-header>
-  <router-view/>
+  <router-view />
   <The-footer></The-footer>
 
  </div>
@@ -49,6 +49,8 @@ body {
   margin: 0 auto;
   
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Yanone Kaffeesatz', sans-serif;

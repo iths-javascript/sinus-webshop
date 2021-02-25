@@ -45,7 +45,6 @@ Döp den branch du jobbar på efter den feature du jobbar på. Pusha din branch 
 
 Vi stänger av prettier/andra VS Code extensions som formatterar kod för att undvika ändringar i kodformatet.
 
-
 ### Git commands:
 Pull: git pull origin branchname
 Add: git add filename (git add . för att lägga till alla filer på en gång)
@@ -58,6 +57,29 @@ Merge: (on develop branch) git merge branchname
 Delete: git branch -d branchname
 Status: git status
 
+## VUEX
+
+## Actions:
+
+### Products
+#### fetchProducts()
+Hämtar alla produkter från API.fetchProducts ch sätter store.products
+#### addToCart(payload)
+Tar ett produktobjekt som parameter och committar det till cart.items
+#### submitOrder()
+Skickar state.cart till API.submitOrder och committar svaret (nytt orderobjekt) till SET_CURRENT_ORDER
+#### setSearchPhrase(payload)
+Sätter state.searchPhrase till payload
+
+### User
+#### registerUser(payload)
+Tar ett userobjekt som payload och skickar till API.registerUser
+Får true eller false tillbaka, dispatchar userObjektets email och password till logIn om true
+#### logIn(payload)
+Tar email och password som payload och skickar till API.authenticate.
+FÅr true eller false tillbaka, committar all userinformation om true 
+#### logOut()
+Nollar all userinformation
 
 ## Instruktioner
 Ni ska bygga en FrontEnd till en färdig BackEnd. Se `SINUS Webshop - REST API` nedan för mer information.
