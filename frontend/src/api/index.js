@@ -20,7 +20,7 @@ export async function submitOrder(payload, userToken) {
   }
 
   try {
-    const response = await API.get('/orders', payload, config)
+    const response = await API.post('/orders', payload, config)
     return response.data
   } catch (e) {
     return false
@@ -30,7 +30,7 @@ export async function submitOrder(payload, userToken) {
 // User
 
 export async function registerUser(payload) {
-  const response = await API.get('/register/', payload)
+  const response = await API.post('/register/', payload)
 
   if (response.status === 200) {
     return true
@@ -41,7 +41,7 @@ export async function registerUser(payload) {
 
 export async function authenticate(payload) {
   try {
-    const response = await API.get('/auth/', payload)
+    const response = await API.post('/auth/', payload)
     return response.data
   } catch (e) {
     return false
