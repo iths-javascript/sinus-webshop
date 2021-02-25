@@ -57,6 +57,8 @@ Merge: (on develop branch) git merge branchname
 Delete: git branch -d branchname
 Status: git status
 
+## VUEX
+
 ## Actions:
 
 ### Products
