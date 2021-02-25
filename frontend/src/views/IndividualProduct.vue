@@ -1,7 +1,8 @@
 <template>
-<section>
-  <div v-if="productsLoading">
-    <div>Loading...</div>
+<section class="single-product-wrapper">
+  <div v-if="productsLoading" class="loading">
+    <h4>Loading...</h4>
+    <div class="loader"></div>
   </div>
   <div v-else-if="product" class="product">
     <div class="prod-image">
@@ -24,7 +25,9 @@
         
       </div>
       <div class="info-footer">
-      <BaseButton color="teal" class="btn">ADD TO CART</BaseButton>
+      <BaseButton 
+      @click.native="addItemToCart"
+      color="teal" class="btn">ADD TO CART</BaseButton>
       <div class="delivery">
         
         <img src="@/assets/icons/shipping-icon.svg" alt="icon of a delivery lorry">
@@ -34,7 +37,10 @@
     </div>
     
   </div>
-  <div v-else>No product found</div>
+  <div v-else class="no-product">
+    <h4>No products found</h4>
+  </div>
+    
 </section>
 </template>
 
@@ -53,6 +59,12 @@ computed: {
   },
   productsLoading() {
     return this.$store.getters.getProductsLoading
+  },
+  
+},
+methods: {
+  addItemToCart() {
+    this.$store.dispatch("addToCart", this.$route.params.id)
   }
 }
 }
@@ -60,6 +72,11 @@ computed: {
 
 <style lang="scss" scoped>
 @import "@/styles/_variables.scss";
+
+.single-product-wrapper {
+  max-width: 100rem;
+  margin: 0 auto;
+}
 
 .product {
   display: flex;
@@ -83,14 +100,13 @@ computed: {
     width: 48%;
     
 
-    div {
-      margin-bottom: 1rem;
-    }
+    
 
     .name {
       display: flex;
       justify-content: space-between;
       font-weight: 700;
+      margin-bottom: 1.5rem;
     }
     p {
       font-size: 1.4rem;
@@ -103,6 +119,7 @@ computed: {
     .rating{
       p {
         font-size: 1.8rem;
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -144,5 +161,36 @@ computed: {
   }
   
 }
+
+.no-product, .loading {
+  height: 50rem;
+
+  h4 {
+    margin: 2rem 4rem;
+  }
+}
+
+.loading {
+position: relative;
+
+  .loader {
+    position:absolute;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  border: 7px solid $off-white; 
+  border-top: 7px solid $primary-clr; 
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+}
+
 
 </style>
