@@ -6,13 +6,32 @@
       ><img src="@/assets/useraccount.png" alt="Sign Up" height="40px"
     /></router-link>
     |
+    <button @click="loginModal">Log in</button>
+
+    |
     <router-link to="/SignUp"> Sign Up Form </router-link>
-    <img src="@/assets/shopping-bag.png" alt="Shopping Bag" height="40px" />
+    <img src="@/assets/shopping-bag.png" alt="Shopping Bag" height="40px" /> |
+    <LoginModal v-if="loginStatus" />
   </div>
 </template>
 
 <script>
-export default {};
+import LoginModal from "@/components/LoginModal.vue";
+export default {
+  components: {
+    LoginModal,
+  },
+  data() {
+    return {
+      loginStatus: true,
+    };
+  },
+  methods: {
+    loginModal() {
+      this.loginStatus = !this.loginStatus;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -27,8 +46,7 @@ export default {};
     &.router-link-exact-active {
       color: #9c2e8e;
     }
-  
-}
+  }
   .text-bold {
     font-weight: bold;
   }
