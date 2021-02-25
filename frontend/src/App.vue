@@ -3,13 +3,18 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/product">Product</router-link> |
-      <router-link to="/login-form">Login</router-link>
+      <router-link to="/login-form">Login</router-link> |
+      <router-link to="/overlay">overlay</router-link>
     </div>
     <router-view/>
-  <LoginForm @login="handleLogin" /> 
+    <button @click="showForm = !showForm">Show form</button>
+    <Overlay v-if="showForm">
+      <LoginForm @close="showForm = false"/>
+      </Overlay>
+    <!-- <LoginForm @login="handleLogin" /> 
   <div class="info" v-if="tokenData">
     <button @click="verify">Verify</button>
-    </div> 
+    </div>  -->
   <Footer/>
   </div>
 </template>
@@ -17,16 +22,19 @@
 
 import Footer from '@/components/Footer'
 import LoginForm from '@/components/LoginForm'
+import Overlay from './components/Overlay.vue'
+// import Overlay from '@/components/Overlay'
 // import axios from 'axios'
 export default {
   name:'Home',
-  data(){ return{
+  data(){ return {
+    showForm: false,
     tokenData: null
   }
 
   },
 
-  components: { Footer, LoginForm },
+  components: { Footer, LoginForm, Overlay},
   methods:{
     handleLogin(tokenData){
       this.tokenData = tokenData
@@ -34,11 +42,13 @@ export default {
     },
     async verify(){
       // const request = await axios.get('http://localhost:5000/api/me')
-
+      let minToken = window.sessionStorage.getItem("token")
       const request = await fetch('http://localhost:5000/api/me', {
         method: 'GET',
         headers:{
-          Authorization: `Bearer ${this.tokenData.token}`
+          // Authorization: `Bearer ${this.tokenData.token}`
+          Authorization: `Bearer ${minToken}`
+
         }
       })
 
@@ -64,7 +74,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  // color: #2c3e50;
+  color: #2B2B2B;
   }
 
 #nav {

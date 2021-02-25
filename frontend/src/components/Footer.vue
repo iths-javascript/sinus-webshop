@@ -66,6 +66,7 @@ li{
     font-size: 18px;
     height: 500px;
     background-image: url(../assets/footer.svg);
+    background-repeat: no-repeat,
 }
 
 .container-footer{

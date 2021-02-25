@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import LoginForm from '../components/LoginForm'
+import Overlay from '../components/Overlay'
+
+
 
 Vue.use(VueRouter)
 
@@ -16,7 +19,11 @@ const routes = [
     name: 'LoginForm',
     component: LoginForm
   },
- 
+  {
+    path: '/overlay',
+    name: 'Overlay',
+    component: Overlay
+  },
 ]
 
 const router = new VueRouter({
