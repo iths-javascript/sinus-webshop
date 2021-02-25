@@ -14,6 +14,7 @@ export default {
 
 <style scoped>
 article{
+  font-family: 'Bebas Neue';
   background-color: white;
   height: 327px;
   width: 245px;
