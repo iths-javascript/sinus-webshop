@@ -48,6 +48,9 @@ export default {
     getProducts(state) {
       return state.products
     },
+    getSingleProduct(state, id) {
+      return state.products.find(product => product._id == id)
+    },
     getCart(state) {
       let cartArray = []
 
