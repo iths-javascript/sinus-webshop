@@ -96,6 +96,7 @@ export default {
     
  
     flex-direction: column;
+    box-shadow: -10px 10px #FFEBD3;
     
     /* background-image: url("../assets/bird-yellow.svg"), url("../assets/bird-blue.svg"); */
     /* background-repeat: no-repeat; */
@@ -112,7 +113,8 @@ input{
     margin: 0 3rem 1rem;
     border-style: none;
     border-radius: 5px;
-    font-family:'Ropa Sans', sans-serif ;
+    font-family:'Ropa Sans', sans-serif;
+    font-size: 1rem;
 }
 
 form{

@@ -25,8 +25,8 @@ export default {
 .fade-layer{
     position: fixed;
     left:0; bottom: 0; right: 0; top:0;
-    opacity: 1;
-    background-color:gray;
+    opacity: .5;
+    background-color:black;
 }
 .content-form{
     position: fixed;

@@ -23,22 +23,34 @@
             <input type="text" class="search">
             <img src="@/assets/search.svg" class="search" alt="search">
             <img src="@/assets/like.svg" class="like" alt="favorites">
-            <img src="@/assets/user.svg" class="user" alt="user">
+            <img @click="showForm = !showForm" src="@/assets/user.svg" class="user" alt="user">
             <img src="@/assets/cart.svg" class="cart" alt="cart">
         </div>
-        
+        <Overlay v-if="showForm">
+            <LoginForm @close="showForm = false"/>
+        </Overlay>
     </div>
 </div>
 </template>
 
 <script>
+import LoginForm from '@/components/LoginForm'
+import Overlay from '@/components/Overlay.vue'
 export default {
+    data(){return{
+        showForm: false,
+        }
+    },
+    components:{LoginForm, Overlay}
 
 }
 </script>
 
 <style scoped>
 
+.user{
+    cursor: pointer;
+}
 
 .test {
     margin-left:980px;

@@ -1,10 +1,10 @@
 <template>
   <div>
     
-      <div class="recommendations">
+      <!-- <div class="recommendations">
         
         <button @click="fetchImages">fetch</button>
-      </div>
+      </div> -->
       <!-- <LoginForm/> -->
   
   </div>

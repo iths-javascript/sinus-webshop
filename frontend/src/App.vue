@@ -2,16 +2,13 @@
   <div id="app">
     <Header />
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/product">Product</router-link> |
+      <router-link to="/">Home</router-link>
+      <!-- <router-link to="/product">Product</router-link> | -->
       <!-- <router-link to="/login-form">Login</router-link> |
       <router-link to="/overlay">overlay</router-link> -->
     </div>
     <router-view/>
-    <button @click="showForm = !showForm">Show form</button>
-    <Overlay v-if="showForm">
-      <LoginForm @close="showForm = false"/>
-      </Overlay>
+  
     <!-- <LoginForm @login="handleLogin" /> 
   <div class="info" v-if="tokenData">
     <button @click="verify">Verify</button>
@@ -22,21 +19,17 @@
 <script>
 
 import Footer from '@/components/Footer'
-import LoginForm from '@/components/LoginForm'
-import Overlay from './components/Overlay.vue'
-// import Overlay from '@/components/Overlay'
 // import axios from 'axios'
 import Header from "@/components/Header.vue"
 export default {
   name:'Home',
   data(){ return {
-    showForm: false,
     tokenData: null
-  }
+    }
 
   },
 
-  components: { Footer, LoginForm, Overlay},
+  components: { Footer, Header},
   methods:{
     handleLogin(tokenData){
       this.tokenData = tokenData
@@ -59,7 +52,7 @@ export default {
       // this.tokenData.token
     }
   },
-  components: { Footer ,Header},
+  
  
 }
 
