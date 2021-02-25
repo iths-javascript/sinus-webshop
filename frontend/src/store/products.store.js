@@ -8,11 +8,13 @@ export default {
     },
     currentOrder: null,
     products: [],
-    searchPhrase: ''
+    searchPhrase: '',
+    productsLoading: true
   },
   mutations: {
     [Mutations.SET_PRODUCTS](state, payload) {
       state.products = payload
+      state.productsLoading = false
     },
     [Mutations.ADD_TO_CART](state, payload) {
       state.cart.items.push(payload)
@@ -48,9 +50,9 @@ export default {
     getProducts(state) {
       return state.products
     },
-    getSingleProduct(state, id) {
-      return state.products.find(product => product._id == id)
-    },
+    getSingleProduct: state => id =>
+      state.products.find(product => product._id == id)
+    ,
     getCart(state) {
       let cartArray = []
 
