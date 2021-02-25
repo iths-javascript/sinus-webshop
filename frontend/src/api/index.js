@@ -1,9 +1,13 @@
 import axios from 'axios'
 
+const API = axios.create({
+  baseURL: 'http://localhost:5000/api'
+})
+
 // Products
 
 export async function fetchProducts() {
-  const products = await axios.get('http://localhost:5000/api/products/')
+  const products = await API.get('/products/')
   return products.data
 }
 
@@ -16,7 +20,7 @@ export async function submitOrder(payload, userToken) {
   }
 
   try {
-    const response = await axios.post('http://localhost:5000/api/orders', payload, config)
+    const response = await API.get('/orders', payload, config)
     return response.data
   } catch (e) {
     return false
@@ -26,7 +30,7 @@ export async function submitOrder(payload, userToken) {
 // User
 
 export async function registerUser(payload) {
-  const response = await axios.post('http://localhost:5000/api/register/', payload)
+  const response = await API.get('/register/', payload)
 
   if (response.status === 200) {
     return true
@@ -37,7 +41,7 @@ export async function registerUser(payload) {
 
 export async function authenticate(payload) {
   try {
-    const response = await axios.post('http://localhost:5000/api/auth/', payload)
+    const response = await API.get('/auth/', payload)
     return response.data
   } catch (e) {
     return false
