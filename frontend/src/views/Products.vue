@@ -1,9 +1,17 @@
 <template>
-  <div>products shown here</div>
+  <div>
+    products shown here
+    <ProductsContainer />
+  </div>
 </template>
 
 <script>
-export default {};
+import ProductsContainer from "@/components/ProductsContainer.vue";
+export default {
+  components: {
+    ProductsContainer,
+  },
+};
 </script>
 
 <style>
