@@ -1,25 +1,31 @@
 <template>
   <div>
     <div class="recommendations">
-      <div class="recommendations-left">
-        <div class="skateboard">
-          <img class="skateboard-img" src="../assets/skeatboard.png" />
-          <p class="skateboard-text">#Skateboard</p>
-          <button class="skateboard-button" @click="fetchImages">
-            Shop now
-          </button>
+      <div class="content">
+        <div class="recommendations-left">
+          <div class="skateboard">
+            <img class="skateboard-img" src="../assets/skeatboard.png" />
+            <p class="skateboard-text">#Skateboard</p>
+            <button class="skateboard-button" @click="fetchImages">
+              Shop now
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="recommendations-right">
-        <div class="t-shirts">
-          <img class="t-shirts-img" src="../assets/t-shirt.jpg" />
-          <p class="t-shirt-text">#T-Shirt</p>
-          <button class="t-shirts-button" @click="fetchImages">Shop now</button>
-        </div>
-        <div class="sneakers">
-          <img class="sneakers-img" src="../assets/sneakers.jpg" />
-          <p class="sneaker-text">#Sneakers</p>
-          <button class="sneakers-button" @click="fetchImages">Shop now</button>
+        <div class="recommendations-right">
+          <div class="t-shirts">
+            <img class="t-shirts-img" src="../assets/t-shirt.jpg" />
+            <p class="t-shirt-text">#T-Shirt</p>
+            <button class="t-shirts-button" @click="fetchImages">
+              Shop now
+            </button>
+          </div>
+          <div class="sneakers">
+            <img class="sneakers-img" src="../assets/sneakers.jpg" />
+            <p class="sneaker-text">#Sneakers</p>
+            <button class="sneakers-button" @click="fetchImages">
+              Shop now
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -226,9 +232,15 @@ export default {
 
 .recommendations {
   display: flex;
+  justify-content: center;
   background-color: #cbe9ef;
-  width: 100%;
-  height: 782px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1440px;
 }
 
 .recommendations-left {
@@ -245,10 +257,10 @@ export default {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 36px;
   width: 50%;
   background-color: #cbe9ef;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
