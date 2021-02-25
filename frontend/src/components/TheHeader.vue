@@ -16,15 +16,12 @@
                 <span class="cart-counter">0</span>
             </div>
 
-            <router-link to="/profile">
-                <img src="@/assets/icons/profile.svg" alt="profile" class="profile">
-            </router-link>   
+            <img @click="toggleModal" src="@/assets/icons/profile.svg" alt="profile" class="profile">
+
         </div>
     </div>
 
-    <Base-modal>
-        <template >
-        <div class="signInBox">
+        <div v-if="loginModalActive" class="signInBox">
             <h2>SIGN IN</h2>
 
             <div class="email">
@@ -37,22 +34,41 @@
             <input id="password" type="password">
             </div>
 
-            <Base-button class="base-button" color="teal">Sign in</Base-button>
+            <div class="button-link-wrapper">
+                <Base-button class="base-button" color="teal">Sign in</Base-button>
+                <router-link to="/register">
+                <p class="register-text">or <span class="register-link">Register an account</span></p>
+                </router-link>
+            </div>
 
         </div>
-        </template>
-  </Base-modal>
+
 
   </header>
 </template>
 
 <script>
 import SearchField from "@/components/SearchField.vue";
-import BaseModal from '@/components/BaseModal.vue'
+// import BaseModal from '@/components/BaseModal.vue'
 export default {
 components:{
     SearchField,
-    BaseModal
+    // BaseModal
+},
+data(){
+    return{
+        modalActive:false,
+    }
+},
+computed:{
+    loginModalActive(){
+        return this.modalActive
+    }
+},
+methods:{
+    toggleModal(){
+        this.modalActive = !this.modalActive
+    }
 }
 }
 </script>
@@ -124,6 +140,10 @@ components:{
         flex-direction: column;
         align-content: center;
         // justify-content: center;
+        a{
+            text-decoration: none;
+            color: black;
+        }
         h2{
         text-align: center;
         }
@@ -142,11 +162,19 @@ components:{
         .password{
         width: fit-content;
         }
-        .base-button{
+        .button-link-wrapper{
             margin-left: 100px;
-            width: 100px;
-            margin-top: 2rem;
+
+            .base-button{
+                width: 100px;
+                margin-top: 2rem;
+            }
+            .register-link{
+                text-decoration: underline;
+                font-weight: bold;
+            }
         }
+            
     }
 }
 </style>
