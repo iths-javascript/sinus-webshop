@@ -14,16 +14,21 @@
 </template>
 
 <script>
+
+// import axios from 'axios'
+
 export default {
     name: 'LoginForm',
     data(){ return {
-        email:"",
-        password:""
+        email:"admin@example.com",
+        password:"password"
         }
     },
     methods: {
         async submit(){
             const payload = {email: this.email, password: this.password}
+
+            // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
             const request = await fetch('http://localhost:5000/api/auth', {
                 method: 'POST',
                 headers: {
@@ -32,7 +37,9 @@ export default {
                 body: JSON.stringify(payload)
             })
             const responseData = await request.json()
+            this.$emit('login', responseData) //emit till user secction
             console.log(responseData)
+            this.$emit('login', responseData)
         }
     }
 
@@ -46,7 +53,7 @@ export default {
     /* grid-template-columns: repeat(3, auto); */
     grid-template-rows: repeat(2, 300px);
     width: 100%;
-    height: 500px;
+    /* height: 500px; */
     background-color: thistle;
 }
 </style>

@@ -6,17 +6,47 @@
       <router-link to="/login-form">Login</router-link>
     </div>
     <router-view/>
+  <LoginForm @login="handleLogin" /> 
+  <div class="info" v-if="tokenData">
+    <button @click="verify">Verify</button>
+    </div> 
   <Footer/>
   </div>
 </template>
 <script>
 
 import Footer from '@/components/Footer'
+import LoginForm from '@/components/LoginForm'
+// import axios from 'axios'
 export default {
   name:'Home',
+  data(){ return{
+    tokenData: null
+  }
 
-  components: { Footer },
- 
+  },
+
+  components: { Footer, LoginForm },
+  methods:{
+    handleLogin(tokenData){
+      this.tokenData = tokenData
+      // console.log(tokenData);
+    },
+    async verify(){
+      // const request = await axios.get('http://localhost:5000/api/me')
+
+      const request = await fetch('http://localhost:5000/api/me', {
+        method: 'GET',
+        headers:{
+          Authorization: `Bearer ${this.tokenData.token}`
+        }
+      })
+
+      const responseData = await request.json()
+      console.log(responseData);
+      // this.tokenData.token
+    }
+  }
 }
 
 </script>
