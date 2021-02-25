@@ -129,7 +129,7 @@ methods:{
             }
         }
     .signInBox{
-        height: 550px;
+        height: 450px;
         width: 450px;
         background-color: white;
         position: fixed;
@@ -139,6 +139,7 @@ methods:{
         display: flex;
         flex-direction: column;
         align-content: center;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.596);
         // justify-content: center;
         a{
             text-decoration: none;
@@ -146,6 +147,7 @@ methods:{
         }
         h2{
         text-align: center;
+        margin-bottom: 2rem;
         }
         label{
         display: inline-block;
@@ -154,6 +156,7 @@ methods:{
         input{
         height: 2.4rem;
         width: 250px;
+        margin-bottom: 1.4rem;
         }
         .email{
         width: fit-content;
