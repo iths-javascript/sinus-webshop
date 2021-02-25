@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-// import LoginForm from '../components/LoginForm'
-// import Overlay from '../components/Overlay'
-
+import Product from '../views/Product.vue'
 
 
 Vue.use(VueRouter)
@@ -14,16 +12,13 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  // {
-  //   path: '/login-form',
-  //   name: 'LoginForm',
-  //   component: LoginForm
-  // },
-  // {
-  //   path: '/overlay',
-  //   name: 'Overlay',
-  //   component: Overlay
-  // },
+
+  {
+    path: '/product',
+    name: 'Product',
+    component: Product
+  }
+ 
 ]
 
 const router = new VueRouter({

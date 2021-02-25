@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/product">Product</router-link> |
@@ -25,6 +26,7 @@ import LoginForm from '@/components/LoginForm'
 import Overlay from './components/Overlay.vue'
 // import Overlay from '@/components/Overlay'
 // import axios from 'axios'
+import Header from "@/components/Header.vue"
 export default {
   name:'Home',
   data(){ return {
@@ -56,13 +58,16 @@ export default {
       console.log(responseData);
       // this.tokenData.token
     }
-  }
+  },
+  components: { Footer ,Header},
+ 
 }
 
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap');
+
 *{
   margin: 0;
   padding: 0;
