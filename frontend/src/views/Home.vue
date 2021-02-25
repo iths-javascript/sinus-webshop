@@ -5,11 +5,15 @@
         <img src="@/assets/products/Header.png" alt="Purple hoodie with sinus logo">
       </router-link>
     </header>
+    <main>
+      <p>Results: {{fetchProducts.length}}</p>
     <section class="products">
+      
       <ProductCard v-for="product in fetchProducts" :key="product._id" :prod="product" />
     </section>
-    
+    </main>
   </section>
+  
 </template>
 
 <script>
@@ -40,11 +44,21 @@ header {
   }
 }
 
+main {
+max-width: 100rem;
+margin: 5rem auto;
+
+p {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
-  max-width: 100rem;
-  margin: 5rem auto;
+  
+  
 }
 
 </style>

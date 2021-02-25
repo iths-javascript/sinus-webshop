@@ -9,9 +9,8 @@
     <p class="product-name">{{prod.title}}</p>
     <p class="product-price">{{prod.price}} kr</p>
     <section class="product-rating">
-      <p>Rating: </p>
-      <p> {{randomRating}} </p>
-      
+      <p>Rating: {{randomRating}}</p>
+       
     </section>
   </section>
   </router-link>
@@ -71,7 +70,7 @@ computed: {
   .product-details {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1.6fr 1fr;
     
   }
 
