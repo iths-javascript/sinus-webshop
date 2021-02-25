@@ -9,23 +9,66 @@
     <div class="nav-wrapper">
         <Search-field />
         <div class="nav-icons">
-            <router-link to="/cart">
-                <img src="@/assets/icons/cart.svg" alt="cart" class="cart">
-            </router-link>
-            <router-link to="/profile">
-                <img src="@/assets/icons/profile.svg" alt="profile" class="profile">
-            </router-link>   
+            <div class="cart-img">
+                <router-link to="/cart">
+                    <img src="@/assets/icons/cart.svg" alt="cart" class="cart">
+                </router-link>
+                <span class="cart-counter">0</span>
+            </div>
+
+            <img @click="toggleModal" src="@/assets/icons/profile.svg" alt="profile" class="profile">
+
+        </div>
+    </div>
+
+        <div v-if="loginModalActive" class="signInBox">
+            <h2>SIGN IN</h2>
+
+            <div class="email">
+            <label id for="email">Email:</label>
+            <input id="email" type="email">
+            </div>
+
+            <div class="password">
+            <label id for="password">Password:</label>
+            <input id="password" type="password">
+            </div>
+
+            <div class="button-link-wrapper">
+                <Base-button class="base-button" color="teal">Sign in</Base-button>
+                <router-link to="/register">
+                <p class="register-text">or <span class="register-link">Register an account</span></p>
+                </router-link>
+            </div>
+
         </div>
 
-    </div>
+
   </header>
 </template>
 
 <script>
 import SearchField from "@/components/SearchField.vue";
+// import BaseModal from '@/components/BaseModal.vue'
 export default {
 components:{
-    SearchField
+    SearchField,
+    // BaseModal
+},
+data(){
+    return{
+        modalActive:false,
+    }
+},
+computed:{
+    loginModalActive(){
+        return this.modalActive
+    }
+},
+methods:{
+    toggleModal(){
+        this.modalActive = !this.modalActive
+    }
 }
 }
 </script>
@@ -35,10 +78,11 @@ components:{
 
     header{
         background-color: black;
-        padding: 2rem 4rem;
+        padding: 3rem 4rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 10rem;
         img:hover{
             cursor: pointer;
         }
@@ -57,14 +101,80 @@ components:{
                 justify-content: flex-end;
                 margin-left: 2rem;
                 .cart{
-                    height: 2.5rem;
+                    height: 4rem;
                 }
                 .profile{
-                    height: 3rem;
-                    margin-left: 1.5rem;
+                    height: 5rem;
+                    margin-left: 3rem;
+                }
+                .cart-img{
+                    position: relative;
+                    .cart-counter{
+                        height: 2rem;
+                        width: 2rem;
+                        position: absolute;
+                        top: -14px;
+                        right: -14px;
+                        // padding: 6px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: red;
+                        border-radius: 50%;
+                        color: white;
+                        font-size: 1.4rem;
+                    }
                 }
 
             }
         }
+    .signInBox{
+        height: 550px;
+        width: 450px;
+        background-color: white;
+        position: fixed;
+        top: 10rem;
+        right: 0;
+        padding: 4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        // justify-content: center;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        h2{
+        text-align: center;
+        }
+        label{
+        display: inline-block;
+        width: 100px;
+        }
+        input{
+        height: 2.4rem;
+        width: 250px;
+        }
+        .email{
+        width: fit-content;
+        }
+
+        .password{
+        width: fit-content;
+        }
+        .button-link-wrapper{
+            margin-left: 100px;
+
+            .base-button{
+                width: 100px;
+                margin-top: 2rem;
+            }
+            .register-link{
+                text-decoration: underline;
+                font-weight: bold;
+            }
+        }
+            
     }
+}
 </style>
