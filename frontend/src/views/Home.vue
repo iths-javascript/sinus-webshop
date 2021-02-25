@@ -19,15 +19,15 @@
       </section>
 
       <section class="product-grid-container">
-        <p class="item-1">Product 1</p>
-        <p class="item-2">Product 2</p>
+        <ProductCard  v-for="(product,index) in products" :key="index" :product="product"/>
+        <!-- <p class="item-2">Product 2</p>
         <p class="item-3">Product 3</p>
         <p class="item-4">Product 4</p>
         <p class="item-5">Product 5</p>
         <p class="item-6">Product 6</p>
         <p class="item-7">Product 7</p>
         <p class="item-8">Product 8</p>
-        <p class="item-9">Product 9</p>
+        <p class="item-9">Product 9</p> -->
       </section>
       <p class="progress-bar">Showing 9 out of 30 products</p>
       <button>SHOW MORE</button>
@@ -37,13 +37,22 @@
 
 <script>
 // @ is an alias to /src
+import ProductCard from '@/components/Product/ProductCard.vue'
+export default {
+  components:{ProductCard,},
 
-export default {};
+  computed:{
+    products(){
+      return this.$store.getters.getProducts;
+    }
+  }
+  
+};
 </script>
 
 <style scoped>
 * {
-  color: white;
+  color: black;
 }
 
 .landing-top{
@@ -83,12 +92,16 @@ h3 {
 
 .product-grid-container {
   display: grid;
-  grid-template-columns: 3;
-  grid-template-rows: 3;
+  /* display: grid; */
+  gap: 20px;
+  grid-template-columns: 270px 270px 270px;
+  grid-auto-rows: 350px;
+  /* grid-template-columns: 3;
+  grid-template-rows: 3; */
   align-items: center;
   justify-content: center;
-  row-gap: 20px;
-  column-gap: 20px;
+  /* row-gap: 20px;
+  column-gap: 20px;  */
 }
 
 .product-grid-container > p {
@@ -97,7 +110,7 @@ h3 {
   background-color: white;
 }
 
-.item-1 {
+/* .item-1 {
   grid-column: 1/1;
   grid-row: 1/1;
 }
@@ -140,7 +153,7 @@ h3 {
 .item-9 {
   grid-column: 3/3;
   grid-row: 3/3;
-}
+} */
 
 button {
   height: 43px;

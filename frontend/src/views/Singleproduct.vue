@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="single-wrapper">
     <section class="image-section">
       <div class="image-wrapper">
@@ -27,6 +28,7 @@
     </section>
 
   </div>
+  </div>
 </template>
 
 <script>
@@ -45,6 +47,7 @@ export default {
   flex-direction: row;
   background-color: #3C4858;
   height: 1020px;
+  width: 1440;
 }
 .image-section{
   display: flex;

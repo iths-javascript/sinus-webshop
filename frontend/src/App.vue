@@ -1,15 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/productlist">Productlist</router-link> |
-      <router-link to="/Singleproduct ">Singleproduct </router-link> |
-      <router-link to="/loginregister">LoginRegister</router-link> |
-      <router-link to="/cart">Cart</router-link>|
-      <router-link to="/MakeOrder">MakeOrder</router-link>|
-      <router-link to="/checkout">Checkout</router-link> |
-    </div> -->
     <Navbar />
     <router-view />
   </div>
