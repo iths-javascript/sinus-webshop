@@ -4,10 +4,12 @@
       <label for="email">Email</label>
       <input type="text" name="email" id="email" />
       <label for="password">Password</label>
-      <input type="text" id="password" />
+      <input type="password" id="password" />
       <input type="submit" value="Log in" />
     </form>
-    <p>Not registered?</p>
+    <router-link to="/SignUp">
+      <p>Not registered?</p>
+    </router-link>
   </div>
 </template>
 
