@@ -46,19 +46,18 @@ export default {};
   color: white;
 }
 
-.landing-top {
+.landing-top{
   height: 862px;
   width: 1440px;
-  top: 84px;
-  background-image: url(https://images.unsplash.com/photo-1542360579756-222c55226761?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
-  /* background-position: center; */
-  background-size: cover;
-  filter: brightness(50%); 
+  /* top: 84px; */
+  background-image: url('../assets/BG image landing.jpg');
+  margin-top: 20px;
 }
 
-.landing-top > h1,
+.landing-top h1,
 h3 {
   color: white;
+  /* margin-top: 50px; */
   /* z-index: 999; */
 }
 
@@ -86,6 +85,10 @@ h3 {
   display: grid;
   grid-template-columns: 3;
   grid-template-rows: 3;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
 }
 
 .product-grid-container > p {
