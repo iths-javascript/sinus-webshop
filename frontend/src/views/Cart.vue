@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-.grid-container .cart {
+.cart {
   border: 2px solid gray;
   margin-top: 5rem;
   position: absolute;
@@ -77,7 +77,7 @@ export default {
   overflow-y: scroll;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
 }
-.grid-container .cart .product-list {
+.cart .product-list {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -86,36 +86,36 @@ export default {
   height: 45px;
   margin-bottom: 2rem;
 }
-.grid-container .cart .imgFile {
+.cart .imgFile {
   float: left;
   width: 50px;
   height: 40px;
   border: 4px;
 }
-.grid-container .cart .imgFile img {
+.cart .imgFile img {
   float: left;
   width: 45px;
   height: 40px;
 }
-.grid-container .cart .item-info {
+.cart .item-info {
   display: flex;
   flex-direction: row;
   float: right;
 }
-.grid-container .cart .title {
+.cart .title {
   margin-left: 1rem;
   font-size: 11px;
   align-items: flex-start;
   height: 20px;
   margin-top: 1rem;
 }
-.grid-container .cart .shortDesc {
+.cart .shortDesc {
   font-size: 9px;
   font-weight: bold;
   margin-top: 2rem;
   float: left;
 }
-.grid-container .cart .price {
+.cart .price {
   display: flex;
   width: 10px;
   align-items: flex-end;
@@ -123,27 +123,27 @@ export default {
   font-size: 12px;
   margin-left: 5rem;
 }
-.grid-container .cart .total-price {
+.cart .total-price {
   height: 20px;
   display: flex;
   font-size: 14px;
   font-weight: bold;
   margin-top: 0.5rem;
 }
-.grid-container .cart .total-price .price {
+.cart .total-price .price {
   display: flex;
   align-items: flex-end;
   width: 20px;
   height: 10px;
   float: right;
 }
-.grid-container .cart .total-lable {
+.cart .total-lable {
   color: black;
 }
-.grid-container .cart .sek-lable {
+.cart .sek-lable {
   margin-left: 10rem;
 }
-.grid-container .btn {
+.btn {
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -152,11 +152,11 @@ export default {
   height: 40px;
   width: 250px;
 }
-.grid-container .btn .btn-icon {
+.btn .btn-icon {
   margin-left: 4.5rem;
   padding-right: 5px;
 }
-.grid-container .btn {
+.btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,11 +175,11 @@ export default {
   margin: 2rem 0;
   margin-left: 2.5rem;
 }
-.grid-container .btn:hover {
+.btn:hover {
   background: #5eb593;
   color: #ddd;
 }
-.grid-container .btn:active {
+.btn:active {
   background: #000;
   color: #fff;
 }
