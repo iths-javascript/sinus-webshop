@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Singleproduct from "../views/Singleproduct.vue";
-import Productlist from "../views/Productlist.vue";
 import Checkout from "../views/Checkout.vue";
 import Cart from "../views/Cart.vue";
 import MakeOrder from "../views/Makeorder.vue";
@@ -19,11 +18,7 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/productlist",
-    name: "Productlist",
-    component: Productlist,
-  },
+  
   {
     path: "/checkout",
     name: "Checkout",

@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-/* .cart {
+.cart {
   border: 2px solid gray;
   margin-top: 5rem;
   position: absolute;
@@ -76,74 +76,72 @@ export default {
   min-height: 150px;
   overflow-y: scroll;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
-
-  .product-list {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 250px;
-    height: 45px;
-    margin-bottom: 2rem;
-  }
-  .imgFile {
-    float: left;
-    width: 50px;
-    height: 40px;
-    border: 4px;
-    img {
-      float: left;
-      width: 45px;
-      height: 40px;
-    }
-  }
-  .item-info {
-    display: flex;
-    flex-direction: row;
-    float: right;
-  }
-  .title {
-    margin-left: 1rem;
-    font-size: 11px;
-    align-items: flex-start;
-    height: 20px;
-    margin-top: 1rem;
-  }
-  .shortDesc {
-    font-size: 9px;
-    font-weight: bold;
-    margin-top: 2rem;
-    float: left;
-  }
-  .price {
-    display: flex;
-    width: 10px;
-    align-items: flex-end;
-    justify-content: flex-end;
-    font-size: 12px;
-    margin-left: 5rem;
-  }
-
-  .total-price {
-    height: 20px;
-    display: flex;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 0.5rem;
-    .price {
-      display: flex;
-      align-items: flex-end;
-      width: 20px;
-      height: 10px;
-      float: right;
-    }
-  }
-  .total-lable {
-    color: black;
-  }
-  .sek-lable {
-    margin-left: 10rem;
-  }
+}
+.cart .product-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 250px;
+  height: 45px;
+  margin-bottom: 2rem;
+}
+.cart .imgFile {
+  float: left;
+  width: 50px;
+  height: 40px;
+  border: 4px;
+}
+.cart .imgFile img {
+  float: left;
+  width: 45px;
+  height: 40px;
+}
+.cart .item-info {
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+.cart .title {
+  margin-left: 1rem;
+  font-size: 11px;
+  align-items: flex-start;
+  height: 20px;
+  margin-top: 1rem;
+}
+.cart .shortDesc {
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 2rem;
+  float: left;
+}
+.cart .price {
+  display: flex;
+  width: 10px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 12px;
+  margin-left: 5rem;
+}
+.cart .total-price {
+  height: 20px;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.cart .total-price .price {
+  display: flex;
+  align-items: flex-end;
+  width: 20px;
+  height: 10px;
+  float: right;
+}
+.cart .total-lable {
+  color: black;
+}
+.cart .sek-lable {
+  margin-left: 10rem;
 }
 .btn {
   cursor: pointer;
@@ -153,11 +151,10 @@ export default {
   color: black;
   height: 40px;
   width: 250px;
-
-  .btn-icon {
-    margin-left: 4.5rem;
-    padding-right: 5px;
-  }
+}
+.btn .btn-icon {
+  margin-left: 4.5rem;
+  padding-right: 5px;
 }
 .btn {
   display: flex;
@@ -178,14 +175,12 @@ export default {
   margin: 2rem 0;
   margin-left: 2.5rem;
 }
-
 .btn:hover {
   background: #5eb593;
   color: #ddd;
 }
-
 .btn:active {
   background: #000;
   color: #fff;
-} */
+}
 </style>
