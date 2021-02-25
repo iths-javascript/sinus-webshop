@@ -13,6 +13,7 @@ export default {
     },
     [Mutations.SET_LOGGED_IN](state, payload) {
       state.isLoggedIn = payload
+      console.log(state.isLoggedIn)
     },
     [Mutations.SET_USER_TOKEN](state, payload) {
       state.userToken = payload
@@ -28,7 +29,7 @@ export default {
     },
     async logIn({ commit }, payload) {
       const response = await API.authenticate(payload)
-
+      console.log(response);
       if (response) {
         commit(Mutations.SET_USER_TOKEN, response.token)
         commit(Mutations.SET_CURRENT_USER, response.user)
