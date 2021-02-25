@@ -44,45 +44,43 @@ export default {
 
 </script>
 <style scoped>
-/* 
-.grid-container {
-  .img {
-    background: url("../assets/skate-hero-1.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 30rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
-    width: auto;
-    h1 {
-      font-size: 3rem;
-      color: white;
-      text-shadow: 0 0 1rem rgba(0, 0, 0, 1);
-    }
-  }
-  .text-first {
-    margin-top: 1rem;
-    text-align: left;
-  }
-  .column {
-    font-weight: bold;
-    color: rgb(122, 122, 122);
-    float: left;
-    font-size: 22px;
-    text-align: left;
-    margin-top: 1rem;
-  }
-  .btn {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: white;
-    height: 40px;
-    width: 150px;
-    font-size: 18px;
-  }
-} */
+.grid-container .img {
+  background: url("../assets/skate-hero-1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  width: auto;
+}
+.grid-container .img h1 {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+}
+.grid-container .text-first {
+  margin-top: 1rem;
+  text-align: left;
+}
+.grid-container .column {
+  font-weight: bold;
+  color: #7a7a7a;
+  float: left;
+  font-size: 22px;
+  text-align: left;
+  margin-top: 1rem;
+}
+.grid-container .btn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  height: 40px;
+  width: 150px;
+  font-size: 18px;
+}
+
 </style>

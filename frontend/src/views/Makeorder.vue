@@ -138,7 +138,7 @@ export default {
 </script>
 
 <style scoped>
-/* .make-order {
+.make-order {
   display: flex;
   align-content: center;
 }
@@ -163,17 +163,16 @@ export default {
   height: 40px;
   flex-direction: row;
   float: left;
-  .title {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 1rem;
-  }
-  .price {
-    margin-left: 5rem;
-    float: right;
-  }
 }
-
+.cart-img .title {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1rem;
+}
+.cart-img .price {
+  margin-left: 5rem;
+  float: right;
+}
 .border-menu {
   margin-top: 2rem;
   padding: 2rem;
@@ -198,7 +197,6 @@ export default {
   margin-top: 1rem;
   float: right;
 }
-
 .border-seccond {
   height: 500px;
   width: 400px;
@@ -265,52 +263,37 @@ export default {
   margin: 2rem 0;
   margin-left: 2.5rem;
 }
-
 .btn:hover {
   background: #5eb593;
   color: #ddd;
 }
-
 .btn:active {
   background: #000;
   color: #fff;
 }
 .clientInformationForm {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 0 1rem;
 }
-
 .clientInformationForm label {
   padding: 0.25rem 0;
-
   font-size: 0.7rem;
-
   text-transform: uppercase;
 }
-
 .clientInformationForm input,
 select {
   border: 1px solid black;
-
   border-radius: 0.25rem;
-
   padding: 0.5rem;
-
   height: 2.6rem;
-
   box-sizing: border-box;
-
   font-size: 1rem;
 }
-
 .cardInfo-2 {
   grid-column: auto / span 1;
 }
-
 .cardInfo-1 {
-  grid-column: auto / span 2;
-} */
+  grid-column: auto / span;
+}
 </style>
