@@ -1,5 +1,7 @@
 <template>
-  <p>hej då.</p> 
+<div>
+ <img src="@/assets/hole-smiley.png" alt="Sinus Logo" height="80px" />
+  </div>
 </template>
 
 <script>

@@ -27,8 +27,8 @@ export default {};
     &.router-link-exact-active {
       color: #9c2e8e;
     }
-  }
-
+  
+}
   .text-bold {
     font-weight: bold;
   }
