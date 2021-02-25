@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import LoginForm from '../components/LoginForm'
 
 Vue.use(VueRouter)
 
@@ -9,7 +10,12 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  }
+  },
+  {
+    path: '/login-form',
+    name: 'LoginForm',
+    component: LoginForm
+  },
  
 ]
 
