@@ -1,33 +1,57 @@
 <template>
   <div id="login-modal">
     <form>
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email" />
-      <br />
-      <label for="password">Password</label>
-      <input type="password" id="password" />
-      <br />
+      <section class="mail">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" required />
+      </section>
+      <section class="password">
+        <label for="password">Password</label>
+        <input :type="password" id="password" required />
+        <input type="checkbox" @click="showPassword" /> Visa lösenord
+      </section>
       <input type="submit" value="Log in" />
     </form>
-    <router-link to="/SignUp">
-      <p>Not registered?</p>
-    </router-link>
+    <section class="footer">
+      <router-link to="/SignUp">
+        <p>Not registered?</p>
+      </router-link>
+      <button @click="exitLogin">Cancel</button>
+    </section>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      password: "password",
+    };
+  },
+  methods: {
+    showPassword() {
+      if (this.password === "password") {
+        this.password = "text";
+      } else if (this.password === "text") {
+        this.password = "password";
+      }
+    },
+    exitLogin() {
+      this.$emit("clicked", false);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 #login-modal {
   position: relative;
-  height: 100px;
+  height: auto;
   background-color: white;
-  border: 2px black solid;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s;
+  padding: 16px;
 }
 
 /* Add Animation */
@@ -41,10 +65,19 @@ export default {};
     opacity: 1;
   }
 }
-input {
-  width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    input {
+      width: 100%;
+    }
+  }
 }
 </style>

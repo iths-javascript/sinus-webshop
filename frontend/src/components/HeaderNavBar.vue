@@ -11,7 +11,7 @@
     <router-link to="/SignUp"> Sign Up Form </router-link> |
     <img src="@/assets/shopping-bag.png" alt="Shopping Bag" height="40px" />
 
-    <LoginModal v-if="loginStatus" />
+    <LoginModal v-if="loginStatus" @clicked="loginModal" />
   </div>
 </template>
 
