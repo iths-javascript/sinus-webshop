@@ -7,10 +7,10 @@
     /></router-link>
     |
     <button @click="loginModal">Log in</button>
-
     |
-    <router-link to="/SignUp"> Sign Up Form </router-link>
-    <img src="@/assets/shopping-bag.png" alt="Shopping Bag" height="40px" /> |
+    <router-link to="/SignUp"> Sign Up Form </router-link> |
+    <img src="@/assets/shopping-bag.png" alt="Shopping Bag" height="40px" />
+
     <LoginModal v-if="loginStatus" />
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      loginStatus: true,
+      loginStatus: false,
     };
   },
   methods: {
