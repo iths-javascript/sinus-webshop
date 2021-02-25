@@ -2,7 +2,7 @@
   <div id="nav-bar">
     <section class="logo-holder">
       <img src="@/assets/hole-smiley.png" alt="Sinus Logo" height="80px" />
-      <h1>SINUS WEBSHOP</h1>
+      <h1>SINUS WEBSHOP HELLO</h1>
     </section>
     <HeaderNavBar />
   </div>
