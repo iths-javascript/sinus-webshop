@@ -22,7 +22,7 @@ components: {
 },
 computed: {
   cartList() {
-    console.log(this.$store.getters.getCart);
+    
     return Object.values(this.$store.getters.getCart).filter(item => item.amount > 0)
   }
 }

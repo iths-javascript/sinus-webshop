@@ -1,7 +1,7 @@
 <template>
 <article>
   <div class="image-container">
-    <img :src="imageFile" alt="">
+    <img :src="imageFile" :alt="prod.shortDesc">
   </div>
   <div class="prod-details">
     <p class="large">{{prod.title}}</p>
@@ -11,11 +11,12 @@
   </div>
   <div class="prod-edit">
     <section class="amount">
-    <div class="dark-bg" ><p class="large">-</p></div>
+    <div class="dark-bg" @click="removeItemFromCart(prod._id)"><p class="large">-</p></div>
     <div><p class="large">{{prod.amount}}</p></div>
     <div class="dark-bg" @click="addItemToCart(prod._id)"><p class="large">+</p></div>
     </section>
-    <img src="@/assets/icons/delete.svg" alt="">
+    <img src="@/assets/icons/delete.svg" alt="delete icon"
+    @click="deleteItemFromCart(prod._id)">
     <p class="large">{{prod.price}} kr</p>
   </div>
 
@@ -34,8 +35,13 @@ props: {
   },
   methods: {
     addItemToCart(id) {
-      console.log(id);
       this.$store.dispatch("addToCart", id)
+    },
+    removeItemFromCart(id) {
+      this.$store.dispatch("removeFromCart", id)
+    },
+    deleteItemFromCart(id) {
+      this.$store.dispatch("deleteFromCart", id)
     }
   }
 }
@@ -108,6 +114,7 @@ article {
     img {
       width: 2rem;
       height: 2rem;
+      cursor: pointer;
     }
   }
 }

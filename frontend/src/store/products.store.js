@@ -27,6 +27,16 @@ export default {
       state.cart.items.push(id)
       state.cartObject[id].amount++
     },
+    [Mutations.REMOVE_FROM_CART](state, id) {
+      let index = state.cart.items.indexOf(id)
+      state.cart.items.splice(index, 1)
+      state.cartObject[id].amount--
+    },
+    [Mutations.DELETE_FROM_CART](state, id){
+      state.cart.items = state.cart.items.filter(item => item != id)
+      
+      state.cartObject[id].amount = 0;
+    },
     [Mutations.SET_SEARCH_PHRASE](state, payload) {
       state.searchPhrase = payload
     },
@@ -43,8 +53,14 @@ export default {
     setCartObject({commit}) {
       commit(Mutations.SET_CART_OBJECT)
     },
-    async addToCart({ commit }, id) {
+    addToCart({ commit }, id) {
       commit(Mutations.ADD_TO_CART, id)
+    },
+    removeFromCart({commit}, id) {
+      commit(Mutations.REMOVE_FROM_CART, id)
+    },
+    deleteFromCart({commit}, id) {
+      commit(Mutations.DELETE_FROM_CART, id)
     },
     async submitOrder({ commit, state, rootState }) {
       const response = await API.submitOrder(state.cart, rootState.userModule.userToken)
