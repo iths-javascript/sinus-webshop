@@ -8,10 +8,10 @@
 
 ```javascript
 
-  mounted() {
+{
       axios.get("http://localhost:5000/api/products").then(response => {
         this.results = response.data
-        return response.data
+        return this.results
       });
  }
 
