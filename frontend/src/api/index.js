@@ -26,6 +26,20 @@ export async function submitOrder(payload, userToken) {
   }
 }
 
+export async function getOrders(userToken) {
+  try {
+    const response = await API.get('/orders', {
+      headers: {
+        Authorization: `Bearer ${userToken}`
+      }
+    })
+    console.log(response)
+    return response.data
+  } catch (e) {
+    return false
+  }
+}
+
 // User
 
 export async function registerUser(payload) {

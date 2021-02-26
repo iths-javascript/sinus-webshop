@@ -14,7 +14,7 @@ export default {
     await this.$store.dispatch('fetchProducts')
     const userToken = JSON.parse(sessionStorage.getItem('user'))
     if (userToken) {
-      this.$store.dispatch('getUser', userToken)
+      await this.$store.dispatch('getUser', userToken)
     }
   },
   components: {

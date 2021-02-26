@@ -1,7 +1,9 @@
 <template>
   <section>
     <h2>MY INFORMATION</h2>
-    <div v-if="!user" class="loading"></div>
+    <div v-if="!user || !userDetails" class="loading">
+      <h2>Loading data...</h2>
+    </div>
     <div v-else class="information-wrapper">
       <p class="bold">My information</p>
 
@@ -124,6 +126,12 @@
         </div>
       </div>
     </div>
+    <div class="order-history">
+      <h2>ORDER HISTORY</h2>
+      <ul>
+        <li v-for="order in orderHistory" :key="order._id">{{ order._id }}</li>
+      </ul>
+    </div>
   </section>
 </template>
 
@@ -137,17 +145,30 @@ export default {
 
       return false
     },
-  },
-  created() {
-    this.user = this.$store.getters.getCurrentUser
-    this.userDetails = {
-      name: this.user.name,
-      address: {
-        street: this.user.address.street,
-        city: this.user.address.city,
-        zip: this.user.address.zip,
-      },
-    }
+    user() {
+      return this.$store.getters.getCurrentUser
+    },
+    userDetails() {
+      if (this.user) {
+        return {
+          name: this.user.name,
+          address: {
+            street: this.user.address.street,
+            city: this.user.address.city,
+            zip: this.user.address.zip,
+          },
+        }
+      } else {
+        return {}
+      }
+    },
+    orderHistory() {
+      if (this.user) {
+        return this.$store.getters.getOrderHistory
+      } else {
+        return {}
+      }
+    },
   },
   data() {
     return {
@@ -155,8 +176,6 @@ export default {
       editStreet: false,
       editZip: false,
       editCity: false,
-      user: {},
-      userDetails: {},
       error: {
         name: false,
         street: false,
@@ -207,6 +226,10 @@ section {
   display: flex;
   flex-direction: column;
   margin-top: 7rem;
+
+  .loading {
+    min-height: 40rem;
+  }
 
   .information-wrapper {
     display: flex;
