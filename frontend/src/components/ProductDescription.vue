@@ -2,7 +2,7 @@
   <div id="productDescription">
     <h1>{{ product.title }}</h1>
     <div class="productPhoto">
-      <img :src="getImgUrl" alt="" />
+      <img :src="getImgUrl" alt="" height="180px" />
     </div>
     <div class="description">{{ product.longDesc }}</div>
     <div class="price">{{ product.price }}</div>
@@ -61,8 +61,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 550px;
-  width: 550px;
+  width: 70%;
   background-color: wheat;
 }
 .description {

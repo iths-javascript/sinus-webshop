@@ -1,9 +1,17 @@
 <template>
-  <div id="product" @click="change">
-    <h3>{{ product.title }}</h3>
-    <p>price: {{ product.price }}</p>
-    <img :src="getImgUrl(product.imgFile)" alt="product image" height="240px" />
-    <button>Add to cart</button>
+  <div id="product">
+    <section @click="change">
+      <h3>{{ product.title }}</h3>
+      <p>price: {{ product.price }}</p>
+      <img
+        :src="getImgUrl(product.imgFile)"
+        alt="product image"
+        height="240px"
+      />
+    </section>
+    <section>
+      <button>Add to cart</button>
+    </section>
   </div>
 </template>
 
