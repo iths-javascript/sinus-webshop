@@ -1,51 +1,30 @@
 <template>
-  <div id="product" @click="modalStatus = !modalStatus">
-    <h3>{{ title }}</h3>
-    <p>price: {{ price }}</p>
-    <img :src="getImgUrl(img)" alt="product image" height="240px" />
+  <div id="product" @click="change">
+    <h3>{{ product.title }}</h3>
+    <p>price: {{ product.price }}</p>
+    <img :src="getImgUrl(product.imgFile)" alt="product image" height="240px" />
     <button>Add to cart</button>
-    <ProductDescription
-      v-if="modalStatus"
-      :img="img"
-      :price="price"
-      :title="title"
-      :longDesc="longDesc"
-    />
   </div>
 </template>
 
 <script>
-import ProductDescription from "@/components/ProductDescription.vue";
-
 export default {
-  data() {
-    return {
-      modalStatus: false,
-    };
-  },
-  components: {
-    ProductDescription,
-  },
   props: {
-    title: {
-      type: String,
+    product: {
+      type: Object,
     },
-    price: {
-      type: Number,
-    },
-    img: {
-      type: String,
-    },
-    longDesc: {
-      type: String,
-    },
-    id: {
-      type: String,
-    },
+  },
+  data() {
+    return {};
   },
   methods: {
     getImgUrl(pic) {
       return require("../assets/" + pic);
+    },
+    change() {
+      console.log(this.product);
+      this.$store.commit("changeProductModalStatus");
+      this.$store.commit("changeProductModalId", this.product._id);
     },
   },
 };

@@ -1,17 +1,11 @@
 <template>
   <div id="productDescription">
+    <h1>{{ product.title }}</h1>
     <div class="productPhoto">
-      <img :src="getImgUrl(img)" alt="" />
+      <img :src="getImgUrl" alt="" />
     </div>
-    <div class="description">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel
-      commodi fugiat tempora eum laborum quisquam explicabo officia nobis? Ipsum
-      molestias ipsa nemo natus tenetur! Eligendi distinctio ex beatae! Lorem
-      ipsum dolor sit amet consectetur adipisicing elit. Tempore, laudantium
-      accusantium. Sunt neque natus qui incidunt minima atque earum? Facilis vel
-      excepturi quae nihil magni fugiat, pariatur ad tempore consectetur.
-    </div>
-    <div class="price">Price</div>
+    <div class="description">{{ product.longDesc }}</div>
+    <div class="price">{{ product.price }}</div>
     <div class="size">
       <p>Size</p>
       <button id="small">S</button>
@@ -29,16 +23,34 @@
 </template>
 
 <script>
+import { getProductById, PRODUCTID_URL } from "@/api/api.js";
+
 export default {
-  props: {
-    img: {
-      type: String,
+  created: async function () {
+    const response = await getProductById(PRODUCTID_URL, this.modalId);
+
+    this.product = response.data;
+  },
+
+  data() {
+    return {
+      product: [],
+    };
+  },
+
+  computed: {
+    modalId() {
+      return this.$store.state.productModalId;
+    },
+    getImgUrl() {
+      return require("../assets/" + this.product.imgFile);
     },
   },
+
   methods: {
-    getImgUrl(pic) {
-      return require("../assets/" + pic);
-    },
+    // getImgUrl() {
+    //   return require("../assets/" + this.product.imgFile);
+    // },
   },
 };
 </script>

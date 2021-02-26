@@ -2,18 +2,23 @@
   <div id="product-view">
     products shown here when backend server is open
     <ProductsContainer />
-    <!-- <ProductDescription /> -->
+    <ProductDescription v-if="modalStatus" />
   </div>
 </template>
 
 <script>
 import ProductsContainer from "@/components/ProductsContainer.vue";
-// import ProductDescription from "@/components/ProductDescription.vue";
+import ProductDescription from "@/components/ProductDescription.vue";
 
 export default {
+  computed: {
+    modalStatus() {
+      return this.$store.state.productModalStatus;
+    },
+  },
   components: {
     ProductsContainer,
-    // ProductDescription,
+    ProductDescription,
   },
   methods: {},
 };

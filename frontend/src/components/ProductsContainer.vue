@@ -3,11 +3,7 @@
     <ProductsItemHolder
       v-for="item in products"
       :key="item.id"
-      :title="item.title"
-      :price="item.price"
-      :img="item.imgFile"
-      :id="item.id"
-      :longDesc="item.longDesc"
+      :product="item"
       class="product"
     />
     <!-- <ProductDescription v-if="prodDescStatus" /> -->
