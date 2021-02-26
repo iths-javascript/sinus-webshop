@@ -21,38 +21,27 @@
         </div>
     </div>
 
-    <div v-if="loginModalActive" class="signInBox">
-        <div v-if="!getLoggedIn" class="login-form">
+        <div v-if="loginModalActive" class="signInBox">
             <h2>SIGN IN</h2>
 
             <div class="email">
             <label id for="email">Email:</label>
-            <input v-model="user.email" id="email" type="email">
+            <input id="email" type="email">
             </div>
 
             <div class="password">
             <label id for="password">Password:</label>
-            <input @keypress.enter="signIn" v-model="user.password" id="password" type="password">
+            <input id="password" type="password">
             </div>
 
             <div class="button-link-wrapper">
-                <Base-button @click.native="signIn" class="base-button" color="teal">Sign in</Base-button>
+                <Base-button class="base-button" color="teal">Sign in</Base-button>
                 <router-link to="/register">
                 <p class="register-text">or <span class="register-link">Register an account</span></p>
                 </router-link>
             </div>
-        </div>
-        <div v-if="getLoggedIn" class="logged-in">
-            <router-link to="/profile">
-            <Base-button @click.native="toggleModal" color="teal">See my profile</Base-button>
-            </router-link>
 
-            <router-link to="/">
-            <Base-button @click.native="signOut" color="offwhite">Sign out</Base-button>
-            </router-link>
         </div>
-
-    </div>
 
 
   </header>
@@ -60,7 +49,6 @@
 
 <script>
 import SearchField from "@/components/SearchField.vue";
-import {mapActions, mapGetters} from "vuex";
 // import BaseModal from '@/components/BaseModal.vue'
 export default {
 components:{
@@ -70,30 +58,17 @@ components:{
 data(){
     return{
         modalActive:false,
-        user:{email: '', password: ''}
     }
 },
 computed:{
     loginModalActive(){
         return this.modalActive
-    },
-
-    ...mapGetters(['getLoggedIn'])
+    }
 },
 methods:{
     toggleModal(){
         this.modalActive = !this.modalActive
-    },
-    signIn(){
-        this.logIn(this.user)
-        this.user = {email:'', password: ''}
-        this.toggleModal()
-    },
-    signOut(){
-        this.logOut()
-        this.toggleModal()
-    },
-    ...mapActions(['logIn', 'logOut'])
+    }
 }
 }
 </script>

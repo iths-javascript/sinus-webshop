@@ -48,7 +48,38 @@ export default {
   },
   getters: {
     getProducts(state) {
-      return state.products
+      if (state.searchPhrase.length == 0) {
+        return state.products
+      }else{
+        //--
+        let filteredProducts = []
+        state.products.map(prod => {
+          for (let key in prod){
+            if(typeof prod[key] != 'number'){
+              if (prod[key].toLowerCase().includes(state.searchPhrase)) { //hittar en match
+                if (filteredProducts.length == 0) {
+                  filteredProducts.push(prod)
+                }  
+                let rep = true               
+                filteredProducts.map( filProd => {
+                  if (filProd._id != prod._id) {
+                    rep = false
+                  }
+                  if (filProd._id == prod._id) {
+                    rep = true
+                  }
+                })
+                  if (rep == false) {
+                    filteredProducts.push(prod)
+                  }
+              }
+            }
+          }
+        })
+        //--
+        return filteredProducts
+      }
+        
     },
     getSingleProduct: state => id =>
       state.products.find(product => product._id == id)
