@@ -1,6 +1,6 @@
 <template>
     <div class="search-field-wrapper">
-        <input type="text">
+        <input @input="setSearchPhrase" v-model="searchPhrase" type="text">
         <span class="search-icon-wrapper">
             <img src="@/assets/icons/search.svg" alt="">
         </span>
@@ -11,7 +11,22 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            searchPhrase: ''
+        }
+    },
+    methods:{
+        setSearchPhrase(){
+            this.searchPhrase = this.searchPhrase.toLowerCase()
+            this.$store.dispatch('setSearchPhrase', this.searchPhrase)
+        }
+    },
+    computed:{
+        getSearchPhrase(){
+            return this.$store.getters.getSearchPhrase
+        }
+    }
 }
 </script>
 
