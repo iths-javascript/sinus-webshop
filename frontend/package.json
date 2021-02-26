@@ -11,7 +11,8 @@
     "core-js": "^3.9.0",
     "vue": "^3.0.0-beta.1",
     "vue-router": "^4.0.0-alpha.6",
-    "vuex": "^4.0.0-alpha.1"
+    "vuex": "^4.0.0-alpha.1",
+    "webpack": "file:../../../.nvm/versions/node/v15.10.0/lib/node_modules/webpack"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.11",
@@ -24,7 +25,6 @@
     "eslint": "^7.20.0",
     "eslint-plugin-vue": "^7.6.0",
     "node-sass": "5.0.0",
-    "sass-loader": "11.0.1",
-    "vue-cli-plugin-vue-next": "~0.1.4"
+    "sass-loader": "11.0.1"
   }
 }
