@@ -4,8 +4,9 @@ import * as Mutations from './mutation-types'
 export default {
   state: {
     cart: {
-      items: ['w8y0DgIGVrABj2oa', 'LiBcK7LM2uENhMIR']
+      items: []
     },
+    cartObject: {},
     currentOrder: null,
     products: [],
     searchPhrase: '',
@@ -16,8 +17,25 @@ export default {
       state.products = payload
       state.productsLoading = false
     },
-    [Mutations.ADD_TO_CART](state, payload) {
-      state.cart.items.push(payload)
+    [Mutations.SET_CART_OBJECT](state) {
+      for (let product of state.products) {
+        const id = product._id;
+        state.cartObject[id] = product
+      }
+    },
+    [Mutations.ADD_TO_CART](state, id) {
+      state.cart.items.push(id)
+      state.cartObject[id].amount++
+    },
+    [Mutations.REMOVE_FROM_CART](state, id) {
+      let index = state.cart.items.indexOf(id)
+      state.cart.items.splice(index, 1)
+      state.cartObject[id].amount--
+    },
+    [Mutations.DELETE_FROM_CART](state, id) {
+      state.cart.items = state.cart.items.filter(item => item != id)
+
+      state.cartObject[id].amount = 0;
     },
     [Mutations.SET_SEARCH_PHRASE](state, payload) {
       state.searchPhrase = payload
@@ -32,8 +50,17 @@ export default {
 
       commit(Mutations.SET_PRODUCTS, products)
     },
-    async addToCart({ commit }, payload) {
-      commit(Mutations.ADD_TO_CART, payload)
+    setCartObject({ commit }) {
+      commit(Mutations.SET_CART_OBJECT)
+    },
+    addToCart({ commit }, id) {
+      commit(Mutations.ADD_TO_CART, id)
+    },
+    removeFromCart({ commit }, id) {
+      commit(Mutations.REMOVE_FROM_CART, id)
+    },
+    deleteFromCart({ commit }, id) {
+      commit(Mutations.DELETE_FROM_CART, id)
     },
     async submitOrder({ commit, state, rootState }) {
       const response = await API.submitOrder(state.cart, rootState.userModule.userToken)
@@ -85,20 +112,14 @@ export default {
       state.products.find(product => product._id == id)
     ,
     getCart(state) {
-      let cartArray = []
 
-      state.cart.items.forEach(id => {
-        for (let product of state.products) {
-          if (id == product._id) {
-            cartArray.push(product)
-          }
-        }
-      })
-
-      return cartArray
+      return state.cartObject
     },
     getSearchPhrase(state) {
       return state.searchPhrase
+    },
+    getProductsLoading(state) {
+      return state.productsLoading
     }
   },
 }
