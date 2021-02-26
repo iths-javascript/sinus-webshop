@@ -13,14 +13,13 @@ export async function fetchProducts() {
 
 
 export async function submitOrder(payload, userToken) {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${userToken}`
-    }
-  }
-
   try {
-    const response = await API.post('/orders', payload, config)
+    const response = await API.post('/orders', payload, {
+      headers: {
+        Authorization: `Bearer ${userToken}`
+      }
+    })
+
     return response.data
   } catch (e) {
     return false
@@ -39,11 +38,50 @@ export async function registerUser(payload) {
   return false
 }
 
+export async function getUser(userToken) {
+  try {
+    const response = await API.get('/me', {
+      headers: {
+        Authorization: `Bearer ${userToken}`
+      }
+    })
+
+    return response.data
+  } catch (e) {
+    console.log(e.message)
+    return false
+  }
+}
+
+export async function updateUser(payload, userToken) {
+  try {
+    const response = await API.patch('/me', payload, {
+      headers: {
+        Authorization: `Bearer ${userToken}`
+      }
+    })
+    return response
+  } catch (e) {
+    console.log(e.message)
+    return false
+  }
+}
+
 export async function authenticate(payload) {
   try {
     const response = await API.post('/auth/', payload)
+    setStorage(response.data.token)
     return response.data
   } catch (e) {
     return false
   }
 }
+
+export function clearStorage() {
+  sessionStorage.removeItem('user')
+}
+
+function setStorage(payload) {
+  sessionStorage.setItem('user', JSON.stringify(payload))
+}
+
