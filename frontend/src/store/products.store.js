@@ -120,6 +120,9 @@ export default {
     },
     getProductsLoading(state) {
       return state.productsLoading
+    },
+    getCartLength(state){
+      return state.cart.items.length
     }
   },
 }
