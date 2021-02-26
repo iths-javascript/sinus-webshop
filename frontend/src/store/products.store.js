@@ -4,7 +4,7 @@ import * as Mutations from './mutation-types'
 export default {
   state: {
     cart: {
-      items: ["Ta7lPlLDDQjHmnGH", "xeMCFNwWpe3KF0Mc"]
+      items: []
     },
     cartObject: {},
     currentOrder: null,
