@@ -22,22 +22,34 @@
     </div>
 
         <div v-if="loginModalActive" class="signInBox">
-            <h2>SIGN IN</h2>
+            <div v-if="!isLoggedIn" class="sign-in-form">
+                <h2>SIGN IN</h2>
 
-            <div class="email">
-            <label id for="email">Email:</label>
-            <input id="email" type="email">
+                <div class="email">
+                <label id for="email">Email:</label>
+                <input v-model="user.email" id="email" type="email">
+                </div>
+
+                <div class="password">
+                <label id for="password">Password:</label>
+                <input @keyup.enter="signIn" v-model="user.password" id="password" type="password">
+                </div>
+                <p v-if="wrongUserDetails" class="error-message">Wrong email or password, please try again.</p>
+
+                <div class="button-link-wrapper">
+                    <Base-button @click.native="signIn" class="base-button" color="teal">Sign in</Base-button>
+                    <router-link to="/register">
+                        <p class="register-text">or <span class="register-link">Register an account</span></p>
+                    </router-link>
+                </div>
             </div>
 
-            <div class="password">
-            <label id for="password">Password:</label>
-            <input id="password" type="password">
-            </div>
-
-            <div class="button-link-wrapper">
-                <Base-button class="base-button" color="teal">Sign in</Base-button>
-                <router-link to="/register">
-                <p class="register-text">or <span class="register-link">Register an account</span></p>
+            <div v-if="isLoggedIn" class="already-logged-in">
+                <router-link to="/profile">
+                    <Base-button @click.native="toggleModal" class="base-button" color="teal">My profile</Base-button>
+                </router-link>
+                <router-link to="/">
+                    <Base-button @click.native="signOut" class="base-button" color="offwhite">Sign out</Base-button>
                 </router-link>
             </div>
 
@@ -58,16 +70,31 @@ components:{
 data(){
     return{
         modalActive:false,
+        user : {email: '', password: ''}
     }
 },
 computed:{
     loginModalActive(){
         return this.modalActive
+    },
+    isLoggedIn(){
+        return this.$store.getters.getLoggedIn
+    },
+    wrongUserDetails(){
+        return this.$store.getters.getWrongUserDetails
     }
 },
 methods:{
     toggleModal(){
         this.modalActive = !this.modalActive
+    },
+    signIn(){
+        this.$store.dispatch('logIn', this.user)
+        this.user = {email: '', password: ''}
+    },
+    signOut(){
+        this.$store.dispatch('logOut')
+        this.toggleModal()
     }
 }
 }
@@ -177,7 +204,10 @@ methods:{
                 font-weight: bold;
             }
         }
-            
+        .error-message{
+            color: red;
+            margin-left: 100px;
+        }  
     }
 }
 </style>

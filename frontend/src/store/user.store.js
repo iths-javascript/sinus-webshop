@@ -7,7 +7,8 @@ export default {
     orderHistory: null,
     userToken: null,
     isLoggedIn: false,
-    userLoading: false
+    userLoading: false,
+    wrongUserDetails: false
   },
   mutations: {
     [Mutations.SET_CURRENT_USER](state, payload) {
@@ -24,7 +25,10 @@ export default {
     },
     [Mutations.SET_USER_LOADING](state, payload) {
       state.userLoading = payload
-    }
+    },
+    [Mutations.SET_WRONG_USER_DETAILS](state, payload) {
+      state.wrongUserDetails = payload
+    },
   },
   actions: {
     async registerUser({ dispatch }, payload) {
@@ -54,6 +58,7 @@ export default {
       const response = await API.authenticate(payload)
 
       if (response) {
+        commit(Mutations.SET_WRONG_USER_DETAILS, false)
         commit(Mutations.SET_USER_TOKEN, response.token)
         commit(Mutations.SET_CURRENT_USER, response.user)
         commit(Mutations.SET_LOGGED_IN, true)
@@ -62,6 +67,9 @@ export default {
         if (orders) {
           commit(Mutations.SET_ORDER_HISTORY, orders)
         }
+      }// else => ge user feedback om man inte kunde logga in
+      else{
+        commit(Mutations.SET_WRONG_USER_DETAILS, true)
       }
     },
     logOut({ commit }) {
@@ -92,6 +100,9 @@ export default {
     },
     getOrderHistory(state) {
       return state.orderHistory
+    },
+    getWrongUserDetails(state) {
+      return state.wrongUserDetails
     }
   },
 }
