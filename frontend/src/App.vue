@@ -14,6 +14,7 @@ import TheFooter from '@/components/TheFooter.vue'
 export default {
   async created() {
     await this.$store.dispatch('fetchProducts')
+    await this.$store.dispatch("setCartObject")
   },
   components:{
     TheHeader,
