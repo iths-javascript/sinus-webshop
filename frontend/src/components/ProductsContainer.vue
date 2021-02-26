@@ -1,23 +1,28 @@
 <template>
   <div id="product-holder">
     <ProductsItemHolder
-      v-for="(item, index) in products"
-      :key="index"
+      v-for="item in products"
+      :key="item.id"
       :title="item.title"
       :price="item.price"
       :img="item.imgFile"
+      :id="item.id"
+      :longDesc="item.longDesc"
       class="product"
     />
+    <!-- <ProductDescription v-if="prodDescStatus" /> -->
   </div>
 </template>
 
 <script>
 import { get, PRODUCTS_URL } from "@/api/api.js";
 import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
+// import ProductDescription from "@/components/ProductDescription.vue";
 
 export default {
   components: {
     ProductsItemHolder,
+    // ProductDescription,
   },
   created: async function () {
     const response = await get(PRODUCTS_URL);

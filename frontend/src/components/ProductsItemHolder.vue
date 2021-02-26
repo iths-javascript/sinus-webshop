@@ -1,14 +1,31 @@
 <template>
-  <div id="product">
+  <div id="product" @click="modalStatus = !modalStatus">
     <h3>{{ title }}</h3>
     <p>price: {{ price }}</p>
     <img :src="getImgUrl(img)" alt="product image" height="240px" />
     <button>Add to cart</button>
+    <ProductDescription
+      v-if="modalStatus"
+      :img="img"
+      :price="price"
+      :title="title"
+      :longDesc="longDesc"
+    />
   </div>
 </template>
 
 <script>
+import ProductDescription from "@/components/ProductDescription.vue";
+
 export default {
+  data() {
+    return {
+      modalStatus: false,
+    };
+  },
+  components: {
+    ProductDescription,
+  },
   props: {
     title: {
       type: String,
@@ -17,6 +34,12 @@ export default {
       type: Number,
     },
     img: {
+      type: String,
+    },
+    longDesc: {
+      type: String,
+    },
+    id: {
       type: String,
     },
   },
