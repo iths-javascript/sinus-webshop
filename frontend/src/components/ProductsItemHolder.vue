@@ -2,8 +2,8 @@
   <div id="product">
     <h3>{{ title }}</h3>
     <p>price: {{ price }}</p>
+    <img :src="getImgUrl(img)" alt="product image" height="240px" />
     <button>Add to cart</button>
-    <img :src="getImgUrl(img)" alt="product image" height="80px" />
   </div>
 </template>
 
@@ -32,6 +32,7 @@ export default {
 #product {
   border: 1px black solid;
   margin-bottom: 40px;
-  width: 120px;
+  display: flex;
+  flex-direction: column;
 }
 </style>

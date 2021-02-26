@@ -6,6 +6,7 @@
       :title="item.title"
       :price="item.price"
       :img="item.imgFile"
+      class="product"
     />
   </div>
 </template>
@@ -30,11 +31,17 @@ export default {
       products: [],
     };
   },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 #product-holder {
   display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+.product {
+  margin-left: 60px;
 }
 </style>

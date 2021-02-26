@@ -28,6 +28,7 @@ export default {
       password: "password",
     };
   },
+
   methods: {
     showPassword() {
       if (this.password === "password") {
@@ -36,6 +37,7 @@ export default {
         this.password = "password";
       }
     },
+
     exitLogin() {
       this.$emit("clicked", false);
     },

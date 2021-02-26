@@ -1,6 +1,6 @@
 <template>
-  <div>
-    products shown here
+  <div id="product-view">
+    products shown here when backend server is open
     <ProductsContainer />
     <ProductDescription />
   </div>
@@ -15,8 +15,14 @@ export default {
     ProductsContainer,
     ProductDescription,
   },
+  methods: {},
 };
 </script>
 
 <style>
+#product-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
