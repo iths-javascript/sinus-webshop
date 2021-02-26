@@ -16,6 +16,7 @@ export default {
     if (userToken) {
       await this.$store.dispatch('getUser', userToken)
     }
+    await this.$store.dispatch('setCartObject')
   },
   components: {
     TheHeader,
