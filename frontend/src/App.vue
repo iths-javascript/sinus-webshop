@@ -1,11 +1,9 @@
 <template>
- <div class="app-wrapper">
-  <The-header></The-header>
-  <router-view />
-  <The-footer></The-footer>
-
- </div>
-
+  <div class="app-wrapper">
+    <The-header></The-header>
+    <router-view />
+    <The-footer></The-footer>
+  </div>
 </template>
 <script>
 import TheHeader from '@/components/TheHeader.vue'
@@ -14,20 +12,22 @@ import TheFooter from '@/components/TheFooter.vue'
 export default {
   async created() {
     await this.$store.dispatch('fetchProducts')
-    await this.$store.dispatch("setCartObject")
+    const userToken = JSON.parse(sessionStorage.getItem('user'))
+    if (userToken) {
+      await this.$store.dispatch('getUser', userToken)
+    }
+    await this.$store.dispatch('setCartObject')
   },
-  components:{
+  components: {
     TheHeader,
     TheFooter,
-
-  }
+  },
 }
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Yanone+Kaffeesatz:wght@400;700&display=swap');
-@import "./styles/_variables.scss";
-
+@import './styles/_variables.scss';
 
 * {
   box-sizing: border-box;
@@ -41,19 +41,20 @@ export default {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  
 }
 
 #app {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  
 }
 
-
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
@@ -76,5 +77,4 @@ h4 {
 h5 {
   font-size: 2.4rem;
 }
-
 </style>

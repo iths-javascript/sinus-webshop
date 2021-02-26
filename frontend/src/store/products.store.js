@@ -32,9 +32,9 @@ export default {
       state.cart.items.splice(index, 1)
       state.cartObject[id].amount--
     },
-    [Mutations.DELETE_FROM_CART](state, id){
+    [Mutations.DELETE_FROM_CART](state, id) {
       state.cart.items = state.cart.items.filter(item => item != id)
-      
+
       state.cartObject[id].amount = 0;
     },
     [Mutations.SET_SEARCH_PHRASE](state, payload) {
@@ -50,16 +50,16 @@ export default {
 
       commit(Mutations.SET_PRODUCTS, products)
     },
-    setCartObject({commit}) {
+    setCartObject({ commit }) {
       commit(Mutations.SET_CART_OBJECT)
     },
     addToCart({ commit }, id) {
       commit(Mutations.ADD_TO_CART, id)
     },
-    removeFromCart({commit}, id) {
+    removeFromCart({ commit }, id) {
       commit(Mutations.REMOVE_FROM_CART, id)
     },
-    deleteFromCart({commit}, id) {
+    deleteFromCart({ commit }, id) {
       commit(Mutations.DELETE_FROM_CART, id)
     },
     async submitOrder({ commit, state, rootState }) {
@@ -81,7 +81,7 @@ export default {
       state.products.find(product => product._id == id)
     ,
     getCart(state) {
-      
+
       return state.cartObject
     },
     getSearchPhrase(state) {
