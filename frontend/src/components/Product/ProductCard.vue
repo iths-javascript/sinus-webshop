@@ -27,11 +27,17 @@ export default {
 article {
   display: grid;
   grid-template-columns: auto auto auto;
-  /* grid-template-rows: repeat(6, 55px); */ 
-  grid-template-rows: auto auto auto; 
+  /* grid-template-rows: repeat(6, 55px); */
+  grid-template-rows: auto auto auto;
   background-color: white;
   height: 327px;
   width: 245px;
+  overflow-y: auto;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
 }
 
 .rating-container {
@@ -59,6 +65,13 @@ article {
   grid-column: span 6;
   grid-row: span 4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  /* margin-top: 2rem;
+  padding: 2rem; */
 }
 
 .title-desc {

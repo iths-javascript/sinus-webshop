@@ -5,18 +5,20 @@
         <h1>TOP-SELLING SKATEBOARDS</h1>
         <div class="top-img-wrapper">
           <!-- <div class="prod-card-left"> -->
-            <Product-card class="prod-card-left"
-              v-for="(product, index) in products.slice(0, 1)"
-              :key="index"
-              :product="product"
-            />
+          <Product-card
+            class="prod-card-left"
+            v-for="(product, index) in products.slice(0, 1)"
+            :key="index"
+            :product="product"
+          />
           <!-- </div> -->
           <!-- <div class="prod-card-right"> -->
-            <Product-card class="prod-card-right"
-              v-for="(product, index) in products.slice(1, 2)"
-              :key="index"
-              :product="product"
-            />
+          <Product-card
+            class="prod-card-right"
+            v-for="(product, index) in products.slice(1, 2)"
+            :key="index"
+            :product="product"
+          />
           <!-- </div> -->
         </div>
         <h3>VIEW ALL PRODUCTS</h3>
@@ -79,16 +81,23 @@ h3 {
   flex-direction: row;
   justify-content: center;
   gap: 30px;
- 
-  
 }
 
 .prod-card-left,
 .prod-card-right {
   height: 526px;
   width: 419px;
-  border-radius: 5px;
-  
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  margin-top: 2rem;
+  padding: 2rem;
+
+  width: 400px;
+  background-color: whitesmoke;
 }
 
 .landing-bottom {
@@ -107,11 +116,15 @@ h3 {
   grid-template-rows: 3; */
   align-items: center;
   justify-content: center;
+  border: none;
+  
+
   /* row-gap: 20px;
   column-gap: 20px;  */
 }
 
-.bottom-products h2, p{
+.bottom-products h2,
+p {
   color: white;
 }
 

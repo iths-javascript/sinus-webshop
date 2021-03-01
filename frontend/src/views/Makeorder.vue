@@ -91,9 +91,13 @@
         <h3 class="payment-text">2. PAYMENT</h3>
         Choose your payment methods
         <input type="radio" checked />
-        <img src="@/assets/icons8-visa.svg" alt="" class="card-icons">
+        <img src="@/assets/icons8-visa.svg" alt="" class="card-icons" />
         <input type="radio" checked />
-        <img src="@/assets/icons8-mastercard-64.png" alt="" class="card-icons">
+        <img
+          src="@/assets/icons8-mastercard-64.png"
+          alt=""
+          class="card-icons"
+        />
         <label class="inputs" for="">Card Owner</label>
         <input class="details" type="text" />
         <label class="inputs" for="">Card Number</label>
