@@ -1,4 +1,8 @@
-const PRODUCTS_URL = `${BASE_URL}products`;
+import axios from 'axios'
+
+const BASE_URL = "http://localhost:5000/api/";
+
+const POST_URL = `${BASE_URL}auth/`;
 
 const post = async (url, user) => {
 
@@ -12,4 +16,8 @@ const post = async (url, user) => {
     catch (error) {
         console.log(error)
     }
+}
+
+export {
+    POST_URL, post
 }

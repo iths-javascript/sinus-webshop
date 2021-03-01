@@ -1,13 +1,19 @@
 <template>
   <div id="login-modal">
-    <form>
+    <form @submit.prevent="authentication">
       <section class="mail">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" required />
+        <input
+          type="text"
+          name="email"
+          id="email"
+          v-model="userMail"
+          required
+        />
       </section>
       <section class="password">
         <label for="password">Password</label>
-        <input :type="password" id="password" required />
+        <input :type="password" id="password" v-model="userPassWord" required />
         <input type="checkbox" @click="showPassword" /> Visa lösenord
       </section>
       <input type="submit" value="Log in" />
@@ -22,14 +28,31 @@
 </template>
 
 <script>
+import { post, POST_URL } from "@/api/post.js";
+
 export default {
   data() {
     return {
       password: "password",
+      userMail: "",
+      userPassWord: "",
+      token: {},
     };
   },
 
   methods: {
+    authentication: async function () {
+      const userLogin = {
+        email: this.userMail,
+        password: this.userPassWord,
+      };
+
+      const response = await post(POST_URL, userLogin);
+
+      // this.token = response;
+
+      console.log(response);
+    },
     showPassword() {
       if (this.password === "password") {
         this.password = "text";

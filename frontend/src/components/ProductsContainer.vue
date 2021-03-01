@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { get, PRODUCTS_URL } from "@/api/api.js";
+import { get, PRODUCTS_URL } from "@/api/get.js";
 import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
 // import ProductDescription from "@/components/ProductDescription.vue";
 

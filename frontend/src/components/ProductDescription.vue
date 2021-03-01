@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { getProductById, PRODUCTID_URL } from "@/api/api.js";
+import { getProductById, PRODUCTID_URL } from "@/api/get.js";
 
 export default {
   created: async function () {
