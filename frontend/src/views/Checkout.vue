@@ -128,7 +128,11 @@ methods: {
 <style  lang="scss" scoped>
 @import "@/styles/_variables.scss";
 
-h2 {
+section {
+  max-width: 100rem;
+  margin: auto;
+
+  h2 {
   text-align: center;
   margin: 5rem 0;
 }
@@ -257,4 +261,6 @@ h2 {
       }
   
 }
+}
+
 </style>

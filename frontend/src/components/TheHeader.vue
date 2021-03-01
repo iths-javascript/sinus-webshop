@@ -16,8 +16,8 @@
                 <span class="cart-counter">{{getCartAmount}}</span>
             </div>
 
-            <img @click="toggleModal" src="@/assets/icons/profile.svg" alt="profile" class="profile">
-
+            <img v-if="!isLoggedIn" @click="toggleModal" src="@/assets/icons/profile.svg" alt="profile" class="profile">
+            <div v-else @click="toggleModal" class="initials">{{userInitials}}</div>
         </div>
     </div>
 
@@ -39,7 +39,7 @@
                 <div class="button-link-wrapper">
                     <Base-button @click.native="signIn" class="base-button" color="teal">Sign in</Base-button>
                     <router-link to="/register">
-                        <p class="register-text">or <span class="register-link">Register an account</span></p>
+                        <p class="register-text">or <span @click="toggleModal" class="register-link">Register an account</span></p>
                     </router-link>
                 </div>
             </div>
@@ -85,8 +85,12 @@ computed:{
     },
     getCartAmount(){
         return this.$store.getters.getCartLength
+    },
+    userInitials() {
+        const name = this.$store.getters.getCurrentUser.name
+        let [first, last] = name.split(' ')
+        return `${first[0]}${last[0]}`
     }
-        
 },
 methods:{
     toggleModal(){
@@ -138,6 +142,21 @@ methods:{
                     height: 5rem;
                     margin-left: 3rem;
                 }
+                .initials {
+                    align-items: center;
+                    border: 3px solid #fff;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    height: 5rem;
+                     margin-left: 3rem;
+                    min-width: 5rem;
+                    padding: 1rem;
+                    border-radius: 50%;
+                    background-color: $tertiary-clr;
+                }
                 .cart-img{
                     position: relative;
                     .cart-counter{
@@ -146,11 +165,10 @@ methods:{
                         position: absolute;
                         top: -14px;
                         right: -14px;
-                        // padding: 6px;
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        background-color: red;
+                        background-color: $tertiary-clr;
                         border-radius: 50%;
                         color: white;
                         font-size: 1.4rem;
@@ -163,7 +181,7 @@ methods:{
         height: 450px;
         width: 450px;
         background-color: white;
-        position: fixed;
+        position: absolute;
         top: 10rem;
         right: 0;
         padding: 4rem 2rem;
@@ -171,7 +189,6 @@ methods:{
         flex-direction: column;
         align-content: center;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.596);
-        // justify-content: center;
         a{
             text-decoration: none;
             color: black;

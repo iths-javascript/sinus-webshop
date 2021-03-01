@@ -145,8 +145,14 @@ section {
     }
 
     input {
-      height: 2.5rem;
-      width: 75%;
+      background-color: $off-white;
+        border: 1px solid $secondary-clr-dk;
+        font-family: inherit;
+        font-size: 1.4rem;
+        height: 3rem;
+        outline: none;
+        padding: 0.5rem;
+        width: 75%;
     }
   }
      .error {

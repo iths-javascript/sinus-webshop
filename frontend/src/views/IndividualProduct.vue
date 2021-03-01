@@ -76,6 +76,7 @@ methods: {
 .single-product-wrapper {
   max-width: 100rem;
   margin: 0 auto;
+  min-height: 70rem;
 }
 
 .product {

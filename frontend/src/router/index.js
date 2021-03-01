@@ -31,7 +31,14 @@ const routes = [
   {
     path: '/checkout',
     name: 'Checkout',
-    component: Checkout
+    component: Checkout,
+    beforeEnter(to, from, next) {
+      if (from.path != '/cart') {
+        next('/')
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/thank-you',
@@ -41,7 +48,7 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: Register,
   },
   {
     path: '/profile',
@@ -51,15 +58,13 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    component: Admin
+    component: Admin,
   },
   {
     path: '*',
     name: 'NotFound',
     component: NotFound
   },
-
-  
 ]
 
 const router = new VueRouter({
