@@ -10,12 +10,12 @@
     <div v-if="!isAuthenticated" class="right-links">
       <router-link to="/login">Login</router-link>
       <router-link to="/register">Register</router-link>
-      <router-link to="#">Cart</router-link>
+      <router-link to="/cart">Cart</router-link>
     </div>
 
     <div v-else class="right-links">
       <router-link to="/profile">Profile</router-link>
-      <router-link to="#">Cart</router-link>
+      <router-link to="/cart">Cart</router-link>
       <a href="#" @click.prevent="logout">Logout</a>
     </div>
     <img src="@/assets/Person Icon.svg">

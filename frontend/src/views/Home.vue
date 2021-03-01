@@ -33,6 +33,7 @@
 
       <section class="product-grid-container">
         <ProductCard
+          @click.native="changeRoute(product._id)"
           v-for="(product, index) in products"
           :key="index"
           :product="product"
@@ -55,6 +56,13 @@ export default {
       return this.$store.getters.getProducts;
     },
   },
+
+methods:{
+  changeRoute(id){
+    this.$router.push(`/singleproduct/${id}`)
+  }
+},
+
 };
 </script>
 

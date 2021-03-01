@@ -3,35 +3,65 @@
     <div class="single-wrapper">
       <section class="image-section">
         <div class="image-wrapper">
-          <p>Eagle pic</p>
+          <img class="product-pic" :src="require(`@/assets/${product.imgFile}`)">
         </div>
-        <a href="">Show all products</a>
+        <router-link class="show-all-link" to="/">Show all products</router-link>
       </section>
 
       <section class="product-info">
         <p>Product info</p>
-        <h3>SKATEBOARD</h3>
+        <h3>{{product.title}}</h3>
         <div class="color-art">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>{{product.shortDesc}}</p>
+          <!-- <p>Lorem ipsum dolor sit amet.</p> -->
         </div>
         <div class="info-text">
-          <p>- Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-          <p>- Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-          <p>- Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <p>- {{product.longDesc}}</p>
+          <!-- <p>- Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <p>- Lorem ipsum dolor sit amet consectetur adipisicing.</p> -->
         </div>
-        <button class="toCart">Add to Cart</button>
+        <button class="toCart" @click="addToOrder(product)">Add to Cart</button>
       </section>
 
       <section class="products">
-        <p>Recommended items</p>
+        <div>
+          <p>OTHERS ALSO LOOKED AT:</p>
+        </div>
+        <div class="item-one">
+          <img :src="require(`@/assets/${products[0].imgFile}`)" alt="">
+        </div>
+        <div class="item-two">
+          <img :src="require(`@/assets/${products[9].imgFile}`)" alt="">
+        </div>
+        <div class="item-three">
+          <img :src="require(`@/assets/${products[6].imgFile}`)" alt="">
+          <p></p>
+        </div>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+computed:{
+  product(){
+    return this.$store.getters.getProductId(this.$route.params.id)
+  },
+  products(){
+    return this.$store.getters.getProducts;
+  }
+},
+
+methods:{
+  addToOrder(product){
+    this.$store.dispatch('addProductToOrder', product)
+  }
+}
+    
+
+};
 </script>
 
 <style scoped>
@@ -65,6 +95,14 @@ export default {};
   width: 455px;
   background-color: white;
 }
+.product-pic{
+  height: 526px;
+  width: 419px;
+}
+.show-all-link{
+  color: white;
+  cursor: pointer;
+}
 .product-info {
   display: flex;
   flex-direction: column;
@@ -81,5 +119,21 @@ export default {};
   height: 744px;
   width: 170px;
   background-color: gray;
+}
+
+.products img{
+  width: 170px ;
+  height:164px ;
+}
+
+.item-one{
+
+
+}
+.item-two{
+
+}
+.item-three{
+
 }
 </style>
