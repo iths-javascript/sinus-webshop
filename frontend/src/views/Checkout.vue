@@ -1,10 +1,17 @@
 <template>
-<section>Checkout</section>
+<section>
+  <h2>CHECKOUT</h2>
+  <OrderSummary class="cart-summary" />
+</section>
 </template>
 
 <script>
-export default {
+import OrderSummary from "@/components/OrderSummary.vue"
 
+export default {
+components: {
+  OrderSummary
+}
 }
 </script>
 
