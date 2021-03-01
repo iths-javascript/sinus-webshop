@@ -1,13 +1,11 @@
 <template>
   <div class="overlay">
-      <div class="fade-layer"></div>
+      <div class="fade-layer" @click="$emit('close')"></div>
           <div class="content-form">
               <slot></slot>
-              <!-- <LoginForm/> -->
-          </div>
-
-      
+          </div>   
   </div>
+          
 </template>
 
 <script>
@@ -25,14 +23,22 @@ export default {
 .fade-layer{
     position: fixed;
     left:0; bottom: 0; right: 0; top:0;
-    opacity: .5;
-    background-color:black;
+    /* opacity: .5;
+    background-color:black; */
 }
 .content-form{
-    position: fixed;
-    left: 50%;
-    top:50%;
+    position: absolute;
+    left: 75rem;
+    top:25rem;
     transform: translate(-50%,-50%);
 }
+
+.user-nav{
+    position: absolute;
+    left: 70rem;
+    top: 15rem;
+    transform: translate(-50%,-50%);
+}
+
 
 </style>

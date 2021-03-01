@@ -2,8 +2,8 @@
   <div id="app">
     <Header />
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <!-- <router-link to="/product">Product</router-link> | -->
+      <router-link to="/profile">Profile</router-link> |
+      <router-link to="/new-account">New Account</router-link> |
       <!-- <router-link to="/login-form">Login</router-link> |
       <router-link to="/overlay">overlay</router-link> -->
     </div>

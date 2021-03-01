@@ -20,5 +20,16 @@
             "city": "Tokbergaskogen"
         },
         "orderHistory": []
+    },
+    {
+        "email": "romi@example.com",
+        "name": "Romi Nixon",
+        "role": "customer",
+        "address": {
+            "street": "Tokitokvägen 4",
+            "zip": "123 46",
+            "city": "Tokbergaskogen"
+        },
+        "orderHistory": []
     }
 ]

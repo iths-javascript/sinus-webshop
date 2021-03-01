@@ -1,7 +1,7 @@
 <template>
-<div class="container-form">
+<div class="container-form" id="talkbubble">
 
-    <img @click="$emit('close')" class="close-login" src="../assets/close.svg" alt="">
+    <!-- <img @click="$emit('close')" class="close-login" src="../assets/close.svg" alt=""> -->
     <h1>Log in</h1>
     <div class="user-img">
         <img src="../assets/bird-blue.svg" alt="">
@@ -18,9 +18,9 @@
      <label for="password">Password</label>
      <input type="text" v-model="password" placeholder="password">
      <button class="login-button">Login</button>
-
-
  </form>
+    <h3>OR</h3>
+     <button @click="goToCreate" class="account-button">Create Account</button>
 
 </div>
 </template>
@@ -33,13 +33,16 @@ export default {
     name: 'LoginForm',
     data(){ 
         
-        var loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
+        let loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
         console.log(loggedinFromSessionStorage)
         return {
         email:"admin@example.com",
         password:"password",
-        loggedin: loggedinFromSessionStorage
+        loggedin: loggedinFromSessionStorage,
+        createNewAccount: false
         }
+
+
     },
 
     methods: {
@@ -75,18 +78,26 @@ export default {
             this.$emit('login', responseData) //emit till user secction
             // console.log(responseData)
             // this.$emit('login', responseData)
+        },
+        goToCreate(){
+            
+                this.$emit("close")
+                this.$router.push("/new-account")
+          
+            
         }
     }
 
 }
 </script>
 
-<style>
+<style scoped>
 .title{
     grid-column: 2;
 }
 .container-form{
-    background-color:#F5ADB8;
+    
+background-color:#F5ADB8;
 
   height: auto;
   padding: 1rem;
@@ -120,15 +131,25 @@ input{
 form{
     display: flex;
     min-width: 25rem;
+    height: auto;
     flex-direction: column;
     /* grid-column: 2; */
     /* background-color: thistle; */
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     
 }
 .login-button{
     margin-top: 2rem;
-    margin-left: 140px;
+    margin-left: 128px;
+}
+
+.account-button{
+    margin-top: 1rem;
+}
+.account-button:hover{
+    
+    background-color: #B2D1A8;
+    color:#2B2B2B;
 }
 
 .login-button:hover{
@@ -165,4 +186,33 @@ button{
     width: 20px;
     cursor: pointer;
 }
+
+#talkbubble {
+      max-width: 380px;
+      min-height: auto;
+      background: #F5ADB8;
+      position: relative;
+      /* -moz-border-radius: 10px;
+      -webkit-border-radius: 10px; */
+      /* border-radius: 10px; */
+    }
+    #talkbubble:before {
+      content: "";
+      position: absolute;
+      left:79.8%;
+      top:-20px;
+    
+      /* right: 100%;
+      top: 26px; */
+       width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 20px solid #F5ADB8;
+      /* width: 0;
+      height: 0;
+      border-top: 13px solid transparent;
+      border-right: 26px solid blue;
+      border-bottom: 13px solid transparent; */
+    }
 </style>

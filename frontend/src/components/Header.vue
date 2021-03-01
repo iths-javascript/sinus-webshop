@@ -24,10 +24,15 @@
             <img src="@/assets/search.svg" class="search" alt="search">
             <img src="@/assets/like.svg" class="like" alt="favorites">
             <img @click="showForm = !showForm" src="@/assets/user.svg" class="user" alt="user">
+            <img @click="showUserMenu = !showUserMenu" src="@/assets/login-icon-pink.svg" class="user" alt="user">
             <img src="@/assets/cart.svg" class="cart" alt="cart">
         </div>
-        <Overlay v-if="showForm">
+        <Overlay v-if="showForm" @close="showForm = false">
             <LoginForm @close="showForm = false"/>
+        </Overlay>
+
+         <Overlay v-if="showUserMenu" @close="showUserMenu = false">
+            <Profile @close="showUserMenu = false"/>
         </Overlay>
     </div>
 </div>
@@ -36,12 +41,14 @@
 <script>
 import LoginForm from '@/components/LoginForm'
 import Overlay from '@/components/Overlay.vue'
+import Profile from '@/views/Profile.vue'
 export default {
     data(){return{
         showForm: false,
+        showUserMenu: false
         }
     },
-    components:{LoginForm, Overlay}
+    components:{LoginForm, Overlay, Profile}
 
 }
 </script>
