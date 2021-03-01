@@ -1,9 +1,9 @@
 <template>
   <section>
     <header>
-      <router-link to="/product/OGnJwmWIBXK928wX">
-        <img src="@/assets/products/Header.png" alt="Purple hoodie with sinus logo">
-      </router-link>
+      
+        <img src="@/assets/products/skate-hero-1.jpg" alt="Purple hoodie with sinus logo">
+      
     </header>
     <main>
       <p>Results: {{fetchProducts.length}}</p>
