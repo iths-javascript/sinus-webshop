@@ -2,27 +2,11 @@
 <template>
   <div class="cart">
     <img class="btn-icon" src="@/assets/icon-bag-white.svg" />
-    <div
-      class="product-list"
-      v-for="(product, index) in cartItems"
-      :key="index"
-    >
-      <div class="item-info" :key="index" @click="removeFromCart(index)">
-        <section class="thumbnail">
-          <img class="imgFile" :src="require(`@/assets/${product.imgFile}`)" />
-        </section>
-        <section class="product-info">
-          <h3 class="title">{{ product.title }}</h3>
-          <p class="shortDesc">{{ product.shortDesc }}</p>
-        </section>
-
-        <p class="price">{{ product.price }} Kr</p>
-      </div>
-    </div>
+    <CartItem v-for="(item,index) in cartItems" :key="index" :product="item"/>
     <span class="total-price">
       <p class="total-lable">TOTAL</p>
       <p class="sek-lable">
-        <strong>{{ $store.getters.getTotalCartPrice }}</strong>
+        <strong>{{ totalPrice }}</strong>
       </p>
     </span>
     <div>
@@ -31,19 +15,22 @@
   </div>
 </template>
 <script>
+import CartItem from '@/components/ShoppingCart/CartItem.vue'
 export default {
   name: "Cart",
-  props: { cartItem: Object },
+  components:{CartItem,},
   data() {
     return {
       showModal: false,
-      totalSum: 0,
     };
   },
   computed: {
     cartItems() {
-      return this.$store.state.cartItems;
+      return this.$store.getters.getOrderItems
     },
+    totalPrice(){
+      return this.$store.getters.getTotalPrice
+    }
   },
   methods: {
     sendToOrder() {
@@ -58,71 +45,19 @@ export default {
 
 <style scoped>
 .cart {
+  background-color: peachpuff;
   border: 2px solid gray;
   margin-top: 5rem;
-  position: absolute;
-  top: 0;
-  bottom: 0.1;
-  left: 3;
-  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #3c4858;
-  width: 18rem;
-  height: auto;
-  max-height: 800px;
-  min-height: 150px;
-  overflow-y: scroll;
+  width: 75%;
+  min-width: 350px;
+  max-width: 1440px;  
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
 }
-.cart .product-list {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 250px;
-  height: 45px;
-  margin-bottom: 2rem;
-}
-.cart .imgFile {
-  float: left;
-  width: 50px;
-  height: 40px;
-  border: 4px;
-}
-.cart .imgFile img {
-  float: left;
-  width: 45px;
-  height: 40px;
-}
-.cart .item-info {
-  display: flex;
-  flex-direction: row;
-  float: right;
-}
-.cart .title {
-  margin-left: 1rem;
-  font-size: 11px;
-  align-items: flex-start;
-  height: 20px;
-  margin-top: 1rem;
-}
-.cart .shortDesc {
-  font-size: 9px;
-  font-weight: bold;
-  margin-top: 2rem;
-  float: left;
-}
-.cart .price {
-  display: flex;
-  width: 10px;
-  align-items: flex-end;
-  justify-content: flex-end;
-  font-size: 12px;
-  margin-left: 5rem;
-}
+
 .cart .total-price {
   height: 20px;
   display: flex;
