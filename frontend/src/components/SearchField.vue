@@ -35,8 +35,7 @@
 export default {
     data(){
         return{
-            searchPhrase: '',
-            // showResultList: false
+            searchPhrase: ''
         }
     },
     methods:{
@@ -46,8 +45,7 @@ export default {
         },
         cleanSearchPhrase(){
             this.$store.dispatch('cleanSearchPhrase')
-        }
-            
+        }    
     },
     computed:{
         getSearchPhrase(){
@@ -74,7 +72,7 @@ export default {
     display: flex;
     align-items: center;
     margin-right: 6rem;
-    // position: relative;
+
     input{
         height: 3.4rem;
         width: 200px;
@@ -84,7 +82,7 @@ export default {
         font-size: 1.6rem;
     }
     .search-icon-wrapper{
-        background-color: $secondary-clr-dk;
+        background-color: $tertiary-clr;
         height: 3.4rem;
         display: flex;
         align-items: center;

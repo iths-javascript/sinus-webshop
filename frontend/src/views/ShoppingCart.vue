@@ -46,7 +46,7 @@ computed: {
   max-width: 100rem;
   padding: 5rem 0;
   margin: 0 auto;
-  min-height: 50rem;
+  min-height: 70rem;
 
   .large {
     font-size: 2.2rem;

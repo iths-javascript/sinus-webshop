@@ -17,7 +17,7 @@ export default {
 @import "@/styles/_variables.scss";
 
 section{
-    padding: 20rem 0;
+    padding: 8rem 0 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;

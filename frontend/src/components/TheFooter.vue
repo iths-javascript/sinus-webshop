@@ -2,7 +2,7 @@
   <footer>
       <div class="footer-content">
         <div class="shop">
-            <h3>Shop</h3>
+            <h4>Shop</h4>
             <a href="">Skateboards</a>
             <a href="">Clothing</a>
             <a href="">Protective gear</a>
@@ -11,7 +11,7 @@
         </div>
 
         <div class="info">
-            <h3>About us</h3>
+            <h4>About us</h4>
             <a href="">About us</a>
             <a href="">Delivery FAQs</a>
             <a href="">Returns policy</a>
@@ -19,7 +19,7 @@
             <a href="">Sustainability</a>
         </div>
         <div class="contact">
-            <h3>Contact</h3>
+            <h4>Contact</h4>
             <p>Tel: 01234 567 890</p>
             <p>Mon - Fri: 08:00 - 18:00</p>
             <a class="underline" href="">Contact us ></a>
@@ -29,7 +29,7 @@
             <a class="underline" href="">Fins us on google maps ></a>
         </div>
         <div class="payment">
-            <h3>Payment</h3>
+            <h4>Payment</h4>
             <div class="card-logo-wrapper">
                 <img src="@/assets/icons/visa.png" alt="">
                 <img src="@/assets/icons/mastercard.png" alt="">
@@ -67,20 +67,19 @@ export default {
         .footer-content{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
-    
             background-color: $primary-clr;
             height: fit-content;
             padding: 3rem 4rem;
 
         }
         color: white;
-            font-size: 2rem;
+            font-size: 1.4rem;
         a{
             color: white;
             text-decoration: none;
             display: block;
         }
-        h3{
+        h4{
             width: 100%;
             border-bottom: 4px solid $secondary-clr-lt;
             margin-bottom: 2rem;
@@ -97,6 +96,10 @@ export default {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 10px;
+
+                img {
+                    width: 6rem;
+                }
             }
         }
         .footer-banner{
@@ -107,7 +110,7 @@ export default {
             align-items: center;
             justify-content: space-between;
             img{
-                height: 4rem;
+                height: 2rem;
                 margin-left: 3rem;
             }
 

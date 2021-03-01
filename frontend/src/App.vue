@@ -18,6 +18,9 @@ export default {
     }
     await this.$store.dispatch('setCartObject')
   },
+  updated() {
+     window.scrollTo({ top: 0 })
+  },
   components: {
     TheHeader,
     TheFooter,

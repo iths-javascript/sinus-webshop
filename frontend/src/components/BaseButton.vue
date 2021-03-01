@@ -2,7 +2,7 @@
 
 <template>
 <button :class="color">
-  <h5><slot></slot></h5>
+  <slot></slot>
   
 </button>
 </template>
@@ -19,8 +19,11 @@ export default {
 @import "@/styles/_variables.scss";
 
 button {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   padding: 0.7rem 2rem;
   font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 200;
   text-transform: uppercase;
   border: none;
   cursor: pointer;  
