@@ -1,23 +1,45 @@
 //
 <template>
-  <div class="cart">
-    <CartItem v-for="(item,index) in cartItems" :key="index" :product="item"/>
-    <span class="total-price">
-      <p class="total-lable">TOTAL</p>
-      <p class="sek-lable">
-        <strong>{{ totalPrice }}</strong>
-      </p>
-    </span>
-    <div>
-      <a @click="addOrder" class="btn"> Take My Money</a>
+  <div class="wrapper">
+    <div class="cart">
+      <!-- <div class="cart-header">
+      <h1>Cart Items</h1>
+      <img src="@/assets/Sinus Logo.svg" />
+      <h1>SINUS</h1>
+      <p>SKATEBOARDS</p>
+     </div> -->
+      <CartItem
+        v-for="(item, index) in cartItems"
+        :key="index"
+        :product="item"
+      />
+    </div>
+    <div class="total-price">
+      <p class="total-lable">Total</p>
+      <div class="price-container">
+        <p class="sek-lable">item price:</p>
+        <p class="price">
+          <strong>{{ totalPrice }} Kr</strong>
+        </p>
+
+        <p class="shipping">Shipping:</p>
+        <p class="free">FREE</p>
+        <small class="text-muted">inkl.moms</small>
+        <hr />
+      </div>
+
+      <div>
+        <input class="details" type="text" placeholder="Enter Discount Code" />
+        <a @click="addOrder" class="btn"> Go to checkout</a>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import CartItem from '@/components/ShoppingCart/CartItem.vue'
+import CartItem from "@/components/ShoppingCart/CartItem.vue";
 export default {
   name: "Cart",
-  components:{CartItem,},
+  components: { CartItem },
   data() {
     return {
       showModal: false,
@@ -25,18 +47,18 @@ export default {
   },
   computed: {
     cartItems() {
-      return this.$store.getters.getOrderItems
+      return this.$store.getters.getOrderItems;
     },
-    totalPrice(){
-      return this.$store.getters.getTotalPrice
-    }
+    totalPrice() {
+      return this.$store.getters.getTotalPrice;
+    },
   },
   methods: {
     // sendToOrder() {
     //   this.$router.push("/MakeOrder");
     // },
     addOrder() {
-      this.$store.dispatch('createOrder')
+      this.$store.dispatch("createOrder");
     },
 
     removeFromCart(index) {
@@ -47,39 +69,66 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap");
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #3c4858;
+  gap: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  min-width: 350px;
+  max-width: 930px;
+}
+
 .cart {
-  background-color: peachpuff;
-  border: 2px solid gray;
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 75%;
-  min-width: 350px;
-  max-width: 1440px;  
+
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
 }
 
-.cart .total-price {
-  height: 20px;
+.total-price {
   display: flex;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 0.5rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 500px;
+  width: 255px;
+  background-color: whitesmoke;
+  margin-top: 15px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  
 }
-.cart .total-price .price {
-  display: flex;
-  align-items: flex-end;
-  width: 20px;
-  height: 10px;
-  float: right;
-}
-.cart .total-lable {
+
+.total-lable {
   color: black;
+  padding-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
 }
-.cart .sek-lable {
-  margin-left: 10rem;
+.sek-lable,
+.shipping {
+  margin-left: 5px;
+  text-align: start;
+  font-weight: 700;
+}
+.price,
+.free {
+  text-align: right;
+  margin-right: 5px;
+  font-weight: 500;
 }
 .btn {
   cursor: pointer;
@@ -87,38 +136,40 @@ export default {
   flex-direction: row;
   align-items: center;
   color: black;
-  height: 40px;
-  width: 250px;
+  height: 30px;
 }
-.btn .btn-icon {
-  margin-left: 4.5rem;
-  padding-right: 5px;
-}
+
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 248px;
-  height: 4rem;
+  width: 200px;
+  /* height: 2.2rem; */
   font-family: "PT Serif";
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
-  color: black;
-  border: 0.125rem solid rgba(0, 0, 0, 0.6);
+  color: white;
+  /* border: 0.125rem solid rgba(0, 0, 0, 0.6); */
   box-sizing: border-box;
-  border-radius: 3.125rem;
-  margin: 2rem 0;
-  margin-left: 2.5rem;
+  /* border-radius: 3.125rem; */
+  margin: 1rem 1rem 1rem 1rem;
+  margin-left: 1.5rem;
+  background-color: #5eb593;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
 }
 .btn:hover {
-  background: #5eb593;
-  color: #ddd;
-}
-.btn:active {
+  /* background: #5eb593;
+  color: #ddd; */
   background: #000;
   color: #fff;
 }
+/* .btn:active {
+  
+   background-color: #5eb593;
+   color: #ddd; 
+   color:#5eb593; 
+} */
 </style>
