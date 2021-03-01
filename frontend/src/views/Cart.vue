@@ -1,7 +1,6 @@
 //
 <template>
   <div class="cart">
-    <img class="btn-icon" src="@/assets/icon-bag-white.svg" />
     <CartItem v-for="(item,index) in cartItems" :key="index" :product="item"/>
     <span class="total-price">
       <p class="total-lable">TOTAL</p>
@@ -10,7 +9,7 @@
       </p>
     </span>
     <div>
-      <a @click="sendToOrder" class="btn"> Take My Money</a>
+      <a @click="addOrder" class="btn"> Take My Money</a>
     </div>
   </div>
 </template>
@@ -33,9 +32,13 @@ export default {
     }
   },
   methods: {
-    sendToOrder() {
-      this.$router.push("/MakeOrder");
+    // sendToOrder() {
+    //   this.$router.push("/MakeOrder");
+    // },
+    addOrder() {
+      this.$store.dispatch('createOrder')
     },
+
     removeFromCart(index) {
       this.$store.commit("removeFromCart", index);
     },
