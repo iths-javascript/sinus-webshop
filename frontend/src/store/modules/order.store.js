@@ -7,7 +7,7 @@
 
 // import router from '../../router';
 
-//  import axios from 'axios';
+ import axios from 'axios';
 
 export default{
   state:{
@@ -44,6 +44,32 @@ export default{
    addProductToOrder({commit},payload){
      commit(ADD_PRODUCT_ORDER, payload)
      commit(CALCULATE_PRICE)
+    }, 
+
+    async createOrder({ state}) {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      const body = {
+        items: []
+      }
+  
+      state.currentOrder.items.forEach(item => {
+        body.items.push(item._id)
+      })
+      console.log(this.$store)
+      console.log(body);
+      try {
+        const response = await axios.post('http://localhost:5000/api/orders',JSON.stringify(body), config);
+        console.log(response)
+      } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+          errors.forEach(error => console.log(error));
+        }
+      }
     }
 
   },
