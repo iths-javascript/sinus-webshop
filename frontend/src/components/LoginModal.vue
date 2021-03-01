@@ -20,7 +20,7 @@
     </form>
     <section class="footer">
       <router-link to="/SignUp">
-        <p>Not registered?</p>
+        <p @click="exitLogin">Not registered?</p>
       </router-link>
       <button @click="exitLogin">Cancel</button>
     </section>
@@ -28,7 +28,8 @@
 </template>
 
 <script>
-import { post, POST_URL } from "@/api/post.js";
+import { logIn, POST_URL_AUTH } from "@/api/post.js";
+import { getUser, POST_URL_USER } from "@/api/get.js";
 
 export default {
   data() {
@@ -36,7 +37,7 @@ export default {
       password: "password",
       userMail: "",
       userPassWord: "",
-      token: {},
+      token: "",
     };
   },
 
@@ -47,12 +48,19 @@ export default {
         password: this.userPassWord,
       };
 
-      const response = await post(POST_URL, userLogin);
+      const response = await logIn(POST_URL_AUTH, userLogin);
 
-      // this.token = response;
+      if (response === 200) {
+        this.$store.commit("changeLoginStatus");
 
-      console.log(response);
+        const userData = await getUser(POST_URL_USER);
+
+        this.$store.commit("setUserData", userData);
+      } else {
+        alert("Finns ingen sådan användare / Fel ifyllt email eller lösen");
+      }
     },
+
     showPassword() {
       if (this.password === "password") {
         this.password = "text";

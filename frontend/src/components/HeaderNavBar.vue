@@ -2,9 +2,10 @@
   <div id="nav">
     <router-link to="/">Home/Products</router-link> |
     <router-link to="/Checkout">Checkout</router-link> |
-    <router-link to="/MyAccount"
-      ><img src="@/assets/useraccount.png" alt="Sign Up" height="40px"
-    /></router-link>
+    <router-link to="/MyAccount">
+      <img src="@/assets/useraccount.png" alt="Sign Up" height="40px" />
+      <span v-if="userStatus">INLOGGAD</span>
+    </router-link>
     |
     <button @click="loginModal">Log in</button>
     |
@@ -29,6 +30,11 @@ export default {
   methods: {
     loginModal() {
       this.loginStatus = !this.loginStatus;
+    },
+  },
+  computed: {
+    userStatus() {
+      return this.$store.state.loginStatus;
     },
   },
 };

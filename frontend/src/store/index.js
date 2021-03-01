@@ -7,6 +7,10 @@ export default new Vuex.Store({
   state: {
     productModalStatus: false,
     productModalId: "",
+
+    loginStatus: false,
+
+    userData : {}
   },
   mutations: {
     changeProductModalStatus(state){
@@ -14,6 +18,12 @@ export default new Vuex.Store({
     },
     changeProductModalId(state, id){
       state.productModalId = id;
+    },
+    changeLoginStatus(state){
+      state.loginStatus = !state.loginStatus;
+    },
+    setUserData(state, user){
+      state.userData = user;
     }
   },
   actions: {
