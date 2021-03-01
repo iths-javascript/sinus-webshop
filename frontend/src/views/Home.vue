@@ -12,6 +12,7 @@
       <ProductCard v-for="product in fetchProducts" :key="product._id" :prod="product" />
     </section>
     </main>
+    <img @click="scrollUp" ref="topBtn" id="topBtn" src="@/assets/icons/arrow-up-white.svg" alt="">
   </section>
   
 </template>
@@ -30,6 +31,27 @@ export default {
     fetchProducts() {
       return this.$store.getters.getProducts
     }
+  },
+    created(){
+      window.addEventListener('scroll', this.handleScroll);
+  },
+   destroyed(){
+      window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods:{
+     handleScroll(){
+      //  window.scrollTo({ top: 0, behavior: 'smooth' })
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        this.$refs.topBtn.style.display = 'block';
+      } else {
+        this.$refs.topBtn.style.display = "none";
+      }
+    },
+    scrollUp(){
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // document.body.scrollTop = 0;
+      // document.documentElement.scrollTop = 0
+    },
   }
 }
 </script>
@@ -60,6 +82,19 @@ p {
   justify-content: center;
   
   
+}
+#topBtn {
+  height: 5rem;
+  width: 5rem;
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  padding: 1rem;
+  border-radius: 50%;
 }
 
 </style>
