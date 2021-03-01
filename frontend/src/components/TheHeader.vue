@@ -13,7 +13,7 @@
                 <router-link to="/cart">
                     <img src="@/assets/icons/cart.svg" alt="cart" class="cart">
                 </router-link>
-                <span class="cart-counter">0</span>
+                <span class="cart-counter">{{getCartAmount}}</span>
             </div>
 
             <img @click="toggleModal" src="@/assets/icons/profile.svg" alt="profile" class="profile">
@@ -82,7 +82,11 @@ computed:{
     },
     wrongUserDetails(){
         return this.$store.getters.getWrongUserDetails
+    },
+    getCartAmount(){
+        return this.$store.getters.getCartLength
     }
+        
 },
 methods:{
     toggleModal(){
