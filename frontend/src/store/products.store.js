@@ -79,6 +79,9 @@ export default {
     },
     async setSearchPhrase({ commit }, payload) {
       commit(Mutations.SET_SEARCH_PHRASE, payload)
+    },
+    cleanSearchPhrase({commit}){
+      commit(Mutations.SET_SEARCH_PHRASE, '')
     }
   },
   getters: {

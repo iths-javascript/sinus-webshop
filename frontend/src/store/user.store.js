@@ -42,8 +42,8 @@ export default {
       commit(Mutations.SET_USER_LOADING, true)
       const user = await API.getUser(payload)
       commit(Mutations.SET_USER_LOADING, false)
-      if (user) {
 
+      if (user) {
         commit(Mutations.SET_USER_TOKEN, payload)
         commit(Mutations.SET_CURRENT_USER, user)
         commit(Mutations.SET_LOGGED_IN, true)
@@ -52,9 +52,11 @@ export default {
         if (orders) {
           commit(Mutations.SET_ORDER_HISTORY, orders)
         }
+      } else {
+        API.clearStorage()
       }
     },
-    async logIn({ commit }, payload) {
+    async logIn({ commit, state }, payload) {
       const response = await API.authenticate(payload)
 
       if (response) {
@@ -63,12 +65,12 @@ export default {
         commit(Mutations.SET_CURRENT_USER, response.user)
         commit(Mutations.SET_LOGGED_IN, true)
 
-        const orders = await API.getOrders(payload)
+        const orders = await API.getOrders(state.userToken)
         if (orders) {
           commit(Mutations.SET_ORDER_HISTORY, orders)
         }
       }// else => ge user feedback om man inte kunde logga in
-      else{
+      else {
         commit(Mutations.SET_WRONG_USER_DETAILS, true)
       }
     },
