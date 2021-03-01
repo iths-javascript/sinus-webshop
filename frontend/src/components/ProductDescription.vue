@@ -1,5 +1,7 @@
 <template>
   <div id="productDescription">
+    <span class="close-image">X</span>
+
     <h1>{{ product.title }}</h1>
     <div class="productPhoto">
       <img :src="getImgUrl" alt="" height="180px" />
@@ -62,7 +64,8 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 70%;
-  background-color: wheat;
+  background-color:white;
+  border: 1px solid black;
 }
 .description {
   font-style: italic;
@@ -70,11 +73,18 @@ export default {
 .productPhoto {
   height: 200px;
   width: 200px;
-  background-color: teal;
+  background-color: white;
 }
 .add {
   background-color: green;
   height: 40px;
   width: 100px;
+}
+.close-image{
+  position: absolute;
+  z-index: 999;
+  padding: 10px;
+  right: 0;
+  cursor: pointer;
 }
 </style>
