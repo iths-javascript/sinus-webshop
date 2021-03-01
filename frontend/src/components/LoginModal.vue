@@ -52,7 +52,7 @@ export default {
 
       if (response === 200) {
         this.$store.commit("changeLoginStatus");
-
+        this.exitLogin();
         const userData = await getUser(POST_URL_USER);
 
         this.$store.commit("setUserData", userData);
@@ -70,7 +70,7 @@ export default {
     },
 
     exitLogin() {
-      this.$emit("clicked", false);
+      this.$emit("closeLogin");
     },
   },
 };
