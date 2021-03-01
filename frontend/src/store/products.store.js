@@ -7,7 +7,7 @@ export default {
       items: []
     },
     cartObject: {},
-    currentOrder: null,
+    
     products: [],
     searchPhrase: '',
     productsLoading: true
@@ -40,8 +40,15 @@ export default {
     [Mutations.SET_SEARCH_PHRASE](state, payload) {
       state.searchPhrase = payload
     },
-    [Mutations.SET_CURRENT_ORDER](state, payload) {
-      state.currentOrder = payload
+    [Mutations.RESET_CART](state) {
+      state.cart.items = []
+      
+    },
+    [Mutations.RESET_CART_OBJECT](state) {
+      for (let product of Object.values(state.cartObject)) {
+        product.amount = 0
+      }
+      
     }
   },
   actions: {
@@ -66,7 +73,8 @@ export default {
       const response = await API.submitOrder(state.cart, rootState.userModule.userToken)
 
       if (response) {
-        commit(Mutations.SET_CURRENT_ORDER, response)
+        commit(Mutations.RESET_CART)
+        commit(Mutations.RESET_CART_OBJECT)
       }
     },
     async setSearchPhrase({ commit }, payload) {
