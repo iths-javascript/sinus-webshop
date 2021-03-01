@@ -31,7 +31,7 @@
       <div class="delivery">
         
         <img src="@/assets/icons/shipping-icon.svg" alt="icon of a delivery lorry">
-        <p >Free delivery on orders over <strong>500kr</strong></p>
+        <p >Free delivery on orders over <strong>5000 kr</strong></p>
       </div>
       </div>
     </div>

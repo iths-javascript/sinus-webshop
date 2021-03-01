@@ -55,7 +55,7 @@ article {
   display: flex;
   border-bottom: 1px solid $secondary-clr-lt;
   width: 50rem;
-  margin-top: 3rem;
+  
 
   p {
     font-size: 1.4rem;
