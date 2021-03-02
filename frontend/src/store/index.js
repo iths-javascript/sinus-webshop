@@ -17,9 +17,24 @@ export default new Vuex.Store({
     loginStatus: false,
 
     //holds the information of the logged in user
-    userData : {}
+    userData : {},
+
+    shoppingCart: []
   },
 
+getters: {
+  getShoppingCartLength: state => {
+    return state.shoppingCart.length;
+  },
+  getAmountOfProduct: (state) => (id) => {
+    return state.shoppingCart.filter(item => id === item._id).length;
+  },
+  getTotalSum: (state) => {
+    let sum = 0;
+    state.shoppingCart.forEach(item => sum += item.price)
+    return sum;
+  }
+},
   mutations: {
     
     changeProductModalStatus(state){
@@ -33,10 +48,37 @@ export default new Vuex.Store({
     },
     setUserData(state, user){
       state.userData = user;
+    },
+    addProductToCart(state, product){
+      state.shoppingCart.push(product)
+    },
+    removeSingleItem(state,index){
+      state.shoppingCart.splice(index, 1);
+    },
+    setShoppingCart(state, newArray){
+      state.shoppingCart = newArray;
     }
   },
+
   actions: {
+    addProductToCart({commit}, product){
+      commit('addProductToCart', product)
+    },
+
+    removeOneItem({commit, state}, product){
+
+      var idx = state.shoppingCart.indexOf(product)
+      if (idx >= 0) {
+      commit('removeSingleItem', idx)
+    }
+    },
+
+    removeProductFromCart({commit, state}, id){
+      const array = state.shoppingCart.filter(item => item._id !== id)
+      commit('setShoppingCart', array)
+    }
   },
+
   modules: {
   }
 })

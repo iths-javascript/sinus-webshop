@@ -10,7 +10,7 @@
       />
     </section>
     <section>
-      <button>Add to cart</button>
+      <button @click="addToCart">Add to cart</button>
     </section>
   </div>
 </template>
@@ -33,6 +33,9 @@ export default {
       console.log(this.product);
       this.$store.commit("changeProductModalStatus");
       this.$store.commit("changeProductModalId", this.product._id);
+    },
+    addToCart() {
+      this.$store.dispatch("addProductToCart", this.product);
     },
   },
 };

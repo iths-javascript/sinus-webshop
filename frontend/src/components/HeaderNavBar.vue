@@ -1,41 +1,50 @@
 <template>
   <div id="nav">
     <router-link to="/">Home/Products</router-link> |
-    <router-link to="/Checkout">Checkout</router-link> |
     <router-link to="/MyAccount" v-if="userStatus">
       <span>ANVÄNDAREN INLOGGAD |</span>
     </router-link>
 
     <a v-if="userStatus === false" @click="changeLoginModalStatus">Log in |</a>
 
-    <a>Shopping Bag</a>
+    <a @click="changeCartStatus">Shopping Bag ({{ shoppingCartLength }})</a>
 
+    <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
     <LoginModal v-if="loginModalStatus" @closeLogin="changeLoginModalStatus" />
   </div>
 </template>
 
 <script>
 import LoginModal from "@/components/LoginModal.vue";
+import ShoppingCart from "@/components/ShoppingCart.vue";
 
 export default {
   data() {
     return {
       loginModalStatus: false,
+      cartModalStatus: false,
     };
   },
 
   components: {
     LoginModal,
+    ShoppingCart,
   },
 
   methods: {
     changeLoginModalStatus() {
       this.loginModalStatus = !this.loginModalStatus;
     },
+    changeCartStatus() {
+      this.cartModalStatus = !this.cartModalStatus;
+    },
   },
   computed: {
     userStatus() {
       return this.$store.state.loginStatus;
+    },
+    shoppingCartLength() {
+      return this.$store.getters.getShoppingCartLength;
     },
   },
 };
