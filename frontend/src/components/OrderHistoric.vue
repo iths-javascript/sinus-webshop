@@ -1,5 +1,5 @@
 <template>
-  <h2>Order historic</h2>
+  <h2>My orders history</h2>
 </template>
 
 <script>

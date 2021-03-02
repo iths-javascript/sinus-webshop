@@ -23,17 +23,29 @@
             <input type="text" class="search">
             <img src="@/assets/search.svg" class="search" alt="search">
             <img src="@/assets/like.svg" class="like" alt="favorites">
-            <img @click="showForm = !showForm" src="@/assets/user.svg" class="user" alt="user">
-            <img @click="showUserMenu = !showUserMenu" src="@/assets/login-icon-pink.svg" class="user" alt="user">
+            <img @click="showForm = !showForm" 
+            v-if="this.$store.state.loggedIn === false"
+            src="@/assets/user.svg" 
+            class="user" alt="user">
+            <img @click="showLogOut = !showLogOut" 
+            v-if="this.$store.state.loggedIn === true"
+            src="@/assets/login-icon-pink.svg" class="user" alt="user">
             <img src="@/assets/cart.svg" class="cart" alt="cart">
         </div>
         <Overlay v-if="showForm" @close="showForm = false">
             <LoginForm @close="showForm = false"/>
         </Overlay>
+        <OverlayUser v-if="showLogOut" @close="showLogOut = false">
+            <MyAccount @close="showLogOut = false"/>
+        </OverlayUser>
 
-         <Overlay v-if="showUserMenu" @close="showUserMenu = false">
+        <!-- <OverlayUser>
+            
+        </OverlayUser> -->
+        <!-- <Profile/> -->
+         <!-- <OverlayUser v-if="showUserMenu" @close="showUserMenu = false">
             <Profile @close="showUserMenu = false"/>
-        </Overlay>
+        </OverlayUser> -->
     </div>
 </div>
 </template>
@@ -41,14 +53,25 @@
 <script>
 import LoginForm from '@/components/LoginForm'
 import Overlay from '@/components/Overlay.vue'
-import Profile from '@/views/Profile.vue'
+import OverlayUser from '@/components/OverlayUser.vue'
+import MyAccount from '@/components/MyAccount.vue'
+// import Profile from '@/views/Profile.vue'
 export default {
-    data(){return{
+    data(){
+        return{
         showForm: false,
-        showUserMenu: false
+        showLogOut: false
         }
     },
-    components:{LoginForm, Overlay, Profile}
+
+    components:{LoginForm, Overlay, MyAccount, OverlayUser},
+
+    methods:{
+        goToProfile(){
+            // this.$emit("close")
+            this.$router.push("/profile")
+        },
+    }
 
 }
 </script>
@@ -71,7 +94,7 @@ export default {
     display: flex;
     align-items:center;
     max-height:34px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: #2B2B2B
 
     }
@@ -101,7 +124,7 @@ p{
     justify-content: space-around;
     gap: 50px;
     align-items: center;
-    padding-left: 190px;
+    padding-left: 250px;
 }
  .nav-left>li{
     display: inline-flex;
@@ -113,7 +136,7 @@ p{
     color: #2B2B2B;
 }
 .logo>img{
-    margin-top: -60px;
+    margin-top: -40px;
     Width: 81px;
     Height: 98.31px;
     left: 50%;

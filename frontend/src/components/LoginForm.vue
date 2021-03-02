@@ -10,7 +10,7 @@
      
      <div v-if="loggedin == 'false'">
 
-         apa
+    
             </div>
  <form @submit.prevent="submit">
      <label for="e-mail">Email</label>
@@ -34,7 +34,7 @@ export default {
     data(){ 
         
         let loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
-        console.log(loggedinFromSessionStorage)
+        // console.log(loggedinFromSessionStorage)
         return {
         email:"admin@example.com",
         password:"password",
@@ -60,19 +60,26 @@ export default {
             })
             const responseData = await request.json()
             if (responseData.token){
-                console.log("I am correctly authenticted")
-                console.log(responseData);
+                // console.log("I am correctly authenticted")
+                // console.log(responseData);
                 window.sessionStorage.setItem("LoggedIn", "true");
                 window.sessionStorage.setItem("token", responseData.token);
 
+                this.$store.commit('updateLoggedIn',true)
+
                 // var loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
                 this.loggedin = 'true';
+                this.$emit("close")
+                // this.$router.push('/profile')
             }
             else {
                 console.log("I am not authenticated")
                 console.log(responseData);
                 window.sessionStorage.setItem("LoggedIn", "false");
                 this.loggedin = 'false';
+                
+                this.$store.commit('updateLoggedIn',false)
+
 
             }
             this.$emit('login', responseData) //emit till user secction
@@ -80,11 +87,8 @@ export default {
             // this.$emit('login', responseData)
         },
         goToCreate(){
-            
                 this.$emit("close")
-                this.$router.push("/new-account")
-          
-            
+                this.$router.push("/new-account") 
         }
     }
 
@@ -92,26 +96,20 @@ export default {
 </script>
 
 <style scoped>
-.title{
-    grid-column: 2;
-}
-.container-form{
-    
-background-color:#F5ADB8;
 
-  height: auto;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    
- 
+.container-form{
+    background-color:#F5ADB8;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    box-shadow: -10px 10px #FFEBD3;
-    
+    box-shadow: -10px 10px #FFEBD3;    
     /* background-image: url("../assets/bird-yellow.svg"), url("../assets/bird-blue.svg"); */
     /* background-repeat: no-repeat; */
 }
+
 label{
     padding: 1rem;
     margin-left: 2.2rem;
@@ -146,17 +144,16 @@ form{
 .account-button{
     margin-top: 1rem;
 }
-.account-button:hover{
-    
+.account-button:hover{  
     background-color: #B2D1A8;
     color:#2B2B2B;
 }
 
 .login-button:hover{
     background-color: #5E60B3;
-    color:whitesmoke;
-    
+    color:whitesmoke;  
 }
+
 button{
     color: #2B2B2B;
     font-family:'Ropa Sans', sans-serif ;
@@ -192,27 +189,16 @@ button{
       min-height: auto;
       background: #F5ADB8;
       position: relative;
-      /* -moz-border-radius: 10px;
-      -webkit-border-radius: 10px; */
-      /* border-radius: 10px; */
     }
     #talkbubble:before {
       content: "";
       position: absolute;
       left:79.8%;
       top:-20px;
-    
-      /* right: 100%;
-      top: 26px; */
-       width: 0;
+      width: 0;
       height: 0;
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
       border-bottom: 20px solid #F5ADB8;
-      /* width: 0;
-      height: 0;
-      border-top: 13px solid transparent;
-      border-right: 26px solid blue;
-      border-bottom: 13px solid transparent; */
     }
 </style>

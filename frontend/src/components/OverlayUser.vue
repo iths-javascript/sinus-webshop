@@ -1,7 +1,7 @@
 <template>
-  <div class="overlay">
+  <div class="overlay-user">
       <div class="fade-layer" @click="$emit('close')"></div>
-          <div class="content-form">
+          <div class="user-nav">
               <slot></slot>
           </div>   
   </div>
@@ -11,7 +11,7 @@
 <script>
 // import LoginForm from '@/components/LoginForm.vue'
 export default {
-    name: 'Overlay',
+    name: 'OverlayUser',
     components:{
         // LoginForm
     }
@@ -26,19 +26,13 @@ export default {
     /* opacity: .5;
     background-color:black; */
 }
-.content-form{
-    position: absolute;
-    left: 76.5rem;
-    top:24rem;
+
+.user-nav{
+    position: fixed;
+    left: 77.2rem;
+    top: 11.5rem;
     transform: translate(-50%,-50%);
 }
-
-/* .user-nav{
-    position: absolute;
-    left: 70rem;
-    top: 1rem;
-    transform: translate(-50%,-50%);
-} */
 
 
 </style>

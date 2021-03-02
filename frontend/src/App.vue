@@ -2,8 +2,10 @@
   <div id="app">
     <Header />
     <div id="nav">
+      <router-link to="/">Home</router-link> |
       <router-link to="/profile">Profile</router-link> |
       <router-link to="/new-account">New Account</router-link> |
+       <!-- <router-link to="/my-account">My Account</router-link> | -->
       <!-- <router-link to="/login-form">Login</router-link> |
       <router-link to="/overlay">overlay</router-link> -->
     </div>
@@ -23,7 +25,20 @@ import Footer from '@/components/Footer'
 import Header from "@/components/Header.vue"
 export default {
   name:'Home',
-  data(){ return {
+  data(){ 
+    let user_login = window.sessionStorage.getItem("LoggedIn");
+        // let defau;
+        if (user_login === "true") {
+            // defau = true;      
+            this.$store.commit('updateLoggedIn',true);
+      
+        } else {
+            this.$store.commit('updateLoggedIn',false);
+
+            // defau = false;
+        }
+
+    return {
     tokenData: null
     }
 

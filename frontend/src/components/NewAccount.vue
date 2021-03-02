@@ -27,19 +27,63 @@ export default {
       return{
         user: 
           {
-          "email": 'greta.thunberg@example.se',
-          "password": 'grillkorv123',
-          "name": 'Johan Kivi',
+          "email": '',
+          "password": '',
+          "name": '',
 
           "address": {
-            "street": 'Tokitokvägen 3',
-            "zip": '123 45',
-            "city": 'Tokberga'
+            "street": '',
+            "zip": '',
+            "city": ''
           }
         }
       }
-    }
-}
+    },
+
+    methods:{
+      async register(){ 
+        const payload = {
+          email: this.user.email, 
+          password: this.user.password, 
+          name: this.user.name, 
+          address: {
+            street: this.user.address.street, 
+            zip:this.user.address.zip,
+            city: this.user.address.city
+            },
+          }
+          // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
+        const request = await fetch('http://localhost:5000/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type':'application/json'
+            },
+            
+            body: JSON.stringify(payload)
+            })
+
+        const responseData = await request.json()
+        // hantera errors
+        if (responseData.payload){
+          console.log("lol");
+                
+                }
+                // window.sessionStorage.setItem("LoggedIn", "true");
+                // window.sessionStorage.setItem("token", responseData.token);
+
+                // var loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
+            //     this.loggedin = 'true';
+            // }
+            else {
+                console.log("I am not authenticated")
+                console.log(responseData);
+                window.sessionStorage.setItem("LoggedIn", "false");
+                this.loggedin = 'false';
+
+            }
+          }
+        }
+      }
 </script>
 
 <style scoped>
@@ -60,27 +104,34 @@ export default {
   grid-template-columns: repeat(2, auto);
   gap: 5px;  
 }
+
 .name, .address, .street, .email , .password{
   grid-column: 1 / span 2;
 }
+
 .zip{
   grid-column: 1;
 }
+
 .city{
   grid-column: 2;
 }
 
 button{
-    color: #2B2B2B;
-    font-family:'Ropa Sans', sans-serif ;
-    width: 144px;
-    height: 40px;
-    font-size: 1rem;
-    background-color: whitesmoke;
-    border-style: none;
-    box-shadow: -5px 5px #2B2B2B;
+  color: #2B2B2B;
+  font-family:'Ropa Sans', sans-serif ;
+  width: 144px;
+  height: 40px;
+  font-size: 1rem;
+  background-color: whitesmoke;
+  border-style: none;
+  box-shadow: -5px 5px #2B2B2B;
 }
 
+button:hover{
+    background-color: #5E60B3;
+    color:whitesmoke;  
+}
 .new-account-button{
   position: relative;
   left:65%;
@@ -102,4 +153,5 @@ input{
     font-family:'Ropa Sans', sans-serif;
     font-size: 1rem;
 }
+
 </style>

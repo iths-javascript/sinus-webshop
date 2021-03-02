@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Product from '../views/Product.vue'
 import Profile from '../views/Profile.vue'
 import NewAccount from '../components/NewAccount.vue'
+// import MyAccount from '../components/MyAccount.vue'
 
 
 Vue.use(VueRouter)
@@ -31,7 +32,13 @@ const routes = [
     path: '/new-account',
     name: 'NewAccount',
     component: NewAccount
-  }
+  },
+
+  // {
+  //   path: '/my-account',
+  //   name: 'MyAccount',
+  //   component: MyAccount
+  // }
  
 ]
 
