@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <Checkout />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/product">Product</router-link>
@@ -13,10 +14,11 @@
 
 import Footer from '@/components/Footer'
 import Header from "@/components/Header.vue"
+import Checkout from "@/components/Checkout.vue"
 export default {
   name:'Home',
 
-  components: { Footer ,Header},
+  components: { Footer ,Header,Checkout},
  
 }
 
