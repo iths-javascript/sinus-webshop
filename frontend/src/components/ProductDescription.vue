@@ -1,10 +1,13 @@
 <template>
   <div id="productDescription">
-    <span class="close-image">X</span>
-
+    <span class="close-image" @click="handleClick">X</span>
     <h1>{{ product.title }}</h1>
     <div class="productPhoto">
-      <img :src="getImgUrl" alt="" height="180px" />
+      <!-- <img
+        :src="getImgUrl"
+        alt="product image"
+        height="140px"
+      /> -->
     </div>
     <div class="description">{{ product.longDesc }}</div>
     <div class="price">{{ product.price }}</div>
@@ -30,12 +33,12 @@ import { getProductById, PRODUCTID_URL } from "@/api/get.js";
 export default {
   created: async function () {
     const response = await getProductById(PRODUCTID_URL, this.modalId);
-
     this.product = response.data;
   },
 
   data() {
     return {
+      show: false,
       product: [],
     };
   },
@@ -44,15 +47,24 @@ export default {
     modalId() {
       return this.$store.state.productModalId;
     },
+    // getImgUrl(pic) {
+    //   return require("../assets/" + pic);
+    // },
     getImgUrl() {
+      console.log(this.product.imgFile)
       return require("../assets/" + this.product.imgFile);
     },
   },
 
   methods: {
-    // getImgUrl() {
-    //   return require("../assets/" + this.product.imgFile);
-    // },
+    handleClick: function(){
+      console.log('cross')
+      this.show = !this.show;
+    },
+  //   getImgUrlDescription() {
+  //     console.log("Inside get img");
+  //     return require("../assets/"  + this.product.imgFile);
+  //   },
   },
 };
 </script>
@@ -82,7 +94,7 @@ export default {
 }
 .close-image{
   position: absolute;
-  z-index: 999;
+  z-index: 999999;
   padding: 10px;
   right: 0;
   cursor: pointer;
