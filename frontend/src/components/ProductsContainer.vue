@@ -6,20 +6,19 @@
       :product="item"
       class="product"
     />
-    <!-- <ProductDescription v-if="prodDescStatus" /> -->
   </div>
 </template>
 
 <script>
 import { get, PRODUCTS_URL } from "@/api/get.js";
 import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
-// import ProductDescription from "@/components/ProductDescription.vue";
 
 export default {
   components: {
     ProductsItemHolder,
     // ProductDescription,
   },
+
   created: async function () {
     const response = await get(PRODUCTS_URL);
 
@@ -27,6 +26,7 @@ export default {
 
     console.log(response.data);
   },
+
   data() {
     return {
       products: [],
