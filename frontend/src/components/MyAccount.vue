@@ -16,6 +16,7 @@ methods:{
         window.sessionStorage.removeItem('LoggedIn')
         window.sessionStorage.removeItem('token')
         this.$store.commit('updateLoggedIn',false)
+        // this.$emit.close()
     //   this.$router.push('/')
     },
     goToProfile(){
