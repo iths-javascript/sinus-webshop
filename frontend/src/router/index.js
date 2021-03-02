@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Product from '../views/Product.vue'
 import Profile from '../views/Profile.vue'
-import NewAccount from '../components/NewAccount.vue'
+// import NewAccount from '../components/NewAccount.vue'
 // import MyAccount from '../components/MyAccount.vue'
 
 
@@ -28,11 +28,11 @@ const routes = [
     component: Profile
   },
 
-  {
-    path: '/new-account',
-    name: 'NewAccount',
-    component: NewAccount
-  },
+  // {
+  //   path: '/new-account',
+  //   name: 'NewAccount',
+  //   component: NewAccount
+  // },
 
   // {
   //   path: '/my-account',

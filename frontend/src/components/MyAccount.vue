@@ -1,7 +1,7 @@
 <template>
   <div class="my-account" id="talkbubble">
       <ul>
-          <li>My Account</li>
+          <li @click="goToProfile">My Account</li>
           <li @click="logOut">Log Out</li>
       </ul>
   </div>
@@ -17,6 +17,9 @@ methods:{
         window.sessionStorage.removeItem('token')
         this.$store.commit('updateLoggedIn',false)
     //   this.$router.push('/')
+    },
+    goToProfile(){
+        this.$router.push('/profile')
     }
 }
 }
@@ -27,24 +30,27 @@ methods:{
 ul {
     display:flex;
     flex-direction: column;
+    
    
 }
 li {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
+    width: 150px;
+    /* padding: 0 3rem; */
     height: 50px;
+    margin: .5rem 0;
     /* margin: 1rem 0; */
 }
 li:hover{
-    background-color:black;
+    background-color:#2B2B2B;
     color:whitesmoke}
 .my-account{
     background-color:#F5ADB8;
-    min-width: 20rem;
+    width: 15rem;
     height: auto;
-    padding: 1rem;
+    /* padding: 1rem; */
     display: flex;
     justify-content: center;
     align-items: center;

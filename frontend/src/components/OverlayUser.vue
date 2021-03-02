@@ -29,7 +29,7 @@ export default {
 
 .user-nav{
     position: fixed;
-    left: 77.2rem;
+    left: 78.7rem;
     top: 11.5rem;
     transform: translate(-50%,-50%);
 }
