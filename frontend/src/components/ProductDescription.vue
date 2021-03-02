@@ -1,9 +1,9 @@
 <template>
   <div id="productDescription">
-    <span class="close-image" @click="handleClick">X</span>
+    <span class="close-image" @click="closeProductDescription">X</span>
     <h1>{{ product.title }}</h1>
     <div class="productPhoto">
-      <img
+    <img
         :src="getImgUrl"
         alt="product image"
         height="140px"
@@ -57,8 +57,9 @@ export default {
   },
 
   methods: {
-    handleClick: function(){
-      this.show = !this.show;
+    closeProductDescription() {
+      console.log('Close btn')
+      this.$emit('close-dialog');
     },
   //   getImgUrlDescription() {
   //     console.log("Inside get img");
