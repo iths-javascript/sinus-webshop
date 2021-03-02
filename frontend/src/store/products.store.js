@@ -32,6 +32,29 @@ export default {
         state.cart.items.push({ _id: id, amount: 1 })
       }
     },
+    [Mutations.ADD_PRODUCT](state, payload) {
+      state.products.push(payload)
+      state.productsObject[payload._id] = payload
+    },
+    [Mutations.DELETE_PRODUCT](state, id) {
+      let index = 0
+      for (let i = 0; i < state.products.length; i++) {
+        if (state.products[i]._id == id) {
+          index = i
+        }
+      }
+      state.products.splice(index, 1)
+      delete state.productsObject[id]
+    },
+    [Mutations.UPDATE_PRODUCT](state, payload) {
+      const updatedObject = state.productsObject[payload._id]
+      updatedObject.title = payload.title
+      updatedObject.imgFile = payload.imgFile
+      updatedObject.longDesc = payload.longDesc
+      updatedObject.price = payload.price
+      updatedObject._id = payload._id
+      updatedObject.shortDesc = payload.shortDesc
+    },
     [Mutations.REMOVE_FROM_CART](state, id) {
       state.cart.items.forEach(item => {
         if (item._id == id) {
@@ -64,6 +87,36 @@ export default {
     },
     addToCart({ commit }, id) {
       commit(Mutations.ADD_TO_CART, id)
+    },
+    async createProduct({ commit, getters }, payload) {
+      const response = await API.createProduct(payload, getters.getUserToken)
+
+      if (response) {
+        commit(Mutations.ADD_PRODUCT, response.product)
+        return true
+      } else {
+        return false
+      }
+    },
+    async deleteProduct({ commit, getters }, id) {
+      const response = await API.deleteProduct(id, getters.getUserToken)
+      console.log(response)
+      if (response) {
+        commit(Mutations.DELETE_PRODUCT, id)
+        return true
+      } else {
+        return false
+      }
+    },
+    async updateProduct({ commit, getters }, payload) {
+      const response = await API.updateProduct(payload, getters.getUserToken)
+
+      if (response) {
+        commit(Mutations.UPDATE_PRODUCT, response.data)
+        return true
+      } else {
+        return false
+      }
     },
     removeFromCart({ commit, state }, id) {
       state.cart.items.forEach(item => {

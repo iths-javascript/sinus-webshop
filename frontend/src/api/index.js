@@ -99,22 +99,6 @@ function setStorage(payload) {
 
 // Admin
 
-
-// Använder getOrders istället
-// export async function getAdminOrders(adminToken) {
-//   try {
-//     const response = await API.get('/orders', {
-//       headers: {
-//         Authorization: `Bearer ${adminToken}`
-//       }
-//     })
-
-//     return response.data // Returns array with all orders
-//   } catch (e) {
-//     return false
-//   }
-// }
-
 export async function createProduct(payload, adminToken) {
   try {
     const response = await API.post('/products', payload, {
@@ -124,19 +108,7 @@ export async function createProduct(payload, adminToken) {
     })
 
     return response.data
-    // example response.data:
-    //   {
-    //     "message": "Product created!",
-    //     "product": {
-    //         "title": "Face mask",
-    //         "price": 29,
-    //         "shortDesc": "Unisex",
-    //         "longDesc": "Covid ipsum dolor sit amet...",
-    //         "imgFile": "facemask-sinus.png",
-    //         "serial": 1614599344068,
-    //         "_id": "ZF01d2RxuyArGXdz"
-    //     }
-    // }
+
   } catch (e) {
     return false
   }
@@ -144,13 +116,13 @@ export async function createProduct(payload, adminToken) {
 
 export async function deleteProduct(id, adminToken) {
   try {
-    const response = await API.post(`/products/${id}`, {
+    const response = await API.delete(`/products/${id}`, {
       headers: {
         Authorization: `Bearer ${adminToken}`
       }
     })
 
-    return response.message // "Product obliteraded"
+    return response.data.message // "Product obliteraded"
   } catch (error) {
     return false
   }
@@ -158,22 +130,13 @@ export async function deleteProduct(id, adminToken) {
 
 export async function updateProduct(payload, adminToken) {
   try {
-    const response = await API.patch(`/products/${payload._id}`, {
+    const response = await API.patch(`/products/${payload._id}`, payload, {
       headers: {
         Authorization: `Bearer ${adminToken}`
       }
     })
 
     return response.data
-    // example response.data:
-    //  {
-    //     "title": "Gretas Fury",
-    //     "price": 999,
-    //     "shortDesc": "Unisex",
-    //     "longDesc": "Skate ipsum dolor sit amet...",
-    //     "imgFile": "skateboard-greta.png",
-    //     "_id": "VZ9i0LRFHaVgOcqw"
-    // }
   } catch (e) {
     return false
   }

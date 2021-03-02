@@ -1,6 +1,9 @@
 // products
 export const SET_PRODUCTS = 'SET_PRODUCTS'
 export const ADD_TO_CART = 'ADD_TO_CART'
+export const ADD_PRODUCT = 'ADD_PRODUCT'
+export const DELETE_PRODUCT = 'DELETE_PRODUCT'
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const DELETE_FROM_CART = 'DELETE_FROM_CART'
 export const SET_ORDER_HISTORY = 'SET_ORDER_HISTORY'

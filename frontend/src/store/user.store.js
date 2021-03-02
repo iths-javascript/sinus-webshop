@@ -94,6 +94,9 @@ export default {
     getCurrentUser(state) {
       return state.currentUser
     },
+    getUserToken(state) {
+      return state.userToken
+    },
     getCurrentUserRole(state) {
       return state.currentUser.role
     },
