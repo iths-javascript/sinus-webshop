@@ -126,6 +126,7 @@ top: 33px;
 .add { 
 width: 202px;
 height:48px;
+border-radius: 50px;
 background-color: black;
 color: white;
 }
