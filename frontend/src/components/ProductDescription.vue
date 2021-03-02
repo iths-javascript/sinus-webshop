@@ -3,11 +3,7 @@
     <span class="close-image" @click="closeProductDescription">X</span>
     <h1>{{ product.title }}</h1>
     <div class="productPhoto">
-    <img
-        :src="getImgUrl"
-        alt="product image"
-        height="140px"
-      />
+      <img :src="getImgUrl" alt="product image" height="140px" />
     </div>
     <div class="description">{{ product.longDesc }}</div>
     <div class="price">{{ product.price }}</div>
@@ -51,20 +47,21 @@ export default {
     //   return require("../assets/" + pic);
     // },
     getImgUrl() {
-      console.log(this.product.imgFile)
+      console.log(this.product.imgFile);
       return require("../assets/" + this.product.imgFile);
     },
   },
 
   methods: {
-    closeProductDescription() {
-      console.log('Close btn')
-      this.$emit('close-dialog');
+    handleClick: function () {
+      this.$store.commit("changeProductModalStatus");
+
+      // this.show = !this.show;
     },
-  //   getImgUrlDescription() {
-  //     console.log("Inside get img");
-  //     return require("../assets/"  + this.product.imgFile);
-  //   },
+    //   getImgUrlDescription() {
+    //     console.log("Inside get img");
+    //     return require("../assets/"  + this.product.imgFile);
+    //   },
   },
 };
 </script>
@@ -76,7 +73,7 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 70%;
-  background-color:white;
+  background-color: white;
   border: 1px solid black;
 }
 .description {
@@ -92,7 +89,7 @@ export default {
   height: 40px;
   width: 100px;
 }
-.close-image{
+.close-image {
   position: absolute;
   z-index: 999999;
   padding: 10px;

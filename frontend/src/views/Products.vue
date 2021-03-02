@@ -1,6 +1,5 @@
 <template>
   <div id="product-view">
-    products shown here when backend server is open
     <ProductsContainer />
     <ProductDescription v-if="modalStatus" />
   </div>
