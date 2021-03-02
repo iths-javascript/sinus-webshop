@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 const API = axios.create({
   baseURL: 'http://localhost:5000/api'
 })
@@ -10,7 +9,6 @@ export async function fetchProducts() {
   const products = await API.get('/products/')
   return products.data
 }
-
 
 export async function submitOrder(payload, userToken) {
   try {
@@ -33,7 +31,7 @@ export async function getOrders(userToken) {
         Authorization: `Bearer ${userToken}`
       }
     })
-    console.log(response)
+
     return response.data
   } catch (e) {
     return false
@@ -97,5 +95,87 @@ export function clearStorage() {
 
 function setStorage(payload) {
   sessionStorage.setItem('user', JSON.stringify(payload))
+}
+
+// Admin
+
+
+// Använder getOrders istället
+// export async function getAdminOrders(adminToken) {
+//   try {
+//     const response = await API.get('/orders', {
+//       headers: {
+//         Authorization: `Bearer ${adminToken}`
+//       }
+//     })
+
+//     return response.data // Returns array with all orders
+//   } catch (e) {
+//     return false
+//   }
+// }
+
+export async function createProduct(payload, adminToken) {
+  try {
+    const response = await API.post('/products', payload, {
+      headers: {
+        Authorization: `Bearer ${adminToken}`
+      }
+    })
+
+    return response.data
+    // example response.data:
+    //   {
+    //     "message": "Product created!",
+    //     "product": {
+    //         "title": "Face mask",
+    //         "price": 29,
+    //         "shortDesc": "Unisex",
+    //         "longDesc": "Covid ipsum dolor sit amet...",
+    //         "imgFile": "facemask-sinus.png",
+    //         "serial": 1614599344068,
+    //         "_id": "ZF01d2RxuyArGXdz"
+    //     }
+    // }
+  } catch (e) {
+    return false
+  }
+}
+
+export async function deleteProduct(id, adminToken) {
+  try {
+    const response = await API.post(`/products/${id}`, {
+      headers: {
+        Authorization: `Bearer ${adminToken}`
+      }
+    })
+
+    return response.message // "Product obliteraded"
+  } catch (error) {
+    return false
+  }
+}
+
+export async function updateProduct(payload, adminToken) {
+  try {
+    const response = await API.patch(`/products/${payload._id}`, {
+      headers: {
+        Authorization: `Bearer ${adminToken}`
+      }
+    })
+
+    return response.data
+    // example response.data:
+    //  {
+    //     "title": "Gretas Fury",
+    //     "price": 999,
+    //     "shortDesc": "Unisex",
+    //     "longDesc": "Skate ipsum dolor sit amet...",
+    //     "imgFile": "skateboard-greta.png",
+    //     "_id": "VZ9i0LRFHaVgOcqw"
+    // }
+  } catch (e) {
+    return false
+  }
 }
 
