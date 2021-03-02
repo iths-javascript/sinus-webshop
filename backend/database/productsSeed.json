@@ -1,27 +1,27 @@
 [
     {
-        "title" : "Tricky",
+        "title" : "Natural",
         "price" : 799,
         "shortDesc" : "Unisex",
         "category": "board",
         "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
-        "imgFile" : "skateboard-generic.png"
+        "imgFile" : "skateboard-natural.svg"
     },
     {
-        "title" : "Flipper",
+        "title" : "EagleXL",
         "price" : 799,
         "shortDesc" : "Unisex",
         "category": "board",
         "longDesc" : "Axle crailtap fastplant dude regular footed helipop impossible. Wax Jimmy'Z half-flip transfer nollie launch ramp mongo egg plant. Pogo slap maxwell g-turn boneless risers blunt nose slide.",
-        "imgFile" : "skateboard-generic.png"
+        "imgFile" : "skateboard-eagle.svg"
     },
     {
-        "title" : "Hiphop",
+        "title" : "Aurora",
         "price" : 799,
         "shortDesc" : "Unisex",
         "category": "board",
         "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
-        "imgFile" : "skateboard-generic.png"
+        "imgFile" : "skateboard-aurora.svg"
     },
     {
         "title" : "Gretas Fury",
@@ -29,23 +29,23 @@
         "shortDesc" : "Unisex",
         "category": "board",
         "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
-        "imgFile" : "skateboard-greta.png"
+        "imgFile" : "skateboard-greta.svg"
     },
     {
-        "title" : "Awesome",
+        "title" : "FlameXL",
         "price" : 799,
         "shortDesc" : "Unisex",
         "category": "board",
         "longDesc" : "Axle crailtap fastplant dude regular footed helipop impossible. Wax Jimmy'Z half-flip transfer nollie launch ramp mongo egg plant. Pogo slap maxwell g-turn boneless risers blunt nose slide.",
-        "imgFile" : "skateboard-generic.png"
+        "imgFile" : "skateboard-fire.svg"
     },
     {
-        "title" : "Swag",
+        "title" : "NaturalXL",
         "price" : 799,
         "shortDesc" : "Unisex",
         "category": "board",
         "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
-        "imgFile" : "skateboard-generic.png"
+        "imgFile" : "skateboard-naturalXL.svg"
     },
     {
         "title" : "Hoodie",
@@ -93,6 +93,69 @@
         "shortDesc" : "Hard",
         "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
         "imgFile" : "wheel-rocket.png"
-    }
+    },
+
+
+    {
+        "title" : "Red Sneaker NIKE",
+        "price" : 499,
+        "category": "sneakers",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "sneaker-red.png"
+    },
+
+    {
+        "title" : "Yellow Sneaker NIKE",
+        "price" : 499,
+        "category": "sneakers",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "sneaker-yellow.png"
+    },
+
+    {
+        "title" : "Rustic Sneaker NIKE",
+        "price" : 499,
+        "category": "sneakers",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "sneaker-rustic.png"
+    },
+
+    {
+        "title" : "Blue Sinus T-shirt",
+        "price" : 99,
+        "category": "t-shirt",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "tshirt-blue.png"
+    },
+
+    {
+        "title" : "Grey Sinus T-shirt",
+        "price" : 99,
+        "category": "t-shirt",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "tshirt-grey.png"
+    },
     
+    {
+        "title" : "Pink Sinus T-shirt",
+        "price" : 99,
+        "category": "t-shirt",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "tshirt-pink.png"
+    },
+
+    {
+        "title" : "Purple Sinus T-shirt",
+        "price" : 99,
+        "category": "t-shirt",
+        "shortDesc" : "Hard",
+        "longDesc" : "Skate ipsum dolor sit amet, 50-50 Sidewalk Surfer nose bump kickflip bruised heel fakie berm soul skate. Bluntslide transition nollie hard flip bank pressure flip ho-ho. Steps rip grip nosepicker roll-in yeah 540 pump. ",
+        "imgFile" : "tshirt-purple.png"
+    }
 ]
