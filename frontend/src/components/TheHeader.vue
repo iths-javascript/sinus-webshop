@@ -48,6 +48,11 @@
                 <router-link to="/profile">
                     <Base-button @click.native="toggleModal" class="base-button" color="teal">My profile</Base-button>
                 </router-link>
+
+                <router-link to="/admin">
+                    <Base-button v-if="userRole" @click.native="toggleModal" class="base-button" color="offwhite">Admin view</Base-button>
+                </router-link>
+
                 <router-link to="/">
                     <Base-button @click.native="signOut" class="base-button" color="offwhite">Sign out</Base-button>
                 </router-link>
@@ -90,6 +95,13 @@ computed:{
         const name = this.$store.getters.getCurrentUser.name
         let [first, last] = name.split(' ')
         return `${first[0]}${last[0]}`
+    },
+    userRole(){
+        if (this.$store.getters.getCurrentUserRole === 'admin') {
+            return true
+        }else{
+            return false
+        }
     }
 },
 methods:{
