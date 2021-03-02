@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>THIS IS WHERE CUSTOMERS CHECK OUT</div>
 </template>
 
 <script>

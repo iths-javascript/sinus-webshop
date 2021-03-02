@@ -2,33 +2,40 @@
   <div id="nav">
     <router-link to="/">Home/Products</router-link> |
     <router-link to="/Checkout">Checkout</router-link> |
-    <router-link to="/MyAccount"
-      ><img src="@/assets/useraccount.png" alt="Sign Up" height="40px"
-    /></router-link>
-    |
-    <button @click="loginModal">Log in</button>
-    |
-    <router-link to="/SignUp"> Sign Up Form </router-link> |
-    <img src="@/assets/shopping-bag.png" alt="Shopping Bag" height="40px" />
+    <router-link to="/MyAccount" v-if="userStatus">
+      <span>ANVÄNDAREN INLOGGAD |</span>
+    </router-link>
 
-    <LoginModal v-if="loginStatus" @clicked="loginModal" />
+    <a v-if="userStatus === false" @click="changeLoginModalStatus">Log in |</a>
+
+    <a>Shopping Bag</a>
+
+    <LoginModal v-if="loginModalStatus" @closeLogin="changeLoginModalStatus" />
   </div>
 </template>
 
 <script>
 import LoginModal from "@/components/LoginModal.vue";
+
 export default {
+  data() {
+    return {
+      loginModalStatus: false,
+    };
+  },
+
   components: {
     LoginModal,
   },
-  data() {
-    return {
-      loginStatus: false,
-    };
-  },
+
   methods: {
-    loginModal() {
-      this.loginStatus = !this.loginStatus;
+    changeLoginModalStatus() {
+      this.loginModalStatus = !this.loginModalStatus;
+    },
+  },
+  computed: {
+    userStatus() {
+      return this.$store.state.loginStatus;
     },
   },
 };
@@ -42,6 +49,7 @@ export default {
     font-weight: bold;
     color: #2c3e50;
     text-decoration: none;
+    cursor: pointer;
 
     &.router-link-exact-active {
       color: #9c2e8e;
