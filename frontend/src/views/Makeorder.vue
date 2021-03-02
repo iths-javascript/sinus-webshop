@@ -177,7 +177,7 @@ export default {
   width: 40px;
   height: 40px;
   flex-direction: row;
-  float: left;
+  /* float: left; */
 }
 .cart-img .title {
   display: flex;
@@ -186,7 +186,7 @@ export default {
 }
 .cart-img .price {
   margin-left: 5rem;
-  float: right;
+  /* float: right; */
 }
 .border-menu {
   margin-top: 2rem;
@@ -205,12 +205,12 @@ export default {
 }
 .total-text {
   margin-top: 1rem;
-  float: left;
+  /* float: left; */
   margin-right: 1rem;
 }
 .total-price {
   margin-top: 1rem;
-  float: right;
+  /* float: right; */
 }
 .border-seccond {
   height: 500px;

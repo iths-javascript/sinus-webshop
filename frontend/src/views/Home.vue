@@ -37,6 +37,7 @@
           v-for="(product, index) in products"
           :key="index"
           :product="product"
+        
         />
       </section>
       <p class="progress-bar">Showing 9 out of 30 products</p>
@@ -71,17 +72,22 @@ methods:{
   color: black;
 }
 
+.landing-wrapper{
+  margin-top: 75px;
+}
+
 .landing-top {
   height: 862px;
-  width: 1440px;
-  /* top: 84px; */
-  background-image: url("../assets/BG image landing.jpg");
+  width: 1440px;  background-image: url("../assets/BG image landing.jpg");
   margin-top: 20px;
 }
 
 .landing-top h1,
 h3 {
   color: white;
+  font-family: 'Bebas Neue';
+  font-size: 35px;
+  padding: 20px;
 }
 
 .top-img-wrapper {
@@ -89,6 +95,8 @@ h3 {
   flex-direction: row;
   justify-content: center;
   gap: 30px;
+
+  
 }
 
 .prod-card-left,
@@ -146,5 +154,9 @@ button {
   width: 332px;
   border-radius: 5px 0px 0px 5px;
   background-color: #3c8af1;
+}
+
+.progress-bar{
+  margin-bottom: 10px;
 }
 </style>

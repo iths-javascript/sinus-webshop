@@ -1,7 +1,8 @@
 
 import {
   ADD_PRODUCT_ORDER,
-  CALCULATE_PRICE
+  CALCULATE_PRICE,
+  REMOVE_PRODUCT
 } from '../mutationTypes.js';
 
 
@@ -18,6 +19,11 @@ export default {
   },
 
   mutations: {
+    [REMOVE_PRODUCT] (state, id) {
+      state.currentOrder.items = state.currentOrder.items.filter(item => item._id !== id) 
+
+    },
+
     [ADD_PRODUCT_ORDER](state, payload) {
       if (state.currentOrder.items.includes(payload)) {
         payload.quantity++
@@ -41,6 +47,10 @@ export default {
   },
 
   actions: {
+    removeProduct({commit}, payload) {
+      commit(REMOVE_PRODUCT, payload) 
+    },
+
     addProductToOrder({ commit }, payload) {
       commit(ADD_PRODUCT_ORDER, payload)
       commit(CALCULATE_PRICE)
@@ -59,7 +69,6 @@ export default {
       }
 
       state.currentOrder.items.forEach(item => {
-        console.log(item);
         if(item.quantity > 1) {
           for(let i = 0; i < item.quantity; i++) {
             body.items.push(item._id)
@@ -67,8 +76,7 @@ export default {
         }
         else {body.items.push(item._id)}
       })
-      console.log(rootState.user)
-      console.log(body);
+      
       try {
         if (rootState.user.isAuthenticated) {
           const config = {

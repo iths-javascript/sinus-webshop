@@ -79,7 +79,7 @@ form {
   gap: 3rem;
   margin: 2rem 0 0;
   max-width: 850px;
-  margin: 60px auto;
+  margin: 100px auto;
 }
 
 .input-group {

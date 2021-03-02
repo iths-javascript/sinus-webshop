@@ -90,6 +90,7 @@ export default {
         const response = await axios.post('http://localhost:5000/api/auth', body, config);
         if (response.status === 200) {
           commit(LOGIN_USER_MUTATION, response.data);
+          localStorage.setItem("token", response.data.token)
           router.push('/');
         }
       } catch (error) {

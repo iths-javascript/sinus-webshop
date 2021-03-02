@@ -97,8 +97,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
 }
 
 .total-price {

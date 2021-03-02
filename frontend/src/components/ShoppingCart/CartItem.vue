@@ -8,7 +8,7 @@
       <h3 class="title">{{ product.title }}</h3>
       <p class="shortDesc">{{ product.shortDesc }}</p>
       <p class="size">Size: OneFit</p>
-      <img class="delete" src="@/assets/iconfinder_delete_370086.svg" text="remove from cart"/>
+      <img class="delete" @click="removeProduct(product._id)" src="@/assets/iconfinder_delete_370086.svg" text="remove from cart"/>
       <!-- <small class="textmuted">Remove from cart</small> -->
     </div>
     <p class="price">{{ product.price }} Kr</p>
@@ -19,6 +19,11 @@
 
 <script>
 export default {
+  methods: {
+    removeProduct(id){
+      this.$store.dispatch('removeProduct', id)
+    }
+  },
   props: {
     product: Object,
   },
