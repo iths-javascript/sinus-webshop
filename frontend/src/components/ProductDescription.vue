@@ -1,25 +1,24 @@
 <template>
   <div id="productDescription">
-    <span class="close-image" @click="closeProductDescription">X</span>
-    <h1>{{ product.title }}</h1>
-    <div class="productPhoto">
-      <img :src="getImgUrl" alt="product image" height="140px" />
-    </div>
-    <div class="description">{{ product.longDesc }}</div>
-    <div class="price">{{ product.price }}</div>
-    <div class="size">
-      <p>Size</p>
-      <button id="small">S</button>
-      <button id="medium">M</button>
-      <button id="large">L</button>
-      <div class="Review"></div>
-    </div>
-    <div class="review">
-      <p>Review</p>
-      <p>1 2 3 4 5</p>
-    </div>
+    <div id="innerBox">
+      <div class="product-image-box">
+        <img :src="getImgUrl" alt="product image" height="400px" />
+      </div>
+      <div class="product-decription-box">
+        <table>
+          <tr id="title">{{ product.title }}</tr>
+          <tr class="description">{{ product.longDesc }}</tr>
+          <tr class="price">{{ product.price }} sek</tr>
+          <tr class="size"></tr>
+          <tr class="Review"></tr>
 
-    <button class="add">Add to cart</button>
+          <button class="add centered">Take my money</button>
+        </table>  
+      </div>
+      <span class="close-image" @click="handleClick">X</span>
+    <div>
+  </div>
+  </div>
   </div>
 </template>
 
@@ -47,53 +46,110 @@ export default {
     //   return require("../assets/" + pic);
     // },
     getImgUrl() {
-      console.log(this.product.imgFile);
-      return require("../assets/" + this.product.imgFile);
+      // console.log(this.product.imgFile);
+      // return require("../assets/" + this.product.imgFile);
+      return require("../assets/skateboard-generic.png");
     },
   },
 
   methods: {
     handleClick: function () {
       this.$store.commit("changeProductModalStatus");
-
-      // this.show = !this.show;
     },
-    //   getImgUrlDescription() {
-    //     console.log("Inside get img");
-    //     return require("../assets/"  + this.product.imgFile);
-    //   },
   },
 };
 </script>
 
 <style lang="scss">
-#productDescription {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
-  background-color: white;
-  border: 1px solid black;
+
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
+tr {
+// border: 1px solid #ddd;
+  text-align: left;
+}
+.centered {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center
+}
+
+#productDescription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1440px;
+  height:900px;
+  left: -8px;
+  top: 0px;
+  background-color:rgba(0, 0, 0, 0.85);
+  
+}
+
+#innerBox{
+  display: flex;
+  background-color:white;
+  width: 768px;
+  height: 508px;
+}
+
+.product-image-box {
+
+}
+
+.product-decription-box {
+  margin-top: 2rem;
+}
+
 .description {
-  font-style: italic;
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 150%;
+/* or 24px */
+
+color: rgba(0, 0, 0, 0.6);
+
 }
 .productPhoto {
-  height: 200px;
-  width: 200px;
-  background-color: white;
+width: 356px;
+height: 507px;
+left: 46px;
+top: 33px;
 }
-.add {
-  background-color: green;
-  height: 40px;
-  width: 100px;
+.add { 
+width: 202px;
+height:48px;
+background-color: black;
+color: white;
 }
 .close-image {
-  position: absolute;
   z-index: 999999;
   padding: 10px;
-  right: 0;
+  color: #000;
   cursor: pointer;
 }
+#title{
+font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 44px;
+padding-bottom: 2rem !important;
+}
+.price{
+font-style: normal;
+font-weight: bold;
+font-size: 26px;
+line-height: 35px;
+color: #000000;
+
+}
+
 </style>
