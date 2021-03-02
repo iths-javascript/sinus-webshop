@@ -16,7 +16,6 @@ export default {
     if (userToken) {
       await this.$store.dispatch('getUser', userToken)
     }
-    await this.$store.dispatch('setCartObject')
   },
   updated() {
      window.scrollTo({ top: 0 })

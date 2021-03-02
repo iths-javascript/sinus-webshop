@@ -7,16 +7,14 @@
     <section class="cart-list">
       <SmallProductCard 
       v-for="product in cartList" 
-      :key="product._id" 
-      :prod="product" 
+      :key="product._id"
+      :prod="product"
       class="item-summary"
       />
       
     </section>
     <OrderSummary class="cart-summary" />
   
-  
-
   </section>
   <section v-if="cartList.length === 0"><p class="large">You currently have no items in your cart.</p></section>
 </section>
@@ -33,8 +31,8 @@ components: {
 },
 computed: {
   cartList() {
-    return Object.values(this.$store.getters.getCart).filter(item => item.amount > 0)
-  }
+    return this.$store.getters.getCart
+  },
 }
 }
 </script>
