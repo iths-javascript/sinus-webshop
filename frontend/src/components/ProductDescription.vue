@@ -3,11 +3,11 @@
     <span class="close-image" @click="handleClick">X</span>
     <h1>{{ product.title }}</h1>
     <div class="productPhoto">
-      <!-- <img
+      <img
         :src="getImgUrl"
         alt="product image"
         height="140px"
-      /> -->
+      />
     </div>
     <div class="description">{{ product.longDesc }}</div>
     <div class="price">{{ product.price }}</div>
@@ -58,7 +58,6 @@ export default {
 
   methods: {
     handleClick: function(){
-      console.log('cross')
       this.show = !this.show;
     },
   //   getImgUrlDescription() {
