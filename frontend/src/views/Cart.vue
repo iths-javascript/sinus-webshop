@@ -31,6 +31,7 @@
       <div>
         <input class="details" type="text" placeholder="Enter Discount Code" />
         <a @click="addOrder" class="btn"> Go to checkout</a>
+        <button @click="getUser">TESTA MIG</button>
       </div>
     </div>
   </div>
@@ -58,12 +59,16 @@ export default {
     //   this.$router.push("/MakeOrder");
     // },
     addOrder() {
-      this.$store.dispatch("createOrder");
+      this.$router.push("/MakeOrder");
     },
 
-    removeFromCart(index) {
-      this.$store.commit("removeFromCart", index);
-    },
+    // removeFromCart(index) {
+    //   this.$store.commit("removeFromCart", index);
+    // },
+
+    getUser() {
+      this.$store.dispatch("getUser")
+    }
   },
 };
 </script>

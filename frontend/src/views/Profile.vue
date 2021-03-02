@@ -13,6 +13,7 @@
       </ul>
       <ul>
         <h5>Order history:</h5>
+        <li>{{user.history[0]}}</li>
       </ul>
     </div>
     <form v-if="edit">
@@ -59,6 +60,7 @@ export default {
     if (!this.isAuthenticated) {
       this.$router.push("/");
     }
+    this.$store.dispatch('getUserHistory')
   },
 
   methods: {

@@ -7,8 +7,8 @@
           <!-- <div class="prod-card-left"> -->
           <Product-card
             class="prod-card-left"
-            v-for="(product, index) in products.slice(0, 1)"
-            :key="index"
+            v-for="(product) in products.slice(0, 1)"
+            :key="product._id"
             :product="product"
           />
           <!-- </div> -->

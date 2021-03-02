@@ -1,7 +1,8 @@
 import {
   LOGIN_USER_MUTATION,
   EDIT_USER_MUTATION,
-  LOGOUT
+  LOGOUT,
+  ADD_USER_HISTORY
 } from '../mutationTypes.js';
 
 import router from '../../router';
@@ -29,10 +30,32 @@ export default {
       state.user = null;
       state.isAuthenticated = false;
       state.token = null;
+    },
+    [ADD_USER_HISTORY](state, payload){
+      state.user.history = payload;
     }
   },
 
   actions: {
+
+    async getUserHistory({state, commit}) {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${state.token}`
+        }
+      }
+      try {
+        const response = await axios.get('http://localhost:5000/api/orders', config);
+        commit(ADD_USER_HISTORY, response.data)
+      } catch (error) {
+        const errors = error.response.data.errors;
+        if (errors) {
+          errors.forEach(error => console.log(error));
+        }
+      }
+    },
+
     async registerUser(_, payload) {
       const config = {
         headers: {
@@ -114,7 +137,7 @@ export default {
       }
       try {
         const response = await axios.get('http://localhost:5000/api/me', config);
-        return response.data;
+        console.log(response);
       } catch (error) {
         const errors = error.response.data.errors;
         if (errors) {
@@ -122,6 +145,8 @@ export default {
         }
       }
     }
+
+    
   },
   getters: {
     isAuthenticated: state => state.isAuthenticated ? true : false,

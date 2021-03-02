@@ -45,7 +45,8 @@ nav {
   align-items: center;
   position: fixed;
   width: 100%;
-  height: 95px;
+  /* height: 95px; */
+  height: 50px;
   z-index: 999;
   background-color: #3C4858;
 }

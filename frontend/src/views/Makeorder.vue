@@ -28,12 +28,12 @@
           </ul>
         </div>
       </div>
-      <div class="border-menu" v-if="$store.state.loggedInUser">
+      <div class="border-menu" v-if="user">
         <h3 class="your-details">Your Details</h3>
         <label class="inputs" for="">Your name</label>
         <input class="details" type="text" v-model="user.name" />
         <label class="inputs" for="">Street</label>
-        <input class="details" type="text" v-model="user.adress.street" />
+        <input class="details" type="text" v-model="user.address.street" />
 
         <div class="left">
           <label class="lable-left" for="">ZIP Code</label>
@@ -43,16 +43,16 @@
           <input
             class="input-details"
             type="text"
-            v-model="user.adress.zipcode"
+            v-model="user.address.city"
           />
-          <input class="input-details" type="text" v-model="user.adress.city" />
+          <input class="input-details" type="text" v-model="user.address.zip" />
         </div>
 
         <h3 class="payment-text">Payment</h3>
         <label class="inputs" for="">Card Owner</label>
-        <input class="details" type="text" v-model="user.adress.cardOwner" />
+        <input class="details" type="text" />
         <label class="inputs" for="">Card Number</label>
-        <input class="details" type="text" v-model="user.adress.cardNumber" />
+        <input class="details" type="text" />
 
         <div class="left">
           <label class="lable-left" for="">Valid untill</label>
@@ -62,12 +62,11 @@
           <input
             class="input-details"
             type="text"
-            v-model="user.adress.validUntil"
+           
           />
           <input
             class="input-details"
             type="password"
-            v-model="user.adress.cvv"
           />
           <button class="btn" @click="sendOrder">Submit Order</button>
         </div>
@@ -121,6 +120,11 @@
 // import Nav from '../components/Nav.vue'
 
 export default {
+  // data() {
+  //   return {
+  //     user: null
+  //   }
+  // },
   name: "MakeOrder",
 
   computed: {
@@ -128,16 +132,23 @@ export default {
       return this.$store.state.cartItems;
     },
     user() {
-      return this.$store.state.currentUser;
-    },
+      return this.$store.getters.getUser;
+    }
+    
   },
   methods: {
     async sendOrder() {
-      await this.$store.dispatch("postOrder", this.user);
+      this.$store.dispatch("createOrder")
       this.$router.push("/Checkout");
-      window.location.reload();
+
     },
   },
+  // mounted() {
+  //   if(this.$store.state.user.isAuthenticated) {
+  //     this.user = this.$store.state.user
+
+  //   }
+  // }
 };
 </script>
 
