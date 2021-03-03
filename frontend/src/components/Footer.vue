@@ -1,51 +1,52 @@
 <template>
   <div class="footer">
-      <div class="container-footer">
-          <div class="link">
-              <p>HELP</p>
-              <div class="line help"></div>
-              <ul>
-                  <li>Customer service</li>
-                  <li>My account</li>
-                  <li>Find store</li>
-                  <li>Privacy & Security</li>
-              </ul>
-          </div>
-
-          <div class="link">
-              <p>TERM AND CONDITIONS</p>
-              <div class="line term"></div>
-               <ul>
-                  <li>Delivery & returns</li>
-                  <li>Payment & Delivery</li>
-                  <li>Return & refund</li>
-              </ul>
-          </div>
-
-          <div class="link">
-          <p>ABOUT US</p>
-          <div class="line about"></div>
-          <ul>
-              <li>About SINUS</li>
-              <li>Sustainability</li>
-              <li>Press</li>
-          </ul>
-          </div>
-
-        <div class="link">
-          <p>CONTACT</p>
-          <div class="line contact"></div>
-          <ul>
-              <li>Contact us</li>
-              <li>Find store</li>
-              <li>Work at Sinus</li>
-          </ul>
-          </div>           
+    <div class="container-footer">
+      <div class="link">
+        <p>HELP</p>
+        <div class="line help"></div>
+        <ul>
+          <li>Customer service</li>
+          <li>My account</li>
+          <li>Find store</li>
+          <li>Privacy & Security</li>
+        </ul>
       </div>
-      <div class="icons">
-          <img src="../assets/social-links.svg" alt="">
+
+      <div class="link">
+        <p>TERM AND CONDITIONS</p>
+        <div class="line term"></div>
+        <ul>
+          <li>Delivery & returns</li>
+          <li>Payment & Delivery</li>
+          <li>Return & refund</li>
+        </ul>
       </div>
-        <img @click="goToHome" src="../assets/logo-footer.svg" alt="">
+
+      <div class="link">
+        <p>ABOUT US</p>
+        <div class="line about"></div>
+        <ul>
+          <li>About SINUS</li>
+          <li>Sustainability</li>
+          <li>Press</li>
+        </ul>
+      </div>
+
+      <div class="link">
+        <p>CONTACT</p>
+        <div class="line contact"></div>
+        <ul>
+          <li>Contact us</li>
+          <li>Find store</li>
+          <li>Work at Sinus</li>
+        </ul>
+      </div>
+        <!-- <img @click="goToHome" src="../assets/logo-footer.svg" alt=""> -->
+    </div>
+    <div class="icons">
+      <img src="../assets/social-links.svg" alt="" />
+    </div>
+    <img @click="goToHome" src="../assets/logo-footer.svg" alt="" />
   </div>
 </template>
 
