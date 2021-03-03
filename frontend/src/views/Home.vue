@@ -4,31 +4,31 @@
       <section class="top-products">
         <h1>TOP-SELLING SKATEBOARDS</h1>
         <div class="top-img-wrapper">
-          <!-- <div class="prod-card-left"> -->
           <Product-card
             class="prod-card-left"
-            v-for="(product) in products.slice(0, 1)"
+            v-for="product in products.slice(0, 1)"
             :key="product._id"
             :product="product"
           />
-          <!-- </div> -->
-          <!-- <div class="prod-card-right"> -->
+
           <Product-card
             class="prod-card-right"
             v-for="(product, index) in products.slice(1, 2)"
             :key="index"
             :product="product"
           />
-          <!-- </div> -->
         </div>
-        <h3>VIEW ALL PRODUCTS</h3>
+        <div class="all-products">
+          <h3>VIEW ALL PRODUCTS</h3>
+          <img class="arrow" src="@/assets/arrow-double.svg" />
+        </div>
       </section>
     </div>
 
     <div class="landing-bottom">
       <section class="bottom-products">
         <h2>ALL PRODUCTS</h2>
-        <p>Dropdown menu</p>
+        <!-- <p>Dropdown menu</p> -->
       </section>
 
       <section class="product-grid-container">
@@ -37,17 +37,17 @@
           v-for="(product, index) in products"
           :key="index"
           :product="product"
-        
         />
       </section>
-      <p class="progress-bar">Showing 9 out of 30 products</p>
-      <button>SHOW MORE</button>
+      <div class="progress-bar">
+        <p>Showing 9 out of 30 products</p>
+        <button>SHOW MORE</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import ProductCard from "@/components/Product/ProductCard.vue";
 export default {
   components: { ProductCard },
@@ -58,12 +58,11 @@ export default {
     },
   },
 
-methods:{
-  changeRoute(id){
-    this.$router.push(`/singleproduct/${id}`)
-  }
-},
-
+  methods: {
+    changeRoute(id) {
+      this.$router.push(`/singleproduct/${id}`);
+    },
+  },
 };
 </script>
 
@@ -72,22 +71,34 @@ methods:{
   color: black;
 }
 
-.landing-wrapper{
+.landing-wrapper {
   margin-top: 75px;
 }
 
 .landing-top {
   height: 862px;
-  width: 1440px;  background-image: url("../assets/BG image landing.jpg");
+  width: 1440px;
+  background-image: url("../assets/BG image landing.jpg");
   margin-top: 20px;
+}
+
+.top-products h1{
+  display: flex;
+  justify-content: center;
 }
 
 .landing-top h1,
 h3 {
   color: white;
-  font-family: 'Bebas Neue';
+  font-family: "Bebas Neue";
   font-size: 35px;
   padding: 20px;
+  
+}
+
+.all-products {
+  display: flex;
+  justify-content: center;
 }
 
 .top-img-wrapper {
@@ -95,8 +106,6 @@ h3 {
   flex-direction: row;
   justify-content: center;
   gap: 30px;
-
-  
 }
 
 .prod-card-left,
@@ -122,26 +131,26 @@ h3 {
   background-color: #3c4858;
 }
 
+.landing-bottom h2 {
+  padding: 15px;
+  font-family: "Bebas Neue";
+}
+
 .product-grid-container {
   display: grid;
-  /* display: grid; */
   gap: 20px;
   grid-template-columns: 270px 270px 270px;
   grid-auto-rows: 350px;
-  /* grid-template-columns: 3;
-  grid-template-rows: 3; */
   align-items: center;
   justify-content: center;
   border: none;
-  
-
-  /* row-gap: 20px;
-  column-gap: 20px;  */
 }
 
 .bottom-products h2,
 p {
   color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .product-grid-container > p {
@@ -156,7 +165,17 @@ button {
   background-color: #3c8af1;
 }
 
-.progress-bar{
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-top: 10px;
   margin-bottom: 10px;
+  gap: 5px;
+  align-items: center;
 }
+
+
+
+
 </style>
