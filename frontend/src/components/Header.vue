@@ -2,60 +2,144 @@
   <div class="wrapper">
     <div class="top">
       <p>FREE Ground Shipping on All Orders & Extended Returns.</p>
-      <p class="test">Help</p>
-      <p>Find Store</p>
+      <p class="top-right">Help</p>
+      <p class="top-right">Find Store</p>
     </div>
-
     <div class="navbar">
-      <ul class="nav-left">
+      <ul>
         <li>skateboard</li>
-        <li>
+        <li class="special">
           the gonz
-          <img
-            src="@/assets/cutelike.svg"
-            alt="cutelike"
-            style="width: 27.43px;height: 23.72px;"
-          />
+          <img src="@/assets/cutelike.svg" class="icon-cute" alt="cutelike" />
         </li>
         <li>wheels</li>
-        <div class="logo">
-          <img src="@/assets/logo.svg" alt="logo" />
+        <img class="logo" src="@/assets/logo.svg" alt="logo" />
+        <li>t-shirt</li>
+        <li class="sneaker">sneakers</li>
+        <div class="nav-icon">
+          <img src="@/assets/search.svg" class="icon" alt="search" />
+          <img src="@/assets/like.svg" class="icon" alt="favorites" />
+          <img
+            @click="showForm = !showForm"
+            v-if="this.$store.state.loggedIn === false"
+            src="@/assets/user.svg"
+            class="icon user"
+            alt="user"
+          />
+          <img
+            @click="showLogOut = !showLogOut"
+            v-if="this.$store.state.loggedIn === true"
+            src="@/assets/login-icon-pink.svg"
+            class="icon user"
+            alt="user"
+          />
+          <img
+            src="@/assets/cart.svg"
+            class="icon"
+            alt="cart"
+            @click="goToCart"
+          />
         </div>
-        <li class="right">news</li>
-        <li class="right1">shop</li>
       </ul>
-      <div class="nav-right">
-        <input type="text" class="search" />
-        <img src="@/assets/search.svg" class="search" alt="search" />
-        <img src="@/assets/like.svg" class="like" alt="favorites" />
-        <img src="@/assets/user.svg" class="user" alt="user" />
-        <img src="@/assets/cart.svg" class="cart" alt="cart" />
-      </div>
+
+      <Overlay v-if="showForm" @close="showForm = false">
+        <LoginForm @close="showForm = false" />
+      </Overlay>
+      <OverlayUser v-if="showLogOut" @close="showLogOut = false">
+        <MyAccount @close="showLogOut = false" />
+      </OverlayUser>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import LoginForm from "@/components/LoginForm";
+import Overlay from "@/components/Overlay.vue";
+import OverlayUser from "@/components/OverlayUser.vue";
+import MyAccount from "@/components/MyAccount.vue";
+
+export default {
+  data() {
+    return {
+      showForm: false,
+      showLogOut: false,
+    };
+  },
+
+  components: { LoginForm, Overlay, MyAccount, OverlayUser },
+
+  methods: {
+    goToProfile() {
+      this.$router.push("/profile");
+    },
+    goToCart() {
+      this.$router.push("/cart");
+    },
+  },
+};
 </script>
 
 <style scoped>
-.test {
-  margin-left: 980px;
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 6%;
+}
+
+li {
+  padding: 0 2rem;
+  font-size: 1.2rem;
+  margin-top: 0rem;
+}
+
+.user {
+  cursor: pointer;
+}
+
+.nav-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  padding: 0 0.6rem;
+}
+
+.special {
+  display: flex;
+  padding: 0 0.8rem;
+}
+
+.sneaker {
+  padding: 0rem;
+}
+
+.icon-cute {
+  width: 30%;
+  padding-left: 0.5rem;
+}
+
+.top-right {
+  margin-right: 2rem;
 }
 .wrapper {
-  margin: auto;
-  max-width: 1440px;
-}
-.top {
   display: flex;
-  align-items: center;
-  max-height: 34px;
-  margin-top: 10px;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.top {
+  width: 100%;
+  height: 35px;
   background-color: #2b2b2b;
 }
 
 p {
+  margin: 5px auto 5px 20px;
   font-family: Ropa Sans;
   font-style: normal;
   font-weight: normal;
@@ -63,55 +147,17 @@ p {
   line-height: 14px;
   letter-spacing: 0.03em;
   color: #f1f1f1;
-
-  margin-left: 50px;
 }
 
 .navbar {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  width: 100%;
   background-color: #f1f1f1;
-  height: 89px;
+  height: 5rem;
 }
-ul.nav-left {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  justify-content: space-around;
-  gap: 50px;
-  align-items: center;
-  padding-left: 190px;
-}
-.nav-left > li {
-  font-family: Ropa Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 24px;
-  color: #2b2b2b;
-}
-.logo > img {
-  margin-top: -70px;
-  width: 81px;
-  height: 98.31px;
-  left: 50%;
-  right: 50%;
-  position: relative;
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-left: auto;
-  margin-right: 40px;
-  gap: 10px;
-}
-li.right {
-  margin-left: 100px;
-}
-input {
-  width: 148px;
-  height: 21px;
-  border: none;
+
+.logo {
+  margin-top: -40px;
 }
 </style>

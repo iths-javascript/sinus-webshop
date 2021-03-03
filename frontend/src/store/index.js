@@ -7,12 +7,25 @@ import * as API from '../api/api'
 
 export default new Vuex.Store({
   state: {
-
     images: "",
     currentProducts: "",
-    cart: []
-
+    cart: [{ "title": "Gretas Fury", "price": 999, "quantity": 1, "id": "4AelsDrCCCy7pFd2" }, { "title": "Gretas Fury", "price": 1, "quantity": 1, "id": "4AelsDrCCCy7pFd2" }],
+    loggedIn: false,
+    user: {
+      _id: '', // generated server side
+      email: '',
+      password: '', // hashed serverside
+      name: '',
+      role: '', // or customer
+      address: {
+        street: '',
+        zip: '',
+        city: ''
+      },
+      orderHistory: []
+    },
   },
+
   mutations: {
 
     storeImages(state, database) {
@@ -31,10 +44,22 @@ export default new Vuex.Store({
         quantity: 1,
         id: item._id
       })
-    }
+    },
 
 
+    updateLoggedIn(state, loggedIn) {
+      state.loggedIn = loggedIn;
+    },
+
+    currentUser(state, user) {
+      state.user = user;
+    },
+
+    // loginUser(state, login){
+    //   state.loginform = login
+    // }
   },
+
   actions: {
 
     async drawImage(context) {
@@ -63,9 +88,29 @@ export default new Vuex.Store({
         const category = "t-shirt";
         context.commit('loadHoodies', category);
       }
+    },
+    //  context.commit('pushIntoArray', data);
+
+
+    async user(context) {
+      const me = await API.getUserInfo();
+      console.log(me);
+      context.commit('currentUser', me);
     }
+  },
+  // async login(context){
+  //   const userLogin = await API.getLogInfo();
+  //   context.commit('logInfo', userLogin)
+  // },
+
+
+
+
+  getters: {
 
   },
+
   modules: {
   }
+
 })
