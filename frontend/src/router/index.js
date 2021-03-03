@@ -26,7 +26,7 @@ const routes = [
     
   },
   {
-    path: "/MakeOrder",
+    path: "/makeorder",
     name: "MakeOrder",
     component: MakeOrder,
   },

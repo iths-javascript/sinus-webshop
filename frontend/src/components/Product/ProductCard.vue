@@ -8,7 +8,7 @@
       <p class="shortdesc">{{ product.shortDesc }}</p>
     </div>
     <p class="price">{{ product.price }} KR</p>
-    <div class="rating-container">
+    <div v-if="isRoute" class="rating-container">
       <p class="rating">{{ product.rating }}</p>
       <img class="star" src="@/assets/Star.svg" />
     </div>
@@ -20,6 +20,11 @@ export default {
   props: {
     product: Object,
   },
+  computed:{
+    isRoute(){
+      return this.$router.path==="/singleproduct/:id"?true:false
+    }
+  }
 };
 </script>
 
