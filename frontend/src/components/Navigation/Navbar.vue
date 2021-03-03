@@ -50,6 +50,7 @@ nav {
   height: 95px;
   z-index: 999;
   background-color: #3c4858;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.256);
 }
 
 nav a {
