@@ -35,10 +35,47 @@
           <button class="wheels-button" @click="fetchImages">Shop now</button>
         </div>
       </div>
-      <div class="mid-section-right"></div>
+      <div class="mid-section-right">
+        <div class="mid-section-right-top">
+
+        <h1 class="title">reparation?</h1>
+        <button>go it</button>
+        </div>
+        <img src="../assets/illustration-reparation.svg" alt="reparation">
+        <img src="../assets/illustration-sale.svg" alt="reparation">
+        <div class="mid-section-right-bottom">
+          <h1 class="title">Sale?</h1>
+        <button>go it</button>
+        </div>
+      </div>
     </div>
-    <div class="mid-section2"></div>
-    <div class="mid-section3"></div>
+    <div class="mid-section2">
+      <!-- <img src="../assets/background-special-section.svg" alt=""> -->
+      <div></div>
+     <img src="../assets/section-the-gonz-skate.png" alt="">
+     <div>
+     <h1 class="title">limited edition</h1>
+     <img src="../assets/stars.svg" alt="">
+          <h1 class="title">#the-gonz</h1>
+
+      <button>shop now</button>
+
+     </div>
+    </div>
+
+
+
+    <div class="mid-section3">
+      <h1 class="title">#SinusFreeStyle <img src="../assets/big-heart.svg" alt=""></h1>
+      <h3>@sinuskate</h3>
+      <div class="mid-section-insta">
+
+      <img class="img-insta" src="../assets/insta-1.jpg" alt="">
+      <img class="img-insta" src="../assets/insta-2.jpg" alt="">
+      <img class="img-insta" src="../assets/insta-3.jpg" alt="">
+      <img class="img-insta" src="../assets/insta-4.jpg" alt="">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -62,6 +99,10 @@ export default {
 /* ----------------------------------------------------- */
 /* -------------- Recommendations Section -------------- */
 /* ----------------------------------------------------- */
+.title {
+  font-family: "Schoolbell", cursive;
+  text-transform: uppercase ;
+}
 
 .recommendations {
   display: flex;
@@ -128,7 +169,7 @@ export default {
   right: 0;
   top: 100%;
   z-index: -1;
-  -webkit-transition: top 0.14s ease-in;
+  /* -webkit-transition: top 0.14s ease-in; */
 }
 
 .skateboard-button:hover {
@@ -175,7 +216,7 @@ export default {
   right: 0;
   top: 100%;
   z-index: -1;
-  -webkit-transition: top 0.14s ease-in;
+  /* -webkit-transition: top 0.14s ease-in; */
 }
 
 .t-shirts-button:hover {
@@ -222,7 +263,7 @@ export default {
   right: 0;
   top: 100%;
   z-index: -1;
-  -webkit-transition: top 0.14s ease-in;
+  /* -webkit-transition: top 0.14s ease-in; */
 }
 
 .sneakers-button:hover {
@@ -274,7 +315,7 @@ export default {
 .mid-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  /* grid-template-rows: 1fr; */
   grid-column-gap: 0px;
   grid-row-gap: 36px;
   justify-content: center;
@@ -287,16 +328,23 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  /* width: 50%; */
   background-color: #ffebd3;
 }
 
 .mid-section-right {
-  display: flex;
-  width: 50%;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  /* width: 50%; */
   background-color: #ffebd3;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.mid-section-right-top, .mid-section-right-bottom {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
 }
 
 /*-------------- Wheels Shop Now button -------------- */
@@ -335,7 +383,7 @@ export default {
   right: 0;
   top: 100%;
   z-index: -1;
-  -webkit-transition: top 0.14s ease-in;
+  /* -webkit-transition: top 0.14s ease-in; */
 }
 
 .wheels-button:hover {
@@ -364,13 +412,16 @@ export default {
 
 .mid-section2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  background-image: url("../assets/background-special-section.svg");
+  background-repeat: no-repeat;
+  margin: 2rem 3rem;
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  /* grid-column-gap: 0px;
+  grid-row-gap: 0px; */
   background-color: white;
   width: 100%;
-  height: 533px;
+  height: auto;
 }
 
 /* ------------------------------------------- */
@@ -378,13 +429,28 @@ export default {
 /* ------------------------------------------- */
 
 .mid-section3 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  display: flex;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-rows: repeat(2, auto); */
+  flex-direction: column;
+  /* grid-column-gap: 0px; */
+  /* grid-row-gap: 0px; */
   background-color: #ffd2d2;
   width: 100%;
-  height: 533px;
+  height: auto;
 }
+.mid-section-insta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  /* flex-direction: column; */
+}
+.img-insta{
+  width: 60%;
+}
+
+/* .insta-section{
+  grid-row: 1 /span 1;
+  grid-column: 2;
+} */
 </style>

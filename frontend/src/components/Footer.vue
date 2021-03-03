@@ -41,12 +41,12 @@
           <li>Work at Sinus</li>
         </ul>
       </div>
-        <img @click="goToHome" src="../assets/logo-footer.svg" alt="">
+        <!-- <img @click="goToHome" src="../assets/logo-footer.svg" alt=""> -->
     </div>
     <div class="icons">
       <img src="../assets/social-links.svg" alt="" />
     </div>
-    <img src="../assets/logo-footer.svg" alt="" />
+    <img @click="goToHome" src="../assets/logo-footer.svg" alt="" />
   </div>
 </template>
 

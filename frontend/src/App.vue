@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <div id="nav">
-    </div>
+    <!-- <div id="nav">
+    </div> -->
     <router-view/>
   
   <Footer/>
@@ -13,7 +13,7 @@
 import Footer from '@/components/Footer'
 import Header from "@/components/Header.vue"
 export default {
-  name:'Home',
+  name:'App',
   data(){ 
     let user_login = window.sessionStorage.getItem("LoggedIn");
         if (user_login === "true") {      
@@ -76,7 +76,7 @@ export default {
   }
 
 #nav {
-  padding: 30px;
+  padding: 0px;
 
   a {
     font-weight: bold;
