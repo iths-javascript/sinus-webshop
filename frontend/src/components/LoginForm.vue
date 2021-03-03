@@ -26,8 +26,8 @@ export default {
     data(){ 
         let loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
         return {
-        email:"admin@example.com",
-        password:"password",
+        email:"",
+        password:"",
         loggedin: loggedinFromSessionStorage,
         createNewAccount: false
         }

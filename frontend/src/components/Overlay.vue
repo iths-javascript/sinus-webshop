@@ -25,7 +25,7 @@ export default {
 }
 .content-form{
     position: absolute;
-    right: -7%;
+    right: -6.4%;
     top:23.2rem;
     transform: translate(-50%,-50%);
     z-index: 1;
