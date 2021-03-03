@@ -1,10 +1,6 @@
 <template>
   <div>
-    
-      <div class="recommendations">
-        
-        <button @click="fetchImages">fetch</button>
-      </div>
+  
   
   </div>
 </template>
@@ -17,6 +13,7 @@
 import * as API from '../api/api'
 
 export default {
+  name:'Home',
   
 
 methods: {

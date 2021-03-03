@@ -9,6 +9,16 @@ export async function getProducts() {
 
 }
 
+export async function getUserInfo(){
+    let token = window.sessionStorage.getItem("token")
+    const request = await axios.get('http://localhost:5000/api/me', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });  
+    const userInfo = request;
+    return userInfo.data;
+}
 
 // fileName: images.data[i].imgFile,
 //                    title: images.data[i].title,

@@ -12,7 +12,23 @@ export default new Vuex.Store({
     currentProducts: "",
     cart: []
 
+    loggedIn: false,
+    images: "",
+    user: {
+      _id: '', // generated server side
+      email: '',
+      password: '', // hashed serverside
+      name: '',
+      role: '', // or customer
+      address: {
+        street: '',
+          zip: '',
+          city: ''
+      },
+      orderHistory: []
+    },
   },
+  
   mutations: {
 
     storeImages(state,database) {
@@ -34,7 +50,19 @@ export default new Vuex.Store({
     }
 
   
+    updateLoggedIn(state, loggedIn){
+      state.loggedIn = loggedIn;
+    },
+
+    currentUser(state, user) {
+      state.user = user;
+    },
+
+    // loginUser(state, login){
+    //   state.loginform = login
+    // }
   },
+
   actions: {
 
     async drawImage(context) {
@@ -64,8 +92,27 @@ export default new Vuex.Store({
         context.commit('loadHoodies', category);
       }
     }
+       context.commit('pushIntoArray', data);
+    },
+
+    async user(context) {
+      const me = await API.getUserInfo();
+      console.log(me);
+      context.commit('currentUser', me);
+    },
+
+    // async login(context){
+    //   const userLogin = await API.getLogInfo();
+    //   context.commit('logInfo', userLogin)
+    // },
+
     
   },
+
+  getters: {
+
+  },
+
   modules: {
   }
 })

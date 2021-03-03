@@ -45,17 +45,23 @@
       <div class="icons">
           <img src="../assets/social-links.svg" alt="">
       </div>
-        <img src="../assets/logo-footer.svg" alt="">
+        <img @click="goToHome" src="../assets/logo-footer.svg" alt="">
   </div>
 </template>
 
 <script>
 export default {
-name: 'Footer'
+name: 'Footer',
+methods:{
+  goToHome(){
+    this.$router.push('/')
+  }
+}
 }
 </script>
 
 <style>
+
 li{
     list-style: none;
     text-align: justify;
@@ -66,6 +72,7 @@ li{
     font-size: 18px;
     height: 500px;
     background-image: url(../assets/footer.svg);
+    background-repeat: no-repeat;
 }
 
 .container-footer{
