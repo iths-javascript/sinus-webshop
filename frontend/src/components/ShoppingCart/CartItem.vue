@@ -8,10 +8,27 @@
       <h3 class="title">{{ product.title }}</h3>
       <p class="shortDesc">{{ product.shortDesc }}</p>
       <p class="size">Size: OneFit</p>
-      <img class="delete" @click="removeProduct(product._id)" src="@/assets/iconfinder_delete_370086.svg" text="remove from cart"/>
-      <!-- <small class="textmuted">Remove from cart</small> -->
     </div>
-    <p class="price">{{ product.price }} Kr</p>
+    <div class="remove-group">
+      <img
+        class="delete"
+        @click="removeProduct(product._id)"
+        src="@/assets/iconfinder_delete_370086.svg"
+        text="remove from cart"
+      />
+      <small class="remove-text">Remove from cart</small>
+    </div>
+    <select class="quantity-dropdown">
+      <option selected>{{ product.quantity }}</option>
+      <option
+        v-for="index in product.quantity"
+        :key="index"
+        :value="product.quantity"
+      >
+        {{ index }}
+      </option>
+    </select>
+    <p class="price">{{ product.price }},00 KR</p>
 
     <!-- </div> -->
   </div>
@@ -20,9 +37,9 @@
 <script>
 export default {
   methods: {
-    removeProduct(id){
-      this.$store.dispatch('removeProduct', id)
-    }
+    removeProduct(id) {
+      this.$store.dispatch("removeProduct", id);
+    },
   },
   props: {
     product: Object,
@@ -39,11 +56,11 @@ export default {
   grid-template-rows: repeat(7, 25px);
   margin: 0px auto;
   background-color: whitesmoke;
+  border-bottom: 1.5px solid black;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
-   
 }
 
 .img-container {
@@ -53,16 +70,25 @@ export default {
   grid-column: span 1;
   grid-row: 2 / span 6;
   background-color: #9199a5;
-  margin-left:20px;
+  margin-left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cart img {
+.imgFile {
   width: 75%;
   height: 80%;
-  
-  
+}
+
+.quantity-dropdown {
+  grid-column: 6;
+  grid-row: 2;
+  margin-right: 10px;
+  color: #8f8f8f;
+  background-color: -internal-light-dark(
+    rgb(255, 255, 255),
+    rgb(138, 138, 138)
+  );
 }
 
 .item-info {
@@ -78,33 +104,41 @@ export default {
   letter-spacing: 0.02em;
 }
 .size {
-  padding-top:10px;
+  padding-top: 10px;
   font-size: small;
 }
-
-.text-muted {
-  padding-top:10px;
+.remove-group {
+  display: flex;
+  align-items: flex-end;
+  grid-column: 2;
+  grid-row: 6;
+  margin-left: 8px;
 }
-.delete{
-  padding-top:25px;
-  
+.delete {
+  object-fit: contain;
+  height: 25px;
+  opacity: 0.5;
+}
+
+.remove-text {
+  font-size: 0.7rem;
+  color: #8f8f8f;
 }
 
 .shortDesc {
-  font-size: 16px;
-  font-display: 'Lato';
-  
+  font-size: 15px;
+  font-display: "Lato";
 }
 .title {
   font-family: "Bebas Neue";
-  font-size: 20px;
-  letter-spacing: 0.05em;
+  font-size: 25px;
 }
 
 .price {
-  font-size: 12px;
+  font-display: "Lato";
   grid-column: 6;
   grid-row: 6;
-  font-weight: 800;
+  font-weight: 400;
+  font-size: 20px;
 }
 </style>
