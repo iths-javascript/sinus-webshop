@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="checkout">
     <section class="header">
       <h2>Your Cart</h2>
@@ -49,4 +50,17 @@ export default {
   width: 33%;
   border-left: black 1px solid;
 }
+=======
+  <div></div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+>>>>>>> main
 </style>

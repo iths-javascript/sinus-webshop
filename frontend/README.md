@@ -1,5 +1,21 @@
 # frontend
 
+## Api
+
+### GET
+
+#### Products
+
+```javascript
+
+{
+      axios.get("http://localhost:5000/api/products").then(response => {
+        this.results = response.data
+        return this.results
+      });
+ }
+
+```
 ## Project setup
 ```
 npm install

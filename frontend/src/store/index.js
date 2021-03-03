@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from "vuex";
 
+<<<<<<< HEAD
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -82,3 +82,11 @@ getters: {
       
   },
 })
+=======
+export default createStore({
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {}
+});
+>>>>>>> main
