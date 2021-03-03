@@ -1,18 +1,12 @@
 <template>
-<div class="wrapper">
-    <div class="order">
-
-    </div>
-    <div class="detail">
-            </div>
-</div>
+  <div class="wrapper">
+    <div class="order"></div>
+    <div class="detail"></div>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
