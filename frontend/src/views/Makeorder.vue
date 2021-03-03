@@ -3,17 +3,15 @@
     <div class="make-order">
       <div class="border-first">
         <h1>ALREADY A CUSTOMER? SIGN IN</h1>
-
+        <div class="img-container"></div>
         <div class="border-menu">
           <div class="total">
             <h2 class="total-text">Total</h2>
-            <h2 class="total-price">
-              {{ $store.getters.getTotalCartPrice }} sek
-            </h2>
+            <h2 class="total-price">{{ $store.getters.getTotalPrice }} sek</h2>
           </div>
           <hr class="line" />
           <ul class="list">
-            <li v-for="item in this.$store.state.cartItems" :key="item">
+            <li v-for="item in this.$store.getters.getOrderItems" :key="item">
               <img
                 :src="require(`@/assets/${item.imgFile}`)"
                 class="cart-img"
@@ -46,7 +44,17 @@
           <input class="input-details" type="text" v-model="user.address.zip" />
         </div>
 
-        <h3 class="payment-text">Payment</h3>
+        <h3 class="payment-text">2. Payment</h3>
+        <br />
+        <p>Choose your payment methods</p>
+        <input type="radio" checked />
+        <img src="@/assets/icons8-visa.svg" alt="" class="card-icons" />
+        <input type="radio" checked />
+        <img
+          src="@/assets/icons8-mastercard-64.png"
+          alt=""
+          class="card-icons"
+        />
         <label class="inputs" for="">Card Owner</label>
         <input class="details" type="text" />
         <label class="inputs" for="">Card Number</label>
@@ -80,7 +88,7 @@
           <input class="input-details" type="text" />
         </div>
         <h3 class="payment-text">2. PAYMENT</h3>
-        <br>
+        <br />
         <p>Choose your payment methods</p>
         <input type="radio" checked />
         <img src="@/assets/icons8-visa.svg" alt="" class="card-icons" />
@@ -105,11 +113,11 @@
         <hr class="line" />
         <p class="sum">Total sum incl. taxes <strong>Show details</strong></p>
         <div class="total">
-            <h2 class="total-text">Total</h2>
-            <h2 class="total-price">
-              {{ $store.getters.getTotalCartPrice }} sek
-            </h2>
-          </div>
+          <h2 class="total-text">Total</h2>
+          <h2 class="total-price">
+            {{ $store.getters.getTotalCartPrice }} sek
+          </h2>
+        </div>
         <button class="btn" @click="sendOrder">Confirm Purchase</button>
         <p class="terms">
           By clicking this you confirm that you have read the lorem policy
@@ -163,6 +171,8 @@ h1 {
   letter-spacing: 0.05em;
   text-align: center;
 }
+.img-container {
+}
 
 .make-order {
   display: grid;
@@ -177,52 +187,61 @@ h1 {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
   overflow-y: auto;
-  /* display: flex;
-  align-content: center; */
 }
+
 .border-first {
   grid-column: 1 / span 6;
   grid-row: 1 / span 3;
-  height: 700px;
-
-  margin-top: 3rem;
-  margin-left: 5rem;
-
-  flex-direction: column;
-  align-items: flex-start;
+  /* display: flex; */
 }
 .list {
+  /* display: grid; */
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  background-color: white;
+  width: 100%;
   list-style: none;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 .total {
   display: flex;
   justify-content: space-between;
 }
 .cart-img {
-  display: flex;
-  justify-content: flex-start;
-  width: 40px;
-  height: 40px;
-  flex-direction: row;
+  display: grid;
+  background-color: #9199a5;
+  height: 70px;
+  width: 70px;
+  overflow-y: auto;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  cursor: pointer;
 }
-.cart-img .title {
+.title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-column: span 3;
+  margin-left: 15px;
 }
-.cart-img .price {
+.price {
   margin-left: 5rem;
+  grid-row: 6;
+  grid-column: 1;
 }
 .border-menu {
   margin-top: 2rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-  height: 500px;
   width: 600px;
   background-color: whitesmoke;
 }
@@ -233,6 +252,13 @@ h1 {
 }
 .total-price {
   margin-top: 1rem;
+  grid-row: 6;
+  grid-column: 1;
+  margin-left: 15px;
+}
+.card-icons {
+  width: 50px;
+  height: 50px;
 }
 .border-seccond {
   grid-column: 1 / span 6;
@@ -267,22 +293,20 @@ h1 {
   margin-left: 7rem;
 }
 .details {
-  height: 2rem;
+  height: rem;
   width: 21.8rem;
 }
 .input-details {
-  height: 2rem;
+  height: 3rem;
   margin-left: 2px;
   background-color: white;
 }
 .payment-text {
   margin-top: 3rem;
 }
-.your-details {
-  margin-bottom: 2rem;
-}
+
 .line {
-  color:gray;
+  color: gray;
   width: 100%;
 }
 .sum {
@@ -290,6 +314,7 @@ h1 {
   color: lightgray;
   font-size: 16px;
 }
+
 .btn {
   display: flex;
   justify-content: center;
@@ -303,11 +328,9 @@ h1 {
   font-weight: 500;
   text-decoration: none;
   color: white;
-  
   margin: 1rem 1rem 1rem 1rem;
   margin-left: 1.5rem;
   background-color: #5eb593;
-  
 }
 .btn:hover {
   background: #000;
