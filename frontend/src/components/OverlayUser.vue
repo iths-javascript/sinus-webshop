@@ -30,6 +30,7 @@ export default {
     left: 74.6rem;
     top: 11.4rem;
     transform: translate(-50%,-50%);
+    z-index: 1;
 }
 
 
