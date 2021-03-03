@@ -67,8 +67,8 @@ export default {
     // },
 
     getUser() {
-      this.$store.dispatch("getUser")
-    }
+      this.$store.dispatch("getUser");
+    },
   },
 };
 </script>
@@ -111,7 +111,6 @@ export default {
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
-  
 }
 
 .total-lable {
@@ -133,14 +132,7 @@ export default {
   margin-right: 5px;
   font-weight: 500;
 }
-.btn {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: black;
-  height: 30px;
-}
+
 
 .btn {
   display: flex;
@@ -148,31 +140,21 @@ export default {
   align-items: center;
   cursor: pointer;
   width: 200px;
-  /* height: 2.2rem; */
+  height: 30px;
   font-family: "PT Serif";
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 500;
   text-decoration: none;
   color: white;
-  /* border: 0.125rem solid rgba(0, 0, 0, 0.6); */
   box-sizing: border-box;
-  /* border-radius: 3.125rem; */
   margin: 1rem 1rem 1rem 1rem;
   margin-left: 1.5rem;
   background-color: #5eb593;
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
 }
 .btn:hover {
-  /* background: #5eb593;
-  color: #ddd; */
   background: #000;
   color: #fff;
 }
-/* .btn:active {
-  
-   background-color: #5eb593;
-   color: #ddd; 
-   color:#5eb593; 
-} */
 </style>
