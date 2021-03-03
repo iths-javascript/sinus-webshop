@@ -68,7 +68,7 @@ li{
     margin-top: 1rem;
 }
 .footer{
-    position: fixed;
+    position: relative;
     padding-bottom: 2rem;
     bottom: 0;
     width: 100%;
