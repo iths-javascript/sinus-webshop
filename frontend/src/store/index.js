@@ -73,6 +73,12 @@ getters: {
     removeProductFromCart({commit, state}, id){
       const array = state.shoppingCart.filter(item => item._id !== id)
       commit('setShoppingCart', array)
-    }
+    },
+
+    changeProductModal({commit}, id){
+      commit("changeProductModalStatus");
+      commit("changeProductModalId", id);
+    },
+      
   },
 })

@@ -30,9 +30,10 @@ export default {
       return require("../assets/" + pic);
     },
     change() {
-      console.log(this.product);
-      this.$store.commit("changeProductModalStatus");
-      this.$store.commit("changeProductModalId", this.product._id);
+      this.$store.dispatch("changeProductModal", this.product._id);
+
+      // this.$store.commit("changeProductModalStatus");
+      // this.$store.commit("changeProductModalId", this.product._id);
     },
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
