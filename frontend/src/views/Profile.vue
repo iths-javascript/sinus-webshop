@@ -117,6 +117,9 @@ ul li {
 form {
   display: flex;
   flex-direction: column;
+  margin: 100px auto;
+  max-width: 1440px;
+  width: 70%;
 }
 
 form label{
