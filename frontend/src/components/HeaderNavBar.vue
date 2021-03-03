@@ -1,13 +1,15 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home/Products</router-link> |
+    <router-link to="/">Our Products</router-link> |
     <router-link to="/MyAccount" v-if="userStatus">
       <span>ANVÄNDAREN INLOGGAD |</span>
     </router-link>
 
     <a v-if="userStatus === false" @click="changeLoginModalStatus">Log in |</a>
 
-    <a @click="changeCartStatus">Shopping Bag ({{ shoppingCartLength }})</a>
+    <a class="shopping-cart-link" @click="changeCartStatus"
+      >Shopping Cart ({{ shoppingCartLength }})</a
+    >
 
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
     <LoginModal v-if="loginModalStatus" @closeLogin="changeLoginModalStatus" />
