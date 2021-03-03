@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     images: "",
     currentProducts: "",
-    cart: [{ "title": "Gretas Fury", "price": 999, "quantity": 1, "id": "4AelsDrCCCy7pFd2" }, { "title": "Gretas Fury", "price": 1, "quantity": 1, "id": "4AelsDrCCCy7pFd2" }],
+    cart: [{ "title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }, { "title": "NaturalXL", "price": 1, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }],
     loggedIn: false,
     user: {
       _id: '', // generated server side
@@ -42,7 +42,8 @@ export default new Vuex.Store({
         title: item.title,
         price: item.price,
         quantity: 1,
-        id: item._id
+        id: item._id,
+        imgFile: item.imgFile
       })
     },
 

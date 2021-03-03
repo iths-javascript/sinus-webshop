@@ -2,6 +2,21 @@
   <div class="wrapper">
     <div class="orders">
       <h2 class="summary">Order Summary</h2>
+      <div
+        class="items-container"
+        v-for="item in drawItems"
+        v-bind:key="item.id"
+      >
+        <div class="product-img">
+          <img :src="require(`../assets/${item.imgFile}`)" />
+        </div>
+        <div class="item-desc">
+          <h3>{{ item.title }}</h3>
+          <p>color: {{ item.color }}</p>
+          <p>quantity: {{ item.quantity }}</p>
+          <p></p>
+        </div>
+      </div>
     </div>
     <div class="detail-wrapper">
       <div class="details">
@@ -16,7 +31,7 @@
             <button class="back-btn" @click="totalPrice">Go back</button>
           </div>
           <div class="proceed">
-            <button class="proceed-btn">proceed to checkout</button>
+            <button class="proceed-btn">Checkout</button>
           </div>
         </div>
       </div>
@@ -28,10 +43,6 @@
 export default {
   name: "Cart",
   methods: {
-    drawItems() {
-      // let cart = this.$store.state.cart;
-    },
-
     totalPrice() {
       let cart = this.$store.state.cart;
       let sum = 0;
@@ -44,7 +55,12 @@ export default {
       return sum;
     },
   },
-  computed: {},
+  computed: {
+    drawItems() {
+      let cart = this.$store.state.cart;
+      return cart;
+    },
+  },
 };
 </script>
 
@@ -67,7 +83,6 @@ h1 {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1.2px;
-  /* line-height: 26px; */
 }
 
 .wrapper {
@@ -98,44 +113,34 @@ h1 {
 .buttons {
   display: flex;
   padding-top: 40px;
-  /* align-items: space-evenly; */
   justify-content: space-evenly;
-  width: 400px;
 }
 
 .back,
 .proceed {
   position: relative;
   transform: translate(-50%, -50%);
-}
-
-.back {
-  margin-right: 200px;
-}
-
-.proceed {
-  right: -100px;
+  height: 44px;
+  width: 144px;
 }
 
 /* Back Button Effects */
 
-.back-btn {
+.back-btn,
+.proceed-btn {
   cursor: pointer;
   position: absolute;
-  /* top: 90%; */
-  /* left: 50%; */
+  transform: translate(0%, 0%);
   font-family: Ropa Sans;
   font-size: 18px;
-  width: 144px;
-  height: 40px;
-  color: #cbe9ef;
   box-shadow: -6px 6px 0px #cbe9ef;
 }
 
-.back-btn:before {
+.back-btn:before,
+.proceed-btn:before {
   content: "";
   position: absolute;
-  background: #383736;
+  background: white;
   bottom: 0;
   left: 0;
   right: 0;
@@ -144,15 +149,33 @@ h1 {
   -webkit-transition: top 0.14s ease-in;
 }
 
-.back-btn:hover {
-  color: whitesmoke;
+.back-btn:hover,
+.proceed-btn:hover {
+  color: #383736;
 }
 
-.back-btn:hover:before {
+.back-btn:hover:before,
+.proceed-btn:hover:before {
   top: 0;
 }
 
 /* Proceed Button Effects */
+
+/* ---------------------------- */
+
+.items-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.product-img {
+  background-color: #383736;
+  max-width: 350px;
+  min-width: 200px;
+}
 
 button {
   margin: 0;
