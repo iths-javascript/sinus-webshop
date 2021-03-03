@@ -1,21 +1,21 @@
 <template>
-  <div id="productDescription">
-    <div id="innerBox">
-      <div class="product-image-box">
+  <div class="product-description">
+    <div class="product-innerbox">
+      <div class="product-imagebox">
         <img :src="getImgUrl" alt="product image" height="400px" />
       </div>
-      <div class="product-decription-box">
+      <div class="product-decriptionbox">
         <table>
-          <tr id="title">{{ product.title }}</tr>
-          <tr class="description">{{ product.longDesc }}</tr>
-          <tr class="price">{{ product.price }} sek</tr>
-          <tr class="size"></tr>
-          <tr class="Review"></tr>
+          <tr class="product-title">{{ product.title }}</tr>
+          <tr class="product-described">{{ product.longDesc }}</tr>
+          <tr class="product-price">{{ product.price }} sek</tr>
+          <tr class="product-size"></tr>
+          <tr class="product-review"></tr>
 
-          <button class="add centered">Take my money</button>
+          <button class="product-add">Take my money</button>
         </table>  
       </div>
-      <span class="close-image" @click="handleClick">X</span>
+      <span class="product-closeimage" @click="handleClick">X</span>
     <div>
   </div>
   </div>
@@ -78,7 +78,8 @@ tr {
     align-items: center
 }
 
-#productDescription {
+.product{
+&-description {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,22 +92,19 @@ tr {
   
 }
 
-#innerBox{
+&-innerbox{
   display: flex;
   background-color:white;
   width: 768px;
   height: 508px;
 }
 
-.product-image-box {
 
-}
-
-.product-decription-box {
+&-decriptionbox {
   margin-top: 2rem;
 }
 
-.description {
+&-described {
 font-family: Open Sans;
 font-style: normal;
 font-weight: normal;
@@ -114,18 +112,11 @@ font-size: 16px;
 line-height: 150%;
 height: 250px;
 vertical-align: middle;
-/* or 24px */
-
 color: rgba(0, 0, 0, 0.6);
 
 }
-.productPhoto {
-width: 356px;
-height: 507px;
-left: 46px;
-top: 33px;
-}
-.add { 
+
+&-add { 
 width: 202px;
 height:48px;
 border-radius: 50px;
@@ -133,13 +124,13 @@ background-color: black;
 color: white;
 
 }
-.close-image {
+&-closeimage {
   z-index: 999999;
   padding: 10px;
   color: #000;
   cursor: pointer;
 }
-#title{
+&-title{
 font-family: Open Sans;
 font-style: normal;
 font-weight: bold;
@@ -147,7 +138,7 @@ font-size: 32px;
 line-height: 44px;
 padding-bottom: 2rem !important;
 }
-.price{
+&-price{
   padding-top: 30px;
 font-style: normal;
 font-weight: bold;
@@ -156,5 +147,11 @@ line-height: 35px;
 color: #000000;
 
 }
-
+.productPhoto {
+width: 356px;
+height: 507px;
+left: 46px;
+top: 33px;
+}
+}
 </style>
