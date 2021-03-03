@@ -20,5 +20,16 @@
             "city": "Tokbergaskogen"
         },
         "orderHistory": []
+    },
+    {
+        "email": "romi@example.com",
+        "name": "Romi Nonix",
+        "role": "customer",
+        "address": {
+            "street": "Somevägen 20",
+            "zip": "123 44",
+            "city": "Mittiskogen"
+        },
+        "orderHistory": []
     }
 ]
