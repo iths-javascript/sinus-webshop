@@ -118,6 +118,7 @@ li {
 }
 
 .top {
+    width: 100%;
     height:35px;
     background-color: #2B2B2B
 }

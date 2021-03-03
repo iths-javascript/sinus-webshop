@@ -7,13 +7,10 @@ import * as API from '../api/api'
 
 export default new Vuex.Store({
   state: {
-
     images: "",
     currentProducts: "",
-    cart: []
-
+    cart: [],
     loggedIn: false,
-    images: "",
     user: {
       _id: '', // generated server side
       email: '',
@@ -47,7 +44,7 @@ export default new Vuex.Store({
         quantity: 1,
         id: item._id
       })
-    }
+    },
 
   
     updateLoggedIn(state, loggedIn){
@@ -91,23 +88,23 @@ export default new Vuex.Store({
         const category = "t-shirt";
         context.commit('loadHoodies', category);
       }
-    }
-       context.commit('pushIntoArray', data);
     },
+      //  context.commit('pushIntoArray', data);
+    
 
     async user(context) {
       const me = await API.getUserInfo();
       console.log(me);
       context.commit('currentUser', me);
-    },
-
+    }
+  },
     // async login(context){
     //   const userLogin = await API.getLogInfo();
     //   context.commit('logInfo', userLogin)
     // },
 
     
-  },
+  
 
   getters: {
 
@@ -115,4 +112,5 @@ export default new Vuex.Store({
 
   modules: {
   }
+
 })
