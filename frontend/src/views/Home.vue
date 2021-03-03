@@ -5,7 +5,7 @@
         <div class="skateboard">
           <img class="skateboard-img" src="../assets/skeatboard.png" />
           <p class="skateboard-text">#Skateboard</p>
-          <button class="skateboard-button" @click="fetchImages">
+          <button class="skateboard-button" @click="goToProduct">
             Shop now
           </button>
         </div>
@@ -14,14 +14,14 @@
         <div class="t-shirts">
           <img class="t-shirts-img" src="../assets/t-shirt.jpg" />
           <p class="t-shirt-text">#T-Shirt</p>
-          <button class="t-shirts-button" @click="fetchImages">
+          <button class="t-shirts-button" @click="goToProduct">
             Shop now
           </button>
         </div>
         <div class="sneakers">
           <img class="sneakers-img" src="../assets/sneakers.jpg" />
           <p class="sneaker-text">#Sneakers</p>
-          <button class="sneakers-button" @click="fetchImages">
+          <button class="sneakers-button" @click="goToProduct">
             Shop now
           </button>
         </div>
@@ -32,20 +32,20 @@
         <div class="wheels">
           <img class="wheels-img" src="../assets/wheels.jpg" />
           <p class="wheels-text">#Wheels</p>
-          <button class="wheels-button" @click="fetchImages">Shop now</button>
+          <button class="wheels-button" @click="goToProduct">Shop now</button>
         </div>
       </div>
       <div class="mid-section-right">
         <div class="mid-section-right-top">
 
         <h1 class="title">reparation?</h1>
-        <button>go it</button>
+        <button class="button-home" @click="goToProduct">go it</button>
         </div>
         <img src="../assets/illustration-reparation.svg" alt="reparation">
         <img src="../assets/illustration-sale.svg" alt="reparation">
         <div class="mid-section-right-bottom">
           <h1 class="title">Sale?</h1>
-        <button>go it</button>
+        <button class="button-home" @click="goToProduct">go it</button>
         </div>
       </div>
     </div>
@@ -59,14 +59,9 @@
      <h1 class="title">limited edition</h1>
      <img src="../assets/stars.svg" alt="">
           <h1 class="title">#the-gonz</h1>
-
-      <button>shop now</button>
-
+          <button class="button-home" @click="goToProduct">shop now</button>
      </div>
     </div>
-
-
-
     <div class="mid-section3">
       <h1 class="title">#SinusFreeStyle <img class="heart-insta" src="../assets/big-heart.svg" alt=""></h1>
       <p class="insta-user">@sinuskate</p>
@@ -81,15 +76,14 @@
 </template>
 
 <script>
-import * as API from "../api/api";
+// import * as API from "../api/api";
 
 export default {
   name:'Home',
   methods: {
-    async fetchImages() {
-      const data = await API.getProducts();
-      console.log(data);
-    },
+    goToProduct(){
+      this.$router.push("/product") 
+    }
   },
 };
 </script>
@@ -100,6 +94,24 @@ export default {
 /* ----------------------------------------------------- */
 /* -------------- Recommendations Section -------------- */
 /* ----------------------------------------------------- */
+.button-home {
+  cursor: pointer;
+  font-family: Ropa Sans;
+  font-size: 18px;
+  width: 144px;
+  height: 40px;
+  background-color: whitesmoke;
+  color: #2b2b2b;
+  border-style: none;
+  box-shadow: -6px 6px #2b2b2b;
+  margin: 0rem;
+}
+
+.button-home:hover{
+  background-color:#5E60B3;
+  color: whitesmoke;
+}
+
 .title {
   margin: 0rem;
   font-family: "Schoolbell", cursive;
@@ -115,7 +127,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #cbe9ef;
-  padding: 5rem 0;
+  padding: 5% 2%;
 }
 
 
@@ -153,7 +165,7 @@ export default {
   text-transform: uppercase;
 }
 
-.skateboard-button {
+.skateboard-button, .t-shirts-button, .sneakers-button {
   cursor: pointer;
   position: absolute;
   top: 90%;
@@ -163,27 +175,19 @@ export default {
   font-size: 18px;
   width: 144px;
   height: 40px;
-  box-shadow: -6px 6px 0px #2b2b2b;
-}
-
-.skateboard-button:before {
-  content: "";
-  position: absolute;
-  background: #383736;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 100%;
-  z-index: -1;
-  /* -webkit-transition: top 0.14s ease-in; */
+  box-shadow: -6px 6px #2b2b2b;
+  border-style: none;
+  background-color: whitesmoke;
+  color:#2b2b2b;
 }
 
 .skateboard-button:hover {
+  background-color:#5E60B3;
   color: whitesmoke;
 }
-
-.skateboard-button:hover:before {
-  top: 0;
+.t-shirts-button:hover {
+  background-color:#5E60B3;
+  color: whitesmoke;
 }
 
 /* -------------- t-shirts Shop Now button -------------- */
@@ -216,16 +220,16 @@ export default {
 .t-shirts-button:before {
   content: "";
   position: absolute;
-  background: #383736;
+  background: #5E60B3;
   bottom: 0;
   left: 0;
   right: 0;
   top: 100%;
   z-index: -1;
-  /* -webkit-transition: top 0.14s ease-in; */
 }
 
 .t-shirts-button:hover {
+  background-color:#5E60B3;
   color: whitesmoke;
 }
 
@@ -263,7 +267,7 @@ export default {
 .sneakers-button:before {
   content: "";
   position: absolute;
-  background: #383736;
+  background: #5E60B3;
   bottom: 0;
   left: 0;
   right: 0;
@@ -273,6 +277,7 @@ export default {
 }
 
 .sneakers-button:hover {
+  background-color:#5E60B3;
   color: whitesmoke;
 }
 
@@ -321,36 +326,35 @@ export default {
 .mid-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* grid-template-rows: 1fr; */
-  grid-column-gap: 0px;
-  grid-row-gap: 36px;
   justify-content: center;
   background-color: #ffebd3;
   width: 100%;
-  height: 533px;
+  height: auto;
+  padding: 2%;
 }
 
 .mid-section-left {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 50%; */
-  background-color: #ffebd3;
 }
 
 .mid-section-right {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  /* width: 50%; */
-  background-color: #ffebd3;
-  justify-content: space-evenly;
+  /* background-color: #ffebd3; */
+  /* justify-content: space-evenly; */
+  justify-content: center;
   align-items: center;
 }
 
 .mid-section-right-top, .mid-section-right-bottom {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
 /*-------------- Wheels Shop Now button -------------- */
@@ -361,7 +365,7 @@ export default {
   font-family: "Schoolbell", cursive;
   letter-spacing: 0.3rem;
   position: absolute;
-  top: 83%;
+  top: 70%;
   transform: translate(-50%, -50%);
   left: 50%;
   text-transform: uppercase;
@@ -370,7 +374,7 @@ export default {
 .wheels-button {
   cursor: pointer;
   position: absolute;
-  top: 90%;
+  top: 85%;
   transform: translate(-50%, -50%);
   left: 50%;
   font-family: Ropa Sans;
@@ -378,12 +382,15 @@ export default {
   width: 144px;
   height: 40px;
   box-shadow: -6px 6px 0px #2b2b2b;
+  border-style: none;
+  background-color: whitesmoke;
+  color:#2b2b2b;
 }
 
 .wheels-button:before {
   content: "";
   position: absolute;
-  background: #383736;
+  background: #5E60B3;
   bottom: 0;
   left: 0;
   right: 0;
@@ -393,6 +400,7 @@ export default {
 }
 
 .wheels-button:hover {
+  background-color:#5E60B3;
   color: whitesmoke;
 }
 
