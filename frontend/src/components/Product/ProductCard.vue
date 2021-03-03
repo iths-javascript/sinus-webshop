@@ -5,10 +5,10 @@
     </div>
     <div class="title-desc">
       <h3>{{ product.title }}</h3>
-      <p class="shortdesc">{{ product.shortDesc }}</p>
+      <p class="shortdesc" v-if="!isRoute">{{ product.shortDesc }}</p>
     </div>
     <p class="price">{{ product.price }} KR</p>
-    <div v-if="isRoute" class="rating-container">
+    <div v-if="!isRoute" class="rating-container">
       <p class="rating">{{ product.rating }}</p>
       <img class="star" src="@/assets/Star.svg" />
     </div>
@@ -20,11 +20,11 @@ export default {
   props: {
     product: Object,
   },
-  computed: {
-    isRoute() {
-      return this.$router.path === "/singleproduct/:id" ? true : false;
-    },
-  },
+  computed:{
+    isRoute(){
+      return this.$router.currentRoute.name==="Singleproduct"
+    }
+  }
 };
 </script>
 

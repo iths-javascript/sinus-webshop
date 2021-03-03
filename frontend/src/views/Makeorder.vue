@@ -114,9 +114,9 @@
         <h3 class="payment-text">2. PAYMENT</h3>
         <br />
         <p>Choose your payment methods</p>
-        <input type="radio" checked />
+        <input type="radio" name="cardbtn" checked />
         <img src="@/assets/icons8-visa.svg" alt="" class="card-icons" />
-        <input type="radio" checked />
+        <input type="radio" name="cardbtn" checked />
         <img
           src="@/assets/icons8-mastercard-64.png"
           alt=""
