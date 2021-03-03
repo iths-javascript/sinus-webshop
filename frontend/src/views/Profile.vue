@@ -17,15 +17,15 @@
       </ul>
     </div>
     <form v-if="edit">
-      <label for="name">Name</label>
+      <label for="name">Name:</label>
       <input v-model="formData.name" name="name" type="text" />
-      <label for="email">Email</label>
+      <label for="email">Email:</label>
       <input v-model="formData.email" name="email" type="email" />
-      <label for="name">Street</label>
+      <label for="name">Street:</label>
       <input v-model="formData.address.street" name="street" type="text" />
-      <label for="zip">Zip</label>
+      <label for="zip">Zip:</label>
       <input name="zip" type="text" v-model="formData.address.zip" />
-      <label for="city">City</label>
+      <label for="city">City:</label>
       <input v-model="formData.address.city" name="city" type="text" />
       <button @click.prevent="confirmEdit">Confirm changes</button>
     </form>
@@ -113,4 +113,33 @@ ul li {
   font-size: 20px;
   padding: 5px 0;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-weight: 500;
+  color: #fbfbfb;
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #5eb593;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
+}
+
 </style>
