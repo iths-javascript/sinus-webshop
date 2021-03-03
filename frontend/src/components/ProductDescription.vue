@@ -112,6 +112,8 @@ font-style: normal;
 font-weight: normal;
 font-size: 16px;
 line-height: 150%;
+height: 250px;
+vertical-align: middle;
 /* or 24px */
 
 color: rgba(0, 0, 0, 0.6);
