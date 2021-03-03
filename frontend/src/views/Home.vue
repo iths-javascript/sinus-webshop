@@ -5,6 +5,7 @@
         <h1>TOP-SELLING SKATEBOARDS</h1>
         <div class="top-img-wrapper">
           <Product-card
+            @click.native="changeRoute(product._id)"
             class="prod-card-left"
             v-for="product in products.slice(0, 1)"
             :key="product._id"
@@ -12,6 +13,7 @@
           />
 
           <Product-card
+            @click.native="changeRoute(product._id)"
             class="prod-card-right"
             v-for="(product, index) in products.slice(1, 2)"
             :key="index"

@@ -38,19 +38,19 @@
         </div>
         <ProductCard
           class="rec-item"
-          v-for="(product, index) in products.slice(1, 2)"
+          v-for="(product, index) in products.slice(9, 10)"
           :key="index"
           :product="product"
         />
         <ProductCard
           class="rec-item"
-          v-for="(product, index) in products.slice(1, 2)"
+          v-for="(product, index) in products.slice(4, 5)"
           :key="index"
           :product="product"
         />
         <ProductCard
           class="rec-item"
-          v-for="(product, index) in products.slice(1, 2)"
+          v-for="(product, index) in products.slice(6, 7)"
           :key="index"
           :product="product"
         />
