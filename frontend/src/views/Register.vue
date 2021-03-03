@@ -111,7 +111,5 @@ input:focus ~ label {
   outline: none;
   grid-column: span 2;
 }
-/* .col-2 {
-  grid-column: auto/span 2;
-} */
+
 </style>
