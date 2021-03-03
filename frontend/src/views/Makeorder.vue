@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="border-menu" v-if="user">
-        <h3 class="your-details">Your Details</h3>
+        <h3 class="your-details">1. Shipping Address</h3>
         <label class="inputs" for="">Your name</label>
         <input class="details" type="text" v-model="user.name" />
         <label class="inputs" for="">Street</label>
@@ -80,7 +80,8 @@
           <input class="input-details" type="text" />
         </div>
         <h3 class="payment-text">2. PAYMENT</h3>
-        Choose your payment methods
+        <br>
+        <p>Choose your payment methods</p>
         <input type="radio" checked />
         <img src="@/assets/icons8-visa.svg" alt="" class="card-icons" />
         <input type="radio" checked />
@@ -100,10 +101,23 @@
         <div class="right">
           <input class="input-details" type="text" />
           <input class="input-details" type="password" />
-          <hr class="line" />
-
-          <button class="btn" @click="sendOrder">Submit Order</button>
         </div>
+        <hr class="line" />
+        <p class="sum">Total sum incl. taxes <strong>Show details</strong></p>
+        <div class="total">
+            <h2 class="total-text">Total</h2>
+            <h2 class="total-price">
+              {{ $store.getters.getTotalCartPrice }} sek
+            </h2>
+          </div>
+        <button class="btn" @click="sendOrder">Confirm Purchase</button>
+        <p class="terms">
+          By clicking this you confirm that you have read the lorem policy
+          blablabla and accept the lorem terms and conditions blablabla. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
+          consectetur duis facilisis vitae bibendum. Tempor, semper orci, eros,
+          venenatis ullamcorper amet fermentum, mattis.
+        </p>
       </div>
     </div>
   </div>
@@ -147,6 +161,7 @@ h1 {
   font-family: "Bebas Neue";
   font-size: 20px;
   letter-spacing: 0.05em;
+  text-align: center;
 }
 
 .make-order {
@@ -203,8 +218,10 @@ h1 {
 .border-menu {
   margin-top: 2rem;
   padding: 2rem;
-  /* display: flex; */
-  /* border-style: solid; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
   height: 500px;
   width: 600px;
   background-color: whitesmoke;
@@ -224,6 +241,7 @@ h1 {
   width: 600px;
   margin-top: 6rem;
   margin-left: 5rem;
+  margin-bottom: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,7 +254,6 @@ h1 {
   font-size: 1rem;
   color: lightgray;
   margin-top: 5px;
-  background-color: white;
 }
 .lable-left {
   font-size: 1rem;
@@ -252,7 +269,6 @@ h1 {
 .details {
   height: 2rem;
   width: 21.8rem;
-  background-color: white;
 }
 .input-details {
   height: 2rem;
@@ -266,15 +282,20 @@ h1 {
   margin-bottom: 2rem;
 }
 .line {
-  color: black;
+  color:gray;
   width: 100%;
+}
+.sum {
+  font-family: "Lato";
+  color: lightgray;
+  font-size: 16px;
 }
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 200px;
+  width: 300px;
   height: 40px;
   font-family: "PT Serif";
   font-size: 1.2rem;
@@ -282,14 +303,19 @@ h1 {
   font-weight: 500;
   text-decoration: none;
   color: white;
-  box-sizing: border-box;
+  
   margin: 1rem 1rem 1rem 1rem;
   margin-left: 1.5rem;
   background-color: #5eb593;
-  box-shadow: 0px 6px 4px rgba(228, 213, 213, 0);
+  
 }
 .btn:hover {
   background: #000;
   color: #fff;
+}
+.terms {
+  font-family: "Lato";
+  color: lightgray;
+  font-size: 11px;
 }
 </style>

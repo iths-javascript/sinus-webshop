@@ -18,7 +18,19 @@
       />
       <small class="remove-text">Remove from cart</small>
     </div>
-    <select class="quantity-dropdown">
+    <div class="quantity">
+      <img
+        @click="setQuantity(product, (increment = true))"
+        class="rotated"
+        src="@/assets/dropdown.svg"
+      />
+      <p>{{ product.quantity }}</p>
+      <img
+        @click="setQuantity(product, (increment = false))"
+        src="@/assets/dropdown.svg"
+      />
+    </div>
+    <!-- <select class="quantity-dropdown">
       <option selected>{{ product.quantity }}</option>
       <option
         v-for="index in product.quantity"
@@ -27,7 +39,7 @@
       >
         {{ index }}
       </option>
-    </select>
+    </select> -->
     <p class="price">{{ product.price }},00 KR</p>
 
     <!-- </div> -->
@@ -36,13 +48,22 @@
 
 <script>
 export default {
+  props: {
+    product: Object,
+  },
   methods: {
     removeProduct(id) {
       this.$store.dispatch("removeProduct", id);
     },
-  },
-  props: {
-    product: Object,
+    setQuantity(payload, increment) {
+      if (increment) {
+        payload.increment = true;
+      } else {
+        payload.increment = false;
+      }
+      this.$store.dispatch("setQuantity", payload);
+      this.$emit("forceRerender");
+    },
   },
 };
 </script>
@@ -89,6 +110,26 @@ export default {
     rgb(255, 255, 255),
     rgb(138, 138, 138)
   );
+}
+
+.quantity {
+  grid-column: 6;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 45px;
+}
+
+.quantity p {
+  margin: 5px 0;
+}
+.quantity img {
+  cursor: pointer;
+}
+
+.rotated {
+  transform: rotate(180deg);
 }
 
 .item-info {

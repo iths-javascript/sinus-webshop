@@ -73,6 +73,7 @@ input {
   position: relative;
   z-index: 10;
   background: transparent;
+  background-color: white;
 }
 
 input:focus ~ label {

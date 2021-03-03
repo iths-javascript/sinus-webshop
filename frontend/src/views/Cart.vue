@@ -6,9 +6,11 @@
         <h4>Cart ({{ cartItems.length }} items)</h4>
         <img src="../assets/sinus-logo.svg" />
       </div>
+
       <CartItem
-        v-for="(item, index) in cartItems"
-        :key="index"
+        @forceRerender="forceRerender"
+        v-for="item in cartItems"
+        :key="`${componentKey}-${item._id}`"
         :product="item"
       />
     </div>
@@ -44,6 +46,7 @@ export default {
   data() {
     return {
       showModal: false,
+      componentKey: 0,
     };
   },
   computed: {
@@ -55,19 +58,16 @@ export default {
     },
   },
   methods: {
-    // sendToOrder() {
-    //   this.$router.push("/MakeOrder");
-    // },
     addOrder() {
       this.$router.push("/MakeOrder");
     },
 
-    // removeFromCart(index) {
-    //   this.$store.commit("removeFromCart", index);
-    // },
-
     getUser() {
       this.$store.dispatch("getUser");
+    },
+
+    forceRerender() {
+      this.componentKey += 1;
     },
   },
 };
