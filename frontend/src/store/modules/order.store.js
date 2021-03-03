@@ -2,7 +2,8 @@
 import {
   ADD_PRODUCT_ORDER,
   CALCULATE_PRICE,
-  REMOVE_PRODUCT
+  REMOVE_PRODUCT,
+  SET_QUANTITY,
 } from '../mutationTypes.js';
 
 
@@ -21,7 +22,6 @@ export default {
   mutations: {
     [REMOVE_PRODUCT] (state, id) {
       state.currentOrder.items = state.currentOrder.items.filter(item => item._id !== id) 
-
     },
 
     [ADD_PRODUCT_ORDER](state, payload) {
@@ -37,13 +37,24 @@ export default {
         state.currentOrder.totalPrice += item.price
       })
     },
+    [SET_QUANTITY](state, payload) {
+      const item = state.currentOrder.items.find(item => item._id === payload._id);
+      if (payload.increment) {
+        item.quantity++;
+      } else {
+        item.quantity--;
+      }
+    }
   },
 
 
   getters: {
     getOrderItems: state => state.currentOrder.items,
     getTotalPrice: state => state.currentOrder.totalPrice,
-
+    getItemById: state => id => {
+      const item = state.currentOrder.items.find(item => item._id === id);
+      return item;
+    }
   },
 
   actions: {
@@ -56,14 +67,17 @@ export default {
       commit(CALCULATE_PRICE)
     },
 
-    async createOrder({ state, rootState }) {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization' : `Bearer ${rootState.user.token}`
-
-        }
+    setQuantity({commit}, payload) {
+      console.log(payload.increment);
+      if (payload.quantity === 1 && !payload.increment) {
+        commit(REMOVE_PRODUCT, payload._id);
+      } else {
+        commit(SET_QUANTITY, payload);
       }
+    },
+
+    async createOrder({ state, rootState }) {
+      
       const body = {
         items: []
       }
@@ -89,6 +103,11 @@ export default {
           console.log(response);
         }
         else {
+          const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          }
           const response = await axios.post('http://localhost:5000/api/orders', JSON.stringify(body), config);
           console.log(response)
         }
@@ -98,9 +117,7 @@ export default {
           errors.forEach(error => console.log(error));
         }
       }
-    }
-   
-
+    },
   },
 
 }
