@@ -41,6 +41,7 @@
           <li>Work at Sinus</li>
         </ul>
       </div>
+      <!-- <img @click="goToHome" src="../assets/logo-footer.svg" alt=""> -->
     </div>
     <div class="icons">
       <img src="../assets/social-links.svg" alt="" />
@@ -68,20 +69,18 @@ li {
 }
 .footer {
   position: relative;
-  padding: 10px 10px 0px 10px;
+  padding-bottom: 2rem;
   bottom: 0;
   width: 100%;
   color: whitesmoke;
   font-size: 18px;
-  height: 500px;
-  background-color: #5e60eb;
-  /* background-image: url(../assets/footer.svg); */
-  /* background-repeat: no-repeat; */
+  background-color: #5e60b3;
+  height: auto;
 }
 
 .container-footer {
   width: 100%;
-  padding: 8rem 6rem 2rem 12rem;
+  padding: 5rem 6rem 1rem 12rem;
   text-align: justify;
   display: grid;
   flex-direction: column;
@@ -112,6 +111,6 @@ li {
 }
 
 .icons {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 </style>

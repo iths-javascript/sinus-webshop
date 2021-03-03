@@ -25,7 +25,7 @@
           <h1>Total</h1>
           <h1>{{ totalPrice() }} SEK</h1>
         </div>
-        <h3 class="vat">Including VAT</h3>
+        <h3 class="vat">including VAT</h3>
         <div class="buttons">
           <div class="back">
             <button class="back-btn" @click="totalPrice">Go back</button>
@@ -116,47 +116,26 @@ h1 {
   justify-content: space-evenly;
 }
 
-.back,
-.proceed {
-  position: relative;
-  transform: translate(-50%, -50%);
-  height: 44px;
-  width: 144px;
-}
-
 /* Back Button Effects */
 
 .back-btn,
 .proceed-btn {
   cursor: pointer;
-  position: absolute;
-  transform: translate(0%, 0%);
   font-family: Ropa Sans;
   font-size: 18px;
+  width: 144px;
+  height: 40px;
+  background-color: #2b2b2b;
+  color: whitesmoke;
+  border-style: none;
   box-shadow: -6px 6px 0px #cbe9ef;
-}
-
-.back-btn:before,
-.proceed-btn:before {
-  content: "";
-  position: absolute;
-  background: white;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 100%;
-  z-index: -1;
-  -webkit-transition: top 0.14s ease-in;
+  margin: 0rem;
 }
 
 .back-btn:hover,
 .proceed-btn:hover {
-  color: #383736;
-}
-
-.back-btn:hover:before,
-.proceed-btn:hover:before {
-  top: 0;
+  background-color: #5e60b3;
+  color: whitesmoke;
 }
 
 /* Proceed Button Effects */
@@ -177,14 +156,10 @@ h1 {
   min-width: 200px;
 }
 
-button {
-  margin: 0;
-}
-
 .vat {
   display: flex;
   left: 0;
-  padding-left: 85px;
+  padding-left: 90px;
   font-weight: 100;
 }
 </style>

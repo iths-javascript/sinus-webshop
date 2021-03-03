@@ -30,6 +30,7 @@
 
 
 export default {
+    name: "Product",
 
 data() { return {
     tab: "skateboards"
@@ -68,7 +69,7 @@ beforeMount() {
 
 </script>
 
-<style style>
+<style>
 
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
 
@@ -158,6 +159,3 @@ button {
 .product-container p, button {
     margin-right:90px;
 }
-
-
-</style>

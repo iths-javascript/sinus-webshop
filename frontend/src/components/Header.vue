@@ -6,49 +6,45 @@
       <p class="top-right">Find Store</p>
     </div>
     <div class="navbar">
-      <ul>
-        <li>skateboard</li>
-        <li class="special">
-          the gonz
-          <img src="@/assets/cutelike.svg" class="icon-cute" alt="cutelike" />
-        </li>
-        <li>wheels</li>
-        <img class="logo" src="@/assets/logo.svg" alt="logo" />
-        <li>t-shirt</li>
-        <li class="sneaker">sneakers</li>
-        <div class="nav-icon">
-          <img src="@/assets/search.svg" class="icon" alt="search" />
-          <img src="@/assets/like.svg" class="icon" alt="favorites" />
-          <img
-            @click="showForm = !showForm"
-            v-if="this.$store.state.loggedIn === false"
-            src="@/assets/user.svg"
-            class="icon user"
-            alt="user"
-          />
-          <img
-            @click="showLogOut = !showLogOut"
-            v-if="this.$store.state.loggedIn === true"
-            src="@/assets/login-icon-pink.svg"
-            class="icon user"
-            alt="user"
-          />
-          <img
-            src="@/assets/cart.svg"
-            class="icon"
-            alt="cart"
-            @click="goToCart"
-          />
-        </div>
-      </ul>
-
-      <Overlay v-if="showForm" @close="showForm = false">
-        <LoginForm @close="showForm = false" />
-      </Overlay>
-      <OverlayUser v-if="showLogOut" @close="showLogOut = false">
-        <MyAccount @close="showLogOut = false" />
-      </OverlayUser>
+      <router-link :to="'product'">skateboard</router-link>
+      <router-link :to="'product'" class="special"
+        >the gonz <img src="@/assets/cutelike.svg" class="icon-cute" alt=""
+      /></router-link>
+      <router-link :to="'product'">wheels</router-link>
+      <img class="logo" @click="goToHome" src="@/assets/logo.svg" alt="logo" />
+      <router-link :to="'product'">t-shirt</router-link>
+      <router-link :to="'product'" class="sneaker">sneakers</router-link>
+      <div class="nav-icon">
+        <img src="@/assets/search.svg" class="icon" alt="search" />
+        <img src="@/assets/like.svg" class="icon" alt="favorites" />
+        <img
+          @click="showForm = !showForm"
+          v-if="this.$store.state.loggedIn === false"
+          src="@/assets/user.svg"
+          class="icon user"
+          alt="user"
+        />
+        <img
+          @click="showLogOut = !showLogOut"
+          v-if="this.$store.state.loggedIn === true"
+          src="@/assets/login-icon-pink.svg"
+          class="icon user"
+          alt="user"
+        />
+        <img
+          src="@/assets/cart.svg"
+          class="icon"
+          alt="cart"
+          @click="goToCart"
+        />
+      </div>
     </div>
+    <Overlay v-if="showForm" @close="showForm = false">
+      <LoginForm @close="showForm = false" />
+    </Overlay>
+    <OverlayUser v-if="showLogOut" @close="showLogOut = false">
+      <MyAccount @close="showLogOut = false" />
+    </OverlayUser>
   </div>
 </template>
 
@@ -74,6 +70,9 @@ export default {
     },
     goToCart() {
       this.$router.push("/cart");
+    },
+    goToHome() {
+      this.$router.push("/");
     },
   },
 };
@@ -151,13 +150,21 @@ p {
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 0 3%;
+  align-items: center;
   width: 100%;
+  font-size: 1.2rem;
   background-color: #f1f1f1;
   height: 5rem;
 }
 
+a {
+  text-decoration: none;
+  color: #2b2b2b;
+}
 .logo {
+  cursor: pointer;
   margin-top: -40px;
 }
 </style>
