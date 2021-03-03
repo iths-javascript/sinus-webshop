@@ -69,17 +69,19 @@ li{
     margin-top: 1rem;
 }
 .footer{
+    position: relative;
+    padding-bottom: 2rem;
+    bottom: 0;
     width: 100%;
     color: whitesmoke;
     font-size: 18px;
-    height: 500px;
-    background-image: url(../assets/footer.svg);
-    background-repeat: no-repeat;
+    background-color: #5E60B3;
+    height: auto; 
 }
 
 .container-footer{
     width: 100%;
-    padding: 8rem 6rem 2rem 12rem;
+    padding: 5rem 6rem 1rem 12rem;
     text-align: justify;
     display: grid;
     flex-direction: column;
@@ -87,38 +89,30 @@ li{
     grid-template-columns: repeat(4, auto);
 }
 
-.container-footer {
-  padding: 8rem 6rem 2rem 12rem;
-  text-align: justify;
-  display: grid;
-  flex-direction: column;
-  grid-template-rows: repeat(5, auto);
-  grid-template-columns: repeat(4, auto);
-}
 
 .line {
-  border-top: 2px solid whitesmoke;
-  padding: 0;
-  margin: 0.5rem 0;
+    border-top: 2px solid whitesmoke;
+    padding: 0;
+    margin: .5rem 0;
 }
 
 .help {
   max-width: 2.3rem;
 }
 
-.term {
+.term{
   max-width: 10.2rem;
 }
 
-.about {
+.about{
   max-width: 4.5rem;
 }
 
-.contact {
+.contact{
   max-width: 4rem;
 }
 
-.icons {
-  margin-bottom: 3rem;
+.icons{
+    margin-bottom: 2rem;
 }
 </style>
