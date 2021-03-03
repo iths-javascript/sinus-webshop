@@ -15,7 +15,7 @@ export default {
   state: {
     currentOrder: {
       items: [],
-      totalPrice: null,
+      totalPrice: 0,
     }
   },
 
@@ -33,9 +33,14 @@ export default {
       }
     },
     [CALCULATE_PRICE](state) {
+      const totalSum = [];
       state.currentOrder.items.forEach(item => {
-        state.currentOrder.totalPrice += item.price
-      })
+        const itemPrice = item.price * item.quantity;
+        totalSum.push(itemPrice);
+        state.currentOrder.totalPrice = totalSum.reduce((a,b) => {
+          return a + b;
+        }, 0);
+      });
     },
     [SET_QUANTITY](state, payload) {
       const item = state.currentOrder.items.find(item => item._id === payload._id);
@@ -68,11 +73,12 @@ export default {
     },
 
     setQuantity({commit}, payload) {
-      console.log(payload.increment);
       if (payload.quantity === 1 && !payload.increment) {
         commit(REMOVE_PRODUCT, payload._id);
+        commit(CALCULATE_PRICE);
       } else {
         commit(SET_QUANTITY, payload);
+        commit(CALCULATE_PRICE);
       }
     },
 

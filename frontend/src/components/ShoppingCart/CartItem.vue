@@ -9,10 +9,9 @@
       <p class="shortDesc">{{ product.shortDesc }}</p>
       <p class="size">Size: OneFit</p>
     </div>
-    <div class="remove-group">
+    <div @click="removeProduct(product._id)" class="remove-group">
       <img
         class="delete"
-        @click="removeProduct(product._id)"
         src="@/assets/iconfinder_delete_370086.svg"
         text="remove from cart"
       />
@@ -54,6 +53,7 @@ export default {
   methods: {
     removeProduct(id) {
       this.$store.dispatch("removeProduct", id);
+      // this.$emit("forceRerender");
     },
     setQuantity(payload, increment) {
       if (increment) {
