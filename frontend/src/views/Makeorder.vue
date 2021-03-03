@@ -236,6 +236,7 @@ h1 {
   font-size: 1rem;
   color: lightgray;
   margin-top: 5px;
+  background-color: white;
 }
 .lable-left {
   font-size: 1rem;
@@ -251,10 +252,12 @@ h1 {
 .details {
   height: 2rem;
   width: 21.8rem;
+  background-color: white;
 }
 .input-details {
   height: 2rem;
   margin-left: 2px;
+  background-color: white;
 }
 .payment-text {
   margin-top: 3rem;
