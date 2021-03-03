@@ -1,17 +1,11 @@
 <template>
 <div class="container-form" id="talkbubble">
-
-    <!-- <img @click="$emit('close')" class="close-login" src="../assets/close.svg" alt=""> -->
     <h1>Log in</h1>
     <div class="user-img">
         <img src="../assets/bird-blue.svg" alt="">
-    </div>
-     <!-- <div v-if="loggedin == 'true'">Jag är inloggad här är mina personligauppgifter</div> -->
-     
+    </div>     
      <div v-if="loggedin == 'false'">
-
-    
-            </div>
+    </div>
  <form @submit.prevent="submit">
      <label for="e-mail">Email</label>
      <input type="text" v-model="email" placeholder="e-mail">
@@ -21,34 +15,28 @@
  </form>
     <h3>OR</h3>
      <button @click="goToCreate" class="account-button">Create Account</button>
-
 </div>
 </template>
 
 <script>
 
-// import axios from 'axios'
 
 export default {
     name: 'LoginForm',
     data(){ 
-        
         let loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
-        // console.log(loggedinFromSessionStorage)
         return {
         email:"admin@example.com",
         password:"password",
         loggedin: loggedinFromSessionStorage,
         createNewAccount: false
         }
-
-
     },
 
     methods: {
         async submit(){
-            
             const payload = {email: this.email, password: this.password}
+
 
             // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
             const request = await fetch('http://localhost:5000/api/auth', {
@@ -60,32 +48,22 @@ export default {
             })
             const responseData = await request.json()
             if (responseData.token){
-                // console.log("I am correctly authenticted")
-                // console.log(responseData);
                 window.sessionStorage.setItem("LoggedIn", "true");
                 window.sessionStorage.setItem("token", responseData.token);
-
                 this.$store.commit('updateLoggedIn',true)
-
-                // var loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
                 this.loggedin = 'true';
                 this.$emit("close")
-                // this.$router.push('/profile')
+               
             }
             else {
-                console.log("I am not authenticated")
-                console.log(responseData);
                 window.sessionStorage.setItem("LoggedIn", "false");
-                this.loggedin = 'false';
-                
+                this.loggedin = 'false';        
                 this.$store.commit('updateLoggedIn',false)
-
-
             }
-            this.$emit('login', responseData) //emit till user secction
-            // console.log(responseData)
-            // this.$emit('login', responseData)
+            this.$emit('login', responseData)
         },
+
+
         goToCreate(){
                 this.$emit("close")
                 this.$router.push("/new-account") 
@@ -131,8 +109,6 @@ form{
     min-width: 25rem;
     height: auto;
     flex-direction: column;
-    /* grid-column: 2; */
-    /* background-color: thistle; */
     padding-bottom: 1rem;
     
 }
@@ -165,17 +141,11 @@ button{
     box-shadow: -5px 5px #2B2B2B;
 }
 .user-img{
-    /* display: flex; */
-    /* grid-column: 2; */
-    /* justify-content: center; */
     width: 100px;
     height: 100px;
-    /* border: 3px solid whitesmoke;
-    border-radius: 50%; */
 }
 
 .close-login{
-    /* position: absolute; */
     background-color: whitesmoke;
     display: flex;
     align-self: flex-end;

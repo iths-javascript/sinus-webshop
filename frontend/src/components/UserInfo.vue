@@ -3,12 +3,13 @@
 
   <h2>My account</h2>
   <ul>
-    <li>id: {{this.$store.state.user._id}}</li>
-    <li>Name:  {{this.$store.state.user.name}}</li>
-    <li>Password: {{this.$store.state.user.password}}</li>
-    <li>Address: {{this.$store.state.user.address}}</li> 
+    <li>
+      Name: {{ user.name }} <br> 
+      Address: {{ user.address.street }}, {{ user.address.zip }}, {{ user.address.city }}<br>
+      Email: {{ user.email }} <br>
+      Role: {{ user.role }}
+    </li>
   </ul>
-  <button>Change info</button>
 </div>
 </template>
 
@@ -16,6 +17,12 @@
 
 export default {
   name:'UserInfo',
+
+  computed:{
+    user(){
+      return this.$store.state.user
+    }
+  }
   
 }
 

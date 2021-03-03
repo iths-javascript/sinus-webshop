@@ -2,44 +2,29 @@
   <div id="app">
     <Header />
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/profile">Profile</router-link> |
-      <!-- <router-link to="/new-account">New Account</router-link> | -->
-       <!-- <router-link to="/my-account">My Account</router-link> | -->
-      <!-- <router-link to="/login-form">Login</router-link> |
-      <router-link to="/overlay">overlay</router-link> -->
     </div>
     <router-view/>
   
-    <!-- <LoginForm @login="handleLogin" /> 
-  <div class="info" v-if="tokenData">
-    <button @click="verify">Verify</button>
-    </div>  -->
   <Footer/>
   </div>
 </template>
 <script>
 
 import Footer from '@/components/Footer'
-// import axios from 'axios'
 import Header from "@/components/Header.vue"
 export default {
   name:'Home',
   data(){ 
     let user_login = window.sessionStorage.getItem("LoggedIn");
-        // let defau;
-        if (user_login === "true") {
-            // defau = true;      
+        if (user_login === "true") {      
             this.$store.commit('updateLoggedIn',true);
       
         } else {
             this.$store.commit('updateLoggedIn',false);
-
-            // defau = false;
         }
 
     return {
-    tokenData: null
+      tokenData: null
     }
 
   },
@@ -48,8 +33,8 @@ export default {
   methods:{
     handleLogin(tokenData){
       this.tokenData = tokenData
-      // console.log(tokenData);
     },
+    
     async verify(){
       // const request = await axios.get('http://localhost:5000/api/me')
       let minToken = window.sessionStorage.getItem("token")

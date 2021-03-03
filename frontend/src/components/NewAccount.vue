@@ -68,15 +68,10 @@ export default {
           console.log("lol");
                 
                 }
-                // window.sessionStorage.setItem("LoggedIn", "true");
-                // window.sessionStorage.setItem("token", responseData.token);
 
-                // var loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
-            //     this.loggedin = 'true';
-            // }
             else {
-                console.log("I am not authenticated")
-                console.log(responseData);
+                // console.log("I am not authenticated")
+                // console.log(responseData);
                 window.sessionStorage.setItem("LoggedIn", "false");
                 this.loggedin = 'false';
 
@@ -140,7 +135,6 @@ button:hover{
 
 label{
     padding: 1rem 0;
-    /* margin-left: 2.2rem; */
     font-family: 'Ropa Sans', sans-serif;
     text-align: justify;
 }

@@ -10,34 +10,57 @@ export default new Vuex.Store({
     loggedIn: false,
     images: "",
     user: {
-      _id: '6b521d3f-3d15...', // generated server side
-      email: 'johan.kivi@zocom.se',
-      password: '$$$hashed password$$$', // hashed serverside
-      name: 'Johan Kivi',
-      role: 'admin', // or customer
+      _id: '', // generated server side
+      email: '',
+      password: '', // hashed serverside
+      name: '',
+      role: '', // or customer
       address: {
-        street: 'Tokitokvägen 3',
-          zip: '123 45',
-          city: 'Tokberga'
+        street: '',
+          zip: '',
+          city: ''
       },
       orderHistory: []
-    }
+    },
   },
+  
   mutations: {
 
     pushIntoArray(state,database) {
       state.images = database;
     },
+
     updateLoggedIn(state, loggedIn){
       state.loggedIn = loggedIn;
-    }
+    },
+
+    currentUser(state, user) {
+      state.user = user;
+    },
+
+    // loginUser(state, login){
+    //   state.loginform = login
+    // }
   },
+
   actions: {
 
     async drawImage(context) {
        const data = await API.getProducts();
        context.commit('pushIntoArray', data);
-    }
+    },
+
+    async user(context) {
+      const me = await API.getUserInfo();
+      console.log(me);
+      context.commit('currentUser', me);
+    },
+
+    // async login(context){
+    //   const userLogin = await API.getLogInfo();
+    //   context.commit('logInfo', userLogin)
+    // },
+
     
   },
 

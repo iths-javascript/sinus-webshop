@@ -16,11 +16,13 @@ methods:{
         window.sessionStorage.removeItem('LoggedIn')
         window.sessionStorage.removeItem('token')
         this.$store.commit('updateLoggedIn',false)
-        // this.$emit.close()
-    //   this.$router.push('/')
+        this.$router.push('/')
+        this.$emit('close')
     },
     goToProfile(){
+        this.$store.dispatch('user');
         this.$router.push('/profile')
+        this.$emit('close')
     }
 }
 }
@@ -30,28 +32,27 @@ methods:{
 
 ul {
     display:flex;
-    flex-direction: column;
-    
-   
+    flex-direction: column; 
 }
+
 li {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    /* padding: 0 3rem; */
+    width: 230px;
     height: 50px;
     margin: .5rem 0;
-    /* margin: 1rem 0; */
 }
+
 li:hover{
     background-color:#2B2B2B;
-    color:whitesmoke}
+    color:whitesmoke
+}
+
 .my-account{
     background-color:#F5ADB8;
     width: 15rem;
     height: auto;
-    /* padding: 1rem; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,4 +77,5 @@ li:hover{
       border-right: 15px solid transparent;
       border-bottom: 20px solid #F5ADB8;
     }
+    
 </style>

@@ -1,18 +1,14 @@
 <template>
   <div class="profile">
-    <h1>Im profile</h1>
+    <h1>Hej </h1>
     <div class="user-icon">
 
     <img src="@/assets/bird-blue.svg" alt="">
     </div>
     <div class="info-user">
-
-    <UserInfo/>
-    <OrderHistoric/>
-    
+      <UserInfo/>
+      <OrderHistoric/>
     </div>
-  
-    <!-- <button @click="logOut">log out</button> -->
   </div>
 </template>
 
@@ -22,16 +18,8 @@ import UserInfo from '@/components/UserInfo'
 
 export default {
   name: 'Profile',
+  
   components: { OrderHistoric, UserInfo},
-  methods: {
-    // logOut(){
-    //   window.sessionStorage.removeItem('LoggedIn')
-    //   window.sessionStorage.removeItem('token')
-    //   this.$store.commit('updateLoggedIn',false)
-    //   this.$router.push('/')
-    // }
-  }
-
 }
 
 </script>

@@ -1,11 +1,6 @@
 <template>
   <div>
-    
-      <!-- <div class="recommendations">
-        
-        <button @click="fetchImages">fetch</button>
-      </div> -->
-      <!-- <LoginForm/> -->
+  
   
   </div>
 </template>
@@ -14,12 +9,11 @@
 
 
 <script>
-// import LoginForm from '@/components/LoginForm'
+
 import * as API from '../api/api'
 
 export default {
   name:'Home',
-// components:{LoginForm},
   
 
 methods: {

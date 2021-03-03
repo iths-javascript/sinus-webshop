@@ -9,14 +9,12 @@
 </template>
 
 <script>
-// import LoginForm from '@/components/LoginForm.vue'
+
 export default {
     name: 'OverlayUser',
-    components:{
-        // LoginForm
-    }
 
 }
+
 </script>
 
 <style>
@@ -29,8 +27,8 @@ export default {
 
 .user-nav{
     position: fixed;
-    left: 78.7rem;
-    top: 11.5rem;
+    left: 74.6rem;
+    top: 11.4rem;
     transform: translate(-50%,-50%);
 }
 

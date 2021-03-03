@@ -23,12 +23,12 @@
     },
     {
         "email": "romi@example.com",
-        "name": "Romi Nixon",
+        "name": "Romi Nonix",
         "role": "customer",
         "address": {
-            "street": "Tokitokvägen 4",
-            "zip": "123 46",
-            "city": "Tokbergaskogen"
+            "street": "Somevägen 20",
+            "zip": "123 44",
+            "city": "Mittiskogen"
         },
         "orderHistory": []
     }
