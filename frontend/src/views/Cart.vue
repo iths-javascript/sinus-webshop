@@ -153,7 +153,6 @@ h4 {
   font-weight: 500;
   color: #fbfbfb;
   margin: 30px 0;
-  /* border: 0.125rem solid rgba(0, 0, 0, 0.6); */
   background-color: #5eb593;
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
 }
