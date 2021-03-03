@@ -68,17 +68,19 @@ li{
     margin-top: 1rem;
 }
 .footer{
+    position: fixed;
+    padding-bottom: 2rem;
+    bottom: 0;
     width: 100%;
     color: whitesmoke;
     font-size: 18px;
-    height: 500px;
-    background-image: url(../assets/footer.svg);
-    background-repeat: no-repeat;
+    background-color: #5E60B3;
+    height: auto; 
 }
 
 .container-footer{
     width: 100%;
-    padding: 8rem 6rem 2rem 12rem;
+    padding: 5rem 6rem 1rem 12rem;
     text-align: justify;
     display: grid;
     flex-direction: column;
@@ -110,6 +112,6 @@ li{
 }
 
 .icons{
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 </style>
