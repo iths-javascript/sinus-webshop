@@ -9,4 +9,11 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  height: 100%;
+}
+</style>
