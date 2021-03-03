@@ -82,6 +82,10 @@ form {
   margin: 100px auto;
 }
 
+form input{
+  background-color: white;
+}
+
 .input-group {
   position: relative;
 }
