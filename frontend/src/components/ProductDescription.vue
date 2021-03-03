@@ -129,6 +129,7 @@ height:48px;
 border-radius: 50px;
 background-color: black;
 color: white;
+
 }
 .close-image {
   z-index: 999999;
@@ -145,6 +146,7 @@ line-height: 44px;
 padding-bottom: 2rem !important;
 }
 .price{
+  padding-top: 30px;
 font-style: normal;
 font-weight: bold;
 font-size: 26px;
