@@ -11,7 +11,7 @@
     <button class="submit-btn" type="submit" @click.prevent="loginUser">
       Login
     </button>
-    <button @click.prevent="goToRegister">
+    <button  class="register-btn" @click.prevent="goToRegister">
       Don't have an account? Register
     </button>
   </form>
@@ -87,5 +87,17 @@ input:focus ~ label {
   font-size: 2rem;
   outline: none;
   grid-column: span 2;
+}
+.register-btn{
+  width: 332px;
+  height: 43px;
+  align-self: center;
+  font-family: "Lato";
+  color: white;
+  background-color: #5eb593;
+  border: none;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  cursor: pointer;
 }
 </style>
