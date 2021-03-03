@@ -49,11 +49,13 @@
         </div>
       </div>
     </div>
+
     <div class="mid-section2">
-      <!-- <img src="../assets/background-special-section.svg" alt=""> -->
-      <div></div>
+      <img class="img-special-section" src="../assets/background-special-section.svg" alt="">
+      
      <img src="../assets/section-the-gonz-skate.png" alt="">
-     <div>
+     <div class="special-edition">
+       <img src="../assets/special-section.svg" alt="">
      <h1 class="title">limited edition</h1>
      <img src="../assets/stars.svg" alt="">
           <h1 class="title">#the-gonz</h1>
@@ -66,14 +68,13 @@
 
 
     <div class="mid-section3">
-      <h1 class="title">#SinusFreeStyle <img src="../assets/big-heart.svg" alt=""></h1>
-      <h3>@sinuskate</h3>
+      <h1 class="title">#SinusFreeStyle <img class="heart-insta" src="../assets/big-heart.svg" alt=""></h1>
+      <p class="insta-user">@sinuskate</p>
       <div class="mid-section-insta">
-
-      <img class="img-insta" src="../assets/insta-1.jpg" alt="">
-      <img class="img-insta" src="../assets/insta-2.jpg" alt="">
-      <img class="img-insta" src="../assets/insta-3.jpg" alt="">
-      <img class="img-insta" src="../assets/insta-4.jpg" alt="">
+        <img class="img-insta first-img" src="../assets/insta-1.jpg" alt="">
+        <img class="img-insta sec-img" src="../assets/insta-2.jpg" alt="">
+        <img class="img-insta third-img" src="../assets/insta-3.jpg" alt="">
+        <img class="img-insta four-img" src="../assets/insta-4.jpg" alt="">
       </div>
     </div>
   </div>
@@ -100,8 +101,13 @@ export default {
 /* -------------- Recommendations Section -------------- */
 /* ----------------------------------------------------- */
 .title {
+  margin: 0rem;
   font-family: "Schoolbell", cursive;
-  text-transform: uppercase ;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #2b2b2b;
+  letter-spacing: .4rem;
 }
 
 .recommendations {
@@ -413,9 +419,9 @@ export default {
 .mid-section2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-image: url("../assets/background-special-section.svg");
-  background-repeat: no-repeat;
-  margin: 2rem 3rem;
+  /* background-image: url("../assets/background-special-section.svg");
+  background-repeat: no-repeat; */
+  padding: 4% 2%;
   grid-template-rows: 1fr;
   /* grid-column-gap: 0px;
   grid-row-gap: 0px; */
@@ -424,33 +430,69 @@ export default {
   height: auto;
 }
 
+.special-edition{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  /* background-image: url("../assets/special-section.svg");
+  background-repeat: no-repeat; */
+}
+.img-special-section{
+  width: 100%;
+  margin-top: 10%;
+}
 /* ------------------------------------------- */
 /* -------------- Mid Section 3 -------------- */
 /* ------------------------------------------- */
 
 .mid-section3 {
   display: flex;
-  /* grid-template-columns: repeat(4, 1fr); */
-  /* grid-template-rows: repeat(2, auto); */
   flex-direction: column;
-  /* grid-column-gap: 0px; */
-  /* grid-row-gap: 0px; */
+  align-content: center;
+  align-items: center;
   background-color: #ffd2d2;
+  padding: 3% 4% 5%;
   width: 100%;
   height: auto;
 }
-.mid-section-insta {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, auto);
-  /* flex-direction: column; */
-}
-.img-insta{
-  width: 60%;
+
+.heart-insta{
+  width: 10%;
+  transform: rotate(25deg);
 }
 
-/* .insta-section{
-  grid-row: 1 /span 1;
-  grid-column: 2;
-} */
+.insta-user{
+  font-size: 1.5rem;
+}
+
+.mid-section-insta {
+  width: 85%;
+  padding-top:3rem;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+.img-insta{
+  width: 80%;
+}
+
+.first-img{
+  box-shadow: -10px 10px #5E60B3;
+}
+
+.sec-img{
+  box-shadow: -10px -10px #F46D69;
+}
+
+.third-img {
+  box-shadow: 10px 10px #CBE9EF;
+}
+
+.four-img {
+  box-shadow: 10px -10px #B2D1A8;
+}
+
 </style>
