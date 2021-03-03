@@ -68,6 +68,7 @@ li{
     margin-top: 1rem;
 }
 .footer{
+    width: 100%;
     color: whitesmoke;
     font-size: 18px;
     height: 500px;
@@ -76,6 +77,7 @@ li{
 }
 
 .container-footer{
+    width: 100%;
     padding: 8rem 6rem 2rem 12rem;
     text-align: justify;
     display: grid;
