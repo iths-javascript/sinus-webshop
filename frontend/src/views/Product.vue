@@ -30,6 +30,7 @@
 
 
 export default {
+    name: "Product",
 
 data() { return {
     tab: "skateboards"
