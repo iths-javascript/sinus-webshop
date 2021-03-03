@@ -13,7 +13,7 @@
       />
     </div>
     <div class="total-price">
-      <p class="total-lable">Total</p>
+      <p class="total-lable">Total:</p>
       <div class="price-container">
         <p class="sek-lable">item price:</p>
         <p class="price">
@@ -117,9 +117,9 @@ h4 {
 }
 
 .total-lable {
-  color: black;
+  color: #3c4858;
   padding-top: 30px;
-  font-size: 22px;
+  font-size: 30px;
   font-family: "Montserrat", sans-serif;
 }
 .sek-lable,
@@ -148,19 +148,14 @@ h4 {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 200px;
   /* height: 2.2rem; */
-  font-family: "PT Serif";
+  font-family: "Lato", sans-serif;
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 500;
-  text-decoration: none;
-  color: white;
+  color: #fbfbfb;
+  margin: 30px 0;
   /* border: 0.125rem solid rgba(0, 0, 0, 0.6); */
-  box-sizing: border-box;
-  /* border-radius: 3.125rem; */
-  margin: 1rem 1rem 1rem 1rem;
-  margin-left: 1.5rem;
   background-color: #5eb593;
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
 }

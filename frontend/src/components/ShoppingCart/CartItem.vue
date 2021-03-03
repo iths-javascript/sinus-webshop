@@ -113,6 +113,7 @@ export default {
   grid-column: 2;
   grid-row: 6;
   margin-left: 8px;
+  cursor: pointer;
 }
 .delete {
   object-fit: contain;
