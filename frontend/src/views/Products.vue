@@ -15,12 +15,10 @@ export default {
       return this.$store.state.productModalStatus;
     },
   },
-
   components: {
     ProductsContainer,
     ProductDescription,
   },
-  methods: {},
 };
 </script>
 

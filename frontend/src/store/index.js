@@ -12,7 +12,6 @@ export default new Vuex.Store({
     //sets the ID of the chosen product
     productModalId: "",
 
-
     //controls if the product description modal is open or closed
     loginStatus: false,
 
@@ -66,11 +65,9 @@ getters: {
     },
 
     removeOneItem({commit, state}, product){
-
       var idx = state.shoppingCart.indexOf(product)
       if (idx >= 0) {
-      commit('removeSingleItem', idx)
-    }
+      commit('removeSingleItem', idx)}
     },
 
     removeProductFromCart({commit, state}, id){
@@ -78,7 +75,4 @@ getters: {
       commit('setShoppingCart', array)
     }
   },
-
-  modules: {
-  }
 })

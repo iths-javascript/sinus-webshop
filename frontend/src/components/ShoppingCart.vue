@@ -1,22 +1,28 @@
 <template>
   <div id="shopping-cart">
-    <button @click="closeCart">X</button>
+    <button @click="closeCart" v-if="totalSum">X</button>
     <div v-if="totalSum">
       <ul v-for="item in uniqueCartProducts" :key="item._id">
-        <ShoppingCartItem :title="item.title" :id="item._id" :item="item" />
+        <ShoppingCartItem :item="item" />
       </ul>
-      <p>Total: {{ totalSum }}</p>
+      <p class="total">Total: {{ totalSum }}</p>
       <router-link to="/Checkout">Checkout</router-link>
     </div>
     <div v-else>
-      <p>det finns inget här</p>
+      <p>Your shopping cart is empty!</p>
     </div>
   </div>
 </template>
 
 <script>
 import ShoppingCartItem from "@/components/ShoppingCartItem.vue";
+
 export default {
+  created() {
+    if (!this.totalSum) {
+      setTimeout(this.closeCart, 1500);
+    }
+  },
   components: {
     ShoppingCartItem,
   },
@@ -28,6 +34,7 @@ export default {
     uniqueCartProducts() {
       return [...new Set(this.cartProducts.map((item) => item))];
     },
+
     totalSum() {
       return this.$store.getters.getTotalSum;
     },
@@ -49,6 +56,10 @@ export default {
   animation-name: animatetop;
   animation-duration: 0.4s;
   padding: 16px;
+
+  .total {
+    border-top: 1px solid black;
+  }
 }
 
 /* Add Animation */
