@@ -16,7 +16,7 @@
         <li>{{ user.address.city }}</li>
       </ul>
       <br />
-      <ul v-if="user.history[0]">
+      <ul v-if="user.history">
         <h5>Order history:</h5>
         <li>{{ user.history }}</li>
       </ul>
@@ -86,17 +86,16 @@ h4 {
   font-size: 25px;
 }
 .profile-container {
-  color:rgb(31, 28, 28);
+  color: rgb(31, 28, 28);
   margin: 200px auto;
   max-width: 1440px;
   width: 60%;
   background-color: whitesmoke;
   margin-bottom: 100px;
-   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
-
 }
 
 .edit-btn {
