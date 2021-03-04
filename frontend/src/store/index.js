@@ -25,7 +25,20 @@ export default new Vuex.Store({
       orderHistory: []
     },
   },
+<<<<<<< HEAD
   
+=======
+
+  getters: {
+    
+    singleProductImg: (state) => (id) => {
+      const data = Object.values(state.images.data).filter(item => item._id == id);
+      return data;
+    }
+  },
+
+
+>>>>>>> matheus
   mutations: {
 
     storeImages(state,database) {
@@ -97,11 +110,15 @@ export default new Vuex.Store({
       console.log(me);
       context.commit('currentUser', me);
     }
+<<<<<<< HEAD
   },
     // async login(context){
     //   const userLogin = await API.getLogInfo();
     //   context.commit('logInfo', userLogin)
     // },
+=======
+
+>>>>>>> matheus
 
     
   

@@ -12,9 +12,9 @@
         </nav>
         <div class="main">
             <div class="product-container"  v-for="image in imgFile"  
-            v-bind:key="image.index" v-on:click="singleProduct(image._id)">
+            v-bind:key="image.index" >
                 <div class="portrait">
-                    <img :src="require(`../assets/${image.imgFile}`)">
+                    <img :src="require(`../assets/${image.imgFile}`)" v-on:click="singleProduct(image._id)" >
                 </div>
                 <p class="title">{{image.title}}</p>
                 <p class="description">{{image.description}}</p>
@@ -69,7 +69,7 @@ beforeMount() {
 
 </script>
 
-<style style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
 

@@ -8,6 +8,7 @@ export async function getProducts() {
     return images;
 
 }
+<<<<<<< HEAD
 
 export async function getUserInfo(){
     let token = window.sessionStorage.getItem("token")
@@ -24,3 +25,5 @@ export async function getUserInfo(){
 //                    title: images.data[i].title,
 //                    price: images.data[i].price,
 //                    description: images.data[i].shortDesc
+=======
+>>>>>>> matheus
