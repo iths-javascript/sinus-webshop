@@ -21,10 +21,7 @@ export default {
 
   created: async function () {
     const response = await get(PRODUCTS_URL);
-
     this.products = response.data;
-
-    console.log(response.data);
   },
 
   data() {
@@ -32,7 +29,6 @@ export default {
       products: [],
     };
   },
-  methods: {},
 };
 </script>
 
@@ -42,6 +38,7 @@ export default {
   flex-wrap: wrap;
   width: 60%;
 }
+
 .product {
   margin-left: 60px;
 }

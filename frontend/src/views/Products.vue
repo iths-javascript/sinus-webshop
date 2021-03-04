@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="product-view">
     <ProductsContainer />
     <ProductDescription v-if="modalStatus" />
@@ -28,4 +29,17 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+=======
+  <div></div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+>>>>>>> main
 </style>

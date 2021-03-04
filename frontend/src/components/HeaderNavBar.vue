@@ -4,6 +4,7 @@
     <router-link to="/MyAccount" v-if="userStatus">
       <span>ANVÄNDAREN INLOGGAD |</span>
     </router-link>
+    <router-link to="/Admin">Admin</router-link> |
 
     <a v-if="userStatus === false" @click="changeLoginModalStatus">Log in |</a>
 

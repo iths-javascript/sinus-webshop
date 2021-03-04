@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from "vuex";
 
+<<<<<<< HEAD
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -73,6 +73,20 @@ getters: {
     removeProductFromCart({commit, state}, id){
       const array = state.shoppingCart.filter(item => item._id !== id)
       commit('setShoppingCart', array)
-    }
+    },
+
+    changeProductModal({commit}, id){
+      commit("changeProductModalStatus");
+      commit("changeProductModalId", id);
+    },
+      
   },
 })
+=======
+export default createStore({
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {}
+});
+>>>>>>> main

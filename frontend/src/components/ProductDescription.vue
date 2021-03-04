@@ -6,9 +6,22 @@
       </div>
       <div class="product-decriptionbox">
         <table>
-          <tr class="product-title">{{ product.title }}</tr>
-          <tr class="product-described">{{ product.longDesc }}</tr>
-          <tr class="product-price">{{ product.price }} sek</tr>
+          <tr class="product-title">
+            {{
+              product.title
+            }}
+          </tr>
+          <tr class="product-described">
+            {{
+              product.longDesc
+            }}
+          </tr>
+          <tr class="product-price">
+            {{
+              product.price
+            }}
+            sek
+          </tr>
           <tr class="product-size"></tr>
           <tr class="product-review"></tr>
           <button class="product-add">Take my money</button>
@@ -19,9 +32,8 @@
 
       </div>
       <span class="product-closeimage" @click="handleClick">X</span>
-    <div>
-  </div>
-  </div>
+      <div></div>
+    </div>
   </div>
 </template>
 
@@ -65,47 +77,20 @@ export default {
 </script>
 
 <style lang="scss">
-
 table {
   border-collapse: collapse;
   width: 100%;
 }
 tr {
-// border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   text-align: left;
 }
 .centered {
-    float: none;
-    margin: 0 auto;
-    text-align: center;
-    vertical-align: middle;
-    align-items: center
-}
-
-.product{
-&-description {
-  display: flex;
-  justify-content: center;
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
   align-items: center;
-  position: absolute;
-  width: 1440px;
-  height:900px;
-  left: -8px;
-  top: 0px;
-  background-color:rgba(0, 0, 0, 0.85);
-  
-}
-
-&-innerbox{
-  display: flex;
-  background-color:white;
-  width: 768px;
-  height: 508px;
-}
-
-
-&-decriptionbox {
-  margin-top: 2rem;
 }
 
 &-described {
@@ -156,5 +141,5 @@ height: 507px;
 left: 46px;
 top: 33px;
 }
-}
+
 </style>
