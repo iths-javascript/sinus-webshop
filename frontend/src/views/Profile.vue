@@ -3,14 +3,19 @@
     <div v-if="!edit && isAuthenticated" class="profile">
       <button class="edit-btn" @click="editProfile">Edit profile</button>
       <ul class="user-details">
-        <li>Name: {{ user.name }}</li>
-        <li>Role: {{ user.role }}</li>
-        <li>Email: {{ user.email }}</li>
+        <header>
+          <img src="../assets//user.png" class="user" />
+          <h2>{{ user.name }}</h2>
+          <h3>Email: {{ user.email }}</h3>
+          <!-- <p>{{ user.address.street }}</p> -->
+          <hr />
+        </header>
         <h4>Address</h4>
         <li>{{ user.address.street }}</li>
         <li>{{ user.address.zip }}</li>
         <li>{{ user.address.city }}</li>
       </ul>
+      <br />
       <ul v-if="user.history[0]">
         <h5>Order history:</h5>
         <li>{{ user.history[0]._id }}</li>
@@ -81,10 +86,17 @@ h4 {
   font-size: 25px;
 }
 .profile-container {
-  color: #fff;
+  color:rgb(31, 28, 28);
   margin: 200px auto;
   max-width: 1440px;
-  width: 70%;
+  width: 60%;
+  background-color: whitesmoke;
+  margin-bottom: 100px;
+   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+
 }
 
 .edit-btn {
@@ -122,7 +134,7 @@ form {
   width: 70%;
 }
 
-form label{
+form label {
   margin-bottom: 5px;
   margin-top: 5px;
 }
@@ -144,5 +156,8 @@ form button {
   background-color: #5eb593;
   box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
 }
-
+.user {
+  width: 150px;
+  height: 150px;
+}
 </style>

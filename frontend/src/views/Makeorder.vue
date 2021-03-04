@@ -3,26 +3,39 @@
     <div class="make-order">
       <div class="border-first">
         <h1>ALREADY A CUSTOMER? SIGN IN</h1>
-        <div class="img-container"></div>
-        <div class="border-menu">
+
+        <div class="border-menu1">
           <div class="total">
             <h2 class="total-text">Total</h2>
-            <h2 class="total-price">{{ $store.getters.getTotalPrice }} sek</h2>
+            <h2 class="total-price">{{ $store.getters.getTotalPrice }} Kr</h2>
           </div>
-          <hr class="line" />
-          <ul class="list">
-            <li v-for="item in this.$store.getters.getOrderItems" :key="item">
-              <img
-                :src="require(`@/assets/${item.imgFile}`)"
-                class="cart-img"
-              />
-              <h4 class="title">{{ item.title }}</h4>
-              <p class="shortDesc">{{ item.shortDesc }}</p>
+          <div class="img-container">
+            <ul class="list">
+              <li
+                v-for="item in this.$store.getters.getOrderItems"
+                :key="item"
+                class="list-items"
+              >
+                <img
+                  :src="require(`@/assets/${item.imgFile}`)"
+                  class="cart-img"
+                />
+                <h4 class="titleDesc">{{ item.title }}</h4>
+                <p class="shortDesc">{{ item.shortDesc }}</p>
+                <p class="size">Size: OneFit</p>
 
-              <p class="price">{{ item.price }} kr</p>
-            </li>
-          </ul>
+                <p class="price">{{ item.price }} kr</p>
+              </li>
+            </ul>
+          </div>
         </div>
+        <br /><br />
+        <hr class="line" />
+        <div class="price-total2">
+          <h4>Total Sum</h4>
+          <h4>{{ $store.getters.getTotalPrice }} Kr</h4>
+        </div>
+        <hr class="line" />
       </div>
       <div class="border-menu" v-if="user">
         <h3 class="your-details">1. Shipping Address</h3>
@@ -67,12 +80,23 @@
         <div class="right">
           <input class="input-details" type="text" />
           <input class="input-details" type="password" />
-          <button class="btn" @click="sendOrder">Submit Order</button>
         </div>
+        <hr class="line" />
+        <p class="sum">Total sum incl. taxes <strong>Show details</strong></p>
+
+        <h2 class="total-price">{{ $store.getters.getTotalPrice }} Kr</h2>
+
+        <button class="btn" @click="sendOrder">Confirm Purchase</button>
+        <p class="terms">
+          By clicking this you confirm that you have read the lorem policy
+          blablabla and accept the lorem terms and conditions blablabla. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
+          consectetur duis facilisis vitae bibendum. Tempor, semper orci, eros,
+          venenatis ullamcorper amet fermentum, mattis.
+        </p>
       </div>
 
       <div class="border-seccond" v-else>
-        <hr class="line" />
         <h3 class="your-details">1. SHIPPING ADDRESS</h3>
         <label class="inputs" for="">Your name</label>
         <input class="details" type="text" />
@@ -112,12 +136,7 @@
         </div>
         <hr class="line" />
         <p class="sum">Total sum incl. taxes <strong>Show details</strong></p>
-        <div class="total">
-          <h2 class="total-text">Total</h2>
-          <h2 class="total-price">
-            {{ $store.getters.getTotalCartPrice }} sek
-          </h2>
-        </div>
+        <h2 class="total-price">{{ $store.getters.getTotalPrice }} Kr</h2>
         <button class="btn" @click="sendOrder">Confirm Purchase</button>
         <p class="terms">
           By clicking this you confirm that you have read the lorem policy
@@ -133,11 +152,6 @@
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     user: null
-  //   }
-  // },
   name: "MakeOrder",
 
   computed: {
@@ -154,128 +168,47 @@ export default {
       this.$router.push("/Checkout");
     },
   },
-  // mounted() {
-  //   if(this.$store.state.user.isAuthenticated) {
-  //     this.user = this.$store.state.user
-
-  //   }
-  // }
 };
 </script>
 
 <style scoped>
-h1 {
-  margin-top: 100px;
-  font-family: "Bebas Neue";
-  font-size: 20px;
-  letter-spacing: 0.05em;
-  text-align: center;
-}
-.img-container {
-}
-
-.make-order {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto;
-  height: 100%;
-  width: 100%;
-  background-color: whitesmoke;
-  border: none;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  overflow-y: auto;
-}
-
-.border-first {
-  grid-column: 1 / span 6;
-  grid-row: 1 / span 3;
-  /* display: flex; */
-}
-.list {
-  /* display: grid; */
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto;
-  background-color: white;
-  width: 100%;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-.total {
-  display: flex;
-  justify-content: space-between;
-}
-.cart-img {
-  display: grid;
-  background-color: #9199a5;
-  height: 70px;
-  width: 70px;
-  overflow-y: auto;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  cursor: pointer;
-}
-.title {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-column: span 3;
-  margin-left: 15px;
-}
-.price {
-  margin-left: 5rem;
-  grid-row: 6;
-  grid-column: 1;
-}
 .border-menu {
   margin-top: 2rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 700px;
   background-color: whitesmoke;
-}
-.total-text {
-  margin-top: 1rem;
-
-  margin-right: 1rem;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1 / span 6;
+  grid-row: 4 / span 6;
 }
 .total-price {
-  margin-top: 1rem;
   grid-row: 6;
   grid-column: 1;
-  margin-left: 15px;
 }
 .card-icons {
   width: 50px;
   height: 50px;
 }
 .border-seccond {
+  margin-top: 2rem;
+  padding: 2rem;
   grid-column: 1 / span 6;
   grid-row: 4 / span 6;
-  height: 500px;
-  width: 600px;
-  margin-top: 6rem;
-  margin-left: 5rem;
+  width: 700px;
+  padding: 2rem;
   margin-bottom: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: whitesmoke;
 }
 .left {
   display: flex;
-  justify-content: space-evenly;
 }
+
 .inputs {
   font-size: 1rem;
   color: lightgray;
@@ -322,7 +255,7 @@ h1 {
   cursor: pointer;
   width: 300px;
   height: 40px;
-  font-family: "PT Serif";
+  font-family: "Lato";
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 500;
@@ -340,5 +273,82 @@ h1 {
   font-family: "Lato";
   color: lightgray;
   font-size: 11px;
+}
+.list-items {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 25px);
+  margin: 0px auto;
+  background-color: whitesmoke;
+  border-bottom: 1.5px solid black;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+}
+.cart-img {
+  width: 100px;
+  height: 120px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  grid-column: span 1;
+  grid-row: 2 / span 6;
+  background-color: #9199a5;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titleDesc {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: start;
+  margin-left: 1rem;
+  letter-spacing: 0.02em;
+  font-family: "Bebas Neue";
+  font-size: 20px;
+}
+.shortDesc {
+  grid-column: 2;
+  grid-row: 3;
+  text-align: start;
+  margin-left: 1rem;
+  letter-spacing: 0.02em;
+  font-family: "Lato", sans-serif;
+}
+.size {
+  grid-column: 2;
+  grid-row: 5;
+  text-align: start;
+  margin-left: 1rem;
+  letter-spacing: 0.02em;
+  font-family: "Lato", sans-serif;
+}
+.price {
+  grid-column: 6;
+  grid-row: 6;
+  font-weight: 400;
+  font-size: 20px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.price-total2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1rem 1rem 1rem;
+  padding-top: 10px;
+  color: whitesmoke;
+}
+h1 {
+  margin-top: 100px;
+  font-family: "Bebas Neue";
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: whitesmoke;
 }
 </style>

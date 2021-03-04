@@ -30,7 +30,8 @@
       Register
     </button>
 
-    <button @click.prevent="goToLogin">Already have an account? Log in</button>
+    <button class="login-btn" @click.prevent="goToLogin">Already have an account? Log in</button>
+    
   </form>
 </template>
 
@@ -116,4 +117,16 @@ input:focus ~ label {
   grid-column: span 2;
 }
 
+.login-btn{
+  width: 332px;
+  height: 43px;
+  align-self: center;
+  font-family: "Lato";
+  color: white;
+  background-color: #5eb593;
+  border: none;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  cursor: pointer;
+}
 </style>
