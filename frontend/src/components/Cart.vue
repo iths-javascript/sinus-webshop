@@ -19,7 +19,11 @@
               <button class="plus">+</button>
             </p>
             <p class="item-details">Price: {{ item.price }} SEK</p>
-            <img class="trash" src="../assets/trash.svg" />
+            <img
+              class="trash"
+              src="../assets/trash.svg"
+              @click="removeItem(item)"
+            />
           </div>
         </div>
       </div>
@@ -71,7 +75,12 @@ export default {
       }
       return sum;
     },
-    removeItem() {},
+    removeItem(item) {
+      let cart = this.$store.state.cart;
+      let itemIndex = cart.indexOf(item);
+
+      cart.splice(itemIndex, 1);
+    },
     quantityUp(item) {
       this.$store.commit("storeIntoCart", item);
     },
