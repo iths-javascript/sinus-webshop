@@ -64,7 +64,6 @@ beforeMount() {
 
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
 
-
 .container {
 
     margin:auto;
