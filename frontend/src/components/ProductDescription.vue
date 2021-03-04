@@ -11,9 +11,12 @@
           <tr class="product-price">{{ product.price }} sek</tr>
           <tr class="product-size"></tr>
           <tr class="product-review"></tr>
-
           <button class="product-add">Take my money</button>
-        </table>  
+        </table> 
+
+
+        
+
       </div>
       <span class="product-closeimage" @click="handleClick">X</span>
     <div>
@@ -24,6 +27,7 @@
 
 <script>
 import { getProductById, PRODUCTID_URL } from "@/api/get.js";
+import '../assets/scss/sinus-style.scss'
 
 export default {
   created: async function () {
@@ -105,7 +109,6 @@ tr {
 }
 
 &-described {
-font-family: Open Sans;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
@@ -116,14 +119,14 @@ color: rgba(0, 0, 0, 0.6);
 
 }
 
-&-add { 
-width: 202px;
-height:48px;
-border-radius: 50px;
-background-color: black;
-color: white;
+// &-add { 
+// width: 202px;
+// height:48px;
+// border-radius: 50px;
+// background-color: black;
+// color: white;
+// }
 
-}
 &-closeimage {
   z-index: 999999;
   padding: 10px;
