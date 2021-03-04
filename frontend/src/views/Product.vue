@@ -27,8 +27,6 @@
 
 <script>
 
-
-
 export default {
     name: "Product",
 
@@ -58,18 +56,11 @@ methods: {
 },
 
 beforeMount() {
-
         this.$store.dispatch('drawImage');
-        
+    }
 }
-
-
-
-}
-
 </script>
-
-<style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
 

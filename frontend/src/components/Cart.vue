@@ -11,7 +11,7 @@
           <img :src="require(`../assets/${item.imgFile}`)" />
         </div>
         <div class="item-desc">
-          <h3>{{ item.title }}</h3>
+          <h3 class="product-title">{{ item.title }}</h3>
           <p>color: {{ item.color }}</p>
           <p>quantity: {{ item.quantity }}</p>
           <p></p>
@@ -151,8 +151,8 @@ h1 {
 }
 
 .product-img {
-  background-color: #383736;
-  max-width: 350px;
+  background-color: none;
+  max-width: 4000px;
   min-width: 200px;
 }
 
@@ -161,5 +161,17 @@ h1 {
   left: 0;
   padding-left: 90px;
   font-weight: 100;
+}
+
+.product-title {
+  padding-bottom: 5px;
+}
+
+.item-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 10px;
 }
 </style>

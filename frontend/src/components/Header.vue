@@ -105,6 +105,7 @@ li {
 
 .icon {
   padding: 0 0.6rem;
+  cursor: pointer;
 }
 
 .special {
