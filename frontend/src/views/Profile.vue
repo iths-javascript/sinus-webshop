@@ -18,7 +18,7 @@
       <br />
       <ul v-if="user.history">
         <h5>Order history:</h5>
-        <li>{{ user.history }}</li>
+        <li>{{ user.history[0]._id }}</li>
       </ul>
     </div>
     <form v-if="edit">
