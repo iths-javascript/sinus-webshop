@@ -115,14 +115,16 @@ nav p {
 }
 
 button {
-    width:142px;
-    height:38px;
-    background-color:#2B2B2B;
-    color:white;
-    cursor:pointer;
-    font-family: 'Ropa Sans', sans-serif;
-    font-size:18px;
-    margin-top:5px;
+  cursor: pointer;
+  font-family: Ropa Sans;
+  font-size: 18px;
+  width: 144px;
+  height: 40px;
+  background-color: whitesmoke;
+  color: #2b2b2b;
+  border-style: none;
+  box-shadow: -6px 6px #2b2b2b;
+  margin: 0rem;
 
 }
 
