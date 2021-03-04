@@ -28,8 +28,6 @@
 
 <script>
 
-
-
 export default {
     name: "Product",
 
@@ -59,17 +57,14 @@ methods: {
 },
 
 beforeMount() {
-
         this.$store.dispatch('drawImage');
-        
+    }
 }
-
-
-
-}
-
 </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> cart
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
@@ -162,6 +157,7 @@ button {
 
 .product-container p, button {
     margin-right:90px;
+<<<<<<< HEAD
 }
 
 .top-img {
@@ -183,3 +179,6 @@ button {
 
 
 </style>
+=======
+}
+>>>>>>> cart

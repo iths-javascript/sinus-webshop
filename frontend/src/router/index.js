@@ -5,7 +5,7 @@ import Product from '../views/Product.vue'
 import Profile from '../views/Profile.vue'
 import NewAccount from '../components/NewAccount.vue'
 import SingleProduct from '../views/SingleProduct.vue'
-
+import Cart from '../components/Cart.vue'
 
 Vue.use(VueRouter)
 
@@ -26,7 +26,7 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
-  }, 
+  },
 
   {
     path: '/new-account',
@@ -37,8 +37,13 @@ const routes = [
     path: '/single-product/:id',
     name: 'SingleProduct',
     component: SingleProduct
-  }
- 
+  },
+
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
+  },
 ]
 
 const router = new VueRouter({

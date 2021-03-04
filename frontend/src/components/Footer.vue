@@ -41,7 +41,7 @@
           <li>Work at Sinus</li>
         </ul>
       </div>
-        <!-- <img @click="goToHome" src="../assets/logo-footer.svg" alt=""> -->
+      <!-- <img @click="goToHome" src="../assets/logo-footer.svg" alt=""> -->
     </div>
     <div class="icons">
       <img src="../assets/social-links.svg" alt="" />
@@ -52,67 +52,65 @@
 
 <script>
 export default {
-name: 'Footer',
-methods:{
-  goToHome(){
-    this.$router.push('/')
-  }
-}
-}
+  name: "Footer",
+  methods: {
+    goToHome() {
+      this.$router.push("/");
+    },
+  },
+};
 </script>
 
 <style>
-
-li{
-    list-style: none;
-    text-align: justify;
-    margin-top: 1rem;
+li {
+  list-style: none;
+  text-align: justify;
+  margin-top: 1rem;
 }
-.footer{
-    position: relative;
-    padding-bottom: 2rem;
-    bottom: 0;
-    width: 100%;
-    color: whitesmoke;
-    font-size: 18px;
-    background-color: #5E60B3;
-    height: auto; 
-}
-
-.container-footer{
-    width: 100%;
-    padding: 5rem 6rem 1rem 12rem;
-    text-align: justify;
-    display: grid;
-    flex-direction: column;
-    grid-template-rows: repeat(5, auto);
-    grid-template-columns: repeat(4, auto);
+.footer {
+  position: relative;
+  padding-bottom: 2rem;
+  bottom: 0;
+  width: 100%;
+  color: whitesmoke;
+  font-size: 18px;
+  background-color: #5e60b3;
+  height: auto;
 }
 
+.container-footer {
+  width: 100%;
+  padding: 5rem 6rem 1rem 12rem;
+  text-align: justify;
+  display: grid;
+  flex-direction: column;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: repeat(4, auto);
+}
 
 .line {
-    border-top: 2px solid whitesmoke;
-    padding: 0;
-    margin: .5rem 0;
+  border-top: 2px solid whitesmoke;
+  padding: 0;
+  margin: 0.5rem 0;
 }
 
 .help {
   max-width: 2.3rem;
 }
 
-.term{
+.term {
   max-width: 10.2rem;
 }
 
-.about{
+.about {
   max-width: 4.5rem;
 }
 
-.contact{
+.contact {
   max-width: 4rem;
 }
 
-.icons{
-    margin-bottom: 2rem;
+.icons {
+  margin-bottom: 2rem;
 }
 </style>

@@ -37,39 +37,45 @@
       </div>
       <div class="mid-section-right">
         <div class="mid-section-right-top">
-
-        <h1 class="title">reparation?</h1>
-        <button class="button-home" @click="goToProduct">go it</button>
+          <h1 class="title">reparation?</h1>
+          <button class="button-home" @click="goToProduct">go it</button>
         </div>
-        <img src="../assets/illustration-reparation.svg" alt="reparation">
-        <img src="../assets/illustration-sale.svg" alt="reparation">
+        <img src="../assets/illustration-reparation.svg" alt="reparation" />
+        <img src="../assets/illustration-sale.svg" alt="reparation" />
         <div class="mid-section-right-bottom">
           <h1 class="title">Sale?</h1>
-        <button class="button-home" @click="goToProduct">go it</button>
+          <button class="button-home" @click="goToProduct">go it</button>
         </div>
       </div>
     </div>
 
     <div class="mid-section2">
-      <img class="img-special-section" src="../assets/background-special-section.svg" alt="">
-      
-     <img src="../assets/section-the-gonz-skate.png" alt="">
-     <div class="special-edition">
-       <img src="../assets/special-section.svg" alt="">
-     <h1 class="title">limited edition</h1>
-     <img src="../assets/stars.svg" alt="">
-          <h1 class="title">#the-gonz</h1>
-          <button class="button-home" @click="goToProduct">shop now</button>
-     </div>
+      <img
+        class="img-special-section"
+        src="../assets/background-special-section.svg"
+        alt=""
+      />
+
+      <img src="../assets/section-the-gonz-skate.png" alt="" />
+      <div class="special-edition">
+        <img src="../assets/special-section.svg" alt="" />
+        <h1 class="title">limited edition</h1>
+        <img src="../assets/stars.svg" alt="" />
+        <h1 class="title">#the-gonz</h1>
+        <button class="button-home" @click="goToProduct">shop now</button>
+      </div>
     </div>
     <div class="mid-section3">
-      <h1 class="title">#SinusFreeStyle <img class="heart-insta" src="../assets/big-heart.svg" alt=""></h1>
+      <h1 class="title">
+        #SinusFreeStyle
+        <img class="heart-insta" src="../assets/big-heart.svg" alt="" />
+      </h1>
       <p class="insta-user">@sinuskate</p>
       <div class="mid-section-insta">
-        <img class="img-insta first-img" src="../assets/insta-1.jpg" alt="">
-        <img class="img-insta sec-img" src="../assets/insta-2.jpg" alt="">
-        <img class="img-insta third-img" src="../assets/insta-3.jpg" alt="">
-        <img class="img-insta four-img" src="../assets/insta-4.jpg" alt="">
+        <img class="img-insta first-img" src="../assets/insta-1.jpg" alt="" />
+        <img class="img-insta sec-img" src="../assets/insta-2.jpg" alt="" />
+        <img class="img-insta third-img" src="../assets/insta-3.jpg" alt="" />
+        <img class="img-insta four-img" src="../assets/insta-4.jpg" alt="" />
       </div>
     </div>
   </div>
@@ -79,11 +85,11 @@
 // import * as API from "../api/api";
 
 export default {
-  name:'Home',
+  name: "Home",
   methods: {
-    goToProduct(){
-      this.$router.push("/product") 
-    }
+    goToProduct() {
+      this.$router.push("/product");
+    },
   },
 };
 </script>
@@ -107,8 +113,8 @@ export default {
   margin: 0rem;
 }
 
-.button-home:hover{
-  background-color:#5E60B3;
+.button-home:hover {
+  background-color: #5e60b3;
   color: whitesmoke;
 }
 
@@ -119,7 +125,7 @@ export default {
   font-size: 2rem;
   font-weight: 400;
   color: #2b2b2b;
-  letter-spacing: .4rem;
+  letter-spacing: 0.4rem;
 }
 
 .recommendations {
@@ -129,7 +135,6 @@ export default {
   background-color: #cbe9ef;
   padding: 5% 2%;
 }
-
 
 .recommendations-left {
   display: flex;
@@ -165,7 +170,9 @@ export default {
   text-transform: uppercase;
 }
 
-.skateboard-button, .t-shirts-button, .sneakers-button {
+.skateboard-button,
+.t-shirts-button,
+.sneakers-button {
   cursor: pointer;
   position: absolute;
   top: 90%;
@@ -178,15 +185,15 @@ export default {
   box-shadow: -6px 6px #2b2b2b;
   border-style: none;
   background-color: whitesmoke;
-  color:#2b2b2b;
+  color: #2b2b2b;
 }
 
 .skateboard-button:hover {
-  background-color:#5E60B3;
+  background-color: #5e60b3;
   color: whitesmoke;
 }
 .t-shirts-button:hover {
-  background-color:#5E60B3;
+  background-color: #5e60b3;
   color: whitesmoke;
 }
 
@@ -220,7 +227,7 @@ export default {
 .t-shirts-button:before {
   content: "";
   position: absolute;
-  background: #5E60B3;
+  background: #5e60b3;
   bottom: 0;
   left: 0;
   right: 0;
@@ -229,7 +236,7 @@ export default {
 }
 
 .t-shirts-button:hover {
-  background-color:#5E60B3;
+  background-color: #5e60b3;
   color: whitesmoke;
 }
 
@@ -267,7 +274,7 @@ export default {
 .sneakers-button:before {
   content: "";
   position: absolute;
-  background: #5E60B3;
+  background: #5e60b3;
   bottom: 0;
   left: 0;
   right: 0;
@@ -277,7 +284,7 @@ export default {
 }
 
 .sneakers-button:hover {
-  background-color:#5E60B3;
+  background-color: #5e60b3;
   color: whitesmoke;
 }
 
@@ -349,7 +356,8 @@ export default {
   align-items: center;
 }
 
-.mid-section-right-top, .mid-section-right-bottom {
+.mid-section-right-top,
+.mid-section-right-bottom {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   justify-content: center;
@@ -384,13 +392,13 @@ export default {
   box-shadow: -6px 6px 0px #2b2b2b;
   border-style: none;
   background-color: whitesmoke;
-  color:#2b2b2b;
+  color: #2b2b2b;
 }
 
 .wheels-button:before {
   content: "";
   position: absolute;
-  background: #5E60B3;
+  background: #5e60b3;
   bottom: 0;
   left: 0;
   right: 0;
@@ -400,7 +408,7 @@ export default {
 }
 
 .wheels-button:hover {
-  background-color:#5E60B3;
+  background-color: #5e60b3;
   color: whitesmoke;
 }
 
@@ -438,7 +446,7 @@ export default {
   height: auto;
 }
 
-.special-edition{
+.special-edition {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -446,7 +454,7 @@ export default {
   /* background-image: url("../assets/special-section.svg");
   background-repeat: no-repeat; */
 }
-.img-special-section{
+.img-special-section {
   width: 100%;
   margin-top: 10%;
 }
@@ -465,42 +473,41 @@ export default {
   height: auto;
 }
 
-.heart-insta{
+.heart-insta {
   width: 10%;
   transform: rotate(25deg);
 }
 
-.insta-user{
+.insta-user {
   font-size: 1.5rem;
 }
 
 .mid-section-insta {
   width: 85%;
-  padding-top:3rem;
+  padding-top: 3rem;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
 }
 
-.img-insta{
+.img-insta {
   width: 80%;
 }
 
-.first-img{
-  box-shadow: -10px 10px #5E60B3;
+.first-img {
+  box-shadow: -10px 10px #5e60b3;
 }
 
-.sec-img{
-  box-shadow: -10px -10px #F46D69;
+.sec-img {
+  box-shadow: -10px -10px #f46d69;
 }
 
 .third-img {
-  box-shadow: 10px 10px #CBE9EF;
+  box-shadow: 10px 10px #cbe9ef;
 }
 
 .four-img {
-  box-shadow: 10px -10px #B2D1A8;
+  box-shadow: 10px -10px #b2d1a8;
 }
-
 </style>
