@@ -25,9 +25,6 @@ export default new Vuex.Store({
       orderHistory: []
     },
   },
-<<<<<<< HEAD
-  
-=======
 
   getters: {
     
@@ -38,7 +35,6 @@ export default new Vuex.Store({
   },
 
 
->>>>>>> matheus
   mutations: {
 
     storeImages(state,database) {
@@ -110,24 +106,6 @@ export default new Vuex.Store({
       console.log(me);
       context.commit('currentUser', me);
     }
-<<<<<<< HEAD
-  },
-    // async login(context){
-    //   const userLogin = await API.getLogInfo();
-    //   context.commit('logInfo', userLogin)
-    // },
-=======
-
->>>>>>> matheus
-
-    
-  
-
-  getters: {
-
-  },
-
-  modules: {
   }
 
 })

@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <div class="top">
-            <img src="../assets/Rectangle 52.svg">
+            <img class="top-img" src="../assets/Rectangle 52.svg">
+            <!-- <p class="sinus-store">#SINUS-STORE</p> -->
         </div>
          <nav >
             <p @click="bindCategory('skateboards')">skateboards</p>
@@ -101,6 +102,7 @@ beforeMount() {
     grid-column-gap:30px;
     grid-template-rows:repeat(2, 1fr);
     grid-row-gap: 50px;
+    padding-bottom: 100px;
 }
 
 nav {
@@ -161,6 +163,23 @@ button {
 .product-container p, button {
     margin-right:90px;
 }
+
+.top-img {
+    position:relative;
+    box-shadow: -40px 0 0 -20px #B2D1A8;    
+}
+
+/* .sinus-store {
+    position:relative;
+    right:5rem;
+    top:12rem;
+    color:white;
+    font-family: "Schoolbell", cursive;
+    letter-spacing: 0.3rem;
+    font-size:36px;
+} */
+
+
 
 
 </style>

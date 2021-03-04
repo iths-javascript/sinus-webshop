@@ -2,13 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Product from '../views/Product.vue'
-<<<<<<< HEAD
 import Profile from '../views/Profile.vue'
 import NewAccount from '../components/NewAccount.vue'
-=======
 import SingleProduct from '../views/SingleProduct.vue'
 
->>>>>>> matheus
 
 Vue.use(VueRouter)
 
@@ -26,7 +23,6 @@ const routes = [
   },
 
   {
-<<<<<<< HEAD
     path: '/profile',
     name: 'Profile',
     component: Profile
@@ -37,13 +33,12 @@ const routes = [
     name: 'NewAccount',
     component: NewAccount
   }, 
-=======
+  {
     path: '/single-product/:id',
     name: 'SingleProduct',
     component: SingleProduct
   }
  
->>>>>>> matheus
 ]
 
 const router = new VueRouter({
