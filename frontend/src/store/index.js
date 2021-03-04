@@ -13,6 +13,16 @@ export default new Vuex.Store({
     cart: []
 
   },
+
+  getters: {
+    
+    singleProductImg: (state) => (id) => {
+      const data = Object.values(state.images.data).filter(item => item._id == id);
+      return data;
+    }
+  },
+
+
   mutations: {
 
     storeImages(state,database) {
@@ -64,6 +74,8 @@ export default new Vuex.Store({
         context.commit('loadHoodies', category);
       }
     }
+
+
     
   },
   modules: {

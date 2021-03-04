@@ -8,9 +8,3 @@ export async function getProducts() {
     return images;
 
 }
-
-
-// fileName: images.data[i].imgFile,
-//                    title: images.data[i].title,
-//                    price: images.data[i].price,
-//                    description: images.data[i].shortDesc
