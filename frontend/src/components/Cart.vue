@@ -78,12 +78,6 @@ export default {
       }
       return sum;
     },
-    removeItem(item) {
-      let cart = this.$store.state.cart;
-      let itemIndex = cart.indexOf(item);
-
-      cart.splice(itemIndex, 1);
-    },
     quantityInCart(item) {
       let cart = this.$store.state.cart;
       let quantity = [];
@@ -96,33 +90,35 @@ export default {
       return quantity.length;
     },
     addItem(item) {
-      // let cart = this.$store.state.cart;
       this.$store.commit("storeIntoCart", item);
+    },
+    removeItem(item) {
+      let cart = this.$store.state.cart;
+      let itemIndex = cart.indexOf(item);
+
+      cart.splice(itemIndex, 1);
     },
     goToProduct() {
       this.$router.push("/product");
+    },
+    paginate(arr, size) {
+      return arr.reduce((acc, val, i) => {
+        let idx = Math.floor(i / size);
+        let page = acc[idx] || (acc[idx] = []);
+        page.push(val);
+
+        return acc;
+      }, []);
     },
   },
   computed: {
     drawItems() {
       let cart = this.$store.state.cart;
-
-      // if (cart.length > 3) {
-      //   for (let i = 3; i < cart.length; i + 3) {
-      //     cart = cart[i];
-      //   }
-      //   return cart;
-      // }
+      // let page_size = 3;
+      // let pages = paginate(cart, page_size);
 
       return cart;
-
-      // cartArr.map((item) => {
-      //   return item;
-      // });
-      // let duplicate = cartArr.some((item, index) => {
-      //   return cartArr.indexOf(item) != index;
-      // });
-      // return console.log(duplicate);
+      // return pages;
     },
   },
 };
