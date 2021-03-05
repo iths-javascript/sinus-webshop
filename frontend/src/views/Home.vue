@@ -50,11 +50,7 @@
     </div>
 
     <div class="mid-section2">
-      <img
-        class="img-special-section"
-        src="../assets/background-special-section.svg"
-        alt=""
-      />
+      <img class="img-special-section" src="../assets/background-special-section.svg" alt=""/>
 
       <img src="../assets/section-the-gonz-skate.png" alt="" />
       <div class="special-edition">
