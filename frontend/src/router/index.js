@@ -7,6 +7,7 @@ import NewAccount from '../components/NewAccount.vue'
 import SingleProduct from '../views/SingleProduct.vue'
 import Cart from '../components/Cart.vue'
 import Checkout from '../components/Checkout.vue'
+import Payment from '../components/Payment.vue'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,12 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: Checkout
+  },
+
+  {
+    path: '/payment',
+    name: 'Payment',
+    component: Payment
   },
 ]
 

@@ -37,11 +37,6 @@
               <div class="my-checkbox"></div>
               <p>Store pickup</p>
           </div>
-        <!-- <label for="post" id="post" class="post" value="delivery"><input type="checkbox" />Delivery by post</label>
-        <label for="pickup" id="pickup" value="pickup"><input type="checkbox" />Store pickup</label> -->
-       
-        <!-- <div class="my-checkbox"></div>
-        <p>Store pickup</p> -->
       </div>
 
       <div class="buttons-checkout">

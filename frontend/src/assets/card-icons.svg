@@ -1,0 +1,227 @@
+<svg id="Cards" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="69" viewBox="0 0 640 69">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffe7a8;
+      }
+
+      .cls-2 {
+        fill: #f7931a;
+      }
+
+      .cls-11, .cls-14, .cls-15, .cls-16, .cls-2, .cls-21, .cls-3, .cls-4, .cls-7, .cls-8 {
+        fill-rule: evenodd;
+      }
+
+      .cls-11, .cls-12, .cls-16, .cls-17, .cls-21, .cls-22, .cls-3, .cls-4, .cls-5, .cls-7, .cls-8, .cls-9 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        opacity: 0.08;
+      }
+
+      .cls-12, .cls-17, .cls-22, .cls-5, .cls-9 {
+        fill-opacity: 0;
+      }
+
+      .cls-5 {
+        filter: url(#filter);
+      }
+
+      .cls-6 {
+        fill: #2aa0d0;
+      }
+
+      .cls-7 {
+        opacity: 0.95;
+      }
+
+      .cls-8 {
+        opacity: 0.06;
+      }
+
+      .cls-9 {
+        filter: url(#filter-2);
+      }
+
+      .cls-10 {
+        fill: #0069aa;
+      }
+
+      .cls-11 {
+        opacity: 0.03;
+      }
+
+      .cls-12 {
+        filter: url(#filter-3);
+      }
+
+      .cls-13 {
+        fill: #4361c3;
+      }
+
+      .cls-14 {
+        fill: #ffaf38;
+      }
+
+      .cls-15 {
+        fill: #eb3636;
+      }
+
+      .cls-16 {
+        opacity: 0.04;
+      }
+
+      .cls-17 {
+        filter: url(#filter-4);
+      }
+
+      .cls-18 {
+        fill: #f9f9f9;
+      }
+
+      .cls-19 {
+        fill: #09599e;
+      }
+
+      .cls-20 {
+        fill: #e59703;
+      }
+
+      .cls-21 {
+        opacity: 0.05;
+      }
+
+      .cls-22 {
+        filter: url(#filter-5);
+      }
+    </style>
+    <filter id="filter" x="544" y="1" width="96" height="68" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#fff" flood-opacity="0.15"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="1"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.1"/>
+      <feComposite result="composite-3" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dy="-1"/>
+      <feComposite result="composite-4" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+    <filter id="filter-2" x="273" y="0" width="96" height="68" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#fff" flood-opacity="0.1"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="1"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.1"/>
+      <feComposite result="composite-3" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dy="-1"/>
+      <feComposite result="composite-4" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+    <filter id="filter-3" x="408" y="1" width="96" height="68" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#fff" flood-opacity="0.1"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="1"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.1"/>
+      <feComposite result="composite-3" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dy="-1"/>
+      <feComposite result="composite-4" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+    <filter id="filter-4" x="136" y="1" width="96" height="68" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#fff" flood-opacity="0.1"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="1"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.1"/>
+      <feComposite result="composite-3" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dy="-1"/>
+      <feComposite result="composite-4" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+    <filter id="filter-5" x="0" y="1" width="96" height="68" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#fff" flood-opacity="0.1"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="1"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.1"/>
+      <feComposite result="composite-3" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dy="-1"/>
+      <feComposite result="composite-4" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+  </defs>
+  <g id="Row_1" data-name="Row 1">
+    <g id="Bitcoin">
+      <g id="Background">
+        <rect id="Background-2" data-name="Background" class="cls-1" x="544" y="1" width="96" height="68" rx="4" ry="4"/>
+      </g>
+      <g id="Logo">
+        <path id="Bitcoin-2" data-name="Bitcoin" class="cls-2" d="M612.372,40.08a21,21,0,1,1-15.294-25.452A21,21,0,0,1,612.372,40.08h0Z"/>
+        <path id="Bitcoin-3" data-name="Bitcoin" class="cls-3" d="M601.257,32.008c0.418-2.794-1.71-4.3-4.619-5.3l0.943-3.785-2.3-.574-0.919,3.685c-0.606-.151-1.228-0.293-1.846-0.434l0.925-3.71-2.3-.574L590.19,25.1c-0.5-.114-0.994-0.227-1.472-0.346l0-.012-3.178-.793-0.613,2.461s1.71,0.392,1.674.416a1.225,1.225,0,0,1,1.073,1.34L586.6,32.48a1.888,1.888,0,0,1,.24.077L586.6,32.5l-1.507,6.041a0.838,0.838,0,0,1-1.056.547c0.023,0.033-1.675-.418-1.675-0.418L581.216,41.3l3,0.748c0.558,0.14,1.105.286,1.643,0.424L584.9,46.3l2.3,0.574,0.945-3.788c0.628,0.171,1.239.328,1.836,0.476l-0.941,3.77,2.3,0.574,0.954-3.821c3.929,0.743,6.884.444,8.128-3.11,1-2.861-.05-4.512-2.118-5.588a3.675,3.675,0,0,0,2.943-3.383h0Zm-5.265,7.382c-0.712,2.861-5.531,1.314-7.093.927l1.266-5.072C591.727,35.635,596.736,36.407,595.992,39.391Zm0.713-7.424c-0.65,2.6-4.66,1.28-5.961.956l1.147-4.6C593.192,28.647,597.381,29.252,596.705,31.967Z"/>
+      </g>
+      <path id="Glare" class="cls-4" d="M549.463,68.956A5.544,5.544,0,0,1,544,63.337V6.627a5.544,5.544,0,0,1,5.467-5.619h85.07A5.545,5.545,0,0,1,640,6.627"/>
+      <rect id="Shadow" class="cls-5" x="544" y="1" width="96" height="68" rx="4" ry="4"/>
+    </g>
+    <g id="Amex">
+      <g id="Background-3" data-name="Background">
+        <rect id="Background-4" data-name="Background" class="cls-6" x="272" width="96" height="67.938" rx="4" ry="4"/>
+      </g>
+      <g id="Logo-2" data-name="Logo">
+        <path id="Logo-3" data-name="Logo" class="cls-7" d="M281.229,25.986l-1.856-4.763-1.846,4.763m42.845-2.2a2.488,2.488,0,0,1-1.341.236h-3.076V21.476h3.12a2.76,2.76,0,0,1,1.287.207,1.054,1.054,0,0,1,.569,1.015A1.176,1.176,0,0,1,320.372,23.789Zm22.691,2.2-1.877-4.763-1.866,4.763h3.743Zm-41.125,4.952h-2.9l-0.01-9.176-3.933,9.176h-2.381l-3.755-9.184v9.184h-5.7l-1.042-2.966h-5.647l-1.053,2.966h-2.945l4.856-11.914h4.03L286.03,30.14V19.024h4.458l3.549,8.036,3.261-8.036h4.64V30.938h0Zm9.988,0h-8.935V19.024h8.935v2.859h-5.942v2.1h5.789v2.009h-5.789v2.073h5.942v2.874Zm11.992-8.573a3.23,3.23,0,0,1-1.911,3.059,3.145,3.145,0,0,1,1.342.966,3.3,3.3,0,0,1,.574,2.106v2.411h-2.892l-0.01-1.6a3.461,3.461,0,0,0-.4-2.236,2.613,2.613,0,0,0-1.976-.554h-2.693v4.393h-2.931V19.024h6.238a6.231,6.231,0,0,1,3.284.8A2.683,2.683,0,0,1,323.918,22.365Zm4.06,8.573h-2.955V19.055h2.955V30.938Zm31.979-.031h-4.25l-4.734-8.551v8.551h-5.93l-1.055-2.935h-5.634l-1.024,2.966h-2.955a5.813,5.813,0,0,1-3.932-1.457,5.817,5.817,0,0,1-1.449-4.381,6.456,6.456,0,0,1,1.462-4.612,5.492,5.492,0,0,1,4.118-1.463h2.407v2.709h-2.352a2.591,2.591,0,0,0-2.086.68,3.814,3.814,0,0,0-.78,2.6,4.013,4.013,0,0,0,.746,2.7,2.594,2.594,0,0,0,1.89.592h1l3.823-9.276h4.063l4.748,11.105V19.024h3.973l4.986,8.243V19.024h2.966V30.907h0ZM272,33l5.165,0,1.045-2.549h2.339L281.591,33h9.118V31.056l0.813,1.957h4.734l0.813-1.986V33h21.1l-0.01-4.184h0.438c0.307,0.011.4,0.04,0.4,0.552V33h10.719V32.031a9.2,9.2,0,0,0,4.35.974h4.93l1.055-2.549h2.339L343.415,33h9.5V30.583L354.355,33H362V17h-7.566v1.89L353.378,17h-7.731v1.89L344.678,17H334.235a9.29,9.29,0,0,0-4.526.934V17H323.5v0.934A4.433,4.433,0,0,0,320.439,17H295.673l-1.767,4.134L292.092,17H283.8v1.89L282.888,17h-7.073L272,25v8Zm96,7.849h-4.642a1.852,1.852,0,0,0-1.094.207,0.7,0.7,0,0,0-.395.7,0.864,0.864,0,0,0,.591.854,3.045,3.045,0,0,0,1.041.13l1.465,0.04c1.477,0.037,2.182.169,2.783,0.8a1.434,1.434,0,0,1,.251.283m0.031,4.418a3.806,3.806,0,0,1-3.416,1.684h-5.592V47.1h5.571a1.52,1.52,0,0,0,1.093-.284,0.643,0.643,0,0,0,.32-0.559,0.949,0.949,0,0,0-.33-0.758,1.359,1.359,0,0,0-.952-0.254c-2.537-.087-5.7.08-5.7-3.546a3.583,3.583,0,0,1,3.876-3.692H368v-2h-5a5.58,5.58,0,0,0-3.381.935V36.007h-7.395a5.073,5.073,0,0,0-3.228.935V36.007H336.352v0.935a6.956,6.956,0,0,0-3.643-.935h-8.742v0.935c-0.831-.816-2.649-0.935-3.776-0.935h-9.749l-2.231,2.447-2.089-2.447H291.965V51.993h13.883l2.3-2.485,2.166,2.485L319.119,52V48.24h0.866a10.229,10.229,0,0,0,3.982-.656v4.408h7.046V47.826h0.35c0.447,0,.492.019,0.492,0.472v3.694h21.506a6.229,6.229,0,0,0,3.676-1.023v1.023h7A9.269,9.269,0,0,0,368,51.255l0.031-2.978h0ZM357.035,43.7a3.213,3.213,0,0,1,.808,2.427c0,2.465-1.519,3.834-4.244,3.834h-5.543V47.13h5.522a1.571,1.571,0,0,0,1.1-.284A0.7,0.7,0,0,0,355,46.255a0.987,0.987,0,0,0-.33-0.758,1.409,1.409,0,0,0-.962-0.254c-2.526-.087-5.69.08-5.69-3.546a3.573,3.573,0,0,1,3.862-3.692h6.041v2.876h-5.581a1.782,1.782,0,0,0-1.082.269,0.655,0.655,0,0,0-.406.668,0.8,0.8,0,0,0,.592.791,3.068,3.068,0,0,0,1.051.13l1.454,0.04A4.318,4.318,0,0,1,357.035,43.7Zm-23.627-.864a2.556,2.556,0,0,1-1.334.236h-3.157V40.562h3.2a2.632,2.632,0,0,1,1.289.207,0.867,0.867,0,0,1,.559.874A1.412,1.412,0,0,1,333.408,42.837Zm1.632,1.582a2.938,2.938,0,0,1,1.323.962,3.37,3.37,0,0,1,.447,2.091v2.521h-2.743V48.309a3.6,3.6,0,0,0-.405-2.3,2.6,2.6,0,0,0-1.983-.509h-2.762v4.5h-2.87V38h6.268a6.609,6.609,0,0,1,3.251.541,3.165,3.165,0,0,1,1.388,2.825A3.207,3.207,0,0,1,335.04,44.419ZM338.015,38h8.954v2.838h-6.076V43.02h5.921v1.962h-5.921v2.154L347,47.147v2.815h-8.985V38ZM320.35,43.573h-3.429V40.656h3.461a1.384,1.384,0,0,1,1.652,1.4A1.461,1.461,0,0,1,320.35,43.573ZM314.043,48.7L309.9,44.034l4.147-4.518V48.7Zm-10.711-1.6H296.94V44.982h5.93V42.988h-5.93V40.812h6.523l2.955,3.182Zm21.6-5.045c0,3.183-2.343,3.84-4.7,3.84h-3.309v4.061h-5.438l-3.327-4.011L304.7,49.961H294V38h10.866l3.324,4.036L311.624,38h8.758C322.525,38,324.934,38.888,324.934,42.06Z"/>
+      </g>
+      <path id="Glare-2" data-name="Glare" class="cls-8" d="M277.463,67.956A5.544,5.544,0,0,1,272,62.337V5.627A5.544,5.544,0,0,1,277.463.008h85.07A5.545,5.545,0,0,1,368,5.627"/>
+      <rect id="Shadow-2" data-name="Shadow" class="cls-9" x="273" width="96" height="68" rx="4" ry="4"/>
+    </g>
+    <g id="Diners_Club" data-name="Diners Club">
+      <g id="Background-5" data-name="Background">
+        <rect id="Background-6" data-name="Background" class="cls-10" x="408" y="1" width="96" height="68" rx="4" ry="4"/>
+      </g>
+      <g id="Logo-4" data-name="Logo">
+        <path id="Diners_Club-2" data-name="Diners Club" class="cls-3" d="M459.776,51.994C469.3,52.04,478,44.195,478,34.651,478,24.214,469.3,17,459.776,17h-8.2A17.226,17.226,0,0,0,434,34.651a17.5,17.5,0,0,0,17.579,17.343h8.2ZM451.5,19A15.5,15.5,0,1,1,436,34.5,15.5,15.5,0,0,1,451.5,19Zm0,4A11.5,11.5,0,1,1,440,34.5,11.5,11.5,0,0,1,451.5,23ZM449,23h5V46h-5V23Z"/>
+      </g>
+      <path id="Glare-3" data-name="Glare" class="cls-11" d="M413.463,68.956A5.544,5.544,0,0,1,408,63.337V6.627a5.544,5.544,0,0,1,5.467-5.619h85.07A5.545,5.545,0,0,1,504,6.627"/>
+      <rect id="Shadow-3" data-name="Shadow" class="cls-12" x="408" y="1" width="96" height="68" rx="4" ry="4"/>
+    </g>
+    <g id="Mastercard">
+      <g id="Background-7" data-name="Background">
+        <rect id="Background-8" data-name="Background" class="cls-13" x="136" y="1" width="96" height="68" rx="4" ry="4"/>
+      </g>
+      <g id="Logo-5" data-name="Logo">
+        <path id="Yellow" class="cls-14" d="M195.5,20.993a14.492,14.492,0,1,1-14.514,14.492A14.5,14.5,0,0,1,195.5,20.993Z"/>
+        <path id="Red" class="cls-15" d="M182,36v2h4.781a14.345,14.345,0,0,1-.515,2H183v2h2.44a14.486,14.486,0,1,1-.529-14H183v2h2.931a14.657,14.657,0,0,1,.638,2H182v2h4.935a14.279,14.279,0,0,1,.079,1.485c0,0.174-.02.343-0.026,0.515H182Z"/>
+      </g>
+      <path id="Glare-4" data-name="Glare" class="cls-16" d="M141.463,68.987A5.545,5.545,0,0,1,136,63.366V6.63a5.545,5.545,0,0,1,5.467-5.621h85.07A5.546,5.546,0,0,1,232,6.63"/>
+      <rect id="Shadow-4" data-name="Shadow" class="cls-17" x="136" y="1" width="96" height="68" rx="4" ry="4"/>
+    </g>
+    <g id="Visa">
+      <g id="Background-9" data-name="Background">
+        <rect id="Background-10" data-name="Background" class="cls-18" y="19" width="96" height="32"/>
+        <path id="Top" class="cls-19" d="M4,1H92a4,4,0,0,1,4,4V19a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5A4,4,0,0,1,4,1Z"/>
+        <path id="Bottom" class="cls-20" d="M0,51H96a0,0,0,0,1,0,0V65a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V51A0,0,0,0,1,0,51Z"/>
+      </g>
+      <g id="Logo-6" data-name="Logo">
+        <image id="Logo-7" data-name="Logo" x="18" y="26" width="57" height="18" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAASCAYAAADhc3ZwAAAEYklEQVRYhZWXW2yVRRDHfy3lBEGN4gVbNIqgiCBFvBSMBF+0akyJUVlyrMlKNOHFS/QBk8ZommhifPDWgg9eNkqqC75ovNEaGhO1QUkaDC2mlGrUVgIVbaQWjrQ1c7qn/ZyzX0/9J6fdnZnd2f83s7O7ZbmWqjeAJcRxCtgHPJfJDvxdZGHcLGAHcEZCmgPqgfnA+2rEB3jbpOaQsRuBu4HrgIuAijBPD9AObMfbgxH/c4CtwLVK8yre7il0KjLZgYdyLVXLgQeAh8PikrgNOA08E/kMtwKblOw9vM1h3DXAeqXbpRZZC8hHvjgydwZYEX7fAMUkhczEmjUOA5Mky/OzZQe6MtmBp8TZYG5e49h42bAaVBuZSLA5ImsO/5dHdF0JgnXAJykENbqLJMZVAjbFfk2yU57sZLIDI1WfNTRe3ro113Pi/J8SqupcS1WFciIR36Am34+3X4d2Oknj5gFvAbOUfhBoBT4COoExYBT4ITLXFmB2CsnVGDepKy9Sezs6cPLs9uo9j1+2s3/l4SCV3L9aWWZDSiXRnGgvVbrjeHsstCWK5yl9C7AQb2vxdgPergYW5Pe3pH8SxmUCyTTIeqvTSU5g9+h4OfX7Ni1u+WVVb5Bdr2x0qg6FhRawQum7Eu0rIz67i8h4O4i3ungJDHBhov8rcEzZ3FhopJFsKzQ2d9635PuhykOh8gUXbmWkojm8HQ56qZDnFpGYwl8Rn40Y92yotqXwiNK/C3ynZDXTk/T2R6BPmmPjZdzZ8eDi33NzVyUsYgVnW6KtU1uT/BD4R+nLQwXvw7jHMK6CGIyTonKD0jhg7/8jOYHdhcbRU2eWv9S7bn6upWp22A/1yrYVb3sSfZ2qggOTLW9lrz+Z4ley4OV8ZIxbFNE/qvodwfe3Sr4U486hBMm2ZKe5b+1VDd218nXuihSNbapfKpJC9LWwtwZT/K/KXwTCQvOYODbuVXZSpYmQpLAvpyPZHkp4HsOjGV48tH5ZJFV/Bj5WMk3yD7w9UuTB253AFcDz4iKyhkuBJxJ9fWyMADKHzHUc6FXj8yTjeT8x6E+Mkzxfm5BKFG9Xlq/LsaNkOl0PkAbxAw0Y1xQWfLOyXJf/Gz82juQ/gnGF/pjSr5me5ATaFMk6pZeS/+Z/JMYtKFFZ4/D2N4zbEvkg44WZ1bEhWJRy3SygZLoKviih34W3R5VsWcRuiqRx72DcxqKjwjhZy/2RsQXSuuDMBBdI8SoVyY5wpp2Vom+OyGLXuYOByNxQmeUxcBLj5ILQH25OckOpVOMk/d7GuJsil5GZomb6SHp7OhSgGDrxtiMin66yyk2nLLTnhAtGXdjnmqDgBbztTIniHeFCon863WtKRZKQsnovCpoiMiKRHMLb/hRdGk4ATwOvYNxC4B5ltxdvP4+ONe4rVfhmRPLTiBMpOLE7pUDOvS8T/eQLQl4YEpVbAHlvXhIiKtVZ7p77g82Oyb1unFTXwsumgO0l1jtVF2DkX84MOCgSfXzvAAAAAElFTkSuQmCC"/>
+      </g>
+      <path id="Glare-5" data-name="Glare" class="cls-21" d="M4,68.938a4,4,0,0,1-4-4V5A4,4,0,0,1,4,1H92a4,4,0,0,1,4,4"/>
+      <rect id="Shadow-5" data-name="Shadow" class="cls-22" y="1" width="96" height="68" rx="4" ry="4"/>
+    </g>
+  </g>
+</svg>
