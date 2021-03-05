@@ -17,6 +17,7 @@
             <p class="item-details">
               Quantity:
               <button class="minus" @click="removeItem(item)">-</button>
+              <!-- {{ item.quantity }} -->
               {{ quantityInCart(item) }}
               <button class="plus" @click="addItem(item)">+</button>
             </p>
@@ -79,6 +80,7 @@ export default {
       return sum;
     },
     quantityInCart(item) {
+      // Does not work with different items
       let cart = this.$store.state.cart;
       let quantity = [];
 
@@ -101,24 +103,18 @@ export default {
     goToProduct() {
       this.$router.push("/product");
     },
-    paginate(arr, size) {
-      return arr.reduce((acc, val, i) => {
-        let idx = Math.floor(i / size);
-        let page = acc[idx] || (acc[idx] = []);
-        page.push(val);
-
-        return acc;
-      }, []);
+    paginate(array, size, page_number) {
+      return array.slice((page_number - 1) * size, page_number * size);
     },
   },
   computed: {
     drawItems() {
       let cart = this.$store.state.cart;
-      // let page_size = 3;
-      // let pages = paginate(cart, page_size);
+      let page_size = 3;
+      let pages = this.paginate(cart, page_size, 1);
 
-      return cart;
-      // return pages;
+      // return cart;
+      return pages;
     },
   },
 };

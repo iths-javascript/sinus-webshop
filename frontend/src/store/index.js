@@ -10,6 +10,7 @@ export default new Vuex.Store({
     images: "",
     currentProducts: "",
     cart: [{ "title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }, { "title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }],
+    // { "title": "Grey Sinus T-shirt", "price": 99, "quantity": 1, "id": "TFDTK2tp5CPsAbh4" }
     loggedIn: false,
     user: {
       _id: '', // generated server side
@@ -25,6 +26,15 @@ export default new Vuex.Store({
       orderHistory: []
     },
   },
+
+  getters: {
+
+    singleProductImg: (state) => (id) => {
+      const data = Object.values(state.images.data).filter(item => item._id == id);
+      return data;
+    }
+  },
+
 
   mutations: {
 
@@ -98,20 +108,6 @@ export default new Vuex.Store({
       console.log(me);
       context.commit('currentUser', me);
     }
-  },
-  // async login(context){
-  //   const userLogin = await API.getLogInfo();
-  //   context.commit('logInfo', userLogin)
-  // },
-
-
-
-
-  getters: {
-
-  },
-
-  modules: {
   }
 
 })

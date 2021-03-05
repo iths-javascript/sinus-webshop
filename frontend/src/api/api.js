@@ -19,8 +19,3 @@ export async function getUserInfo(){
     const userInfo = request;
     return userInfo.data;
 }
-
-// fileName: images.data[i].imgFile,
-//                    title: images.data[i].title,
-//                    price: images.data[i].price,
-//                    description: images.data[i].shortDesc

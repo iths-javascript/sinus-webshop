@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Product from '../views/Product.vue'
 import Profile from '../views/Profile.vue'
 import NewAccount from '../components/NewAccount.vue'
+import SingleProduct from '../views/SingleProduct.vue'
 import Cart from '../components/Cart.vue'
 
 Vue.use(VueRouter)
@@ -31,6 +32,11 @@ const routes = [
     path: '/new-account',
     name: 'NewAccount',
     component: NewAccount
+  }, 
+  {
+    path: '/single-product/:id',
+    name: 'SingleProduct',
+    component: SingleProduct
   },
 
   {
