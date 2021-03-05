@@ -15,8 +15,10 @@
             <h3 class="product-title">{{ item.title }}</h3>
             <p class="item-details">Color: {{ item.color }}</p>
             <p class="item-details">
-              Quantity: <button class="minus">-</button> {{ item.quantity }}
-              <button class="plus">+</button>
+              Quantity:
+              <button class="minus" @click="removeItem(item)">-</button>
+              {{ quantityInCart(item) }}
+              <button class="plus" @click="addItem(item)">+</button>
             </p>
             <!-- <p class="item-details">{{item.size}}</p> -->
             <p class="item-details">Price: {{ item.price }} SEK</p>
@@ -82,7 +84,19 @@ export default {
 
       cart.splice(itemIndex, 1);
     },
-    quantityUp(item) {
+    quantityInCart(item) {
+      let cart = this.$store.state.cart;
+      let quantity = [];
+
+      if (cart !== null || cart !== undefined) {
+        for (item in cart) {
+          quantity.push(item);
+        }
+      }
+      return quantity.length;
+    },
+    addItem(item) {
+      // let cart = this.$store.state.cart;
       this.$store.commit("storeIntoCart", item);
     },
     goToProduct() {
