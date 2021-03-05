@@ -30,6 +30,11 @@
             />
           </div>
         </div>
+        <div class="pagination">
+          <i class="arrow left"></i>
+          <p>1</p>
+          <i class="arrow right"></i>
+        </div>
       </div>
     </div>
     <div class="detail-wrapper">
@@ -121,6 +126,10 @@ export default {
 </script>
 
 <style scoped>
+button {
+  outline: 0;
+}
+
 h1 {
   font-family: "Ropa Sans";
   text-transform: uppercase;
@@ -206,6 +215,35 @@ h1 {
 .trash {
   cursor: pointer;
   padding-top: 10px;
+}
+
+/* Navigation Buttons */
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  cursor: pointer;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-left: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 3px;
 }
 
 /* Quantity buttons */
