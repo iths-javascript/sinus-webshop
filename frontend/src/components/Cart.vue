@@ -18,6 +18,7 @@
               Quantity: <button class="minus">-</button> {{ item.quantity }}
               <button class="plus">+</button>
             </p>
+            <!-- <p class="item-details">{{item.size}}</p> -->
             <p class="item-details">Price: {{ item.price }} SEK</p>
             <img
               class="trash"
@@ -92,6 +93,15 @@ export default {
     drawItems() {
       let cart = this.$store.state.cart;
 
+      // if (cart.length > 3) {
+      //   for (let i = 3; i < cart.length; i + 3) {
+      //     cart = cart[i];
+      //   }
+      //   return cart;
+      // }
+
+      return cart;
+
       // cartArr.map((item) => {
       //   return item;
       // });
@@ -99,8 +109,6 @@ export default {
       //   return cartArr.indexOf(item) != index;
       // });
       // return console.log(duplicate);
-
-      return cart;
     },
   },
 };
@@ -198,6 +206,7 @@ h1 {
 
 .plus,
 .minus {
+  cursor: pointer;
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
   border: 0px solid transparent;
