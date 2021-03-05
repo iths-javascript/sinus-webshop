@@ -133,6 +133,7 @@ li {
 }
 
 .top {
+  display: flex;
   width: 100%;
   height: 35px;
   background-color: #2b2b2b;
