@@ -9,8 +9,7 @@ export default new Vuex.Store({
   state: {
     images: "",
     currentProducts: "",
-    cart: [{ "title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }, { "title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }],
-    // { "title": "Grey Sinus T-shirt", "price": 99, "quantity": 1, "id": "TFDTK2tp5CPsAbh4" }
+    cart: [],
     loggedIn: false,
     user: {
       _id: '', // generated server side
@@ -48,13 +47,56 @@ export default new Vuex.Store({
     },
 
     storeIntoCart(state, item) {
-      state.cart.push({
-        title: item.title,
-        price: item.price,
-        quantity: 1,
-        id: item._id,
-        imgFile: item.imgFile
-      })
+      const index = state.cart.findIndex(element => element._id === item._id);
+
+      if (index === -1) {
+        item.quantity = 1;
+        state.cart.push(item);
+      } else {
+        item.quantity += 1;
+
+        state.cart = [
+          ...state.cart.slice(0, index),
+          item,
+          ...state.cart.slice(index + 1),
+        ];
+      }
+    },
+    removeItemCart(state, item) {
+      const index = state.cart.findIndex(element => element._id === item._id);
+
+      if (index === -1) {
+        item.quantity = 1;
+        state.cart.push(item);
+      } else {
+        item.quantity -= 1;
+
+        state.cart = [
+          ...state.cart.slice(0, index),
+          item,
+          ...state.cart.slice(index + 1),
+        ];
+      }
+    },
+    // console.log(state.cart)
+    // state.cart.push({
+    //   title: item.title,
+    //   price: item.price,
+    //   quantity: 1,
+    //   id: item._id,
+    //   imgFile: item.imgFile
+    // })
+
+    removeItemFromCart(state, item) {
+      let productId = item._id
+      let cart = state.cart
+
+      if (cart[productId] != undefined) {
+        cart[productId].quantity -= 1;
+      } else {
+        cart[productId] = item
+        cart[productId].quantity = 1
+      }
     },
 
 

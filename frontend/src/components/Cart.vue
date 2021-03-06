@@ -18,7 +18,7 @@
               Quantity:
               <button class="minus" @click="removeItem(item)">-</button>
               <!-- {{ item.quantity }} -->
-              {{ quantityInCart(item) }}
+              {{ item.quantity }}
               <button class="plus" @click="addItem(item)">+</button>
             </p>
             <!-- <p class="item-details">{{item.size}}</p> -->
@@ -26,7 +26,7 @@
             <img
               class="trash"
               src="../assets/trash.svg"
-              @click="removeItem(item)"
+              @click="deleteItem(item)"
             />
           </div>
         </div>
@@ -76,32 +76,26 @@ export default {
     totalPrice() {
       let cart = this.$store.state.cart;
       let sum = 0;
-
       if (cart !== null || cart !== undefined) {
-        cart.forEach((item) => {
-          sum += item.price;
-        });
-      }
-      return sum;
-    },
-    quantityInCart(item) {
-      // Does not work with different items
-      let cart = this.$store.state.cart;
-      let quantity = [];
-
-      if (cart !== null || cart !== undefined) {
-        for (item in cart) {
-          quantity.push(item);
+        for (let item in cart) {
+          sum += cart[item].price * cart[item].quantity;
         }
       }
-      return quantity.length;
+      return sum;
     },
     addItem(item) {
       this.$store.commit("storeIntoCart", item);
     },
     removeItem(item) {
+      if (item.quantity > 1) {
+        this.$store.commit("removeItemCart", item);
+      } else {
+        this.deleteItem(item);
+      }
+    },
+    deleteItem(item) {
       let cart = this.$store.state.cart;
-      let itemIndex = cart.indexOf(item);
+      let itemIndex = cart.findIndex((element) => element._id === item._id);
 
       cart.splice(itemIndex, 1);
     },
@@ -115,11 +109,23 @@ export default {
   computed: {
     drawItems() {
       let cart = this.$store.state.cart;
-      let page_size = 3;
-      let pages = this.paginate(cart, page_size, 1);
+      // let page_size = 3;
+      // let pages = this.paginate(cart, page_size, 1);
 
-      // return cart;
-      return pages;
+      let cartArr = [];
+
+      for (var key in cart) {
+        cartArr.push(cart[key]);
+      }
+
+      return cartArr;
+      // return pages;
+    },
+  },
+  mutations: {
+    update(item) {
+      item.quantity += 1;
+      this.addItem(item);
     },
   },
 };
