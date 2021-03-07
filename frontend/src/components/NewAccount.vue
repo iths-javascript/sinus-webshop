@@ -1,19 +1,32 @@
 <template>
   <div class="new-account">
       <h1>Create a new account</h1>
-      <p>Enjoy Sinus</p>
+      <p class="tag-new-account">#Enjoy Sinus</p>
       <img src="../assets/big-heart.svg" alt="">
       <form class="new-account-form" @submit.prevent="register">
-        <label for="name">Name</label>
-        <input class="name" type="text" v-model="user.name" placeholder="Name">
+        <label for="name" class="label-name">Name</label>
+        <input class="name" type="text" v-model="user.name">
+        <img class="line-name" src="../assets/input-new.svg" alt="">
+
+        <label for="email" class="label-email">Email</label>
+        <input class="email" type="email" v-model="user.email">
+        <img class="line-email" src="../assets/input-new.svg" alt="">
+        
         <label class="address" for="address">Address</label>
+        
         <input class="street" type="text" v-model="user.address.street" placeholder="Street">
+        <img class="street-line" src="../assets/input-new.svg" alt="">
+        
         <input class="zip" type="text" v-model="user.address.zip" placeholder="Zip">
+        <img class="line-zip" src="../assets/input-new.svg" alt="">
+        
         <input class="city" type="text" v-model="user.address.city" placeholder="City">
-        <label for="email">Email</label>
-        <input class="email" type="email" v-model="user.email" placeholder="Email">
-        <label for="password">Password</label>
-        <input class="password" type="text" v-model="user.password" placeholder="Password">
+        <img class="line-city" src="../assets/input-new.svg" alt="">
+        
+        
+        <label class="label-password" for="password">Password</label>
+        <input class="password" type="text" v-model="user.password">
+        <img class="password-line" src="../assets/input-new.svg" alt="">
         <button class="new-account-button">Create Account</button>
       </form>
   </div>
@@ -41,41 +54,55 @@ export default {
     },
 
     methods:{
-      async register(){ 
+      register(){ 
         const payload = {
           email: this.user.email, 
           password: this.user.password, 
           name: this.user.name, 
           address: {
             street: this.user.address.street, 
-            zip:this.user.address.zip,
+            zip: this.user.address.zip,
             city: this.user.address.city
             },
           }
+          console.log("Running dispath")
+          this.$store.dispatch("newUserAccount", payload)
+          console.log("After dispatch")
+          if (this.$store.state.userInfo.newAccount){
+            console.log("THe if statement")
+          console.log("pop-up");
+          } 
+          
+          // else {
+             
+          //       sessionStorage.setItem("LoggedIn", "false");
+          //       this.loggedin = 'false';
+
+          //   }
           // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
-        const request = await fetch('http://localhost:5000/api/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type':'application/json'
-            },
+        // const request = await fetch('http://localhost:5000/api/register', {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type':'application/json'
+        //     },
             
-            body: JSON.stringify(payload)
-            })
+        //     body: JSON.stringify(payload)
+        //     })
 
-        const responseData = await request.json()
+        // const responseData = await request.json()
         // hantera errors
-        if (responseData.payload){
-          console.log("lol");
+        // if (responseData.payload){
+        //   console.log("lol");
                 
-                }
+        //         }
 
-            else {
+        //     else {
                 // console.log("I am not authenticated")
                 // console.log(responseData);
-                window.sessionStorage.setItem("LoggedIn", "false");
-                this.loggedin = 'false';
+            //     sessionStorage.setItem("LoggedIn", "false");
+            //     this.loggedin = 'false';
 
-            }
+            // }
           }
         }
       }
@@ -88,28 +115,108 @@ export default {
   align-items: center;
   flex-direction: column;
   background-color:#CBE9EF;
-  padding-bottom: 5rem;
-  /* background-image: url('../assets/background-new-account.svg');
-  background-repeat: no-repeat; */
+  padding: 3% 3% 8%;
+  background-image: url('../assets/background-new-account.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+.tag-new-account{
+  padding: 2% 0 1%;
+  font-family: 'Schoolbell', cursive;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
 }
 
 .new-account-form{
+  padding: 4%;
   display: grid; 
-  width: 25rem;
+  width: 50%;
   grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(12, auto);
   gap: 5px;  
+  
 }
 
-.name, .address, .street, .email , .password{
-  grid-column: 1 / span 2;
+.label-name{
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.name {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.line-name{
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.label-email{
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.mail{
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.line-mail{
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.address{
+  grid-column: 1;
+  grid-row: 6;
+}
+
+.street{
+  grid-column: 1;
+  grid-row: 8;
+}
+
+.street-line{
+  grid-column: 1;
+  grid-row: 9;
 }
 
 .zip{
-  grid-column: 1;
+  grid-column: 2;
+  grid-row: 8;
+}
+
+.line-zip{
+  grid-column: 2;
+  grid-row: 9;
 }
 
 .city{
-  grid-column: 2;
+  grid-column: 1;
+  grid-row: 12;
+}
+
+.line-city{
+  grid-column: 1;
+  grid-row: 13;
+}
+
+.label-password{
+  grid-column: 1;
+  grid-row: 16;
+}
+.password{
+  grid-column: 1;
+  grid-row: 17;
+}
+
+.password-line{
+  grid-column: 1;
+  grid-row: 18;
 }
 
 button{
@@ -121,31 +228,44 @@ button{
   background-color: whitesmoke;
   border-style: none;
   box-shadow: -5px 5px #2B2B2B;
+  outline: none;
 }
 
 button:hover{
     background-color: #5E60B3;
     color:whitesmoke;  
 }
+
 .new-account-button{
   position: relative;
-  left:65%;
-  top:2rem;
+  grid-row: 20;
+  left:75%;
+  top:88%;
 }
 
 label{
-    padding: 1rem 0;
+    padding: 2% 0 1%;
     font-family: 'Ropa Sans', sans-serif;
     text-align: justify;
 }
 
 input{
-    padding: .5rem;
-    margin-bottom:1rem;
     border-style: none;
     border-radius: 5px;
     font-family:'Ropa Sans', sans-serif;
     font-size: 1rem;
+    background-color: #CBE9EF;
+    outline: none;
+}
+input:focus{
+  outline: none;
+}
+
+input::selection {
+    appearance: menulist-button;
+    background-color:transparent;
+    background-image: none !important;
+    color: -internal-light-dark(black, white) !important;
 }
 
 </style>

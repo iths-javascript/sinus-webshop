@@ -3,6 +3,7 @@ import * as API from '../api/api'
 export default {
     state:{
         loggedIn: false,
+        newAccount: false,
         user: {
             _id: '', 
             email: '',
@@ -25,12 +26,20 @@ export default {
 
         currentUser(state, user) {
             state.user = user;
-          },  
+          },
+        
+        newUserInfo(state, user) {
+           state.user = user;
+        }, 
+        
+        uppdateNewAccount(state, newAccount){
+          state.newAccount = newAccount;
+        }
     },
 
     actions:{
 
-       async logInUser(context, payload) {
+      async logInUser(context, payload) {
             const responseData = await API.getUserLogin(payload)
             if(responseData.data.token){
                 sessionStorage.setItem("userLoggedIn", "true");
@@ -42,11 +51,35 @@ export default {
             }
           },
           
-          async user(context) {
+      async user(context) {
             const me = await API.getUserInfo();
             context.commit('currentUser', me);
           },
-        },
+
+      async newUserAccount(context, payload) {
+        // console.log("holi");
+        // console.log(payload);
+        const newUser = await API.getNewAccount(payload);
+        context.commit('newUserInfo', newUser);
+        
+        if(newUser.data.message === "User registered!"){
+          context.commit("uppdateNewAccount", true)
+            console.log("lol");
+        }
+        // if (newUser.data.payload){
+          
+        //   console.log("lol");
+        //   } 
+          // else {
+             
+        //         sessionStorage.setItem("LoggedIn", "false");
+        //         this.loggedin = 'false';
+
+        //     }
+      
+      },
+    },
+
     
     
     getters:{}

@@ -19,7 +19,7 @@ import UserInfo from '@/components/UserInfo'
 export default {
   name: 'Profile',
   
-  components: { OrderHistoric, UserInfo},
+  components: { OrderHistoric, UserInfo },
 }
 
 </script>

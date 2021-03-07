@@ -14,7 +14,7 @@ import Header from "@/components/Header.vue";
 export default {
   name: "App",
   data() {
-    let user_login = window.sessionStorage.getItem("LoggedIn");
+    let user_login = sessionStorage.getItem("LoggedIn");
     if (user_login === "true") {
       this.$store.commit("updateLoggedIn", true);
     } else {
@@ -34,7 +34,7 @@ export default {
 
     async verify() {
       // const request = await axios.get('http://localhost:5000/api/me')
-      let minToken = window.sessionStorage.getItem("token");
+      let minToken = sessionStorage.getItem("token");
       const request = await fetch("http://localhost:5000/api/me", {
         method: "GET",
         headers: {
@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -78,6 +78,13 @@ export default {
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+  #button{
+    outline: none;
+  }
+  #button:active{
+    outline: none;
+    border: none;
   }
 }
 </style>

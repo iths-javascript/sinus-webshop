@@ -13,8 +13,8 @@ name:'MyAccount',
 
 methods:{
     logOut(){
-        window.sessionStorage.removeItem('LoggedIn')
-        window.sessionStorage.removeItem('token')
+        sessionStorage.removeItem('LoggedIn')
+        sessionStorage.removeItem('token')
         this.$store.commit('updateLoggedIn',false)
         this.$router.push('/')
         this.$emit('close')
