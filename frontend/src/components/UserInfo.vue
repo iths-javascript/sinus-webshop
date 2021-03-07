@@ -1,6 +1,5 @@
 <template>
 <div class="my-account">
-
   <h2>My account</h2>
   <ul>
     <li>
@@ -20,7 +19,7 @@ export default {
 
   computed:{
     user(){
-      return this.$store.state.user
+      return this.$store.state.userInfo.user
     }
   }
   

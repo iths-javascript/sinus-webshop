@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <h1>Hej </h1>
+    <h1>Hej {{ this.$store.state.userInfo.user.name}} </h1>
     <div class="user-icon">
 
     <img src="@/assets/bird-blue.svg" alt="">

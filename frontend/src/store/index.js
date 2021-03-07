@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import userLogin from "./user.store.js"
+import userInfo from "./user.store.js"
 
 Vue.use(Vuex)
 
@@ -9,27 +9,13 @@ import * as API from '../api/api'
 export default new Vuex.Store({
 
   modules:{
-    userLogin
+    userInfo
   },
-  
+
   state: {
     images: "",
     currentProducts: "",
-    cart: [{"title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }, { "title": "NaturalXL", "price": 1, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }],
-    loggedIn: false,
-    user: {
-      _id: '', // generated server side
-      email: '',
-      password: '', // hashed serverside
-      name: '',
-      role: '', // or customer
-      address: {
-        street: '',
-          zip: '',
-          city: ''
-      },
-      orderHistory: []
-    },
+    cart: [{"title": "NaturalXL", "price": 799, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }, { "title": "NaturalXL", "price": 1, "quantity": 1, "id": "IfU7QWLy2KzU67Fo", "imgFile": "skateboard-naturalXL.svg" }], 
   },
 
   getters: {
@@ -61,18 +47,6 @@ export default new Vuex.Store({
       })
     },
 
-  
-    updateLoggedIn(state, loggedIn){
-      state.loggedIn = loggedIn;
-    },
-
-    currentUser(state, user) {
-      state.user = user;
-    },
-
-    // loginUser(state, login){
-    //   state.loginform = login
-    // }
   },
 
   actions: {
@@ -105,14 +79,6 @@ export default new Vuex.Store({
       }
     },
       //  context.commit('pushIntoArray', data);
-    
-
-    async user(context) {
-      const me = await API.getUserInfo();
-      context.commit('currentUser', me);
-    },
-
-
   }
 
 })

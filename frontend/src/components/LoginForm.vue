@@ -40,8 +40,6 @@ export default {
       } else {
         console.log("mina error");
       }
-
-
     },
     
     goToCreate() {
@@ -50,6 +48,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
@@ -62,8 +61,6 @@ export default {
   align-items: center;
   flex-direction: column;
   box-shadow: -10px 10px #ffebd3;
-  /* background-image: url("../assets/bird-yellow.svg"), url("../assets/bird-blue.svg"); */
-  /* background-repeat: no-repeat; */
 }
 
 label {

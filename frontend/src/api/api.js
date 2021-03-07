@@ -21,11 +21,8 @@ export async function getUserInfo(){
 }
 
 export async function getUserLogin(payload){
-  console.log(payload)
-  console.log("här är getUserLogin")
     const request = await axios.post('http://localhost:5000/api/auth', payload)
     const responseData = request
     const data = responseData
-
     return data
 }
