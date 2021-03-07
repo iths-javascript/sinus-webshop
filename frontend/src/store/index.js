@@ -1,11 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import userLogin from "./user.store.js"
 
 Vue.use(Vuex)
 
 import * as API from '../api/api'
 
 export default new Vuex.Store({
+
+  modules:{
+    userLogin
+  },
+  
   state: {
     images: "",
     currentProducts: "",
@@ -103,9 +109,10 @@ export default new Vuex.Store({
 
     async user(context) {
       const me = await API.getUserInfo();
-      console.log(me);
       context.commit('currentUser', me);
-    }
+    },
+
+
   }
 
 })

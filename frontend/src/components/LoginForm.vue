@@ -21,42 +21,29 @@
 export default {
   name: "LoginForm",
   data() {
-    let loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
+    let loggedinFromSessionStorage = sessionStorage.getItem("loggedIn");
     return {
-      email: "",
-      password: "",
+      email: "admin@example.com",
+      password: "password",
       loggedin: loggedinFromSessionStorage,
       createNewAccount: false,
     };
   },
 
   methods: {
-    async submit() {
-      const payload = { email: this.email, password: this.password };
 
-      // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
-      const request = await fetch("http://localhost:5000/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-      const responseData = await request.json();
-      if (responseData.token) {
-        window.sessionStorage.setItem("LoggedIn", "true");
-        window.sessionStorage.setItem("token", responseData.token);
-        this.$store.commit("updateLoggedIn", true);
-        this.loggedin = "true";
+    submit(){
+      const payload = { email: this.email, password: this.password };
+      this.$store.dispatch("logInUser", payload)
+      if(sessionStorage.getItem("loggedIn") === "true"){
         this.$emit("close");
       } else {
-        window.sessionStorage.setItem("LoggedIn", "false");
-        this.loggedin = "false";
-        this.$store.commit("updateLoggedIn", false);
+        console.log("mina error");
       }
-      this.$emit("login", responseData);
-    },
 
+
+    },
+    
     goToCreate() {
       this.$emit("close");
       this.$router.push("/new-account");
