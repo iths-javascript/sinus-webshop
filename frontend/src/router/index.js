@@ -9,6 +9,7 @@ import Cart from '../components/Cart.vue'
 import Checkout from '../components/Checkout.vue'
 import Payment from '../components/Payment.vue'
 import OrderFinished from '../components/OrderFinished.vue'
+import LogInNewAccount from '../components/LogInNewAccount.vue'
 
 Vue.use(VueRouter)
 
@@ -64,6 +65,12 @@ const routes = [
     path: '/order-finished',
     name: 'OrderFinished',
     component: OrderFinished
+  },
+
+  {
+    path: '/login-new-account',
+    name: 'LogInNewAccount',
+    component: LogInNewAccount
   },
 ]
 
