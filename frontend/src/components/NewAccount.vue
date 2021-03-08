@@ -242,11 +242,4 @@ input:focus{
   outline: none;
 }
 
-input::selection {
-    appearance: menulist-button;
-    background-color:transparent;
-    background-image: none !important;
-    color: -internal-light-dark(black, white) !important;
-}
-
 </style>

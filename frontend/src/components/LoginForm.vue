@@ -36,8 +36,11 @@ export default {
       const payload = { email: this.email, password: this.password };
       this.$store.dispatch("logInUser", payload)
       if(sessionStorage.getItem("loggedIn") === "true"){
-        this.$emit("close");
+        // this.$emit("close");
+        // this.$router.push("/profile");
       } else {
+        this.$emit("close");
+        // this.$router.push("/profile");
         console.log("mina error");
       }
     },
@@ -113,6 +116,7 @@ button {
   background-color: whitesmoke;
   border-style: none;
   box-shadow: -5px 5px #2b2b2b;
+  outline: none;
 }
 .user-img {
   width: 100px;
