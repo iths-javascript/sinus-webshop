@@ -6,6 +6,7 @@ import Profile from '../views/Profile.vue'
 import NewAccount from '../components/NewAccount.vue'
 import SingleProduct from '../views/SingleProduct.vue'
 import Cart from '../components/Cart.vue'
+import Checkout from '../components/Checkout.vue'
 
 Vue.use(VueRouter)
 
@@ -32,7 +33,7 @@ const routes = [
     path: '/new-account',
     name: 'NewAccount',
     component: NewAccount
-  }, 
+  },
   {
     path: '/single-product/:id',
     name: 'SingleProduct',
@@ -43,6 +44,12 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
+  },
+
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout
   },
 ]
 

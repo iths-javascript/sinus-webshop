@@ -81,7 +81,7 @@ export default {
           sum += cart[item].price * cart[item].quantity;
         }
       }
-      return sum;
+      return sum.toLocaleString();
     },
     addItem(item) {
       this.$store.commit("storeIntoCart", item);
@@ -99,33 +99,49 @@ export default {
 
       cart.splice(itemIndex, 1);
     },
+    paginate(array, size, page_number) {
+      return array.slice((page_number - 1) * size, page_number * size);
+    },
     goToProduct() {
       this.$router.push("/product");
     },
-    paginate(array, size, page_number) {
-      return array.slice((page_number - 1) * size, page_number * size);
+    goToCheckout() {
+      this.$router.push("/checkout");
+    },
+    nextPage(num) {
+      num += 1;
+      return num;
+    },
+    prevPage(num) {
+      num -= 1;
+      return num;
+    },
+    draw() {
+      return this.drawItems();
     },
   },
   computed: {
     drawItems() {
       let cart = this.$store.state.cart;
-      // let page_size = 3;
-      // let pages = this.paginate(cart, page_size, 1);
+      let page_size = 3;
+      let page_number = 1;
+      let pages = this.paginate(cart, page_size, page_number);
 
       let cartArr = [];
 
-      for (var key in cart) {
-        cartArr.push(cart[key]);
+      for (var key in pages) {
+        cartArr.push(pages[key]);
+      }
+
+      if (this.nextPage(page_number)) {
+        pages = this.paginate(cartArr, page_size, page_number);
+      } else if (this.prevPage(page_number)) {
+        pages = this.paginate(cartArr, page_size, page_number);
+      } else {
+        pages = this.paginate(cartArr, page_size, page_number);
       }
 
       return cartArr;
-      // return pages;
-    },
-  },
-  mutations: {
-    update(item) {
-      item.quantity += 1;
-      this.addItem(item);
     },
   },
 };
