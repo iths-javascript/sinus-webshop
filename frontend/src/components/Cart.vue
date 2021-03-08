@@ -1,20 +1,39 @@
 <template>
   <div class="wrapper">
-    <div class="orders">
-      <h2 class="summary">Order Summary</h2>
-      <div
-        class="items-container"
-        v-for="item in drawItems"
-        v-bind:key="item.id"
-      >
-        <div class="product-img">
-          <img :src="require(`../assets/${item.imgFile}`)" />
+    <div class="orders-wrapper">
+      <div class="orders">
+        <h2 class="summary">Order Summary</h2>
+        <div
+          class="items-container"
+          v-for="item in drawItems"
+          v-bind:key="item.id"
+        >
+          <div class="product-img">
+            <img :src="require(`../assets/${item.imgFile}`)" />
+          </div>
+          <div class="item-desc">
+            <h3 class="product-title">{{ item.title }}</h3>
+            <p class="item-details">Color: {{ item.color }}</p>
+            <p class="item-details">
+              Quantity:
+              <button class="minus" @click="removeItem(item)">-</button>
+              <!-- {{ item.quantity }} -->
+              {{ item.quantity }}
+              <button class="plus" @click="addItem(item)">+</button>
+            </p>
+            <!-- <p class="item-details">{{item.size}}</p> -->
+            <p class="item-details">Price: {{ item.price }} SEK</p>
+            <img
+              class="trash"
+              src="../assets/trash.svg"
+              @click="deleteItem(item)"
+            />
+          </div>
         </div>
-        <div class="item-desc">
-          <h3 class="product-title">{{ item.title }}</h3>
-          <p>color: {{ item.color }}</p>
-          <p>quantity: {{ item.quantity }}</p>
-          <p></p>
+        <div class="pagination">
+          <i class="arrow left"></i>
+          <p>1</p>
+          <i class="arrow right"></i>
         </div>
       </div>
     </div>
@@ -28,11 +47,22 @@
         <h3 class="vat">including VAT</h3>
         <div class="buttons">
           <div class="back">
-            <button class="back-btn" @click="totalPrice">Go back</button>
+            <button class="back-btn" @click="goToProduct">Go back</button>
           </div>
           <div class="proceed">
             <button class="proceed-btn">Checkout</button>
           </div>
+        </div>
+        <div class="tos">
+          <h1 class="tos-title">terms and conditions</h1>
+          <p class="tos-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu,
+            tempus aenean non nisl. Egestas aenean sapien cum mi et at
+            venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae.
+            At ultricies sagittis cursus malesuada enim sed vivamus morbi id.
+            Proin amet, amet, sed tortor.
+          </p>
         </div>
       </div>
     </div>
@@ -46,25 +76,66 @@ export default {
     totalPrice() {
       let cart = this.$store.state.cart;
       let sum = 0;
-
       if (cart !== null || cart !== undefined) {
-        cart.forEach((item) => {
-          sum += item.price;
-        });
+        for (let item in cart) {
+          sum += cart[item].price * cart[item].quantity;
+        }
       }
       return sum;
+    },
+    addItem(item) {
+      this.$store.commit("storeIntoCart", item);
+    },
+    removeItem(item) {
+      if (item.quantity > 1) {
+        this.$store.commit("removeItemCart", item);
+      } else {
+        this.deleteItem(item);
+      }
+    },
+    deleteItem(item) {
+      let cart = this.$store.state.cart;
+      let itemIndex = cart.findIndex((element) => element._id === item._id);
+
+      cart.splice(itemIndex, 1);
+    },
+    goToProduct() {
+      this.$router.push("/product");
+    },
+    paginate(array, size, page_number) {
+      return array.slice((page_number - 1) * size, page_number * size);
     },
   },
   computed: {
     drawItems() {
       let cart = this.$store.state.cart;
-      return cart;
+      // let page_size = 3;
+      // let pages = this.paginate(cart, page_size, 1);
+
+      let cartArr = [];
+
+      for (var key in cart) {
+        cartArr.push(cart[key]);
+      }
+
+      return cartArr;
+      // return pages;
+    },
+  },
+  mutations: {
+    update(item) {
+      item.quantity += 1;
+      this.addItem(item);
     },
   },
 };
 </script>
 
 <style scoped>
+button {
+  outline: 0;
+}
+
 h1 {
   font-family: "Ropa Sans";
   text-transform: uppercase;
@@ -76,6 +147,20 @@ h1 {
 .figures {
   min-width: 241px;
   max-width: 25%;
+  padding-bottom: 20px;
+}
+
+.tos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  max-width: 500px;
+}
+
+.tos-title {
+  font-size: 36px;
 }
 
 .summary {
@@ -92,15 +177,28 @@ h1 {
   height: 100%;
 }
 
-.detail-wrapper {
+.orders {
+  padding-right: 20%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.orders-wrapper {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: flex-end;
   flex-direction: column;
 }
 
 .details {
-  padding-right: 25%;
+  padding-left: 10%;
+}
+
+.detail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .sum {
@@ -114,6 +212,55 @@ h1 {
   display: flex;
   padding-top: 40px;
   justify-content: space-evenly;
+}
+
+.item-details {
+  padding-top: 7px;
+}
+
+.trash {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+/* Navigation Buttons */
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  cursor: pointer;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-left: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 3px;
+}
+
+/* Quantity buttons */
+
+.plus,
+.minus {
+  cursor: pointer;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
 }
 
 /* Back Button Effects */
@@ -147,7 +294,6 @@ h1 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20px;
 }
 
 .product-img {
