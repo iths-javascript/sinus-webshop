@@ -63,10 +63,7 @@ export default {
         if(newUser.data.message === "User registered!"){
           context.commit("uppdateNewAccount", true)
         }
-        // if (newUser.data.payload){
-          
-        //   console.log("lol");
-        //   } 
+        
           // else {
              
         //         sessionStorage.setItem("LoggedIn", "false");
