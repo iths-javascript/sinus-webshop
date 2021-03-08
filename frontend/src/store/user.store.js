@@ -57,14 +57,11 @@ export default {
           },
 
       async newUserAccount(context, payload) {
-        // console.log("holi");
-        // console.log(payload);
         const newUser = await API.getNewAccount(payload);
         context.commit('newUserInfo', newUser);
         
         if(newUser.data.message === "User registered!"){
           context.commit("uppdateNewAccount", true)
-            console.log("lol");
         }
         // if (newUser.data.payload){
           

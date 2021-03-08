@@ -1,4 +1,5 @@
 <template>
+<div class="container">
   <div class="new-account">
       <h1>Create a new account</h1>
       <p class="tag-new-account">#Enjoy Sinus</p>
@@ -23,12 +24,12 @@
         <input class="city" type="text" v-model="user.address.city" placeholder="City">
         <img class="line-city" src="../assets/input-new.svg" alt="">
         
-        
         <label class="label-password" for="password">Password</label>
         <input class="password" type="text" v-model="user.password">
         <img class="password-line" src="../assets/input-new.svg" alt="">
         <button class="new-account-button">Create Account</button>
       </form>
+  </div>
   </div>
 </template>
 
@@ -65,12 +66,10 @@ export default {
             city: this.user.address.city
             },
           }
-          console.log("Running dispath")
           this.$store.dispatch("newUserAccount", payload)
-          console.log("After dispatch")
+          
           if (this.$store.state.userInfo.newAccount){
-            console.log("THe if statement")
-          console.log("pop-up");
+            console.log("pop-up");
           } 
           
           // else {
@@ -79,47 +78,30 @@ export default {
           //       this.loggedin = 'false';
 
           //   }
-          // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
-        // const request = await fetch('http://localhost:5000/api/register', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type':'application/json'
-        //     },
-            
-        //     body: JSON.stringify(payload)
-        //     })
-
-        // const responseData = await request.json()
-        // hantera errors
-        // if (responseData.payload){
-        //   console.log("lol");
-                
-        //         }
-
-        //     else {
-                // console.log("I am not authenticated")
-                // console.log(responseData);
-            //     sessionStorage.setItem("LoggedIn", "false");
-            //     this.loggedin = 'false';
-
-            // }
+          
           }
         }
       }
 </script>
 
 <style scoped>
-.new-account{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color:#CBE9EF;
-  padding: 3% 3% 8%;
   background-image: url('../assets/background-new-account.svg');
   background-position: center;
   background-repeat: no-repeat;
-  
+}
+
+.new-account{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3% 3% 8%;
 }
 
 .tag-new-account{
@@ -133,11 +115,10 @@ export default {
 .new-account-form{
   padding: 4%;
   display: grid; 
-  width: 50%;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(12, auto);
-  gap: 5px;  
-  
+  gap: 10px; 
+  column-gap: 2rem;  
 }
 
 .label-name{
