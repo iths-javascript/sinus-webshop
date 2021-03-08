@@ -26,7 +26,7 @@ export default {
       email: "admin@example.com",
       password: "password",
       loggedin: loggedinFromSessionStorage,
-      createNewAccount: false,
+      // createNewAccount: false,
     };
   },
 

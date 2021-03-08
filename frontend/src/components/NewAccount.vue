@@ -30,10 +30,16 @@
         <button class="new-account-button">Create Account</button>
       </form>
   </div>
+  <!-- <Overlay> -->
+      <!-- <LogInNewAccount v-if="showPopup === true"/> -->
+  <!-- </Overlay> -->
   </div>
 </template>
 
 <script>
+
+// import Overlay from "@/components/Overlay.vue";
+// import LogInNewAccount from "@/components/LogInNewAccount.vue";
 export default {
     name:'NewAccount',
 
@@ -50,9 +56,11 @@ export default {
             "zip": '',
             "city": ''
           }
-        }
+        },
+        // showPopup: false,
       }
     },
+// components:{ LogInNewAccount },
 
     methods:{
       register(){ 
@@ -67,9 +75,12 @@ export default {
             },
           }
           this.$store.dispatch("newUserAccount", payload)
-          
-          if (this.$store.state.userInfo.newAccount){
-            console.log("pop-up");
+          if (this.$store.state.userInfo.newAccount === true){
+
+            // this.showPopup = true
+            this.$router.push("/login-new-account");
+            // console.log(this.$store.state.userInfo.newAccount);
+            // console.log("pop-up");
           } 
           
           // else {
@@ -79,7 +90,11 @@ export default {
 
           //   }
           
-          }
+          },
+
+          // showPopup(){
+
+          // }
         }
       }
 </script>

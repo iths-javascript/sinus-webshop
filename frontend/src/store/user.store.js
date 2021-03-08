@@ -28,9 +28,9 @@ export default {
             state.user = user;
           },
         
-        newUserInfo(state, user) {
-           state.user = user;
-        }, 
+        // newUserInfo(state, user) {
+        //    state.user = user;
+        // }, 
         
         uppdateNewAccount(state, newAccount){
           state.newAccount = newAccount;
@@ -58,8 +58,8 @@ export default {
 
       async newUserAccount(context, payload) {
         const newUser = await API.getNewAccount(payload);
-        context.commit('newUserInfo', newUser);
-        
+        // console.log(newUser);
+        // context.commit('newUserInfo', newUser);
         if(newUser.data.message === "User registered!"){
           context.commit("uppdateNewAccount", true)
         }

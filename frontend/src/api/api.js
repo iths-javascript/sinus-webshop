@@ -29,10 +29,8 @@ export async function getUserLogin(payload){
 
 
 export async function getNewAccount(payload){
-  const request = await axios.post('http://localhost:5000/api/register', payload)
-  const responseData = request
-  const data = responseData
-  return data
+  const response = await axios.post('http://localhost:5000/api/register', payload)
+  return response
 }
 
 
