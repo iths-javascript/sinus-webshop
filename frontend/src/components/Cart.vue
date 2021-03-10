@@ -108,38 +108,35 @@ export default {
     goToCheckout() {
       this.$router.push("/checkout");
     },
-    nextPage(num) {
-      num += 1;
-      return num;
-    },
-    prevPage(num) {
-      num -= 1;
-      return num;
-    },
-    draw() {
-      return this.drawItems();
-    },
+    // nextPage(num) {
+    //   num += 1;
+    //   return num;
+    // },
+    // prevPage(num) {
+    //   num -= 1;
+    //   return num;
+    // },
   },
   computed: {
     drawItems() {
       let cart = this.$store.state.cart;
-      let page_size = 3;
-      let page_number = 1;
-      let pages = this.paginate(cart, page_size, page_number);
+      // let page_size = 3;
+      // let page_number = 1;
+      // let pages = this.paginate(cart, page_size, page_number);
 
       let cartArr = [];
 
-      for (var key in pages) {
-        cartArr.push(pages[key]);
+      for (var key in cart) {
+        cartArr.push(cart[key]);
       }
 
-      if (this.nextPage(page_number)) {
-        pages = this.paginate(cartArr, page_size, page_number);
-      } else if (this.prevPage(page_number)) {
-        pages = this.paginate(cartArr, page_size, page_number);
-      } else {
-        pages = this.paginate(cartArr, page_size, page_number);
-      }
+      // if (this.nextPage(page_number)) {
+      //   pages = this.paginate(cartArr, page_size, page_number);
+      // } else if (this.prevPage(page_number)) {
+      //   pages = this.paginate(cartArr, page_size, page_number);
+      // } else {
+      //   pages = this.paginate(cartArr, page_size, page_number);
+      // }
 
       return cartArr;
     },

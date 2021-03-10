@@ -10,7 +10,7 @@ export async function getProducts() {
 }
 
 export async function getUserInfo(){
-    let token = window.sessionStorage.getItem("token")
+    let token = sessionStorage.getItem("token")
     const request = await axios.get('http://localhost:5000/api/me', {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -19,3 +19,18 @@ export async function getUserInfo(){
     const userInfo = request;
     return userInfo.data;
 }
+
+export async function getUserLogin(payload){
+    const request = await axios.post('http://localhost:5000/api/auth', payload)
+    const responseData = request
+    const data = responseData
+    return data
+}
+
+
+export async function getNewAccount(payload){
+  const response = await axios.post('http://localhost:5000/api/register', payload)
+  return response
+}
+
+

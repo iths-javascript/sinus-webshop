@@ -1,212 +1,323 @@
 <template>
-<div class="wrapper" >
-    <div class="address">
-        <h1>CHECKOUT</h1>
-        <p>DELEVERY DETAILS</p>
-        <div class="addressdetails">
-            <div class="left">
-                <label for="name">name</label>
-                <input type="text" name="firstname">
-                <label for="address">address</label>
-                <input type="text" name="address">
-                <label for="mail">email</label>
-                <input type="text"  name="mail">
-            </div>
-            <div class="right">
-                <label for="lastname">lastname</label>
-                <input type="text" name="lastname">
-                <label for="postcode">postcode</label>
-                <input type="text" name="postcode">
-                <label for="phonenumber">telephone number</label>
-                <input type="number"  name="phone">
-             </div>
-        </div>
-        
-        <p class="delevery">CHOOSE DELEVERY OPTIONS</p>
-        <div class="checkbox">
-            <div class="post">
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="delevery">
-                <label for="vehicle1"> delevery by post</label>  
-            </div>
-            <div class="pickup">
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="pickup">
-                <label for="vehicle2"> store pickup </label>
-            </div>
-            
-        </div>
-        <div class="button">
-            <button class="goback">go back</button>
-            <button class="continue">continue</button>
-        </div>
-    </div>
-    <div class="details">
-        <div class="product">
-            <div class="box">
-                <img src="@/assets/hoodie-ash.png" alt="product">
-            </div>
-            <div class="productdetail">
-                <h2>CAPUCHALOVE</h2>
-                <div class="color">
-                    <label for="color">color</label>
-                    <input type="checkbox" id="color" />
-                </div>
-                <div class="quantity">
-                    <label for="quantity">quantity</label>
-                    <p>1</p>
-                </div>
-                <div class="size">
-                    <label for="size">size</label>
-                    <p>S</p>
-                </div>
-                <div class="price">
-                    <label for="price">price</label>
-                    <p>300 SEK</p>
-                </div>
-                <img src="@/assets/trash.svg" alt="trash">
-            </div>
-        </div>
-        <div class="price">
-            <h1>TOTAL CART</h1>
-            <h1>480 SEK</h1>
-        </div>
-        <p>including VAT</p>
+  <div class="checkout">
+    <div class="form">
+      <h1>Checkout</h1>
+      <h1 class="tag">Delivery details</h1>
+      <form class="checkout-form">
+        <label class="name" for="name">Name</label>
+        <input class="input-name" type="text" />
+        <img class="name-line" src="../assets/line.svg" alt="" />
+        <label class="lastname" for="lastname">Lastname</label>
+        <input class="input-lastname" type="text" />
+        <img class="lastname-line" src="../assets/line.svg" alt="" />
+        <label class="address" for="address">Address</label>
+        <input class="input-address" type="text" />
+        <img class="address-line" src="../assets/address-line.svg" alt="" />
+        <label class="zip" for="zip">Zip</label>
+        <input class="input-zip" type="text" />
+        <img class="zip-line" src="../assets/line.svg" alt="" />
+        <label class="city" for="city">City</label>
+        <input class="input-city" type="text" />
+        <img class="city-line" src="../assets/line.svg" alt="" />
+        <label class="email" for="email">Email</label>
+        <input class="input-email" type="text" />
+        <img class="email-line" src="../assets/line.svg" alt="" />
+        <label class="phone" for="phone">Telephone number</label>
+        <input class="input-phone" type="text" />
+        <img class="phone-line" src="../assets/line.svg" alt="" />
+      </form>
+      <h1 class="tag">choose delivery options</h1>
+      <div class="options">
+          <div class="delivery-post">
+              <div class="my-checkbox"></div>
+              <p>Delivery by post</p>
+          </div>
+
+          <div class="pickup-store">
+              <div class="my-checkbox"></div>
+              <p>Store pickup</p>
+          </div>
+      </div>
+
+      <div class="buttons-checkout">
+        <button>go back</button>
+        <button>continue</button>
+      </div>
     </div>
 
-    
-</div>
+    <div class="order">
+      <div class="item">
+        <div class="img-product">Img Product</div>
+        <div class="item-info">
+          <p class="name-product"></p>
+          <p>quantity</p>
+          <p>size</p>
+          <p>PRICE</p>
+          <img src="../assets/trash.svg" alt="" />
+        </div>
+      </div>
+      <div class="total">TOTAL CART</div>
+      <p class="vat">Including VAT</p>
+    </div>
+  </div>
 </template>
 
 <script>
+
 export default {
+    name: 'Checkout'
 
 }
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
-.wrapper,.addressdetails,.checkbox,.button,.product{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.address{
-    background-image: url('~@/assets/background-checkout.svg');
-    
-}
-.details{
-    background-color: #F1F1F1;
-    max-width:493px;
-    max-height :633px;
-}
-.left,.right{
-     display: flex;
-    flex-direction: column
-}
-label{
-    text-align: start;
-    font-family: 'Ropa Sans';
-    font-size: 24px;
-    line-height: 26px;
-}
-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom:  2px solid #C4C4C4;
-    margin-bottom: 15px;
-    width: 215px;
-    margin-top: 10px;
-  
-}
-h1{
-    font-family: 'Ropa Sans',sans-serif;
-    font-size: 24px;
-    line-height: 26px;
-    text-align: start;
-    margin-top: 80px;
-    
-}
-p{
-    font-family: 'Schoolbell', cursive;
-    font-size: 24px;
-    line-height: 33px;
-    letter-spacing: 0.1em;
-    text-align: start;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    
-}
-p.delevery{
-    margin-top: 50px;
-}
-input#vehicle1,input#vehicle2{
-    width: 13px;
-    height: 13px;
-}
-.button{
-    margin-top: 10px;
-}
-.goback{
-    width: 111px;   
-    height:38px ;
-    background: #F1F1F1;
-    box-shadow: -6px 6px 0px #CBE9EF;
-    border: none;
-    font-family: 'Ropa Sans';
-    font-size: 18px;
-    line-height: 19px;
-}
-.continue{
-    width:130px;
-    height: 38px;
-    background: #2B2B2B;
-    box-shadow: -6px 6px 0px #CBE9EF;
-    font-family: 'Ropa Sans';
-    font-size: 18px;
-    line-height: 19px;
-    color: #F1F1F1;
-}
-.details{
-    width: 493px;
-    height: 633px;
-    background: #F1F1F1;
-    margin-top:80px;
-}
-.box{
-    width: 164px;
-    height: 202px;
-    background: #CBE9EF;
-}
-.box>img{
-    width: 123px;
-    height: 135px;
-}
-.product{
-    margin-top:40px;
-}
-h2{
-    font-family: 'Ropa Sans';
-    font-size: 18px;
-    line-height: 19px;
-}
-.quantity,.size,.price{
-    display: flex;
-    flex-direction: row;
-}
-.color>label,.quantity>label,.size>label,.price>label,.color>p,.quantity>p,.size>p,.price>p{
-    font-family: 'Ropa Sans';
-    font-size: 12px;
-    line-height: 13px;
-}
-.color>p,.quantity>p,.size>p,.price>p{
-    margin-top: 0;
-    margin-left: 15px;
-}
-input#color{
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+/* style form */
+h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: justify;
 }
 
+p {
+    text-align: justify;
+}
+
+
+.tag {
+  font-family: "Schoolbell", cursive;
+  letter-spacing: 0.2rem;
+  padding: 4% 0 8%;
+}
+
+button {
+  cursor: pointer;
+  font-family: Ropa Sans;
+  font-size: 18px;
+  width: 144px;
+  height: 40px;
+  background-color: whitesmoke;
+  color: #2b2b2b;
+  border-style: none;
+  box-shadow: -6px 6px #cbe9ef;
+  margin: 0rem;
+}
+
+button:hover {
+  background-color: #2b2b2b;
+  color: whitesmoke;
+}
+
+.buttons-checkout {
+  padding-top: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+label {
+  font-family: "Ropa Sans", sans-serif;
+  text-align: justify;
+}
+
+input {
+  border-style: none;
+  border-radius: 5px;
+  font-family: "Ropa Sans", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+}
+
+input:focus {
+  border: none;
+}
+
+input:active {
+  border: none;
+}
+
+.checkout {
+  padding: 3%;
+  margin: 2%;
+  display: flex;
+  justify-content: space-around;
+  background-image: url("../assets/background-checkout.svg");
+  background-repeat: no-repeat;
+}
+
+.form,
+.order {
+  margin-top: 2%;
+  padding: 3%;
+  width: 50%;
+}
+
+.order {
+  margin: 2%;
+  padding: 5%;
+  background-color: #f1f1f1;
+}
+
+.checkout-form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(12, 1.5rem);
+  text-align: justify;
+  gap: 5px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-content: center;
+  align-items: center;
+  padding: 1% 5%;
+}
+
+.delivery-post, .pickup-store{
+    display: flex;
+    justify-content: center;
+}
+.my-checkbox{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 3%;
+    background-color:transparent;
+    border: solid 2px #2b2b2b;
+    box-shadow: -2px 2px #2b2b2b ;
+}
+
+.my-checkbox:hover{
+ background-color:#F46D69;
+}
+.my-checkbox:selection{
+ background-color:#F46D69;
+}
+
+
+
+.name {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.input-name {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.name-line {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.lastname {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.input-lastname {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.lastname-line {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.address {
+  grid-column: 1/3;
+  grid-row: 4;
+}
+
+.input-address {
+  grid-column: 1/3;
+  grid-row: 5;
+}
+
+.address-line {
+  grid-column: 1/3;
+  grid-row: 6;
+}
+
+.zip {
+  grid-column: 1;
+  grid-row: 7;
+}
+
+.input-zip {
+  grid-column: 1;
+  grid-row: 8;
+}
+
+.zip-line {
+  grid-column: 1;
+  grid-row: 9;
+}
+
+.city {
+  grid-column: 2;
+  grid-row: 7;
+}
+
+.input-city {
+  grid-column: 2;
+  grid-row: 8;
+}
+
+.city-line {
+  grid-column: 2;
+  grid-row: 9;
+}
+
+.email {
+  grid-column: 1;
+  grid-row: 10;
+}
+
+.input-email {
+  grid-column: 1;
+  grid-row: 11;
+}
+
+.email-line {
+  grid-column: 1;
+  grid-row: 12;
+}
+
+.phone {
+  grid-column: 2;
+  grid-row: 10;
+}
+
+.input-phone {
+  grid-column: 2;
+  grid-row: 11;
+}
+
+.phone-line {
+  grid-column: 2;
+  grid-row: 12;
+}
+
+/* style order items */
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  height: 85%;
+  text-align: justify;
+  margin-bottom: 5%;
+}
+
+.total {
+  text-align: justify;
+  font-size: 2.5rem;
+  margin-bottom: 2%;
+}
+
+.vat{
+    font-size: 1.2rem;
+}
 </style>

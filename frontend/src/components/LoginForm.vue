@@ -21,48 +21,37 @@
 export default {
   name: "LoginForm",
   data() {
-    let loggedinFromSessionStorage = window.sessionStorage.getItem("LoggedIn");
+    let loggedinFromSessionStorage = sessionStorage.getItem("loggedIn");
     return {
-      email: "",
-      password: "",
+      email: "admin@example.com",
+      password: "password",
       loggedin: loggedinFromSessionStorage,
-      createNewAccount: false,
+      // createNewAccount: false,
     };
   },
 
   methods: {
-    async submit() {
+
+    submit(){
       const payload = { email: this.email, password: this.password };
-
-      // const responseData = await axios.post('http://localhost:5000/api/auth', payload)
-      const request = await fetch("http://localhost:5000/api/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-      const responseData = await request.json();
-      if (responseData.token) {
-        window.sessionStorage.setItem("LoggedIn", "true");
-        window.sessionStorage.setItem("token", responseData.token);
-        this.$store.commit("updateLoggedIn", true);
-        this.loggedin = "true";
-        this.$emit("close");
+      this.$store.dispatch("logInUser", payload)
+      if(sessionStorage.getItem("loggedIn") === "true"){
+        // this.$emit("close");
+        // this.$router.push("/profile");
       } else {
-        window.sessionStorage.setItem("LoggedIn", "false");
-        this.loggedin = "false";
-        this.$store.commit("updateLoggedIn", false);
+        this.$emit("close");
+        // this.$router.push("/profile");
+        console.log("mina error");
       }
-      this.$emit("login", responseData);
     },
-
+    
     goToCreate() {
       this.$emit("close");
       this.$router.push("/new-account");
     },
   },
 };
+
 </script>
 
 <style scoped>
@@ -75,8 +64,6 @@ export default {
   align-items: center;
   flex-direction: column;
   box-shadow: -10px 10px #ffebd3;
-  /* background-image: url("../assets/bird-yellow.svg"), url("../assets/bird-blue.svg"); */
-  /* background-repeat: no-repeat; */
 }
 
 label {
@@ -129,6 +116,7 @@ button {
   background-color: whitesmoke;
   border-style: none;
   box-shadow: -5px 5px #2b2b2b;
+  outline: none;
 }
 .user-img {
   width: 100px;

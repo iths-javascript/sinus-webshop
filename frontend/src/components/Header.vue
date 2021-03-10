@@ -19,14 +19,14 @@
         <img src="@/assets/like.svg" class="icon" alt="favorites" />
         <img
           @click="showForm = !showForm"
-          v-if="this.$store.state.loggedIn === false"
+          v-if="this.$store.state.userInfo.loggedIn === false"
           src="@/assets/user.svg"
           class="icon user"
           alt="user"
         />
         <img
           @click="showLogOut = !showLogOut"
-          v-if="this.$store.state.loggedIn === true"
+          v-if="this.$store.state.userInfo.loggedIn === true"       
           src="@/assets/login-icon-pink.svg"
           class="icon user"
           alt="user"
@@ -133,6 +133,7 @@ li {
 }
 
 .top {
+  display: flex;
   width: 100%;
   height: 35px;
   background-color: #2b2b2b;

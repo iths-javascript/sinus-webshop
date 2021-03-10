@@ -1,29 +1,21 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import userInfo from "./user.store.js"
 
 Vue.use(Vuex)
 
 import * as API from '../api/api'
 
 export default new Vuex.Store({
+
+  modules:{
+    userInfo
+  },
+
   state: {
     images: "",
     currentProducts: "",
-    cart: [],
-    loggedIn: false,
-    user: {
-      _id: '', // generated server side
-      email: '',
-      password: '', // hashed serverside
-      name: '',
-      role: '', // or customer
-      address: {
-        street: '',
-        zip: '',
-        city: ''
-      },
-      orderHistory: []
-    },
+    cart:[], 
   },
 
   getters: {
@@ -100,17 +92,6 @@ export default new Vuex.Store({
     },
 
 
-    updateLoggedIn(state, loggedIn) {
-      state.loggedIn = loggedIn;
-    },
-
-    currentUser(state, user) {
-      state.user = user;
-    },
-
-    // loginUser(state, login){
-    //   state.loginform = login
-    // }
   },
 
   actions: {
@@ -142,14 +123,7 @@ export default new Vuex.Store({
         context.commit('loadHoodies', category);
       }
     },
-    //  context.commit('pushIntoArray', data);
-
-
-    async user(context) {
-      const me = await API.getUserInfo();
-      console.log(me);
-      context.commit('currentUser', me);
-    }
+      //  context.commit('pushIntoArray', data);
   }
 
 })
